@@ -1,0 +1,21 @@
+@mixin flex {
+    display: flex;
+    align-items: center;
+}
+
+header {
+    @include flex();
+    justify-content: space-between;
+    padding: 30px 30px;
+    h2 {
+        font-size: 1.7rem
+    }
+}
+
+.nav {
+    @include flex();
+    li {
+        padding: 10px;
+    }
+}
+
