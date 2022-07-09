@@ -19,9 +19,8 @@ function ProductPage() {
     <div className="products-container">
       <div className="collection">
         <div className="collection-text">
-            <h2>COLLECTION</h2>
-            <p>2022</p>
-            
+          <h2>COLLECTION</h2>
+          <p>2022</p>
         </div>
       </div>
       <div className="products-grid">{products}</div>
