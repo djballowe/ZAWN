@@ -149,18 +149,48 @@ header h2 {
 }
 
 .collection {
-  margin-top: 30px;
-  padding: 0 30px;
+  padding: 30px 30px;
+  background-image: url("../Images/Product Page/Tooth Brush/cover.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: contain;
+  position: relative;
+  height: 120px;
 }
-.collection h2 {
-  font-weight: 400;
-  font-size: 2.5rem;
+
+.collection-text {
+  position: absolute;
+  top: 10%;
+  left: 5%;
 }
-.collection p {
+.collection-text h2 {
+  font-weight: 300;
+  font-size: 1.5rem;
+}
+.collection-text p {
   padding: 10px 0;
+  font-weight: 100;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto, 1fr);
+  grid-template-rows: repeat(auto, 1fr);
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  margin-top: 30px;
+  gap: 30px;
 }
 
 .product img {
-  width: 200px;
+  width: 300px;
   border-radius: 10px;
+}
+
+.product-text {
+  margin-top: 5px;
+}
+.product-text p {
+  padding: 3px 0;
 }/*# sourceMappingURL=App.css.map */
