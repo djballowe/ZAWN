@@ -193,4 +193,26 @@ header h2 {
 }
 .product-text p {
   padding: 3px 0;
+}
+
+.individual-container {
+  display: flex;
+  flex-direction: column;
+  padding: 0 30px;
+}
+.individual-container img {
+  width: 350px;
+  border-radius: 10px;
+}
+
+.image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }/*# sourceMappingURL=App.css.map */

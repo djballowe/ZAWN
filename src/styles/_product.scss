@@ -1,3 +1,8 @@
+@mixin flex {
+    display: flex;
+    align-items: center;
+}
+
 .collection {
     padding: 30px 30px;
     background-image: url("../Images/Product Page/Tooth Brush/cover.jpg");
@@ -46,5 +51,29 @@
     p {
         padding: 3px 0;
     }
+}
+
+// Main individual product page
+
+.individual-container {
+    img {
+        width: 350px;
+        border-radius: 10px;
+    }
+    
+    display: flex;
+    flex-direction: column;
+    padding: 0 30px;
+}
+
+.image {
+    @include flex();
+    justify-content: center;
+}
+
+.title {
+    @include flex();
+    justify-content: space-between;
+    p
 }
 
