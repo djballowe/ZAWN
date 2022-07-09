@@ -122,5 +122,9 @@ html {
     border-spacing: 0;
   }
 
+  body {
+    font-family: 'Albert Sans', sans-serif;
+  }
+
   @import "./header";
   @import "./product";

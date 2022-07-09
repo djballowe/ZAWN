@@ -126,6 +126,10 @@ table {
   border-spacing: 0;
 }
 
+body {
+  font-family: "Albert Sans", sans-serif;
+}
+
 header {
   display: flex;
   align-items: center;
@@ -142,4 +146,21 @@ header h2 {
 }
 .nav li {
   padding: 10px;
+}
+
+.collection {
+  margin-top: 30px;
+  padding: 0 30px;
+}
+.collection h2 {
+  font-weight: 400;
+  font-size: 2.5rem;
+}
+.collection p {
+  padding: 10px 0;
+}
+
+.product img {
+  width: 200px;
+  border-radius: 10px;
 }/*# sourceMappingURL=App.css.map */
