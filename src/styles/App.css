@@ -326,4 +326,11 @@ header h2 {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+@media screen and (min-width: 760px) {
+  .individual-container {
+    display: flex;
+    flex-direction: row;
+  }
 }/*# sourceMappingURL=App.css.map */

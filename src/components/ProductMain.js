@@ -14,61 +14,65 @@ import { mdiCharity } from "@mdi/js";
 function ProductMain() {
   return (
     <div className="individual-container">
-      <div className="image">
-        <img src={require(`../Images/${data[0].src}`)} alt="" />
+      <div className="cell1">
+        <div className="image">
+          <img src={require(`../Images/${data[0].src}`)} alt="" />
+        </div>
       </div>
-      <div className="title">
-        <p>{data[0].title}</p>
-        <p>${data[0].price}</p>
-      </div>
-      <p>{data[0].description}</p>
-      <div className="reviews">
-        <Star path={mdiStar} size={1} color="black" />
-        <p>{data[0].status.rating} / 5</p>
-        <p>{data[0].status.reviews} Reviews</p>
-      </div>
-      <div className="color-container">
-        <h3>Bristle Color</h3>
-        <div className="color-picker">
-          <div className="colors">
-            <div className="white"></div>
-            <p>White</p>
+      <div className="cell2">
+        <div className="title">
+          <p>{data[0].title}</p>
+          <p>${data[0].price}</p>
+        </div>
+        <p>{data[0].description}</p>
+        <div className="reviews">
+          <Star path={mdiStar} size={1} color="black" />
+          <p>{data[0].status.rating} / 5</p>
+          <p>{data[0].status.reviews} Reviews</p>
+        </div>
+        <div className="color-container">
+          <h3>Bristle Color</h3>
+          <div className="color-picker">
+            <div className="colors">
+              <div className="white"></div>
+              <p>White</p>
+            </div>
+            <div className="colors">
+              <div className="black"></div>
+              <p>Black</p>
+            </div>
+            <div className="colors">
+              <div className="blue"></div>
+              <p>Blue</p>
+            </div>
           </div>
-          <div className="colors">
-            <div className="black"></div>
-            <p>Black</p>
+        </div>
+        <div className="details-container">
+          <div className="details">
+            <Leaf path={mdiLeaf} size={1} />
+            <p>100% Biodegradable</p>
           </div>
-          <div className="colors">
-            <div className="blue"></div>
-            <p>Blue</p>
+          <div className="details">
+            <Grass path={mdiGrass} size={1} />
+            <p>Plastic Free</p>
+          </div>
+          <div className="details">
+            <Person path={mdiAccountCheck} size={1} />
+            <p>Ethically Sourced</p>
+          </div>
+          <div className="details">
+            <Heart path={mdiCharity} size={1} />
+            <p>Made in America</p>
           </div>
         </div>
-      </div>
-      <div className="details-container">
-        <div className="details">
-          <Leaf path={mdiLeaf} size={1} />
-          <p>100% Biodegradable</p>
+        <div className="button">
+          <button>Add to Cart</button>
         </div>
-        <div className="details">
-          <Grass path={mdiGrass} size={1} />
-          <p>Plastic Free</p>
+        <div className="promise">
+          <p>Made to Order</p>
+          <p>60 Day Guarantee</p>
+          <p>24/7 Customer Support</p>
         </div>
-        <div className="details">
-          <Person path={mdiAccountCheck} size={1} />
-          <p>Ethically Sourced</p>
-        </div>
-        <div className="details">
-          <Heart path={mdiCharity} size={1} />
-          <p>Made in America</p>
-        </div>
-      </div>
-      <div className="button">
-        <button>Add to Cart</button>
-      </div>
-      <div className="promise">
-        <p>Made to Order</p>
-        <p>60 Day Guarantee</p>
-        <p>24/7 Customer Support</p>
       </div>
     </div>
   );
