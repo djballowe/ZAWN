@@ -3,6 +3,13 @@
     align-items: center;
 }
 
+.logo {
+    @include flex();
+    img {
+        height: 60px
+    }
+}
+
 header {
     @include flex();
     justify-content: space-between;

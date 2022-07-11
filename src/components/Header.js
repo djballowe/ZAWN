@@ -1,11 +1,13 @@
 import React from "react";
 import Icon from "@mdi/react";
-import { mdiMenu } from '@mdi/js'; 
+import { mdiMenu } from '@mdi/js';
+import Logo from "../Images/wave.png" 
 
 function Header() {
   return (
     <header>
       <div className="logo">
+        {/* <img src={Logo} alt="" /> */}
         <h2>ZAWN</h2>
       </div>
       <div className="nav-container">

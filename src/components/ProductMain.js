@@ -2,8 +2,14 @@ import React from "react";
 import data from "../data.js";
 import Star from "@mdi/react";
 import { mdiStar } from "@mdi/js";
-import Leaf from "@mdi/react"
-import { mdiLeaf } from '@mdi/js'; 
+import Leaf from "@mdi/react";
+import { mdiLeaf } from "@mdi/js";
+import Grass from "@mdi/react";
+import { mdiGrass } from "@mdi/js";
+import Person from "@mdi/react";
+import { mdiAccountCheck } from "@mdi/js";
+import Heart from "@mdi/react";
+import { mdiCharity } from "@mdi/js";
 
 function ProductMain() {
   return (
@@ -15,7 +21,7 @@ function ProductMain() {
         <p>{data[0].title}</p>
         <p>${data[0].price}</p>
       </div>
-        <p>{data[0].description}</p>
+      <p>{data[0].description}</p>
       <div className="reviews">
         <Star path={mdiStar} size={1} color="black" />
         <p>{data[0].status.rating} / 5</p>
@@ -38,11 +44,27 @@ function ProductMain() {
           </div>
         </div>
       </div>
-      <div className="details">
-        <Leaf path={mdiLeaf} size={1} />
-
+      <div className="details-container">
+        <div className="details">
+          <Leaf path={mdiLeaf} size={1} />
+          <p>100% Biodegradable</p>
+        </div>
+        <div className="details">
+          <Grass path={mdiGrass} size={1} />
+          <p>Plastic Free</p>
+        </div>
+        <div className="details">
+          <Person path={mdiAccountCheck} size={1} />
+          <p>Ethically Sourced</p>
+        </div>
+        <div className="details">
+          <Heart path={mdiCharity} size={1} />
+          <p>Made in America</p>
+        </div>
       </div>
-      <button>Add to Cart</button>
+      <div className="button">
+        <button>Add to Cart</button>
+      </div>
       <div className="promise">
         <p>Made to Order</p>
         <p>60 Day Guarantee</p>
