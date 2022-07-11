@@ -209,7 +209,7 @@ header h2 {
   padding: 30px 30px;
 }
 .individual-container img {
-  width: 350px;
+  width: 100%;
   border-radius: 10px;
 }
 
@@ -315,7 +315,7 @@ header h2 {
 .button button {
   width: 300px;
   height: 50px;
-  background-color: #92A9BD;
+  background-color: #92a9bd;
   border-radius: 10px;
   border: none;
   color: white;
@@ -332,5 +332,17 @@ header h2 {
   .individual-container {
     display: flex;
     flex-direction: row;
+    margin-inline: auto;
+    width: min(90%, 90rem);
+  }
+  .cell2 {
+    padding: 0 100px;
+  }
+  .image img {
+    height: 700px;
+    width: auto;
+  }
+  .title {
+    margin-top: 0px;
   }
 }/*# sourceMappingURL=App.css.map */

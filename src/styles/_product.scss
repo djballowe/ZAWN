@@ -1,185 +1,197 @@
 @mixin flex {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .collection {
-    padding: 30px 30px;
-    background-image: url("../Images/Product Page/Tooth Brush/cover.jpg");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: contain;
-    position: relative;
-    height: 120px;
+  padding: 30px 30px;
+  background-image: url("../Images/Product Page/Tooth Brush/cover.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: contain;
+  position: relative;
+  height: 120px;
 }
 
 .collection-text {
-    h2 {
-        font-weight: 300;
-        font-size: 1.5rem;
-    }
-    p {
-        padding: 10px 0;
-        
-        font-weight: 100;
-    }
-    position: absolute;
-    top: 10%;
-    left: 5%;
+  h2 {
+    font-weight: 300;
+    font-size: 1.5rem;
+  }
+  p {
+    padding: 10px 0;
+
+    font-weight: 100;
+  }
+  position: absolute;
+  top: 10%;
+  left: 5%;
 }
 
 .products-grid {
-    display: grid;
-    grid-template-columns: repeat(auto, 1fr);
-    grid-template-rows: repeat(auto, 1fr);
-    align-items: center;
-    justify-content: center;
-    background-color: white;
-    margin-top: 30px;
-    gap: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto, 1fr);
+  grid-template-rows: repeat(auto, 1fr);
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  margin-top: 30px;
+  gap: 30px;
 }
 
 .product {
-    img {
-        width: 300px;
-        border-radius: 10px;
-    }
+  img {
+    width: 300px;
+    border-radius: 10px;
+  }
 }
 
 .product-text {
-    margin-top: 5px;
-    p {
-        padding: 3px 0;
-    }
+  margin-top: 5px;
+  p {
+    padding: 3px 0;
+  }
 }
 
 // Main individual product page
 
 .individual-container {
-    img {
-        width: 350px;
-        border-radius: 10px;
-    }
-    
-    display: flex;
-    flex-direction: column;
-    padding: 30px 30px;
+  img {
+    width: 100%;
+    border-radius: 10px;
+  }
+
+  display: flex;
+  flex-direction: column;
+  padding: 30px 30px;
 }
 
 .image {
-    @include flex();
-    justify-content: center;
+  @include flex();
+  justify-content: center;
 }
 
 .title {
-    @include flex();
-    margin: 20px 0;
-    justify-content: space-between;
-    p:first-of-type {
-        font-size: 1.5rem;
-    }
-    p {
-        font-size: 1.3rem;
-    }
+  @include flex();
+  margin: 20px 0;
+  justify-content: space-between;
+  p:first-of-type {
+    font-size: 1.5rem;
+  }
+  p {
+    font-size: 1.3rem;
+  }
 }
 
 .reviews {
-    @include flex();
-    margin: 20px 0;
-    p:last-of-type {
-        font-weight: 300;
-        text-decoration: underline;
-        margin-left: 10px;
-    }
+  @include flex();
+  margin: 20px 0;
+  p:last-of-type {
+    font-weight: 300;
+    text-decoration: underline;
+    margin-left: 10px;
+  }
 }
 
 .color-container {
-    border-top: rgb(187, 187, 187) 1px solid;
-    border-bottom: rgb(187, 187, 187) 1px solid;
-    padding: 20px 10px;
+  border-top: rgb(187, 187, 187) 1px solid;
+  border-bottom: rgb(187, 187, 187) 1px solid;
+  padding: 20px 10px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  h3 {
     margin-bottom: 20px;
-    display: flex;
-    flex-direction: column;
-    h3 {
-        margin-bottom: 20px
-    }
+  }
 }
 
 .color-picker {
-    @include flex();
-    p {
-        font-weight: 300;
-        margin-top: 5px;
-    }
+  @include flex();
+  p {
+    font-weight: 300;
+    margin-top: 5px;
+  }
 }
 
 .white {
-    height: 40px;
-    width: 40px;
-    border-radius: 20px;
-    background-color: white;
-    border: black 1px solid;
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
+  background-color: white;
+  border: black 1px solid;
 }
 
 .black {
-    height: 40px;
-    width: 40px;
-    border-radius: 20px;
-    background-color: black;
-    border: black 1px solid;
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
+  background-color: black;
+  border: black 1px solid;
 }
 
 .blue {
-    height: 40px;
-    width: 40px;
-    border-radius: 20px;
-    background-color: rgb(129, 192, 219);
-    border: black 1px solid;
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
+  background-color: rgb(129, 192, 219);
+  border: black 1px solid;
 }
 
 .colors {
-    margin: 0 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  margin: 0 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .details {
-    @include flex();
-    padding: 10px 0;
-    p {
-        margin-left: 10px;
-    }
+  @include flex();
+  padding: 10px 0;
+  p {
+    margin-left: 10px;
+  }
 }
 
 .button {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 20px 0;
-    button {
-        width: 300px;
-        height: 50px;
-        background-color: #92A9BD;
-        border-radius: 10px;
-        border: none;
-        color: white;
-        font-size: 1.2rem;
-    }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+  button {
+    width: 300px;
+    height: 50px;
+    background-color: #92a9bd;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+  }
 }
 
 .promise {
-    @include flex();
-    justify-content: space-between;
+  @include flex();
+  justify-content: space-between;
 }
 
 @media screen and (min-width: 760px) {
-    .individual-container {
-        display: flex;
-        flex-direction: row;
+  .individual-container {
+    display: flex;
+    flex-direction: row;
+    margin-inline: auto;
+    width: min(90%, 90rem);
+  }
+  .cell2 {
+    padding: 0 100px;
+  }
+  .image {
+    img {
+      height: 700px;
+      width: auto;
     }
-    .cell
+  }
+  .title {
+    margin-top: 0px;
+  }
 }
-
