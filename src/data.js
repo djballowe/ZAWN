@@ -11,7 +11,7 @@ export default [
     id: 1,
     src: "Product Page/Tooth Brush/ToothBrush1.jpg",
     description:
-      "The battle against plastic rages on. Do your part by investing in a years supply of toothbrushes. Our toothbrush frames are made from sustainably harvested bamboo. Replace your charmless plastic tooth brush with style and add some warmth to your bathroom",
+      "Dentists recommend changing your toothbrush every 3-4 months, so we decided to make your life easy and give you a yearly supply for half price! Which turns out to be even cheaper than plastic branded brushes. Our brush frames are made from sustainably harvested bamboo with a delicate and wholesome finish.",
     color: ["black", "white", "rainbow"],
   },
 
