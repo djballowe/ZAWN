@@ -156,51 +156,72 @@ header h2 {
   padding: 10px;
 }
 
+.products-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.content {
+  margin-inline: auto;
+  width: min(90%, 60rem);
+}
+
 .collection {
-  padding: 30px 30px;
-  background-image: url("../Images/Product Page/Tooth Brush/cover.jpg");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: contain;
-  position: relative;
-  height: 120px;
+  margin-bottom: 70px;
+  margin-top: 20px;
+}
+
+.collection-image img {
+  height: 320px;
+  width: auto;
+  border: solid black 1px;
 }
 
 .collection-text {
-  position: absolute;
-  top: 10%;
-  left: 5%;
+  margin-bottom: 10px;
 }
 .collection-text h2 {
   font-weight: 300;
   font-size: 1.5rem;
 }
 .collection-text p {
-  padding: 10px 0;
+  padding: 5px 0;
   font-weight: 100;
 }
 
 .products-grid {
   display: grid;
-  grid-template-columns: repeat(auto, 1fr);
-  grid-template-rows: repeat(auto, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   align-items: center;
   justify-content: center;
   background-color: white;
-  margin-top: 30px;
+  margin: 30px 0;
   gap: 30px;
 }
 
+.product {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0;
+}
 .product img {
-  width: 300px;
+  width: 320px;
   border-radius: 10px;
+}
+
+.product-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .product-text {
   margin-top: 5px;
 }
 .product-text p {
-  padding: 3px 0;
+  padding: 3px;
 }
 
 .individual-container {
