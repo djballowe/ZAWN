@@ -146,16 +146,26 @@ header {
 }
 header h2 {
   font-size: 1.7rem;
+  cursor: pointer;
 }
 
 .nav {
-  display: flex;
-  align-items: center;
-}
-.nav li {
-  padding: 10px;
+  display: none;
+  cursor: pointer;
 }
 
+@media screen and (min-width: 760px) {
+  .nav {
+    display: flex;
+    align-items: center;
+  }
+  li {
+    padding: 0 10px;
+  }
+  .mobile-menu {
+    display: none;
+  }
+}
 .products-container {
   display: flex;
   flex-direction: column;
@@ -175,7 +185,8 @@ header h2 {
   justify-content: center;
 }
 .collection-image img {
-  width: 320px;
+  min-width: 320px;
+  max-width: 500px;
   border: solid black 1px;
 }
 
@@ -244,12 +255,31 @@ header h2 {
   }
   .collection-image img {
     width: 60%;
+    max-width: none;
+    min-width: none;
   }
   .collection-text h2 {
     font-size: 3rem;
   }
   .collection-text p {
     font-size: 2rem;
+  }
+}
+@media screen and (min-width: 740px) and (max-width: 999px) {
+  .collection {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row-reverse;
+  }
+  .collection-text h2 {
+    font-size: 2rem;
+  }
+  .collection-text p {
+    font-size: 1.5rem;
+  }
+  .collection-image img {
+    max-width: 400px;
   }
 }
 .individual-container {

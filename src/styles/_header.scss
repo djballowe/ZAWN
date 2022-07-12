@@ -6,7 +6,7 @@
 .logo {
     @include flex();
     img {
-        height: 60px
+        height: 60px;
     }
 }
 
@@ -15,14 +15,28 @@ header {
     justify-content: space-between;
     padding: 30px 30px;
     h2 {
-        font-size: 1.7rem
+        font-size: 1.7rem;
+        cursor: pointer;
     }
 }
 
 .nav {
-    @include flex();
-    li {
-        padding: 10px;
-    }
+    display: none;
+    cursor: pointer;
 }
+
+@media screen and (min-width: 760px) {
+    
+    .nav {
+        @include flex();
+    }
+    li {
+        padding: 0 10px;
+    }
+
+    .mobile-menu {
+        display: none;
+    }
+
+  }
 

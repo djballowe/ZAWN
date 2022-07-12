@@ -22,7 +22,8 @@
 
 .collection-image {
   img {
-    width: 320px;
+    min-width: 320px;
+    max-width: 500px;
     border: solid black 1px;
   }
   display: flex;
@@ -93,6 +94,8 @@
     display: block;
     img {
       width: 60%;
+      max-width: none;
+      min-width: none;
     }
   }
 
@@ -102,6 +105,30 @@
     }
     p {
       font-size: 2rem;
+    }
+  }
+}
+
+@media screen and (min-width: 740px) and (max-width: 999px) {
+  .collection {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row-reverse;
+  }
+
+  .collection-text {
+    h2 {
+      font-size: 2rem;
+    }
+    p {
+      font-size: 1.5rem;
+    }
+  }
+  
+  .collection-image {
+    img {
+      max-width: 400px;
     }
   }
 }
