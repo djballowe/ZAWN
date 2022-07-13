@@ -45,7 +45,6 @@ function About() {
         <p>Stay up to date with what we're up to</p>
         <div className="input-field">
           <input type="text" />
-          <label htmlFor="">Email</label>
           <button>X</button>
         </div>
       </div>
