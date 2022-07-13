@@ -28,12 +28,17 @@ function Header() {
         </div>
         <div className="nav-container">
           <div className="mobile-menu">
-            <Icon
-              path={mdiMenu}
-              title="mobileMenu"
-              size={1.4}
-              onClick={handleClick}
-            />
+            <div className="icon">
+              <Icon
+                path={mdiMenu}
+                title="mobileMenu"
+                size={1.4}
+                onClick={handleClick}
+                style={{
+                  display: isMobile ? "none" : "block",
+                }}
+              />
+            </div>
             <div
               className="side-bar-nav"
               onClick={handleClick}
@@ -41,18 +46,27 @@ function Header() {
                 display: isMobile ? "flex" : "none",
               }}
             >
+              <div className="close">X</div>
               <ul>
                 <li>
-                  <Link to="/" onClick={handleClick}>Home</Link>
+                  <Link to="/" onClick={handleClick}>
+                    Home
+                  </Link>
                 </li>
                 <li>
-                  <Link to="/product" onClick={handleClick}>Collection</Link>
+                  <Link to="/product" onClick={handleClick}>
+                    Collection
+                  </Link>
                 </li>
                 <li>
-                  <Link to="/about" onClick={handleClick}>About</Link>
+                  <Link to="/about" onClick={handleClick}>
+                    About
+                  </Link>
                 </li>
                 <li>
-                  <Link to="/cart" onClick={handleClick}>Cart</Link>
+                  <Link to="/cart" onClick={handleClick}>
+                    Cart
+                  </Link>
                 </li>
               </ul>
             </div>
