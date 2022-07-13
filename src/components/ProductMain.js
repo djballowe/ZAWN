@@ -17,7 +17,7 @@ function ProductMain() {
   let { id } = useParams();
 
   let product = data.find((x) => x.id === id);
-  console.log(product.color)
+  console.log(product.color);
 
   const color = product.color.map((color, index) => {
     return <Color key={index} color={color} />;
@@ -43,8 +43,10 @@ function ProductMain() {
             <p>{product.status.review} Reviews</p>
           </div>
           <div className="color-container">
-            <h3>Color</h3>
-            <div className="color-picker">{color}</div>
+            <h3>{product.color.length > 0 ? "Color" : ""}</h3>
+            <div className="color-picker">
+              {product.color.length > 0 ? color : ""}
+            </div>
           </div>
           <div className="details-container">
             <div className="details">

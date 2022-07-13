@@ -27,6 +27,7 @@ export default [
     src: "Product Page/Essential Oil/bundle1.jpg",
     description:
       "One of our most popular products the all natural ethically made essential oils set. All our aromatherapy oils are extracted directly from different parts of plants and professionally bottled for a lasting fragrance. For external use only.",
+      color: []
   },
 
   {
@@ -86,6 +87,7 @@ export default [
     src: "Product Page/Q-tips/Q-tips1.jpg",
     description:
       "Bamboo Q-tips made 100% plastic free. They contain 0% single use plastic and are completely bio degradable. No more creating needless plastic waste with standard Q-tips and fro the same price.",
+      color: []
   },
 
   {
@@ -100,6 +102,7 @@ export default [
     src: "Product Page/Shampoo/Shampoo1.jpg",
     description:
       "The iconic Mango Breeze scent is made up of the essential oil blend of orange, mango, pineapple, vanilla, and coconut. Hand made with love only using the finest natural ingredients.",
+      color: []
   },
 
   {
@@ -114,6 +117,7 @@ export default [
     src: "Product Page/Salt/powder1.jpg",
     description:
       "Our classic brushing formula. A simple daily cleanser for strong teeth and gums. Naturally purifying salt and calcium work together to alkalize the mouth and remineralize enamel, while providing a gentle polish and refreshing herbal taste",
+    color: []
   },
 
   {
@@ -128,6 +132,7 @@ export default [
     src: "Product Page/Essential Oil/oils1.jpg",
     description:
       "All our aromatherapy oils are extracted directly from different parts of plants and professionally bottled for a lasting fragrance. For external use only.",
+      color: []
   },
 
   {
@@ -157,6 +162,7 @@ export default [
     src: "Product Page/Lotion/lotion1.jpg",
     description:
       "This lightweight moisturizer combines silky smooth jojoba esters and traditional Ayurvedic extracts for a naturally refreshing, fast-penetrating cream.",
+      color: []
   },
 
   {
@@ -171,5 +177,6 @@ export default [
     src: "Product Page/bundle/fullbundle1.jpg",
     description:
       "The essential all in one kit. If you love our all natural eco friendly products why not get them all?",
+      color: []
   },
 ];
