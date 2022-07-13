@@ -1,0 +1,52 @@
+@mixin Color($color) {
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
+  border: black 1px solid;
+  background-color: $color;
+  background-image: url();
+}
+
+.White {
+  @include Color(white);
+}
+
+.Black {
+  @include Color(black);
+}
+
+.Blue {
+  @include Color(rgb(150, 200, 221));
+}
+
+.Forest {
+  @include Color(rgb(115, 147, 117));
+}
+
+.Aqua {
+  @include Color(rgb(150, 200, 221));
+}
+
+.Snow {
+  @include Color(white);
+}
+
+.Ash {
+  @include Color(rgba(239, 215, 171, 0.507));
+}
+
+.Walnut {
+  @include Color(rgb(83, 63, 36));
+}
+
+.Okuome {
+  @include Color(rgb(188, 139, 116));
+}
+
+.Redwood {
+  @include Color(rgb(121, 42, 41));
+}
+
+.Maple {
+  @include Color(rgba(239, 215, 171, 0.507));
+}
