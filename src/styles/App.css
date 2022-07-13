@@ -230,6 +230,7 @@ header h2 {
 .product img {
   width: 100%;
   border-radius: 10px;
+  cursor: pointer;
 }
 
 .product-image {

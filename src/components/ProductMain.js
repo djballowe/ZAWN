@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useParams } from 'react-router-dom'
 import data from "../data.js";
 import Star from "@mdi/react";
 import { mdiStar } from "@mdi/js";
@@ -12,23 +13,25 @@ import Heart from "@mdi/react";
 import { mdiCharity } from "@mdi/js";
 
 function ProductMain() {
+  let { id } = useParams();
   return (
-    <div className="individual-container">
+    <div>
+        <div className="individual-container">
       <div className="cell1">
         <div className="image">
-          <img src={require(`../Images/${data[0].src}`)} alt="" />
+          <img src={require(`../Images/${data[id].src}`)} alt="" />
         </div>
       </div>
       <div className="cell2">
         <div className="title">
-          <p>{data[0].title}</p>
-          <p>${data[0].price}</p>
+          <p>{data[id].title}</p>
+          <p>${data[id].price}</p>
         </div>
-        <p>{data[0].description}</p>
+        <p>{data[id].description}</p>
         <div className="reviews">
           <Star path={mdiStar} size={1} color="black" />
-          <p>{data[0].status.rating} / 5</p>
-          <p>{data[0].status.reviews} Reviews</p>
+          <p>{data[id].status.rating} / 5</p>
+          <p>{data[id].status.review} Reviews</p>
         </div>
         <div className="color-container">
           <h3>Bristle Color</h3>
@@ -74,6 +77,7 @@ function ProductMain() {
           <p>24/7 Customer Support</p>
         </div>
       </div>
+    </div>
     </div>
   );
 }

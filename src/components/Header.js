@@ -4,6 +4,7 @@ import Home from "./Home";
 import About from "./About";
 import Error from "./Error";
 import ProductPage from "./ProductPage";
+import ProductMain from "./ProductMain";
 import Icon from "@mdi/react";
 import { mdiCar, mdiMenu } from "@mdi/js";
 import Cart from "@mdi/react"
@@ -42,6 +43,7 @@ function Header() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/product" element={<ProductPage />} />
+        <Route path="/product/:id" element={<ProductMain />} />
         <Route path="*" element={<Error />} />
       </Routes>
     </Router>

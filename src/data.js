@@ -6,9 +6,9 @@ export default [
     sold_out: false,
     status: {
       rating: 5,
-      reviews: 7,
+      review: 7,
     },
-    id: 1,
+    id: 0,
     src: "Product Page/Tooth Brush/ToothBrush1.jpg",
     description:
       "Dentists recommend changing your toothbrush every 3-4 months, so we decided to make your life easy and give you a yearly supply for half price! Which turns out to be even cheaper than plastic branded brushes. Our brush frames are made from sustainably harvested bamboo with a delicate and wholesome finish.",
@@ -23,7 +23,7 @@ export default [
       rating: 5,
       review: 21,
     },
-    id: 10,
+    id: 1,
     src: "Product Page/Essential Oil/bundle1.jpg",
     description: "One of our most popular products the all natural ethically made essential oils set. All our aromatherapy oils are extracted directly from different parts of plants and professionally bottled for a lasting fragrance. For external use only."
     
@@ -35,9 +35,9 @@ export default [
     sold_out: false,
     status: {
       rating: 5,
-      reviews: 11,
+      review: 11,
     },
-    id: 3,
+    id: 2,
     src: "Product Page/Soap/scrub1.jpg",
     description: "A great facial scrub that was designed with the sensitive face in mind. Feel clean clear and rejuvenated with the all natural Shea butter base, no surfactants, detergent, or mono propylene glycol"
   },
@@ -50,7 +50,7 @@ export default [
       rating: 5,
       review: 26,
     },
-    id: 11,
+    id: 3,
     src: "Product Page/Bath Rack/bathrack1.jpg",
     description: "100% natural wood material. finished with original wood wax oil painting. Made from wood sustainably harvested from a small village in Argentina. You may not think about where you hang your towel but this subtle piece can really bring the bathroom atmosphere together."
   },
@@ -61,9 +61,9 @@ export default [
     sold_out: false,
     status: {
       rating: 4.7,
-      reviews: 10,
+      review: 10,
     },
-    id: 2,
+    id: 4,
     src: "Product Page/Soap/soap1.jpg",
     description: "This all natural organic soap contains nourishing fatty acid and oils high in vitamins E, D, and provitamin A. All while avoiding Sulfate and Detergent. This makes the perfect gift for any conscious friends or treat yourself!"
   },
@@ -76,7 +76,7 @@ export default [
       rating: 4.9,
       review: 5,
     },
-    id: 4,
+    id: 5,
     src: "Product Page/Q-tips/Q-tips1.jpg",
     description: "Bamboo Q-tips made 100% plastic free. They contain 0% single use plastic and are completely bio degradable. No more creating needless plastic waste with standard Q-tips and fro the same price."
   },
@@ -89,7 +89,7 @@ export default [
       rating: 5,
       review: 15,
     },
-    id: 5,
+    id: 6,
     src: "Product Page/Shampoo/Shampoo1.jpg",
     description: "The iconic Mango Breeze scent is made up of the essential oil blend of orange, mango, pineapple, vanilla, and coconut. Hand made with love only using the finest natural ingredients."
   },
@@ -102,7 +102,7 @@ export default [
       rating: 4.5,
       review: 10,
     },
-    id: 6,
+    id: 7,
     src: "Product Page/Salt/powder1.jpg",
     description: "Our classic brushing formula. A simple daily cleanser for strong teeth and gums. Naturally purifying salt and calcium work together to alkalize the mouth and remineralize enamel, while providing a gentle polish and refreshing herbal taste"
   },
@@ -115,7 +115,7 @@ export default [
       rating: 4.8,
       review: 4,
     },
-    id: 7,
+    id: 8,
     src: "Product Page/Essential Oil/oils1.jpg",
     description: "All our aromatherapy oils are extracted directly from different parts of plants and professionally bottled for a lasting fragrance. For external use only."
   },
@@ -128,7 +128,7 @@ export default [
       rating: 5,
       review: 8,
     },
-    id: 8,
+    id: 9,
     src: "Product Page/Brush/brush1.jpg",
     description: "A plastic free scrubber that will be your new best friend in the bathroom. the bamboo bristles offers a relaxing sensation without being to rough on the skin. All this and made from all natural, compostable materials."
   },
@@ -141,7 +141,7 @@ export default [
       rating: 4.9,
       review: 10,
     },
-    id: 9,
+    id: 10,
     src: "Product Page/Lotion/lotion1.jpg",
     description: "This lightweight moisturizer combines silky smooth jojoba esters and traditional Ayurvedic extracts for a naturally refreshing, fast-penetrating cream."
   },
@@ -154,7 +154,7 @@ export default [
       rating: 4.8,
       review: 11,
     },
-    id: 12,
+    id: 11,
     src: "Product Page/bundle/fullbundle1.jpg",
     description: "The essential all in one kit. If you love our all natural eco friendly products why not get them all?"
   },
