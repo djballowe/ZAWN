@@ -1,2 +1,2 @@
 # ZAWN
-E-commerce site the ZAWN. An environmentally concious bathroom product company.
+E-commerce site for ZAWN. An environmentally concious bathroom product company.
