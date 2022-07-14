@@ -50,9 +50,9 @@ function About() {
         </p>
         <div className="input-field">
           <input type="text" placeholder="Email" />
-          <button>
-            <Arrow path={mdiArrowLeft} size={1} rotate={180} />
-          </button>
+          <div>
+            <button>Submit</button>
+          </div>
         </div>
       </div>
     </div>

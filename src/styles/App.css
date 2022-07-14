@@ -587,6 +587,9 @@ header h2 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.291);
+  border-top: 1px solid rgba(0, 0, 0, 0.291);
 }
 .contact p {
   padding: 5px 30px;
@@ -594,11 +597,12 @@ header h2 {
 
 .input-field {
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
   align-items: center;
+  margin-top: 20px;
 }
 .input-field input {
-  height: 30px;
+  height: 20px;
   width: auto;
   border-radius: 8px;
   border: 1px solid rgba(0, 0, 0, 0.291);
@@ -618,14 +622,21 @@ header h2 {
   outline: none;
 }
 .input-field button {
-  background-color: none;
+  background-color: #92a9bd;
+  color: white;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: transparent;
-  border: 1px solid rgba(0, 0, 0, 0.445);
-  border-radius: 100px;
-  width: 50px;
-  height: 50px;
-  margin-left: 10px;
+  border: none;
+  width: 100%;
+  height: auto;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.input-field button:hover {
+  color: #92a9bd;
+  background-color: white;
 }/*# sourceMappingURL=App.css.map */
