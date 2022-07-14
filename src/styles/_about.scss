@@ -1,55 +1,84 @@
 .about-container {
-    margin-inline: auto;
-    width: min(90%, 80rem);
+  margin-inline: auto;
+  width: min(90%, 80rem);
 }
 
 .about-cover {
-    position: relative;
-    p {
-        font-size: 1.9rem;
-        text-align: center;
-        position: absolute;
-        top: 5%;
-        padding: 0 15px;
-        color: rgba(0, 0, 0, 0.404);
-    }
-    img {
-        width: 100%;
-        border: 1px black solid;
-    }
+  position: relative;
+  p {
+    font-size: 1.9rem;
+    text-align: center;
+    position: absolute;
+    top: 5%;
+    padding: 0 15px;
+    color: rgba(0, 0, 0, 0.404);
+  }
+  img {
+    width: 100%;
+    border: 1px black solid;
+  }
 }
 
 .about-description {
-    margin: 40px 0;
-    p {
-        margin-top: 10px;
-        font-size: 1.2rem;
-        line-height: 160%;
-        padding: 30px 20px;
-        border-top: 1px rgba(0, 0, 0, 0.24) solid;;
-    }
-    border-bottom: 1px rgba(0, 0, 0, 0.24) solid;
+  margin: 40px 0;
+  p {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    line-height: 160%;
+    padding: 30px 20px;
+    border-top: 1px rgba(0, 0, 0, 0.24) solid;
+  }
+  border-bottom: 1px rgba(0, 0, 0, 0.24) solid;
 }
 
 .our-promise {
-    img {
-        width: 100%;
-        border: black 1px solid;
-    }
-    margin-top: 20px;
+  img {
+    width: 100%;
+    border: black 1px solid;
+  }
+  margin-top: 20px;
+}
+
+.contact {
+  margin-bottom: 50px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  p {
+    padding: 5px 30px;
+  }
 }
 
 .input-field {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
     input {
-        border-bottom: 1px solid black;
-        border-top: 1px solid black;
-        border-left: 1px solid black;
-        
-    }
-    button {
-        border-bottom: 1px solid black;
-        border-top: 1px solid black;
-        border-right: 1px solid black;
-        background-color: transparent;
-    }
+    height: 30px;
+    width: auto;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.291);
+    padding: 8px;
+  }
+  input::placeholder {
+    opacity: 0.2;
+  }
+  input:focus {
+    border: black 1px solid;
+    outline: none;
+  }
+  button {
+    background-color: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: 1px solid rgba(0, 0, 0, 0.445);
+    border-radius: 100px;
+    width: 50px;
+    height: 50px;
+    margin-left: 10px;
+  }
 }

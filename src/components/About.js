@@ -1,6 +1,8 @@
 import React from "react";
 import Cover from "../Images/About/aboutcover2.png";
 import Beach from "../Images/About/about.jpg";
+import Arrow from "@mdi/react";
+import { mdiArrowLeft } from "@mdi/js";
 
 function About() {
   return (
@@ -42,10 +44,15 @@ function About() {
       </div>
       <div className="contact">
         <h2>Like what we're doing?</h2>
-        <p>Stay up to date with what we're up to</p>
+        <p>
+          Stay up to date with discounts, prizes, and more content that makes
+          sustainable living easier and fun
+        </p>
         <div className="input-field">
-          <input type="text" />
-          <button>X</button>
+          <input type="text" placeholder="Email" />
+          <button>
+            <Arrow path={mdiArrowLeft} size={1} rotate={180} />
+          </button>
         </div>
       </div>
     </div>

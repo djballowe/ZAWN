@@ -10,7 +10,6 @@ import { mdiCar, mdiMenu } from "@mdi/js";
 import Cart from "@mdi/react";
 import { mdiWalletTravel } from "@mdi/js";
 import Logo from "../Images/wave.png";
-import { useNavigate } from "react-router-dom";
 
 function Header() {
   const [isMobile, setIsMobile] = useState(false);
