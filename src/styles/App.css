@@ -547,7 +547,12 @@ header h2 {
 .about-cover {
   position: relative;
 }
-.about-cover p {
+.about-cover img {
+  width: 100%;
+  border: 1px black solid;
+}
+
+.image-text {
   font-size: 1.9rem;
   text-align: center;
   position: absolute;
@@ -555,9 +560,9 @@ header h2 {
   padding: 0 15px;
   color: rgba(0, 0, 0, 0.404);
 }
-.about-cover img {
-  width: 100%;
-  border: 1px black solid;
+
+.arrow {
+  margin-top: 20px;
 }
 
 .about-description {
@@ -636,7 +641,21 @@ header h2 {
   cursor: pointer;
 }
 
-.input-field button:hover {
-  color: #92a9bd;
-  background-color: white;
+@media screen and (min-width: 1000px) {
+  .about-container {
+    width: min(90%, 50rem);
+  }
+  .image-text {
+    font-size: 4rem;
+    padding: 0 90px;
+  }
+  .about-description p {
+    padding: 50px 100px;
+    line-height: 200%;
+  }
+}
+@media screen and (min-width: 740px) and (max-width: 999px) {
+  .about-container {
+    width: min(90%, 50rem);
+  }
 }/*# sourceMappingURL=App.css.map */
