@@ -7,9 +7,10 @@ import ProductPage from "./ProductPage";
 import ProductMain from "./ProductMain";
 import Icon from "@mdi/react";
 import { mdiCar, mdiMenu } from "@mdi/js";
-import Cart from "@mdi/react";
+import CartIcon from "@mdi/react";
 import { mdiWalletTravel } from "@mdi/js";
 import Logo from "../Images/wave.png";
+import Cart from "./Cart";
 
 function Header() {
   const [isMobile, setIsMobile] = useState(false);
@@ -20,6 +21,7 @@ function Header() {
 
   return (
     <Router>
+      <Cart />
       <header>
         <div className="logo">
           {/* <img src={Logo} alt="" /> */}
@@ -82,8 +84,9 @@ function Header() {
             </li>
             <li>
               <Link to="/cart">
-                <Cart path={mdiWalletTravel} size={1} />
+                <CartIcon path={mdiWalletTravel} size={1} />
               </Link>
+              <div className="cart-num">3</div>
             </li>
           </ul>
         </div>

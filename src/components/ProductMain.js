@@ -17,7 +17,6 @@ function ProductMain() {
   let { id } = useParams();
 
   let product = data.find((x) => x.id === id);
-  console.log(product.color);
 
   const color = product.color.map((color, index) => {
     return <Color key={index} color={color} />;

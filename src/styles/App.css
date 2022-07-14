@@ -152,6 +152,23 @@ header h2 {
 .nav {
   display: none;
   cursor: pointer;
+  position: relative;
+}
+
+.cart-num {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  justify-content: center;
+  border: 1px solid;
+  height: 20px;
+  width: 20px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  background-color: #92a9bd;
+  color: white;
+  bottom: 1%;
+  right: 1%;
 }
 
 @media screen and (min-width: 760px) {
@@ -564,7 +581,7 @@ header h2 {
 }
 
 .arrow {
-  margin-top: 20px;
+  margin-top: 6px;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
@@ -675,8 +692,27 @@ header h2 {
     margin-top: 10px;
   }
 }
-@media screen and (min-width: 740px) and (max-width: 999px) {
-  .about-container {
-    width: min(90%, 50rem);
+@media screen and (min-width: 600px) and (max-width: 799px) {
+  .image-text p {
+    font-size: 3.3rem;
   }
+}
+@media screen and (min-width: 800px) and (max-width: 999px) {
+  .image-text p {
+    font-size: 4.5rem;
+  }
+}
+.cart-container {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.cart-body {
+  background-color: white;
+  height: 100vh;
+  width: 50%;
+  position: absolute;
+  border: 1px black solid;
+  z-index: 100;
 }/*# sourceMappingURL=App.css.map */

@@ -1,0 +1,14 @@
+.cart-container {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.cart-body {
+    background-color: white;
+    height: 100vh;
+    width: 50%;
+    position: absolute;
+    border: 1px black solid;
+    z-index: 100;
+}

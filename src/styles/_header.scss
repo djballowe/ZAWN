@@ -1,53 +1,66 @@
 @mixin flex {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .logo {
-    @include flex();
-    img {
-        height: 60px;
-    }
+  @include flex();
+  img {
+    height: 60px;
+  }
 }
 
 header {
-    @include flex();
-    justify-content: space-between;
-    padding: 30px 30px;
-    h2 {
-        font-size: 1.7rem;
-        cursor: pointer;
-    }
+  @include flex();
+  justify-content: space-between;
+  padding: 30px 30px;
+  h2 {
+    font-size: 1.7rem;
+    cursor: pointer;
+  }
 }
 
 .nav {
-    display: none;
-    cursor: pointer;
+  display: none;
+  cursor: pointer;
+  position: relative;
+}
+
+.cart-num {
+  @include flex();
+  position: absolute;
+  justify-content: center;
+  border: 1px solid;
+  height: 20px;
+  width: 20px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  background-color: #92a9bd;
+  color: white;
+  bottom: 1%;
+  right: 1%;
 }
 
 @media screen and (min-width: 760px) {
-    
-    .nav {
-        @include flex();
-        font-size: 1.1rem;
-    }
-    li {
-        padding: 0 10px;
-    }
-    a {
-        text-decoration: none;
-        color: black;
-    }
-
-    .mobile-menu {
-        display: none;
-    }
-
-    header {
-        h2 {
-            font-size: 2rem;
-        }
-    }
-
+  .nav {
+    @include flex();
+    font-size: 1.1rem;
+  }
+  li {
+    padding: 0 10px;
+  }
+  a {
+    text-decoration: none;
+    color: black;
   }
 
+  .mobile-menu {
+    display: none;
+  }
+
+  header {
+    h2 {
+      font-size: 2rem;
+    }
+  }
+}
