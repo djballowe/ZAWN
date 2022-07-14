@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Cover from "../Images/About/aboutcover2.png";
 import Beach from "../Images/About/about.jpg";
 import Arrow from "@mdi/react";
@@ -7,7 +7,11 @@ import DownArrow from "@mdi/react";
 import { mdiChevronDown } from "@mdi/js";
 
 function About() {
+  const aboutRef = useRef();
 
+  const handleClick = () => {
+    aboutRef.current.scrollIntoView({ behavior: 'smooth' })
+  }
   return (
     <div className="about-container">
       <div className="about-cover">
@@ -15,18 +19,12 @@ function About() {
         <div className="image-text">
           <p>A SMALL COMPANY WITH BIG DREAMS OF A CLEANER TOMORROW.</p>
           <div>
-            <div>
-              <Arrow
-                path={mdiChevronDown}
-                size={2.5}
-                className="arrow"
-              />
-            </div>
+            <Arrow path={mdiChevronDown} size={2.5} className="arrow" onClick={handleClick}/>
           </div>
         </div>
       </div>
       <div className="about-description">
-        <h2>What is ZAWN?</h2>
+        <h2 ref={aboutRef}>What is ZAWN?</h2>
         <p>
           The name takes after the deep and narrow sea-inlet in the British
           Isles near Cornwall. Cut by erosion over the course of thousands of
@@ -64,7 +62,7 @@ function About() {
         </p>
         <div className="input-field">
           <input type="text" placeholder="Email" />
-          <div>
+          <div className="button">
             <button>Submit</button>
           </div>
         </div>

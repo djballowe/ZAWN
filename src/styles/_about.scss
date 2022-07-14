@@ -5,6 +5,8 @@
 
 .about-cover {
   position: relative;
+  display: flex;
+  justify-content: center;
   img {
     width: 100%;
     border: 1px black solid;
@@ -21,12 +23,12 @@
 }
 
 .arrow {
-    margin-top: 20px;
-    cursor: pointer;
-    transition: all .2s ease-in-out;
-    &:hover {
-        padding: 6px;
-    }
+  margin-top: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    padding: 6px;
+  }
 }
 
 .about-description {
@@ -84,7 +86,11 @@
     border: black 1px solid;
     outline: none;
   }
-  button {
+}
+
+.button {
+  
+    button {
     background-color: #92a9bd;
     color: white;
     display: flex;
@@ -97,6 +103,12 @@
     border-radius: 10px;
     margin-top: 10px;
     cursor: pointer;
+    transition: all .2s ease-in-out;
+    &:hover {
+        color: #92a9bd;
+        background-color: white;
+        border: 1px solid rgba(0, 0, 0, 0.291);
+    }
   }
 }
 
@@ -112,6 +124,18 @@
     p {
       padding: 50px 100px;
       line-height: 200%;
+    }
+  }
+  .about-cover {
+    img {
+      height: auto;
+      width: 85%;
+    }
+  }
+  .contact {
+    p {
+        
+        margin-top: 10px;
     }
   }
 }

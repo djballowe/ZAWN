@@ -546,6 +546,8 @@ header h2 {
 
 .about-cover {
   position: relative;
+  display: flex;
+  justify-content: center;
 }
 .about-cover img {
   width: 100%;
@@ -631,7 +633,8 @@ header h2 {
   border: black 1px solid;
   outline: none;
 }
-.input-field button {
+
+.button button {
   background-color: #92a9bd;
   color: white;
   display: flex;
@@ -644,6 +647,12 @@ header h2 {
   border-radius: 10px;
   margin-top: 10px;
   cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.button button:hover {
+  color: #92a9bd;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.291);
 }
 
 @media screen and (min-width: 1000px) {
@@ -657,6 +666,13 @@ header h2 {
   .about-description p {
     padding: 50px 100px;
     line-height: 200%;
+  }
+  .about-cover img {
+    height: auto;
+    width: 85%;
+  }
+  .contact p {
+    margin-top: 10px;
   }
 }
 @media screen and (min-width: 740px) and (max-width: 999px) {
