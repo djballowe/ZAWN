@@ -563,6 +563,11 @@ header h2 {
 
 .arrow {
   margin-top: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.arrow:hover {
+  padding: 6px;
 }
 
 .about-description {

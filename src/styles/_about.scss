@@ -22,6 +22,11 @@
 
 .arrow {
     margin-top: 20px;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+    &:hover {
+        padding: 6px;
+    }
 }
 
 .about-description {

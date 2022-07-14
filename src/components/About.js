@@ -4,10 +4,9 @@ import Beach from "../Images/About/about.jpg";
 import Arrow from "@mdi/react";
 import { mdiArrowUpCircleOutline } from "@mdi/js";
 import DownArrow from "@mdi/react";
-import { mdiArrowDownCircle } from "@mdi/js";
+import { mdiChevronDown } from "@mdi/js";
 
 function About() {
-  const [isShown, setIsShown] = useState(false);
 
   return (
     <div className="about-container">
@@ -15,27 +14,14 @@ function About() {
         <img src={Cover} alt="" />
         <div className="image-text">
           <p>A SMALL COMPANY WITH BIG DREAMS OF A CLEANER TOMORROW.</p>
-          <div className="arrow">
-            {!isShown && (
-              <div>
-                <Arrow
-                  path={mdiArrowUpCircleOutline}
-                  size={2.5}
-                  rotate={180}
-                  onMouseEnter={() => setIsShown(true)}
-                  onMouseLeave={() => setIsShown(false)}
-                />
-              </div>
-            )}
-            {isShown && (
-              <div>
-                <DownArrow
-                  path={mdiArrowDownCircle}
-                  size={2.5}
-                  onMouseLeave={() => setIsShown(false)}
-                />
-              </div>
-            )}
+          <div>
+            <div>
+              <Arrow
+                path={mdiChevronDown}
+                size={2.5}
+                className="arrow"
+              />
+            </div>
           </div>
         </div>
       </div>
