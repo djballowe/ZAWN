@@ -715,6 +715,8 @@ header h2 {
   position: absolute;
   border: 1px black solid;
   z-index: 100;
+  display: flex;
+  flex-direction: column;
 }
 
 .cart-top {
@@ -791,18 +793,7 @@ header h2 {
   margin-top: 10px;
   display: flex;
 }
-
-.quantity input {
-  -webkit-appearance: none;
-  border: none;
-  text-align: center;
-  width: 32px;
-  font-size: 16px;
-  color: #43484d;
-  font-weight: 300;
-}
-
-button {
+.quantity button {
   width: 30px;
   height: 30px;
   background-color: #e1e8ee;
@@ -814,7 +805,47 @@ button {
   align-items: center;
 }
 
+.quantity input {
+  -webkit-appearance: none;
+  border: none;
+  text-align: center;
+  width: 32px;
+  font-size: 16px;
+  color: #43484d;
+  font-weight: 300;
+}
+
 button:focus,
 input:focus {
   outline: 0;
+}
+
+.subtotal {
+  display: flex;
+  justify-content: space-between;
+}
+
+.checkout {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+  border-top: 1px solid rgba(0, 0, 0, 0.291);
+  bottom: 0;
+}
+.checkout button {
+  background-color: black;
+  color: white;
+  margin-top: 10px;
+  border: none;
+  border-radius: 20px;
+  height: 50px;
+  font-size: 1rem;
+}
+
+.test {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }/*# sourceMappingURL=App.css.map */

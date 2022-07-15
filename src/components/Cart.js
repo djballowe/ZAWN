@@ -31,14 +31,22 @@ export default function Cart() {
             <Close path={mdiClose} size={1} />
           </button>
         </div>
+
         <div className="shipping-container">
           <p>Spend $17.00 more and get free shipping!</p>
           <div className="border">
             <div className="bar"></div>
           </div>
         </div>
-        <div>
-          {cartComp}
+        <div>{cartComp}</div>
+        <div className="test">
+          <div className="checkout">
+            <div className="subtotal">
+              <p>Subtotal</p>
+              <p>$9.95</p>
+            </div>
+            <button>Proceed to Checkout</button>
+          </div>
         </div>
       </div>
     </div>

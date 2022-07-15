@@ -11,6 +11,8 @@
   position: absolute;
   border: 1px black solid;
   z-index: 100;
+  display: flex;
+  flex-direction: column;
 }
 
 .cart-top {
@@ -92,6 +94,17 @@
 .quantity {
   margin-top: 10px;
   display: flex;
+  button {
+    width: 30px;
+    height: 30px;
+    background-color: #e1e8ee;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 .quantity input {
   -webkit-appearance: none;
@@ -103,19 +116,39 @@
   font-weight: 300;
 }
 
-button {
-  width: 30px;
-  height: 30px;
-  background-color: #e1e8ee;
-  border-radius: 6px;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 button:focus,
 input:focus {
   outline: 0;
 }
+
+.subtotal {
+    display: flex;
+    justify-content: space-between;
+}
+
+.checkout {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    border-top: 1px solid rgba(0, 0, 0, 0.291);
+    bottom: 0;
+    button {
+        background-color: black;
+        color: white;
+        margin-top: 10px;
+        border: none;
+        border-radius: 20px;
+        height: 50px;
+        font-size: 1rem;
+    }
+}
+
+
+.test {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
