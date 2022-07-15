@@ -38,7 +38,7 @@ export default function Cart() {
             <div className="bar"></div>
           </div>
         </div>
-        <div>{cartComp}</div>
+        <div className="components">{cartComp}</div>
         <div className="test">
           <div className="checkout">
             <div className="subtotal">

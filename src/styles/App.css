@@ -851,8 +851,12 @@ input:focus {
 }
 
 .test {
-  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+}
+
+.components {
+  overflow: scroll;
+  height: 100vh;
 }/*# sourceMappingURL=App.css.map */
