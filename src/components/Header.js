@@ -21,7 +21,7 @@ function Header() {
 
   return (
     <Router>
-      {/* <Cart /> */}
+      <Cart />
       <header>
         <div className="logo">
           {/* <img src={Logo} alt="" /> */}

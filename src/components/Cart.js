@@ -4,19 +4,20 @@ import { mdiWalletTravel } from "@mdi/js";
 import Close from "@mdi/react";
 import { mdiClose } from "@mdi/js";
 import CartItems from "./CartItems";
+import { cart } from "./ProductMain";
 
 export default function Cart() {
-  // const cartComp = data.map((item) => {
-  //   return (
-  //     <CartItems
-  //       key={item.id}
-  //       id={item.id}
-  //       item={item.title}
-  //       price={item.price}
-  //       src={item.src}
-  //     />
-  //   );
-  // });
+  const cartComp = cart.map((item) => {
+    return (
+      <CartItems
+        key={item.id}
+        id={item.id}
+        item={item.title}
+        price={item.price}
+        src={item.src}
+      />
+    );
+  });
 
   return (
     <div className="cart-container">
@@ -37,7 +38,7 @@ export default function Cart() {
           </div>
         </div>
         <div>
-          {/* {cartComp} */}
+          {cartComp}
         </div>
       </div>
     </div>

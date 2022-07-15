@@ -14,7 +14,7 @@ import { mdiCharity } from "@mdi/js";
 import Color from "./Color.js";
 import Cart from "./Cart.js";
 
-const cart = [];
+export const cart = [];
 
 class CartItemCreator {
   constructor(title, src, price, id) {

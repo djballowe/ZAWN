@@ -4,16 +4,16 @@ import { mdiPlus } from '@mdi/js';
 import Minus from '@mdi/react'
 import { mdiMinus } from '@mdi/js';  
 
-export default function CartItems() {
+export default function CartItems(props) {
   return (
     <div className="item-full">
       <div className="cart-image">
-        <img src="" alt="" />
+        <img src={require(`../Images/${props.src}`)} alt="" />
       </div>
       <div className="item-container">
-        <h3>Organic Soap</h3>
+        <h3>{props.item}</h3>
         <p>Forest Green</p>
-        <p>$78.00</p>
+        <p>${props.price}</p>
         <div className="quantity">
           <button className="plus-btn">
             <Plus path={mdiPlus} size={.7} />
