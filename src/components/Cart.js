@@ -6,6 +6,18 @@ import { mdiClose } from "@mdi/js";
 import CartItems from "./CartItems";
 
 export default function Cart() {
+  // const cartComp = data.map((item) => {
+  //   return (
+  //     <CartItems
+  //       key={item.id}
+  //       id={item.id}
+  //       item={item.title}
+  //       price={item.price}
+  //       src={item.src}
+  //     />
+  //   );
+  // });
+
   return (
     <div className="cart-container">
       <div className="cart-body">
@@ -25,7 +37,7 @@ export default function Cart() {
           </div>
         </div>
         <div>
-          <CartItems />
+          {/* {cartComp} */}
         </div>
       </div>
     </div>

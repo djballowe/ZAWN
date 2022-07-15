@@ -12,6 +12,18 @@ import { mdiAccountCheck } from "@mdi/js";
 import Heart from "@mdi/react";
 import { mdiCharity } from "@mdi/js";
 import Color from "./Color.js";
+import Cart from "./Cart.js";
+
+const cart = [];
+
+class CartItemCreator {
+  constructor(title, src, price, id) {
+    this.title = title;
+    this.src = src;
+    this.price = price;
+    this.id = id;
+  }
+}
 
 function ProductMain() {
   let { id } = useParams();
@@ -21,6 +33,13 @@ function ProductMain() {
   const color = product.color.map((color, index) => {
     return <Color key={index} color={color} />;
   });
+
+  const handleClick = () => {
+    cart.push(
+      new CartItemCreator(product.title, product.src, product.price, product.id)
+    );
+    console.log(cart);
+  };
 
   return (
     <div>
@@ -66,7 +85,7 @@ function ProductMain() {
             </div>
           </div>
           <div className="button">
-            <button>Add to Cart</button>
+            <button onClick={handleClick}>Add to Cart</button>
           </div>
           <div className="promise">
             <p>Made to Order</p>
