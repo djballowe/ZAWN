@@ -767,6 +767,13 @@ header h2 {
   justify-content: space-around;
 }
 
+.item-text {
+  width: 120px;
+}
+
+.item-container {
+  padding: 10px;
+}
 .item-container p:first-of-type {
   font-weight: 100;
   padding-top: 5px;

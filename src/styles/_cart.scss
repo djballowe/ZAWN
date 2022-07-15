@@ -65,11 +65,17 @@
   justify-content: space-around;
 }
 
+.item-text {
+    width: 120px;
+}
+
 .item-container {
     p:first-of-type {
         font-weight: 100;
         padding-top: 5px;
     }
+    padding: 10px;
+
 }
 
 .cart-image {
@@ -144,11 +150,14 @@ input:focus {
     }
 }
 
-
 .test {
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+}
+
+.components {
+    
 }
 
