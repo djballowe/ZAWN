@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import CartIcon from "@mdi/react";
 import { mdiWalletTravel } from "@mdi/js";
 import Close from "@mdi/react";
@@ -7,6 +7,8 @@ import CartItems from "./CartItems";
 import { cart } from "./ProductMain";
 
 export default function Cart() {
+  const [isTotal, setIsTotal] = useState(0);
+
   const cartComp = cart.map((item) => {
     return (
       <CartItems
@@ -18,6 +20,14 @@ export default function Cart() {
       />
     );
   });
+
+  useEffect(() => {
+    let total = 0;
+    for (let i = 0; i < cart.length; i++) {
+      total += cart[i].price
+      setIsTotal(Math.round(total * 100) / 100)
+    }
+  }, []);
 
   return (
     <div className="cart-container">
@@ -43,7 +53,7 @@ export default function Cart() {
           <div className="checkout">
             <div className="subtotal">
               <p>Subtotal</p>
-              <p>$9.95</p>
+              <p>${isTotal}</p>
             </div>
             <button>Proceed to Checkout</button>
           </div>
