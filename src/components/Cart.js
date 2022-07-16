@@ -6,7 +6,7 @@ import { mdiClose } from "@mdi/js";
 import CartItems from "./CartItems";
 import { cart } from "./ProductMain";
 
-export default function Cart() {
+export default function Cart(props) {
   const [isTotal, setIsTotal] = useState(0);
   const cartComp = cart.map((item) => {
     return (
@@ -38,7 +38,7 @@ export default function Cart() {
             <p>{cart.length} ITEM</p>
           </div>
           <button>
-            <Close path={mdiClose} size={1} />
+            <Close path={mdiClose} size={1} onClick={props.onClick} />
           </button>
         </div>
 

@@ -702,11 +702,14 @@ header h2 {
     font-size: 4.5rem;
   }
 }
+.test-cart {
+  display: none;
+}
+
 .cart-container {
   position: relative;
   display: flex;
   justify-content: flex-end;
-  display: none;
 }
 
 .cart-body {

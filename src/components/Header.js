@@ -20,9 +20,17 @@ function Header() {
     isMobile ? setIsMobile(false) : setIsMobile(true);
   };
 
+  const cartClick = () => {
+    isActive ? setIsActive(false) : setIsActive(true);
+  };
+
   return (
     <Router>
-      <Cart />
+      <div className="test-cart" style={{
+        display: isActive ? "block" : "none"
+      }}>
+        <Cart onClick={cartClick} />
+      </div>
       <header>
         <div className="mobile-menu">
           <Icon
@@ -42,7 +50,7 @@ function Header() {
         <div className="nav-container">
           <div className="mobile-menu">
             <div className="icon">
-              <CartIcon path={mdiWalletTravel} size={1.2} />
+              <CartIcon path={mdiWalletTravel} size={1.2} onClick={cartClick} />
             </div>
             <div
               className="side-bar-nav"
