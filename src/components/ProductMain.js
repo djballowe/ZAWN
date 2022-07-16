@@ -17,11 +17,12 @@ import Cart from "./Cart.js";
 export const cart = [];
 
 class CartItemCreator {
-  constructor(title, src, price, id) {
+  constructor(title, src, price, id, quantity) {
     this.title = title;
     this.src = src;
     this.price = price;
     this.id = id;
+    this.quantity = quantity;
   }
 }
 
@@ -36,7 +37,7 @@ function ProductMain() {
 
   const handleClick = () => {
     cart.push(
-      new CartItemCreator(product.title, product.src, product.price, product.id)
+      new CartItemCreator(product.title, product.src, product.price, product.id, 1)
     );
     console.log(cart);
   };

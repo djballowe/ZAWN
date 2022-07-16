@@ -811,6 +811,10 @@ header h2 {
   justify-content: center;
   align-items: center;
 }
+.quantity img {
+  width: auto;
+  height: 60%;
+}
 
 .quantity input {
   -webkit-appearance: none;

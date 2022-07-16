@@ -1,14 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.64546dc0.css",
-    "main.js": "/static/js/main.491ca843.js",
+    "main.css": "/static/css/main.79d63725.css",
+    "main.js": "/static/js/main.317a2711.js",
     "static/js/787.0b7eda19.chunk.js": "/static/js/787.0b7eda19.chunk.js",
+    "static/media/aboutcover2.png": "/static/media/aboutcover2.bdff7c67b5956b176fe3.png",
     "static/media/pexels-karolina-grabowska-4465124.jpg": "/static/media/pexels-karolina-grabowska-4465124.49ccbf3f3a4166c0c736.jpg",
     "static/media/Shampoo1.jpg": "/static/media/Shampoo1.3610a0537d2ed4b2056f.jpg",
     "static/media/pexels-karolina-grabowska-4465126.jpg": "/static/media/pexels-karolina-grabowska-4465126.7a7b8c85679bf4293dc3.jpg",
     "static/media/pexels-karolina-grabowska-4210343.jpg": "/static/media/pexels-karolina-grabowska-4210343.d3096331e09405c57ca9.jpg",
     "static/media/pexels-karolina-grabowska-4210337.jpg": "/static/media/pexels-karolina-grabowska-4210337.c9a1a925386b5c74c5c7.jpg",
     "static/media/pexels-karolina-grabowska-4210342.jpg": "/static/media/pexels-karolina-grabowska-4210342.405fbcb13575555a7531.jpg",
+    "static/media/about.jpg": "/static/media/about.ea996575708acce07d5c.jpg",
     "static/media/fullbundle1.jpg": "/static/media/fullbundle1.7c06644fa0630750a395.jpg",
     "static/media/pexels-karolina-grabowska-4210336.jpg": "/static/media/pexels-karolina-grabowska-4210336.a16ce4d7867370c1ba0c.jpg",
     "static/media/pexels-diana-light-4830765.jpg": "/static/media/pexels-diana-light-4830765.1859643a2fd26f8ece81.jpg",
@@ -50,6 +52,7 @@
     "static/media/cover.jpg": "/static/media/cover.15b04cc00d2648808420.jpg",
     "static/media/ToothBrush11.jpg": "/static/media/ToothBrush11.ab6720509ef8e8b9faec.jpg",
     "static/media/pexels-karolina-grabowska-4202499.jpg": "/static/media/pexels-karolina-grabowska-4202499.ab6720509ef8e8b9faec.jpg",
+    "static/media/aboutcover.jpg": "/static/media/aboutcover.545f5410fc9c93f8801e.jpg",
     "static/media/ToothBrush5.jpg": "/static/media/ToothBrush5.fe34ef5b0b688917b57d.jpg",
     "static/media/pexels-tima-miroshnichenko-6763078 (copy).jpg": "/static/media/pexels-tima-miroshnichenko-6763078 (copy).e00a8d2d42fcf35b13e2.jpg",
     "static/media/pexels-karolina-grabowska-4202921.jpg": "/static/media/pexels-karolina-grabowska-4202921.bae82f016b046d8c708b.jpg",
@@ -78,14 +81,19 @@
     "static/media/pexels-karolina-grabowska-4041386.jpg": "/static/media/pexels-karolina-grabowska-4041386.88712fee8bf72dd95a91.jpg",
     "static/media/pexels-pavel-danilyuk-7055278.jpg": "/static/media/pexels-pavel-danilyuk-7055278.9b2330c79a4ebc6b7231.jpg",
     "static/media/lotion1.jpg": "/static/media/lotion1.0a6538e9dac6726ab7ec.jpg",
+    "static/media/f1293-swatch.jpg": "/static/media/f1293-swatch.fc32f212824e5a543ccc.jpg",
     "static/media/wave.png": "/static/media/wave.2f63a66e643176745c49.png",
+    "static/media/okoume.jpg": "/static/media/okoume.8b3d949cff3433cdc6c8.jpg",
+    "static/media/ash.jpg": "/static/media/ash.f01d41dae7ca883aa7e1.jpg",
+    "static/media/Garden.jpg": "/static/media/Garden.cd9fc6aec0ce64e6b55f.jpg",
+    "static/media/maple_wood_header.jpg": "/static/media/maple_wood_header.035b59dedcbdbd8268e5.jpg",
     "index.html": "/index.html",
-    "main.64546dc0.css.map": "/static/css/main.64546dc0.css.map",
-    "main.491ca843.js.map": "/static/js/main.491ca843.js.map",
+    "main.79d63725.css.map": "/static/css/main.79d63725.css.map",
+    "main.317a2711.js.map": "/static/js/main.317a2711.js.map",
     "787.0b7eda19.chunk.js.map": "/static/js/787.0b7eda19.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.64546dc0.css",
-    "static/js/main.491ca843.js"
+    "static/css/main.79d63725.css",
+    "static/js/main.317a2711.js"
   ]
 }

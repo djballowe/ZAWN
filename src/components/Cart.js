@@ -17,6 +17,7 @@ export default function Cart() {
         item={item.title}
         price={item.price}
         src={item.src}
+        quantity={item.quantity}
       />
     );
   });
@@ -24,8 +25,8 @@ export default function Cart() {
   useEffect(() => {
     let total = 0;
     for (let i = 0; i < cart.length; i++) {
-      total += cart[i].price
-      setIsTotal(Math.round(total * 100) / 100)
+      total += cart[i].price * cart[i].quantity;
+      setIsTotal(Math.round(total * 100) / 100);
     }
   }, []);
 
@@ -35,7 +36,7 @@ export default function Cart() {
         <div className="cart-top">
           <div className="bag">
             <CartIcon path={mdiWalletTravel} size={1} />
-            <p>1 ITEM</p>
+            <p>{cart.length} ITEM</p>
           </div>
           <button>
             <Close path={mdiClose} size={1} />
