@@ -706,6 +706,7 @@ header h2 {
   position: relative;
   display: flex;
   justify-content: flex-end;
+  display: none;
 }
 
 .cart-body {

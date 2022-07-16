@@ -14,6 +14,7 @@ import Cart from "./Cart";
 
 function Header() {
   const [isMobile, setIsMobile] = useState(false);
+  const [isActive, setIsActive] = useState(false);
 
   const handleClick = () => {
     isMobile ? setIsMobile(false) : setIsMobile(true);
@@ -23,6 +24,17 @@ function Header() {
     <Router>
       <Cart />
       <header>
+        <div className="mobile-menu">
+          <Icon
+            path={mdiMenu}
+            title="mobileMenu"
+            size={1.4}
+            onClick={handleClick}
+            style={{
+              display: isMobile ? "none" : "block",
+            }}
+          />
+        </div>
         <div className="logo">
           {/* <img src={Logo} alt="" /> */}
           <h2>ZAWN</h2>
@@ -30,15 +42,7 @@ function Header() {
         <div className="nav-container">
           <div className="mobile-menu">
             <div className="icon">
-              <Icon
-                path={mdiMenu}
-                title="mobileMenu"
-                size={1.4}
-                onClick={handleClick}
-                style={{
-                  display: isMobile ? "none" : "block",
-                }}
-              />
+              <CartIcon path={mdiWalletTravel} size={1.2} />
             </div>
             <div
               className="side-bar-nav"
@@ -64,11 +68,7 @@ function Header() {
                     About
                   </Link>
                 </li>
-                <li>
-                  <Link to="/cart" onClick={handleClick}>
-                    Cart
-                  </Link>
-                </li>
+                <li></li>
               </ul>
             </div>
           </div>

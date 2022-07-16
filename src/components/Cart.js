@@ -8,7 +8,6 @@ import { cart } from "./ProductMain";
 
 export default function Cart() {
   const [isTotal, setIsTotal] = useState(0);
-
   const cartComp = cart.map((item) => {
     return (
       <CartItems
