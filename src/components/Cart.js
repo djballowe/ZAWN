@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import CartIcon from "@mdi/react";
 import { mdiWalletTravel } from "@mdi/js";
 import Close from "@mdi/react";
@@ -8,6 +8,7 @@ import { cartItemsArray } from "./ProductMain";
 
 export default function Cart(props) {
   const [isTotal, setIsTotal] = useState(0);
+  const [isQuantity, setIsQuantity] = useState(props.quantity)
   const cartComp = cartItemsArray.map((item) => {
     return (
       <CartItems
@@ -23,13 +24,16 @@ export default function Cart(props) {
 
   useEffect(() => {
     let total = 0;
-    cartItemsArray.forEach((item, val) => {
+    let quantity = 0;
+    cartItemsArray.forEach((item) => {
       total +=
         Math.round((item.price * item.quantity + Number.EPSILON) * 100) / 100;
+      quantity += item.quantity;
     });
-
+    setIsQuantity(quantity);
     setIsTotal(total.toFixed(2));
   });
+
 
   return (
     <div className="cart-container">
@@ -37,7 +41,7 @@ export default function Cart(props) {
         <div className="cart-top">
           <div className="bag">
             <CartIcon path={mdiWalletTravel} size={1} />
-            <p>{cartItemsArray.length} ITEM</p>
+            <p>{isQuantity} ITEMS</p>
           </div>
           <button>
             <Close path={mdiClose} size={1} onClick={props.onClick} />

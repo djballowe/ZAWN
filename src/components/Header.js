@@ -21,17 +21,15 @@ function Header() {
   const handleClick = () => {
     isMobile ? setIsMobile(false) : setIsMobile(true);
   };
-
+  
+  let total = 0;
   const cartClick = () => {
-    let total = 0;
     cartItemsArray.forEach((item) => {
       total += item.quantity;
     });
     setIsAmount(total);
     isActive ? setIsActive(false) : setIsActive(true);
   };
-
-  useEffect(() => {});
 
   return (
     <Router>
@@ -42,7 +40,7 @@ function Header() {
           display: isActive ? "block" : "none",
         }}
       >
-        <Cart onClick={cartClick} />
+        <Cart onClick={cartClick} quantity={isAmount} />
       </div>
       <header>
         <div className="mobile-menu">
