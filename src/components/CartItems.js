@@ -23,9 +23,13 @@ export default function CartItems(props) {
     console.log(cartItemsArray);
   };
 
-  // useEffect(() => {
-  //   setIsQuantity(props.quantity)
-  // }, [props.quantity])
+  useEffect(() => {
+    let total = 0;
+    cartItemsArray.forEach((item) => {
+      total += item.quantity;
+    });
+    setIsQuantity(total);
+  });
 
   return (
     <div className="item-full">

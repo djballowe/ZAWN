@@ -22,8 +22,8 @@ function Header() {
     isMobile ? setIsMobile(false) : setIsMobile(true);
   };
   
-  let total = 0;
   const cartClick = () => {
+    let total = 0;
     cartItemsArray.forEach((item) => {
       total += item.quantity;
     });

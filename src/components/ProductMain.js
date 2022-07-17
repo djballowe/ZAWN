@@ -37,15 +37,21 @@ function ProductMain(props) {
 
   const handleClick = () => {
     props.handle();
-    cartItemsArray.push(
-      new CartItemCreator(
-        product.title,
-        product.src,
-        product.price,
-        product.id,
-        1
-      )
-    );
+    if (cartItemsArray.find((x) => x.id === product.id)) {
+      cartItemsArray[
+        cartItemsArray.map((item) => item.id).indexOf(product.id)
+      ].quantity += 1;
+    } else {
+      cartItemsArray.push(
+        new CartItemCreator(
+          product.title,
+          product.src,
+          product.price,
+          product.id,
+          1
+        )
+      );
+    }
     console.log(cartItemsArray);
   };
 
