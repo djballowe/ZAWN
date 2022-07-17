@@ -4,19 +4,21 @@ import Minus from "../Images/minus.png";
 import { cartItemsArray } from "./ProductMain";
 
 export default function CartItems(props) {
- const [isQuantity, setIsQuantity] = useState(props.quantity)
- 
+  const [isQuantity, setIsQuantity] = useState(props.quantity);
+
   const handleClick = (e) => {
     const index = e.target.getAttribute("name");
     const name = cartItemsArray.find((x) => x.id === index);
-    console.log(name);
+
     if (e.target.id === "+") {
-      setIsQuantity(name.quantity += 1);
-      console.log(isQuantity)
-    } else if(e.target.id === '-' && name.quantity !== 1) {
-      setIsQuantity(name.quantity -= 1);
-    } else if (e.target.id === '-' && name.quantity === 1){
-      cartItemsArray.splice(index, 1);
+      setIsQuantity((name.quantity += 1));
+    } else if (e.target.id === "-" && name.quantity !== 1) {
+      setIsQuantity((name.quantity -= 1));
+    } else if (e.target.id === "-" && name.quantity === 1) {
+      cartItemsArray.splice(
+        cartItemsArray.map((item) => item.id).indexOf(index),
+        1
+      );
     }
     console.log(cartItemsArray);
   };
@@ -24,7 +26,6 @@ export default function CartItems(props) {
   // useEffect(() => {
   //   setIsQuantity(props.quantity)
   // }, [props.quantity])
-
 
   return (
     <div className="item-full">

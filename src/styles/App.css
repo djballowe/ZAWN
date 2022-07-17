@@ -803,6 +803,8 @@ header h2 {
 .quantity {
   margin-top: 10px;
   display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .quantity button {
   width: 30px;

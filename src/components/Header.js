@@ -32,7 +32,6 @@ function Header() {
     });
   });
 
-
   return (
     <Router>
       <div
@@ -42,7 +41,7 @@ function Header() {
           display: isActive ? "block" : "none",
         }}
       >
-        <Cart />
+        <Cart onClick={cartClick}/>
       </div>
       <header>
         <div className="mobile-menu">
@@ -121,7 +120,10 @@ function Header() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/product" element={<ProductPage />} />
-        <Route path="/product/:id" element={<ProductMain handle={cartClick} />} />
+        <Route
+          path="/product/:id"
+          element={<ProductMain handle={cartClick} />}
+        />
         <Route path="*" element={<Error />} />
       </Routes>
     </Router>

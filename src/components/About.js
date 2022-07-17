@@ -10,8 +10,8 @@ function About() {
   const aboutRef = useRef();
 
   const handleClick = () => {
-    aboutRef.current.scrollIntoView({ behavior: 'smooth' })
-  }
+    aboutRef.current.scrollIntoView({ behavior: "smooth" });
+  };
   return (
     <div className="about-container">
       <div className="about-cover">
@@ -19,7 +19,12 @@ function About() {
         <div className="image-text">
           <p>A SMALL COMPANY WITH BIG DREAMS OF A CLEANER TOMORROW.</p>
           <div>
-            <Arrow path={mdiChevronDown} size={2.5} className="arrow" onClick={handleClick}/>
+            <Arrow
+              path={mdiChevronDown}
+              size={2.5}
+              className="arrow"
+              onClick={handleClick}
+            />
           </div>
         </div>
       </div>

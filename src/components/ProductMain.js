@@ -27,7 +27,6 @@ class CartItemCreator {
 }
 
 function ProductMain(props) {
-
   let { id } = useParams();
 
   let product = data.find((x) => x.id === id);
@@ -37,7 +36,7 @@ function ProductMain(props) {
   });
 
   const handleClick = () => {
-    props.handle()
+    props.handle();
     cartItemsArray.push(
       new CartItemCreator(
         product.title,

@@ -104,6 +104,8 @@
 .quantity {
   margin-top: 10px;
   display: flex;
+  align-items: center;
+  justify-content: space-between;
   button {
     width: 30px;
     height: 30px;
@@ -119,6 +121,7 @@
     width: auto;
     height: 60%;
   }
+  
 }
 .quantity input {
   -webkit-appearance: none;

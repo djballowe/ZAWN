@@ -7,7 +7,7 @@ import CartItems from "./CartItems";
 import { cartItemsArray } from "./ProductMain";
 
 export default function Cart(props) {
-  const [isTotal, setIsTotal] = useState(props.price)
+  const [isTotal, setIsTotal] = useState(0);
   const cartComp = cartItemsArray.map((item) => {
     return (
       <CartItems
@@ -20,6 +20,16 @@ export default function Cart(props) {
       />
     );
   });
+
+  useEffect(() => {
+    let total = 0;
+    cartItemsArray.forEach((item, val) => {
+      total +=
+        Math.round((item.price * item.quantity + Number.EPSILON) * 100) / 100;
+    });
+
+    setIsTotal(Math.round((total + Number.EPSILON) * 100) / 100);
+  }, );
 
   return (
     <div className="cart-container">
