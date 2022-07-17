@@ -23,14 +23,15 @@ function Header() {
   };
 
   const cartClick = () => {
+    let total = 0;
+    cartItemsArray.forEach((item) => {
+      total += item.quantity;
+    });
+    setIsAmount(total);
     isActive ? setIsActive(false) : setIsActive(true);
   };
 
-  useEffect(() => {
-    cartItemsArray.forEach((item, val) => {
-      setIsAmount(item.quantity + val);
-    });
-  });
+  useEffect(() => {});
 
   return (
     <Router>
@@ -41,7 +42,7 @@ function Header() {
           display: isActive ? "block" : "none",
         }}
       >
-        <Cart onClick={cartClick}/>
+        <Cart onClick={cartClick} />
       </div>
       <header>
         <div className="mobile-menu">
@@ -105,6 +106,7 @@ function Header() {
             <li>
               <CartIcon path={mdiWalletTravel} size={1} onClick={cartClick} />
               <div
+                onClick={cartClick}
                 className="cart-num"
                 style={{
                   display: isAmount > 0 ? "flex" : "none",
