@@ -152,6 +152,23 @@ header h2 {
 .nav {
   display: none;
   cursor: pointer;
+  position: relative;
+}
+
+.cart-num {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  justify-content: center;
+  border: 1px solid;
+  height: 20px;
+  width: 20px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  background-color: #92a9bd;
+  color: white;
+  bottom: 1%;
+  right: 1%;
 }
 
 @media screen and (min-width: 760px) {
@@ -564,7 +581,7 @@ header h2 {
 }
 
 .arrow {
-  margin-top: 20px;
+  margin-top: 6px;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
@@ -675,8 +692,180 @@ header h2 {
     margin-top: 10px;
   }
 }
-@media screen and (min-width: 740px) and (max-width: 999px) {
-  .about-container {
-    width: min(90%, 50rem);
+@media screen and (min-width: 600px) and (max-width: 799px) {
+  .image-text p {
+    font-size: 3.3rem;
   }
+}
+@media screen and (min-width: 800px) and (max-width: 999px) {
+  .image-text p {
+    font-size: 4.5rem;
+  }
+}
+.test-cart {
+  display: none;
+}
+
+.cart-container {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.cart-body {
+  background-color: white;
+  height: 100vh;
+  width: 350px;
+  position: absolute;
+  border: 1px black solid;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.291);
+}
+.cart-top button {
+  background-color: transparent;
+  border: none;
+  font-size: 1.5rem;
+}
+.cart-top p {
+  margin-left: 10px;
+}
+
+.bag {
+  display: flex;
+  align-items: center;
+}
+
+.shipping-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.border {
+  border: 1px black solid;
+  height: 7px;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.bar {
+  background-color: black;
+  height: 7px;
+  border-radius: 10px;
+}
+
+.item-full {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.item-text {
+  width: 120px;
+}
+
+.item-container {
+  padding: 10px;
+}
+.item-container p:first-of-type {
+  font-weight: 100;
+  padding-top: 5px;
+}
+
+.cart-image img {
+  width: 100%;
+  height: 100px;
+  border-radius: 10px;
+}
+
+.add-sub {
+  border: 1px solid black;
+}
+.add-sub input {
+  border: none;
+  width: 10px;
+}
+.add-sub input:focus {
+  outline: none;
+}
+
+.quantity {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.quantity button {
+  width: 30px;
+  height: 30px;
+  background-color: #e1e8ee;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.quantity img {
+  width: auto;
+  height: 60%;
+}
+
+.quantity input {
+  -webkit-appearance: none;
+  border: none;
+  text-align: center;
+  width: 32px;
+  font-size: 16px;
+  color: #43484d;
+  font-weight: 300;
+}
+
+button:focus,
+input:focus {
+  outline: 0;
+}
+
+.subtotal {
+  display: flex;
+  justify-content: space-between;
+}
+
+.checkout {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+  border-top: 1px solid rgba(0, 0, 0, 0.291);
+  bottom: 0;
+}
+.checkout button {
+  background-color: black;
+  color: white;
+  margin-top: 10px;
+  border: none;
+  border-radius: 20px;
+  height: 50px;
+  font-size: 1rem;
+}
+
+.test {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.components {
+  overflow: scroll;
+  height: 100vh;
 }/*# sourceMappingURL=App.css.map */

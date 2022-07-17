@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import data from "../data.js";
 import Star from "@mdi/react";
@@ -12,16 +12,48 @@ import { mdiAccountCheck } from "@mdi/js";
 import Heart from "@mdi/react";
 import { mdiCharity } from "@mdi/js";
 import Color from "./Color.js";
+import Cart from "./Cart.js";
 
-function ProductMain() {
+export const cartItemsArray = [];
+
+class CartItemCreator {
+  constructor(title, src, price, id, quantity) {
+    this.title = title;
+    this.src = src;
+    this.price = price;
+    this.id = id;
+    this.quantity = quantity;
+  }
+}
+
+function ProductMain(props) {
   let { id } = useParams();
 
   let product = data.find((x) => x.id === id);
-  console.log(product.color);
 
   const color = product.color.map((color, index) => {
     return <Color key={index} color={color} />;
   });
+
+  const handleClick = () => {
+    props.handle();
+    if (cartItemsArray.find((x) => x.id === product.id)) {
+      cartItemsArray[
+        cartItemsArray.map((item) => item.id).indexOf(product.id)
+      ].quantity += 1;
+    } else {
+      cartItemsArray.push(
+        new CartItemCreator(
+          product.title,
+          product.src,
+          product.price,
+          product.id,
+          1
+        )
+      );
+    }
+    console.log(cartItemsArray);
+  };
 
   return (
     <div>
@@ -67,7 +99,7 @@ function ProductMain() {
             </div>
           </div>
           <div className="button">
-            <button>Add to Cart</button>
+            <button onClick={handleClick}>Add to Cart</button>
           </div>
           <div className="promise">
             <p>Made to Order</p>

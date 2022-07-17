@@ -27,7 +27,7 @@ export default [
     src: "Product Page/Essential Oil/bundle1.jpg",
     description:
       "One of our most popular products the all natural ethically made essential oils set. All our aromatherapy oils are extracted directly from different parts of plants and professionally bottled for a lasting fragrance. For external use only.",
-      color: []
+    color: [],
   },
 
   {
@@ -42,7 +42,7 @@ export default [
     src: "Product Page/Soap/scrub1.jpg",
     description:
       "A great facial scrub that was designed with the sensitive face in mind. Feel clean clear and rejuvenated with the all natural Shea butter base, no surfactants, detergent, or mono propylene glycol",
-    color: ["Forest", "Aqua", "Snow"]
+    color: ["Forest", "Aqua", "Snow"],
   },
 
   {
@@ -57,7 +57,7 @@ export default [
     src: "Product Page/Bath Rack/bathrack1.jpg",
     description:
       "100% natural wood material. finished with original wood wax oil painting. Made from wood sustainably harvested from a small village in Argentina. You may not think about where you hang your towel but this subtle piece can really bring the bathroom atmosphere together.",
-    color: ["Ash", "Walnut", "Black", "Okuome"]
+    color: ["Ash", "Walnut", "Black", "Okuome"],
   },
 
   {
@@ -72,7 +72,7 @@ export default [
     src: "Product Page/Soap/soap1.jpg",
     description:
       "This all natural organic soap contains nourishing fatty acid and oils high in vitamins E, D, and provitamin A. All while avoiding Sulfate and Detergent. This makes the perfect gift for any conscious friends or treat yourself!",
-      color: ["Forest", "Aqua", "Snow"]
+    color: ["Forest", "Aqua", "Snow"],
   },
 
   {
@@ -87,7 +87,7 @@ export default [
     src: "Product Page/Q-tips/Q-tips1.jpg",
     description:
       "Bamboo Q-tips made 100% plastic free. They contain 0% single use plastic and are completely bio degradable. No more creating needless plastic waste with standard Q-tips and fro the same price.",
-      color: []
+    color: [],
   },
 
   {
@@ -102,7 +102,7 @@ export default [
     src: "Product Page/Shampoo/Shampoo1.jpg",
     description:
       "The iconic Mango Breeze scent is made up of the essential oil blend of orange, mango, pineapple, vanilla, and coconut. Hand made with love only using the finest natural ingredients.",
-      color: []
+    color: [],
   },
 
   {
@@ -117,7 +117,7 @@ export default [
     src: "Product Page/Salt/powder1.jpg",
     description:
       "Our classic brushing formula. A simple daily cleanser for strong teeth and gums. Naturally purifying salt and calcium work together to alkalize the mouth and remineralize enamel, while providing a gentle polish and refreshing herbal taste",
-    color: []
+    color: [],
   },
 
   {
@@ -132,7 +132,7 @@ export default [
     src: "Product Page/Essential Oil/oils1.jpg",
     description:
       "All our aromatherapy oils are extracted directly from different parts of plants and professionally bottled for a lasting fragrance. For external use only.",
-      color: []
+    color: [],
   },
 
   {
@@ -147,7 +147,7 @@ export default [
     src: "Product Page/Brush/brush1.jpg",
     description:
       "A plastic free scrubber that will be your new best friend in the bathroom. the bamboo bristles offers a relaxing sensation without being to rough on the skin. All this and made from all natural, compostable materials.",
-      color: ["Maple", "Walnut", "Redwood"]
+    color: ["Maple", "Walnut", "Redwood"],
   },
 
   {
@@ -162,7 +162,7 @@ export default [
     src: "Product Page/Lotion/lotion1.jpg",
     description:
       "This lightweight moisturizer combines silky smooth jojoba esters and traditional Ayurvedic extracts for a naturally refreshing, fast-penetrating cream.",
-      color: []
+    color: [],
   },
 
   {
@@ -177,6 +177,6 @@ export default [
     src: "Product Page/bundle/fullbundle1.jpg",
     description:
       "The essential all in one kit. If you love our all natural eco friendly products why not get them all?",
-      color: []
+    color: [],
   },
 ];

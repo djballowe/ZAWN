@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import Home from "./Home";
 import About from "./About";
@@ -7,20 +7,53 @@ import ProductPage from "./ProductPage";
 import ProductMain from "./ProductMain";
 import Icon from "@mdi/react";
 import { mdiCar, mdiMenu } from "@mdi/js";
-import Cart from "@mdi/react";
+import CartIcon from "@mdi/react";
 import { mdiWalletTravel } from "@mdi/js";
 import Logo from "../Images/wave.png";
+import Cart from "./Cart";
+import { cartItemsArray } from "./ProductMain";
 
 function Header() {
   const [isMobile, setIsMobile] = useState(false);
+  const [isAmount, setIsAmount] = useState(0);
+  const [isActive, setIsActive] = useState(false);
 
   const handleClick = () => {
     isMobile ? setIsMobile(false) : setIsMobile(true);
   };
+  
+  const cartClick = () => {
+    let total = 0;
+    cartItemsArray.forEach((item) => {
+      total += item.quantity;
+    });
+    setIsAmount(total);
+    isActive ? setIsActive(false) : setIsActive(true);
+  };
 
   return (
     <Router>
+      <div
+        onClick={handleClick}
+        className="test-cart"
+        style={{
+          display: isActive ? "block" : "none",
+        }}
+      >
+        <Cart onClick={cartClick} quantity={isAmount} />
+      </div>
       <header>
+        <div className="mobile-menu">
+          <Icon
+            path={mdiMenu}
+            title="mobileMenu"
+            size={1.4}
+            onClick={handleClick}
+            style={{
+              display: isMobile ? "none" : "block",
+            }}
+          />
+        </div>
         <div className="logo">
           {/* <img src={Logo} alt="" /> */}
           <h2>ZAWN</h2>
@@ -28,15 +61,7 @@ function Header() {
         <div className="nav-container">
           <div className="mobile-menu">
             <div className="icon">
-              <Icon
-                path={mdiMenu}
-                title="mobileMenu"
-                size={1.4}
-                onClick={handleClick}
-                style={{
-                  display: isMobile ? "none" : "block",
-                }}
-              />
+              <CartIcon path={mdiWalletTravel} size={1.2} onClick={cartClick} />
             </div>
             <div
               className="side-bar-nav"
@@ -62,11 +87,7 @@ function Header() {
                     About
                   </Link>
                 </li>
-                <li>
-                  <Link to="/cart" onClick={handleClick}>
-                    Cart
-                  </Link>
-                </li>
+                <li></li>
               </ul>
             </div>
           </div>
@@ -81,9 +102,16 @@ function Header() {
               <Link to="/about">About</Link>
             </li>
             <li>
-              <Link to="/cart">
-                <Cart path={mdiWalletTravel} size={1} />
-              </Link>
+              <CartIcon path={mdiWalletTravel} size={1} onClick={cartClick} />
+              <div
+                onClick={cartClick}
+                className="cart-num"
+                style={{
+                  display: isAmount > 0 ? "flex" : "none",
+                }}
+              >
+                {isAmount}
+              </div>
             </li>
           </ul>
         </div>
@@ -92,7 +120,10 @@ function Header() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/product" element={<ProductPage />} />
-        <Route path="/product/:id" element={<ProductMain />} />
+        <Route
+          path="/product/:id"
+          element={<ProductMain handle={cartClick} />}
+        />
         <Route path="*" element={<Error />} />
       </Routes>
     </Router>
