@@ -8,7 +8,7 @@ import { cartItemsArray } from "./ProductMain";
 
 export default function Cart(props) {
   const [isTotal, setIsTotal] = useState(0);
-  const [isQuantity, setIsQuantity] = useState(props.quantity)
+  const [isQuantity, setIsQuantity] = useState(props.quantity);
   const cartComp = cartItemsArray.map((item) => {
     return (
       <CartItems
@@ -34,7 +34,6 @@ export default function Cart(props) {
     setIsTotal(total.toFixed(2));
   });
 
-
   return (
     <div className="cart-container">
       <div className="cart-body">
@@ -49,9 +48,16 @@ export default function Cart(props) {
         </div>
 
         <div className="shipping-container">
-          <p>Spend $17.00 more and get free shipping!</p>
+          <p>
+            {isTotal > 50
+              ? "You are eligible for free shipping!"
+              : `Spend $${(50 - isTotal).toFixed(2)} to get free shipping!`}
+          </p>
+
           <div className="border">
-            <div className="bar"></div>
+            <div className="bar" style={{
+              width: isTotal >= 50 ? '100%' : `${(isTotal/50) * 100}%`
+            }}></div>
           </div>
         </div>
         <div className="components">{cartComp}</div>
