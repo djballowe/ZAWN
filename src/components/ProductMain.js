@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import data from "../data.js";
 import Star from "@mdi/react";
@@ -14,7 +14,7 @@ import { mdiCharity } from "@mdi/js";
 import Color from "./Color.js";
 import Cart from "./Cart.js";
 
-export const cart = [];
+export const cartItemsArray = [];
 
 class CartItemCreator {
   constructor(title, src, price, id, quantity) {
@@ -26,7 +26,8 @@ class CartItemCreator {
   }
 }
 
-function ProductMain() {
+function ProductMain(props) {
+
   let { id } = useParams();
 
   let product = data.find((x) => x.id === id);
@@ -36,10 +37,17 @@ function ProductMain() {
   });
 
   const handleClick = () => {
-    cart.push(
-      new CartItemCreator(product.title, product.src, product.price, product.id, 1)
+    props.handle()
+    cartItemsArray.push(
+      new CartItemCreator(
+        product.title,
+        product.src,
+        product.price,
+        product.id,
+        1
+      )
     );
-    console.log(cart);
+    console.log(cartItemsArray);
   };
 
   return (

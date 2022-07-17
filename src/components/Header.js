@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import Home from "./Home";
 import About from "./About";
@@ -11,9 +11,11 @@ import CartIcon from "@mdi/react";
 import { mdiWalletTravel } from "@mdi/js";
 import Logo from "../Images/wave.png";
 import Cart from "./Cart";
+import { cartItemsArray } from "./ProductMain";
 
 function Header() {
   const [isMobile, setIsMobile] = useState(false);
+  const [isAmount, setIsAmount] = useState(0);
   const [isActive, setIsActive] = useState(false);
 
   const handleClick = () => {
@@ -24,12 +26,23 @@ function Header() {
     isActive ? setIsActive(false) : setIsActive(true);
   };
 
+  useEffect(() => {
+    cartItemsArray.forEach((item, val) => {
+      setIsAmount(item.quantity + val);
+    });
+  });
+
+
   return (
     <Router>
-      <div className="test-cart" style={{
-        display: isActive ? "block" : "none"
-      }}>
-        <Cart onClick={cartClick} />
+      <div
+        onClick={handleClick}
+        className="test-cart"
+        style={{
+          display: isActive ? "block" : "none",
+        }}
+      >
+        <Cart />
       </div>
       <header>
         <div className="mobile-menu">
@@ -91,10 +104,15 @@ function Header() {
               <Link to="/about">About</Link>
             </li>
             <li>
-              <Link to="/cart">
-                <CartIcon path={mdiWalletTravel} size={1} />
-              </Link>
-              <div className="cart-num">3</div>
+              <CartIcon path={mdiWalletTravel} size={1} onClick={cartClick} />
+              <div
+                className="cart-num"
+                style={{
+                  display: isAmount > 0 ? "flex" : "none",
+                }}
+              >
+                {isAmount}
+              </div>
             </li>
           </ul>
         </div>
@@ -103,7 +121,7 @@ function Header() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/product" element={<ProductPage />} />
-        <Route path="/product/:id" element={<ProductMain />} />
+        <Route path="/product/:id" element={<ProductMain handle={cartClick} />} />
         <Route path="*" element={<Error />} />
       </Routes>
     </Router>

@@ -1,20 +1,30 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Plus from "../Images/plus.png";
 import Minus from "../Images/minus.png";
-import { cart } from "./ProductMain";
+import { cartItemsArray } from "./ProductMain";
 
 export default function CartItems(props) {
+ const [isQuantity, setIsQuantity] = useState(props.quantity)
+ 
   const handleClick = (e) => {
-    const index = parseInt(e.target.getAttribute("name"));
+    const index = e.target.getAttribute("name");
+    const name = cartItemsArray.find((x) => x.id === index);
+    console.log(name);
     if (e.target.id === "+") {
-      cart[index].quantity += 1;
-    } else if(e.target.id === '-' && cart[index].quantity !== 1){
-      cart[index].quantity -= 1;
-    } else {
-      cart.splice(index, 1);
+      setIsQuantity(name.quantity += 1);
+      console.log(isQuantity)
+    } else if(e.target.id === '-' && name.quantity !== 1) {
+      setIsQuantity(name.quantity -= 1);
+    } else if (e.target.id === '-' && name.quantity === 1){
+      cartItemsArray.splice(index, 1);
     }
-    console.log(cart);
+    console.log(cartItemsArray);
   };
+
+  // useEffect(() => {
+  //   setIsQuantity(props.quantity)
+  // }, [props.quantity])
+
 
   return (
     <div className="item-full">
@@ -36,12 +46,12 @@ export default function CartItems(props) {
           >
             <img src={Plus} alt="" id="+" name={props.id} />
           </button>
-          <input type="text" name="name" placeholder="1" />
+          <div>{isQuantity}</div>
           <button
             className="minus-btn"
             id="-"
             onClick={handleClick}
-            name={props.item}
+            name={props.id}
           >
             <img src={Minus} alt="" id="-" name={props.id} />
           </button>
