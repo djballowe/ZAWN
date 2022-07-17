@@ -28,8 +28,8 @@ export default function Cart(props) {
         Math.round((item.price * item.quantity + Number.EPSILON) * 100) / 100;
     });
 
-    setIsTotal(Math.round((total + Number.EPSILON) * 100) / 100);
-  }, );
+    setIsTotal(total.toFixed(2));
+  });
 
   return (
     <div className="cart-container">
