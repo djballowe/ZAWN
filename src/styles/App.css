@@ -191,6 +191,7 @@ header h2 {
     position: -webkit-sticky;
     position: sticky;
     top: 0;
+    background-color: white;
   }
   header h2 {
     font-size: 2rem;
@@ -237,12 +238,23 @@ header h2 {
   padding: 5px 0;
   font-weight: 100;
 }
-.collection-text div {
+
+.shopNow {
   display: none;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   margin-top: 50px;
   -webkit-animation: slideUp ease-in-out 2s;
           animation: slideUp ease-in-out 2s;
+}
+.shopNow p {
+  font-style: italic;
+  font-size: 1.2rem;
+  font-weight: 100;
+}
+
+.scroll {
+  height: 60px;
 }
 
 .products-grid {
@@ -340,21 +352,28 @@ header h2 {
     max-width: none;
     min-width: none;
   }
+  .shopNow {
+    display: flex;
+    cursor: pointer;
+  }
+  .shopNow:hover {
+    transform: translateY(8px);
+  }
+  .shopNow p {
+    -webkit-animation-delay: 3s;
+            animation-delay: 3s;
+    -webkit-animation: fade ease-in-out 2s;
+            animation: fade ease-in-out 2s;
+  }
+  .shopNow div {
+    -webkit-animation: slideUp ease-in-out 2s;
+            animation: slideUp ease-in-out 2s;
+  }
   .collection-text h2 {
     font-size: 3rem;
   }
   .collection-text p {
     font-size: 2rem;
-  }
-  .collection-text div {
-    display: flex;
-    -webkit-animation: slideUp ease-in-out 2s;
-            animation: slideUp ease-in-out 2s;
-    transition: all 0.5s ease-in-out;
-    cursor: pointer;
-  }
-  .collection-text div:hover {
-    transform: translateY(8px);
   }
 }
 @media screen and (min-width: 740px) and (max-width: 999px) {
@@ -370,7 +389,7 @@ header h2 {
   .collection-text p {
     font-size: 1.5rem;
   }
-  .collection-text div {
+  .shopNow {
     display: flex;
   }
   .collection-image img {

@@ -20,7 +20,6 @@ function Header() {
 
   const handleClick = () => {
     isMobile ? setIsMobile(false) : setIsMobile(true);
-    console.log("click");
   };
 
   const cartClick = () => {

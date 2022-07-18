@@ -38,15 +38,26 @@
     padding: 5px 0;
     font-weight: 100;
   }
-  div {
-    display: none;
-    justify-content: center;
-    margin-top: 50px;
-    animation: slideUp ease-in-out 2s;
-  }
   margin-bottom: 10px;
   display: flex;
   flex-direction: column;
+}
+
+.shopNow {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+  animation: slideUp ease-in-out 2s;
+  p {
+    font-style: italic;
+    font-size: 1.2rem;
+    font-weight: 100;
+  }
+}
+
+.scroll {
+  height: 60px;
 }
 
 .products-grid {
@@ -128,21 +139,29 @@
     }
   }
 
+  .shopNow {
+    display: flex;
+    cursor: pointer;
+    &:hover {
+      transform: translateY(8px);
+    }
+
+    p {
+      animation-delay: 3s;
+      animation: fade ease-in-out 2s;
+
+    }
+    div {
+      animation: slideUp ease-in-out 2s;
+    }
+  }
+
   .collection-text {
     h2 {
       font-size: 3rem;
     }
     p {
       font-size: 2rem;
-    }
-    div {
-      display: flex;
-      animation: slideUp ease-in-out 2s;
-      transition: all 0.5s ease-in-out;
-      cursor: pointer;
-      &:hover {
-        transform: translateY(8px);
-      }
     }
   }
 }
@@ -162,9 +181,10 @@
     p {
       font-size: 1.5rem;
     }
-    div {
-      display: flex;
-    }
+  }
+
+  .shopNow {
+    display: flex;
   }
 
   .collection-image {
