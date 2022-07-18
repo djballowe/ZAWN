@@ -238,7 +238,7 @@ header h2 {
   font-weight: 100;
 }
 .collection-text div {
-  display: flex;
+  display: none;
   justify-content: center;
   margin-top: 50px;
   -webkit-animation: slideUp ease-in-out 2s;
@@ -347,6 +347,7 @@ header h2 {
     font-size: 2rem;
   }
   .collection-text div {
+    display: flex;
     -webkit-animation: slideUp ease-in-out 2s;
             animation: slideUp ease-in-out 2s;
     transition: all 0.5s ease-in-out;
@@ -368,6 +369,9 @@ header h2 {
   }
   .collection-text p {
     font-size: 1.5rem;
+  }
+  .collection-text div {
+    display: flex;
   }
   .collection-image img {
     max-width: 400px;
@@ -596,7 +600,7 @@ header h2 {
 }
 
 .side-bar-nav {
-  display: none;
+  display: flex;
   position: fixed;
   left: 50%;
   top: 50%;
@@ -608,6 +612,7 @@ header h2 {
   text-align: center;
   flex-direction: column;
   justify-content: center;
+  transition: all ease-in 0.4s;
 }
 .side-bar-nav li {
   padding: 10px 0;

@@ -39,7 +39,7 @@
     font-weight: 100;
   }
   div {
-    display: flex;
+    display: none;
     justify-content: center;
     margin-top: 50px;
     animation: slideUp ease-in-out 2s;
@@ -136,6 +136,7 @@
       font-size: 2rem;
     }
     div {
+      display: flex;
       animation: slideUp ease-in-out 2s;
       transition: all 0.5s ease-in-out;
       cursor: pointer;
@@ -160,6 +161,9 @@
     }
     p {
       font-size: 1.5rem;
+    }
+    div {
+      display: flex;
     }
   }
 

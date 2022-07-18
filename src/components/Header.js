@@ -20,6 +20,7 @@ function Header() {
 
   const handleClick = () => {
     isMobile ? setIsMobile(false) : setIsMobile(true);
+    console.log('click')
   };
 
   const cartClick = () => {
@@ -42,14 +43,14 @@ function Header() {
       <div
         className="test-cart"
         style={{
-          visibility: isActive === true ? "visible" : "hidden",
+          visibility: isActive ? "visible" : "hidden",
         }}
       >
         <Cart onClick={cartClick} quantity={isAmount} open={isActive} />
         <div
           className="overlay"
           style={{
-            opacity: isActive === true ? "1" : "0",
+            opacity: isActive ? "1" : "0",
           }}
         ></div>
       </div>
@@ -60,9 +61,6 @@ function Header() {
             title="mobileMenu"
             size={1.4}
             onClick={handleClick}
-            style={{
-              display: isMobile ? "none" : "block",
-            }}
           />
         </div>
         <div className="logo">
@@ -78,10 +76,10 @@ function Header() {
               className="side-bar-nav"
               onClick={handleClick}
               style={{
-                display: isMobile ? "flex" : "none",
+                visibility: isMobile ? "visible" : "hidden",
+                opacity: isMobile ? "1" : "0"
               }}
             >
-              <div className="close">X</div>
               <ul>
                 <li>
                   <Link to="/" onClick={handleClick}>

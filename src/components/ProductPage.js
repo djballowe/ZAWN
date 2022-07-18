@@ -11,7 +11,7 @@ function ProductPage() {
   const handleClick = () => {
     productsRef.current.scrollIntoView({ behavior: "smooth" });
   };
-  
+
   const products = data.map((item) => {
     return (
       <Products
@@ -31,16 +31,16 @@ function ProductPage() {
           <h2>COLLECTION</h2>
           <p>2022</p>
           <div onClick={handleClick}>
-            <DownArrow path={mdiChevronDown} size={2}/>
+            <DownArrow path={mdiChevronDown} size={2} />
           </div>
         </div>
         <div className="collection-image">
-          <div>
-            <img src={Cover} alt="" />
-          </div>
+          <img src={Cover} alt="" />
         </div>
       </div>
-      <div className="products-grid" ref={productsRef}>{products}</div>
+      <div className="products-grid" ref={productsRef}>
+        {products}
+      </div>
     </div>
   );
 }
