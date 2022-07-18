@@ -32,24 +32,26 @@ function Header() {
   };
 
   useEffect(() => {
-    if (isActive === true) {
-      document.body.style.overflow = "hidden"
-    } else if (isActive === false) {
-      document.body.style.overflow = "visible"
-    }
-  })
+    isActive === true
+      ? (document.body.style.overflow = "hidden")
+      : (document.body.style.overflow = "visible");
+  });
 
   return (
     <Router>
       <div
-        onClick={handleClick}
         className="test-cart"
         style={{
-          display: isActive ? "block" : "none",
+          visibility: isActive === true ? "visible" : "hidden",
         }}
       >
-        <Cart onClick={cartClick} quantity={isAmount} />
-        <div className="overlay"></div>
+        <Cart onClick={cartClick} quantity={isAmount} open={isActive} />
+        <div
+          className="overlay"
+          style={{
+            opacity: isActive === true ? "1" : "0",
+          }}
+        ></div>
       </div>
       <header>
         <div className="mobile-menu">
