@@ -318,12 +318,6 @@ header h2 {
   border-radius: 10px;
 }
 
-.image {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .title {
   display: flex;
   align-items: center;
@@ -401,6 +395,13 @@ header h2 {
   border: none;
   color: white;
   font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.button button:hover {
+  color: #92a9bd;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.291);
 }
 
 .promise {
@@ -413,18 +414,21 @@ header h2 {
   .individual-container {
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
     margin-inline: auto;
-    width: min(90%, 90rem);
+    width: min(90%, 80rem);
   }
-  .cell2 {
-    padding: 0 100px;
-  }
-  .image img {
-    height: 700px;
-    width: auto;
+  .individual-container img {
+    height: auto;
+    width: 100%;
+    margin-right: 50px;
   }
   .title {
     margin-top: 0px;
+  }
+  .cell2 {
+    padding: 0 100px;
   }
 }
 .White {
@@ -651,7 +655,7 @@ header h2 {
   outline: none;
 }
 
-.button button {
+.about-button button {
   background-color: #92a9bd;
   color: white;
   display: flex;
@@ -666,7 +670,7 @@ header h2 {
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
-.button button:hover {
+.about-button button:hover {
   color: #92a9bd;
   background-color: white;
   border: 1px solid rgba(0, 0, 0, 0.291);
