@@ -21,7 +21,7 @@ function Header() {
   const handleClick = () => {
     isMobile ? setIsMobile(false) : setIsMobile(true);
   };
-  
+
   const cartClick = () => {
     let total = 0;
     cartItemsArray.forEach((item) => {
@@ -41,6 +41,7 @@ function Header() {
         }}
       >
         <Cart onClick={cartClick} quantity={isAmount} />
+        <div className="overlay"></div>
       </div>
       <header>
         <div className="mobile-menu">

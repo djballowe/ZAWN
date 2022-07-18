@@ -187,6 +187,12 @@ header h2 {
   .mobile-menu {
     display: none;
   }
+  header {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    background-color: white;
+  }
   header h2 {
     font-size: 2rem;
   }
@@ -711,7 +717,6 @@ header h2 {
 }
 
 .cart-container {
-  position: relative;
   display: flex;
   justify-content: flex-end;
 }
@@ -720,11 +725,18 @@ header h2 {
   background-color: white;
   height: 100vh;
   width: 350px;
-  position: absolute;
+  position: fixed;
   border: 1px black solid;
   z-index: 100;
   display: flex;
   flex-direction: column;
+}
+
+.overlay {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.435);
+  position: fixed;
 }
 
 .cart-top {
@@ -872,4 +884,10 @@ input:focus {
 .components {
   overflow: scroll;
   height: 100vh;
+}
+
+@media screen and (min-width: 1000px) {
+  .cart-body {
+    width: 550px;
+  }
 }/*# sourceMappingURL=App.css.map */
