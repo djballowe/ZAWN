@@ -5,6 +5,7 @@ import { cartItemsArray } from "./ProductMain";
 
 export default function CartItems(props) {
   const [isQuantity, setIsQuantity] = useState(props.quantity);
+  const [isOpen, setIsOpen] = useState(props.open);
 
   const setParent = (value) => {
     props.set(value);
@@ -13,13 +14,13 @@ export default function CartItems(props) {
   const handleClick = (e) => {
     const index = e.target.getAttribute("name");
     const name = cartItemsArray.find((x) => x.id === index);
-    let value
+    let value = 0;
     if (e.target.id === "+") {
-      value = name.quantity += 1
+      value = name.quantity += 1;
       setIsQuantity(value);
       setParent(value);
     } else if (e.target.id === "-" && name.quantity !== 1) {
-      value = name.quantity -= 1
+      value = name.quantity -= 1;
       setIsQuantity(value);
       setParent(value);
     } else if (e.target.id === "-" && name.quantity === 1) {
@@ -27,16 +28,24 @@ export default function CartItems(props) {
         cartItemsArray.map((item) => item.id).indexOf(index),
         1
       );
+        setParent(value);
     }
     console.log(cartItemsArray);
   };
 
   useEffect(() => {
     setIsQuantity(props.quantity);
-  }, [props.quantity]);
+    setIsOpen(props.open);
+  }, [props.open, props.quantity]);
 
   return (
-    <div className="item-full">
+    <div
+      className="item-full"
+      style={{
+        opacity: isOpen ? "1" : 0,
+        right: isOpen ? "0" : "-200px",
+      }}
+    >
       <div className="cart-image">
         <img src={require(`../Images/${props.src}`)} alt="" />
       </div>

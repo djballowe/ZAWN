@@ -25,6 +25,7 @@ export default function Cart(props) {
         src={item.src}
         quantity={item.quantity}
         set={setParentTotal}
+        open={props.open}
       />
     );
   });
