@@ -31,6 +31,14 @@ function Header() {
     isActive ? setIsActive(false) : setIsActive(true);
   };
 
+  useEffect(() => {
+    if (isActive === true) {
+      document.body.style.overflow = "hidden"
+    } else if (isActive === false) {
+      document.body.style.overflow = "visible"
+    }
+  })
+
   return (
     <Router>
       <div
