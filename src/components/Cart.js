@@ -10,6 +10,11 @@ export default function Cart(props) {
   const [isTotal, setIsTotal] = useState(0);
   const [isQuantity, setIsQuantity] = useState(props.quantity);
   const [isActive, setIsActive] = useState(props.open);
+
+  const setParentTotal = (value) => {
+    setIsQuantity(value);
+  };
+
   const cartComp = cartItemsArray.map((item) => {
     return (
       <CartItems
@@ -19,28 +24,26 @@ export default function Cart(props) {
         price={item.price}
         src={item.src}
         quantity={item.quantity}
+        set={setParentTotal}
       />
     );
   });
 
   useEffect(() => {
     let total = 0;
-    let quantity = 0;
     cartItemsArray.forEach((item) => {
       total +=
         Math.round((item.price * item.quantity + Number.EPSILON) * 100) / 100;
-      quantity += item.quantity;
     });
-    setIsQuantity(quantity);
-    setIsTotal(total.toFixed(2));
     setIsActive(props.open);
-  });
+    setIsTotal(total.toFixed(2));
+  }, [props.open, isQuantity]);
 
   return (
     <div
       className="cart-body"
       style={{
-        right: isActive === true ? "0" : "-550px",
+        right: isActive ? "0" : "-550px",
       }}
     >
       <div className="cart-top">

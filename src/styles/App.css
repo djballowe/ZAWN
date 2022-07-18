@@ -728,7 +728,7 @@ header h2 {
   flex-direction: column;
   top: 0;
   right: 0;
-  transition: all 0.5s cubic-bezier(0.82, 0.085, 0.395, 0.895);
+  transition: right 0.5s cubic-bezier(0.82, 0.085, 0.395, 0.895);
 }
 
 .overlay {

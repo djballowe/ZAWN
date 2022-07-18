@@ -6,14 +6,22 @@ import { cartItemsArray } from "./ProductMain";
 export default function CartItems(props) {
   const [isQuantity, setIsQuantity] = useState(props.quantity);
 
+  const setParent = (value) => {
+    props.set(value);
+  };
+
   const handleClick = (e) => {
     const index = e.target.getAttribute("name");
     const name = cartItemsArray.find((x) => x.id === index);
-
+    let value
     if (e.target.id === "+") {
-      setIsQuantity((name.quantity += 1));
+      value = name.quantity += 1
+      setIsQuantity(value);
+      setParent(value);
     } else if (e.target.id === "-" && name.quantity !== 1) {
-      setIsQuantity((name.quantity -= 1));
+      value = name.quantity -= 1
+      setIsQuantity(value);
+      setParent(value);
     } else if (e.target.id === "-" && name.quantity === 1) {
       cartItemsArray.splice(
         cartItemsArray.map((item) => item.id).indexOf(index),
@@ -25,7 +33,7 @@ export default function CartItems(props) {
 
   useEffect(() => {
     setIsQuantity(props.quantity);
-  });
+  }, [props.quantity]);
 
   return (
     <div className="item-full">
