@@ -12,7 +12,6 @@ import { mdiAccountCheck } from "@mdi/js";
 import Heart from "@mdi/react";
 import { mdiCharity } from "@mdi/js";
 import Color from "./Color.js";
-import Cart from "./Cart.js";
 
 export const cartItemsArray = [];
 

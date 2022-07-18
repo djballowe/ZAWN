@@ -191,7 +191,6 @@ header h2 {
     position: -webkit-sticky;
     position: sticky;
     top: 0;
-    background-color: white;
   }
   header h2 {
     font-size: 2rem;
@@ -219,10 +218,16 @@ header h2 {
   min-width: 320px;
   max-width: 500px;
   border: solid black 1px;
+  -webkit-animation: fade ease-in-out 1s;
+          animation: fade ease-in-out 1s;
 }
 
 .collection-text {
+  -webkit-animation: slideUp ease-in-out 1s;
+          animation: slideUp ease-in-out 1s;
   margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
 }
 .collection-text h2 {
   font-weight: 300;
@@ -231,6 +236,13 @@ header h2 {
 .collection-text p {
   padding: 5px 0;
   font-weight: 100;
+}
+.collection-text div {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  -webkit-animation: slideUp ease-in-out 2s;
+          animation: slideUp ease-in-out 2s;
 }
 
 .products-grid {
@@ -269,11 +281,49 @@ header h2 {
   padding: 3px;
 }
 
+@-webkit-keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+@-webkit-keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 @media screen and (min-width: 1000px) {
   .products-container {
     justify-content: space-between;
   }
   .collection {
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -295,6 +345,15 @@ header h2 {
   }
   .collection-text p {
     font-size: 2rem;
+  }
+  .collection-text div {
+    -webkit-animation: slideUp ease-in-out 2s;
+            animation: slideUp ease-in-out 2s;
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+  }
+  .collection-text div:hover {
+    transform: translateY(8px);
   }
 }
 @media screen and (min-width: 740px) and (max-width: 999px) {
