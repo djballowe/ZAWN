@@ -20,7 +20,7 @@ function Header() {
 
   const handleClick = () => {
     isMobile ? setIsMobile(false) : setIsMobile(true);
-    console.log('click')
+    console.log("click");
   };
 
   const cartClick = () => {
@@ -48,6 +48,7 @@ function Header() {
       >
         <Cart onClick={cartClick} quantity={isAmount} open={isActive} />
         <div
+          onClick={cartClick}
           className="overlay"
           style={{
             opacity: isActive ? "1" : "0",
@@ -77,7 +78,7 @@ function Header() {
               onClick={handleClick}
               style={{
                 visibility: isMobile ? "visible" : "hidden",
-                opacity: isMobile ? "1" : "0"
+                opacity: isMobile ? "1" : "0",
               }}
             >
               <ul>
