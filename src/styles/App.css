@@ -526,21 +526,16 @@ header h2 {
   .individual-container {
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     margin-inline: auto;
-    width: min(90%, 80rem);
+    width: min(90%, 70rem);
   }
   .individual-container img {
     height: auto;
-    width: 100%;
-    margin-right: 50px;
+    width: 80%;
   }
   .title {
     margin-top: 0px;
-  }
-  .cell2 {
-    padding: 0 100px;
   }
 }
 .White {
@@ -1027,6 +1022,13 @@ input:focus {
   border-radius: 20px;
   height: 50px;
   font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.checkout button:hover {
+  color: black;
+  border: 1px solid black;
+  background-color: white;
 }
 
 .test {

@@ -300,20 +300,15 @@
   .individual-container {
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     margin-inline: auto;
-    width: min(90%, 80rem);
+    width: min(90%, 70rem);
     img {
       height: auto;
-      width: 100%;
-      margin-right: 50px;
+      width: 80%;
     }
   }
   .title {
     margin-top: 0px;
-  }
-  .cell2 {
-    padding: 0 100px;
   }
 }
