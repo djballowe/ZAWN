@@ -22,11 +22,7 @@ function About() {
           <span>OF A CLEANER </span>
           <span>TOMORROW</span>
           <div className="arrow">
-            <Arrow
-              path={mdiChevronDown}
-              size={2.5}
-              onClick={handleClick}
-            />
+            <Arrow path={mdiChevronDown} size={2.5} onClick={handleClick} />
           </div>
         </div>
       </div>

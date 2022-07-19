@@ -58,6 +58,7 @@ function ProductMain(props) {
     <div>
       <div className="individual-container">
         <img src={require(`../Images/${product.src}`)} alt="" />
+        <div className="slides"></div>
 
         <div className="cell2">
           <div className="title">
