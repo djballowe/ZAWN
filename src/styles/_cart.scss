@@ -1,7 +1,7 @@
 .test-cart {
   display: flex;
   justify-content: flex-end;
-  transition: all 0s ease-in-out;
+  transition: visibility .5s ease-in-out;
 }
 
 .cart-body {
