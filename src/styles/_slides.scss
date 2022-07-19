@@ -1,0 +1,29 @@
+.slide-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.slide-images {
+    display: flex;
+    overflow: scroll;
+    margin-top: 20px;
+    img {
+        max-width: 100px;
+        min-width: 100px;
+        margin: 0 10px;
+    }
+    img:first-of-type {
+        margin-left: 0px;
+    }
+    img:last-of-type {
+        margin-right: 0px;
+    }
+
+}
+
+@media screen and (min-width: 1000px) {
+    .main-image {
+        min-width: 600px;
+        max-width: 700px;
+    }
+}

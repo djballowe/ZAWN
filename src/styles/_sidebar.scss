@@ -1,5 +1,5 @@
 .side-bar-nav {
-  display: none;
+  display: flex;
   position: fixed;
   left: 50%;
   top: 50%;
@@ -11,6 +11,7 @@
   text-align: center;
   flex-direction: column;
   justify-content: center;
+  transition: all ease-in .4s;
   li {
     padding: 10px 0;
     font-size: 1.5rem;

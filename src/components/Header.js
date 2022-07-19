@@ -21,7 +21,7 @@ function Header() {
   const handleClick = () => {
     isMobile ? setIsMobile(false) : setIsMobile(true);
   };
-  
+
   const cartClick = () => {
     let total = 0;
     cartItemsArray.forEach((item) => {
@@ -31,16 +31,28 @@ function Header() {
     isActive ? setIsActive(false) : setIsActive(true);
   };
 
+  useEffect(() => {
+    isActive === true
+      ? (document.body.style.overflow = "hidden")
+      : (document.body.style.overflow = "visible");
+  });
+
   return (
     <Router>
       <div
-        onClick={handleClick}
         className="test-cart"
         style={{
-          display: isActive ? "block" : "none",
+          visibility: isActive ? "visible" : "hidden",
         }}
       >
-        <Cart onClick={cartClick} quantity={isAmount} />
+        <Cart onClick={cartClick} quantity={isAmount} open={isActive} />
+        <div
+          onClick={cartClick}
+          className="overlay"
+          style={{
+            opacity: isActive ? "1" : "0",
+          }}
+        ></div>
       </div>
       <header>
         <div className="mobile-menu">
@@ -49,9 +61,6 @@ function Header() {
             title="mobileMenu"
             size={1.4}
             onClick={handleClick}
-            style={{
-              display: isMobile ? "none" : "block",
-            }}
           />
         </div>
         <div className="logo">
@@ -67,10 +76,10 @@ function Header() {
               className="side-bar-nav"
               onClick={handleClick}
               style={{
-                display: isMobile ? "flex" : "none",
+                visibility: isMobile ? "visible" : "hidden",
+                opacity: isMobile ? "1" : "0",
               }}
             >
-              <div className="close">X</div>
               <ul>
                 <li>
                   <Link to="/" onClick={handleClick}>

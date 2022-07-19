@@ -9,6 +9,12 @@ import { cartItemsArray } from "./ProductMain";
 export default function Cart(props) {
   const [isTotal, setIsTotal] = useState(0);
   const [isQuantity, setIsQuantity] = useState(props.quantity);
+  const [isActive, setIsActive] = useState(props.open);
+
+  const setParentTotal = (value) => {
+    setIsQuantity(value);
+  };
+
   const cartComp = cartItemsArray.map((item) => {
     return (
       <CartItems
@@ -18,57 +24,61 @@ export default function Cart(props) {
         price={item.price}
         src={item.src}
         quantity={item.quantity}
+        set={setParentTotal}
+        open={props.open}
       />
     );
   });
 
   useEffect(() => {
     let total = 0;
-    let quantity = 0;
     cartItemsArray.forEach((item) => {
       total +=
         Math.round((item.price * item.quantity + Number.EPSILON) * 100) / 100;
-      quantity += item.quantity;
     });
-    setIsQuantity(quantity);
+    setIsActive(props.open);
     setIsTotal(total.toFixed(2));
-  });
+  }, [props.open, isQuantity]);
 
   return (
-    <div className="cart-container">
-      <div className="cart-body">
-        <div className="cart-top">
-          <div className="bag">
-            <CartIcon path={mdiWalletTravel} size={1} />
-            <p>{isQuantity} ITEMS</p>
-          </div>
-          <button>
-            <Close path={mdiClose} size={1} onClick={props.onClick} />
-          </button>
+    <div
+      className="cart-body"
+      style={{
+        right: isActive ? "0" : "-550px",
+      }}
+    >
+      <div className="cart-top">
+        <div className="bag">
+          <CartIcon path={mdiWalletTravel} size={1} />
+          <p>{isQuantity} ITEMS</p>
         </div>
-
-        <div className="shipping-container">
-          <p>
-            {isTotal > 50
-              ? "You are eligible for free shipping!"
-              : `Spend $${(50 - isTotal).toFixed(2)} to get free shipping!`}
-          </p>
-
-          <div className="border">
-            <div className="bar" style={{
-              width: isTotal >= 50 ? '100%' : `${(isTotal/50) * 100}%`
-            }}></div>
-          </div>
+        <button>
+          <Close path={mdiClose} size={1} onClick={props.onClick} />
+        </button>
+      </div>
+      <div className="shipping-container">
+        <p>
+          {isTotal > 50
+            ? "You are eligible for free shipping!"
+            : `Spend $${(50 - isTotal).toFixed(2)} to get free shipping!`}
+        </p>
+        <div className="border">
+          <div
+            className="bar"
+            style={{
+              width: isTotal >= 50 ? "100%" : `${(isTotal / 50) * 100}%`,
+            }}
+          ></div>
         </div>
-        <div className="components">{cartComp}</div>
-        <div className="test">
-          <div className="checkout">
-            <div className="subtotal">
-              <p>Subtotal</p>
-              <p>${isTotal}</p>
-            </div>
-            <button>Proceed to Checkout</button>
+      </div>
+      <div className="components">{cartComp}</div>
+      <div className="test">
+        <div className="checkout">
+          <div className="subtotal">
+            <p>Subtotal</p>
+            <p>${isTotal}</p>
           </div>
+          <button>Proceed to Checkout</button>
         </div>
       </div>
     </div>

@@ -17,19 +17,18 @@ function About() {
       <div className="about-cover">
         <img src={Cover} alt="" />
         <div className="image-text">
-          <p>A SMALL COMPANY WITH BIG DREAMS OF A CLEANER TOMORROW.</p>
-          <div>
-            <Arrow
-              path={mdiChevronDown}
-              size={2.5}
-              className="arrow"
-              onClick={handleClick}
-            />
+          <span>A SMALL COMPANY </span>
+          <span>WITH BIG DREAMS </span>
+          <span>OF A CLEANER </span>
+          <span>TOMORROW</span>
+          <div className="arrow">
+            <Arrow path={mdiChevronDown} size={2.5} onClick={handleClick} />
           </div>
         </div>
       </div>
+      <div className="scroll" ref={aboutRef}></div>
       <div className="about-description">
-        <h2 ref={aboutRef}>What is ZAWN?</h2>
+        <h2>What is ZAWN?</h2>
         <p>
           The name takes after the deep and narrow sea-inlet in the British
           Isles near Cornwall. Cut by erosion over the course of thousands of
