@@ -111,7 +111,7 @@ function Header() {
               <Link to="/about">About</Link>
             </li>
             <li>
-              <CartIcon path={mdiWalletTravel} size={1} onClick={cartClick} />
+              <CartIcon path={mdiWalletTravel} size={1} onClick={cartClick} className="custom-class" />
               <div
                 onClick={cartClick}
                 className="cart-num"

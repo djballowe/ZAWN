@@ -14,6 +14,7 @@ header {
   @include flex();
   justify-content: space-between;
   padding: 30px 30px;
+  z-index: 50;
   h2 {
     font-size: 1.7rem;
     cursor: pointer;
@@ -50,8 +51,28 @@ header {
     padding: 0 10px;
   }
   a {
+    position: relative;
     text-decoration: none;
     color: black;
+  }
+  
+  a::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      border-radius: 4px;
+      background-color: #92a9bd;
+      bottom: 0;
+      left: 0;
+      transform-origin: right;
+      transform: scaleX(0);
+      transition: transform .3s ease-in-out;
+    }
+  
+  a:hover::before {
+    transform-origin: left;
+    transform: scaleX(1);
   }
 
   .mobile-menu {
