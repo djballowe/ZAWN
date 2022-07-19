@@ -14,6 +14,7 @@ export default [
       "Dentists recommend changing your toothbrush every 3-4 months, so we decided to make your life easy and give you a yearly supply for half price! Which turns out to be even cheaper than plastic branded brushes. Our brush frames are made from sustainably harvested bamboo with a delicate and wholesome finish.",
     color: ["Black", "White", "Blue"],
     img: [
+      "Product Page/Tooth Brush/ToothBrush1.jpg",
       "Product Page/Tooth Brush/ToothBrush2.jpg",
       "Product Page/Tooth Brush/ToothBrush7.jpg",
       "Product Page/Tooth Brush/ToothBrush12.jpg",
@@ -34,7 +35,7 @@ export default [
     description:
       "One of our most popular products the all natural ethically made essential oils set. All our aromatherapy oils are extracted directly from different parts of plants and professionally bottled for a lasting fragrance. For external use only.",
     color: [],
-    img: [],
+    img: ["Product Page/Essential Oil/bundle1.jpg"],
   },
 
   {
@@ -51,9 +52,10 @@ export default [
       "A great facial scrub that was designed with the sensitive face in mind. Feel clean clear and rejuvenated with the all natural Shea butter base, no surfactants, detergent, or mono propylene glycol",
     color: ["Forest", "Aqua", "Snow"],
     img: [
-      "Product Page/Tooth Brush/scrub2.jpg",
-      "Product Page/Tooth Brush/scrub3.jpg",
-      "Product Page/Tooth Brush/scrub4.jpg",
+      "Product Page/Soap/scrub1.jpg",
+      "Product Page/Soap/scrub2.jpg",
+      "Product Page/Soap/scrub3.jpg",
+      "Product Page/Soap/scrub4.jpg",
     ],
   },
 
@@ -71,6 +73,7 @@ export default [
       "100% natural wood material. finished with original wood wax oil painting. Made from wood sustainably harvested from a small village in Argentina. You may not think about where you hang your towel but this subtle piece can really bring the bathroom atmosphere together.",
     color: ["Ash", "Walnut", "Black", "Okuome"],
     img: [
+      "Product Page/Bath Rack/bathrack1.jpg",
       "Product Page/Bath Rack/bathrack2.jpg",
       "Product Page/Bath Rack/bathrack3.jpg",
     ],
@@ -90,6 +93,7 @@ export default [
       "This all natural organic soap contains nourishing fatty acid and oils high in vitamins E, D, and provitamin A. All while avoiding Sulfate and Detergent. This makes the perfect gift for any conscious friends or treat yourself!",
     color: ["Forest", "Aqua", "Snow"],
     img: [
+      "Product Page/Soap/soap1.jpg",
       "Product Page/Soap/scrub3.jpg",
       "Product Page/Soap/scrub4.jpg",
       "Product Page/Soap/soap1.jpg",
@@ -111,6 +115,7 @@ export default [
       "Bamboo Q-tips made 100% plastic free. They contain 0% single use plastic and are completely bio degradable. No more creating needless plastic waste with standard Q-tips and fro the same price.",
     color: [],
     img: [
+      "Product Page/Q-tips/Q-tips1.jpg",
       "Product Page/Q-tips/Q-tips2.jpg",
       "Product Page/Q-tips/Q-tips3.jpg",
       "Product Page/Q-tips/Q-tips4.jpg",
@@ -131,6 +136,7 @@ export default [
       "The iconic Mango Breeze scent is made up of the essential oil blend of orange, mango, pineapple, vanilla, and coconut. Hand made with love only using the finest natural ingredients.",
     color: [],
     img: [
+      "Product Page/Shampoo/Shampoo1.jpg",
       "Product Page/Shampoo/Shampoo2.jpg",
       "Product Page/Shampoo/Shampoo3.jpg",
     ],
@@ -150,6 +156,7 @@ export default [
       "Our classic brushing formula. A simple daily cleanser for strong teeth and gums. Naturally purifying salt and calcium work together to alkalize the mouth and remineralize enamel, while providing a gentle polish and refreshing herbal taste",
     color: [],
     img: [
+      "Product Page/Salt/powder1.jpg",
       "Product Page/Salt/powder2.jpg",
       "Product Page/Salt/powder3.jpg",
       "Product Page/Salt/powder4.jpg",
@@ -170,6 +177,7 @@ export default [
       "All our aromatherapy oils are extracted directly from different parts of plants and professionally bottled for a lasting fragrance. For external use only.",
     color: [],
     img: [
+      "Product Page/Essential Oil/oils1.jpg",
       "Product Page/Essential Oil/oils2.jpg",
       "Product Page/Essential Oil/oils3.jpg",
       "Product Page/Essential Oil/oils4.jpg",
@@ -190,6 +198,7 @@ export default [
       "A plastic free scrubber that will be your new best friend in the bathroom. the bamboo bristles offers a relaxing sensation without being to rough on the skin. All this and made from all natural, compostable materials.",
     color: ["Maple", "Walnut", "Redwood"],
     img: [
+      "Product Page/Brush/brush1.jpg",
       "Product Page/Brush/brush2.jpg",
       "Product Page/Brush/brush3.jpg",
       "Product Page/Brush/brush4.jpg",
@@ -209,7 +218,7 @@ export default [
     description:
       "This lightweight moisturizer combines silky smooth jojoba esters and traditional Ayurvedic extracts for a naturally refreshing, fast-penetrating cream.",
     color: [],
-    img: [],
+    img: ["Product Page/Lotion/lotion1.jpg"],
   },
 
   {
@@ -226,6 +235,7 @@ export default [
       "The essential all in one kit. If you love our all natural eco friendly products why not get them all?",
     color: [],
     img: [
+      "Product Page/bundle/fullbundle1.jpg",
       "Product Page/bundle/fullbundle2.jpg",
       "Product Page/bundle/fullbundle3.jpg",
     ],
