@@ -1,0 +1,16 @@
+.slide-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.main-image {
+
+}
+
+.slide-images {
+    display: flex;
+    img {
+        max-width: 100px;
+    }
+    justify-content: space-between;
+}

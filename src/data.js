@@ -17,7 +17,7 @@ export default [
       "Product Page/Tooth Brush/ToothBrush2.jpg",
       "Product Page/Tooth Brush/ToothBrush7.jpg",
       "Product Page/Tooth Brush/ToothBrush12.jpg",
-      "Product Page/Tooth Brush/ToothBrush13.jpg"
+      "Product Page/Tooth Brush/ToothBrush13.jpg",
     ],
   },
 
@@ -34,6 +34,7 @@ export default [
     description:
       "One of our most popular products the all natural ethically made essential oils set. All our aromatherapy oils are extracted directly from different parts of plants and professionally bottled for a lasting fragrance. For external use only.",
     color: [],
+    img: [],
   },
 
   {
@@ -53,7 +54,7 @@ export default [
       "Product Page/Tooth Brush/scrub2.jpg",
       "Product Page/Tooth Brush/scrub3.jpg",
       "Product Page/Tooth Brush/scrub4.jpg",
-    ]
+    ],
   },
 
   {
@@ -72,7 +73,7 @@ export default [
     img: [
       "Product Page/Bath Rack/bathrack2.jpg",
       "Product Page/Bath Rack/bathrack3.jpg",
-    ]
+    ],
   },
 
   {
@@ -93,8 +94,7 @@ export default [
       "Product Page/Soap/scrub4.jpg",
       "Product Page/Soap/soap1.jpg",
       "Product Page/Soap/soap2.jpg",
-      
-    ]
+    ],
   },
 
   {
@@ -114,7 +114,7 @@ export default [
       "Product Page/Q-tips/Q-tips2.jpg",
       "Product Page/Q-tips/Q-tips3.jpg",
       "Product Page/Q-tips/Q-tips4.jpg",
-    ]
+    ],
   },
 
   {
@@ -133,7 +133,7 @@ export default [
     img: [
       "Product Page/Shampoo/Shampoo2.jpg",
       "Product Page/Shampoo/Shampoo3.jpg",
-    ]
+    ],
   },
 
   {
@@ -153,7 +153,7 @@ export default [
       "Product Page/Salt/powder2.jpg",
       "Product Page/Salt/powder3.jpg",
       "Product Page/Salt/powder4.jpg",
-    ]
+    ],
   },
 
   {
@@ -173,7 +173,7 @@ export default [
       "Product Page/Essential Oil/oils2.jpg",
       "Product Page/Essential Oil/oils3.jpg",
       "Product Page/Essential Oil/oils4.jpg",
-    ]
+    ],
   },
 
   {
@@ -193,7 +193,7 @@ export default [
       "Product Page/Brush/brush2.jpg",
       "Product Page/Brush/brush3.jpg",
       "Product Page/Brush/brush4.jpg",
-    ]
+    ],
   },
 
   {
@@ -209,6 +209,7 @@ export default [
     description:
       "This lightweight moisturizer combines silky smooth jojoba esters and traditional Ayurvedic extracts for a naturally refreshing, fast-penetrating cream.",
     color: [],
+    img: [],
   },
 
   {
@@ -227,6 +228,6 @@ export default [
     img: [
       "Product Page/bundle/fullbundle2.jpg",
       "Product Page/bundle/fullbundle3.jpg",
-    ]
+    ],
   },
 ];

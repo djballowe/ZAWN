@@ -12,6 +12,7 @@ import { mdiAccountCheck } from "@mdi/js";
 import Heart from "@mdi/react";
 import { mdiCharity } from "@mdi/js";
 import Color from "./Color.js";
+import Slides from "./Slides.js";
 
 export const cartItemsArray = [];
 
@@ -58,9 +59,12 @@ function ProductMain(props) {
     <div>
       <div className="individual-container">
         <div className="products-image">
-          <img src={require(`../Images/${product.src}`)} alt="" />
+          {/* <img src={require(`../Images/${product.src}`)} alt="" /> */}
+          <div className="slides">
+            <Slides img={product.img} />
+          </div>
         </div>
-        
+
         <div className="cell2">
           <div className="title">
             <p>{product.title}</p>
