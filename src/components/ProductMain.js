@@ -23,6 +23,7 @@ class CartItemCreator {
     this.price = price;
     this.id = id;
     this.quantity = quantity;
+
   }
 }
 

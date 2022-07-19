@@ -6,10 +6,9 @@ import Error from "./Error";
 import ProductPage from "./ProductPage";
 import ProductMain from "./ProductMain";
 import Icon from "@mdi/react";
-import { mdiCar, mdiMenu } from "@mdi/js";
+import { mdiMenu } from "@mdi/js";
 import CartIcon from "@mdi/react";
 import { mdiWalletTravel } from "@mdi/js";
-import Logo from "../Images/wave.png";
 import Cart from "./Cart";
 import { cartItemsArray } from "./ProductMain";
 
@@ -64,7 +63,6 @@ function Header() {
           />
         </div>
         <div className="logo">
-          {/* <img src={Logo} alt="" /> */}
           <h2>ZAWN</h2>
         </div>
         <div className="nav-container">

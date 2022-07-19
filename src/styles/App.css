@@ -550,7 +550,6 @@ header h2 {
   border-radius: 20px;
   border: black 1px solid;
   background-color: white;
-  background-image: url();
 }
 
 .Black {
@@ -559,7 +558,6 @@ header h2 {
   border-radius: 20px;
   border: black 1px solid;
   background-color: black;
-  background-image: url();
 }
 
 .Blue {
@@ -568,7 +566,6 @@ header h2 {
   border-radius: 20px;
   border: black 1px solid;
   background-color: rgb(150, 200, 221);
-  background-image: url();
 }
 
 .Forest {
@@ -577,7 +574,6 @@ header h2 {
   border-radius: 20px;
   border: black 1px solid;
   background-color: rgb(115, 147, 117);
-  background-image: url();
 }
 
 .Aqua {
@@ -586,7 +582,6 @@ header h2 {
   border-radius: 20px;
   border: black 1px solid;
   background-color: rgb(150, 200, 221);
-  background-image: url();
 }
 
 .Snow {
@@ -595,7 +590,6 @@ header h2 {
   border-radius: 20px;
   border: black 1px solid;
   background-color: white;
-  background-image: url();
 }
 
 .Ash {
@@ -604,7 +598,6 @@ header h2 {
   border-radius: 20px;
   border: black 1px solid;
   background-color: rgba(239, 215, 171, 0.507);
-  background-image: url();
 }
 
 .Walnut {
@@ -613,7 +606,6 @@ header h2 {
   border-radius: 20px;
   border: black 1px solid;
   background-color: rgb(83, 63, 36);
-  background-image: url();
 }
 
 .Okuome {
@@ -622,7 +614,6 @@ header h2 {
   border-radius: 20px;
   border: black 1px solid;
   background-color: rgb(188, 139, 116);
-  background-image: url();
 }
 
 .Redwood {
@@ -631,7 +622,6 @@ header h2 {
   border-radius: 20px;
   border: black 1px solid;
   background-color: rgb(121, 42, 41);
-  background-image: url();
 }
 
 .Maple {
@@ -640,7 +630,6 @@ header h2 {
   border-radius: 20px;
   border: black 1px solid;
   background-color: rgba(239, 215, 171, 0.507);
-  background-image: url();
 }
 
 .side-bar-nav {
@@ -856,7 +845,7 @@ header h2 {
 .test-cart {
   display: flex;
   justify-content: flex-end;
-  transition: all 1s ease-in-out;
+  transition: all 0s ease-in-out;
 }
 
 .cart-body {
@@ -929,6 +918,7 @@ header h2 {
   justify-content: space-around;
   transition: all 0.7s ease-in-out;
   position: relative;
+  margin-top: 20px;
 }
 
 .item-container {
@@ -938,6 +928,10 @@ header h2 {
 .cart-item-container {
   display: flex;
   align-items: center;
+}
+
+.cart-item-container-text {
+  width: 200px;
 }
 
 .cart-image {
@@ -967,6 +961,7 @@ header h2 {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: calc(100% - 100px);
 }
 .quantity button {
   width: 30px;
@@ -978,9 +973,6 @@ header h2 {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.quantity button:nth-of-type(2) {
-  margin-right: 50px;
 }
 .quantity img {
   width: auto;

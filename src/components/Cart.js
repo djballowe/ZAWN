@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import CartIcon from "@mdi/react";
 import { mdiWalletTravel } from "@mdi/js";
 import Close from "@mdi/react";

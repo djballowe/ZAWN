@@ -50,7 +50,7 @@ export default function CartItems(props) {
         <div className="cart-image">
           <img src={require(`../Images/${props.src}`)} alt="" />
         </div>
-        <div>
+        <div className="cart-item-container-text">
           <div className="cart-item-text">
             <h3>{props.item}</h3>
             <p>Forest Green</p>
