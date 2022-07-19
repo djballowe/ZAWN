@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
 import data from "../data.js";
 import Star from "@mdi/react";
@@ -59,12 +59,8 @@ function ProductMain(props) {
     <div>
       <div className="individual-container">
         <div className="products-image">
-          {/* <img src={require(`../Images/${product.src}`)} alt="" /> */}
-          <div className="slides">
-            <Slides img={product.img} />
-          </div>
+          <Slides img={product.img} />
         </div>
-
         <div className="cell2">
           <div className="title">
             <p>{product.title}</p>

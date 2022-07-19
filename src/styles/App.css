@@ -538,6 +538,12 @@ header h2 {
     margin-top: 0px;
   }
 }
+@media screen and (min-width: 550px) and (max-width: 759px) {
+  .individual-container {
+    margin-inline: auto;
+    width: min(70%, 80rem);
+  }
+}
 .White {
   height: 40px;
   width: 40px;
@@ -1072,4 +1078,11 @@ input:focus {
 }
 .slide-images img:last-of-type {
   margin-right: 0px;
+}
+
+@media screen and (min-width: 1000px) {
+  .main-image {
+    min-width: 600px;
+    max-width: 700px;
+  }
 }/*# sourceMappingURL=App.css.map */
