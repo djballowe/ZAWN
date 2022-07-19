@@ -664,6 +664,11 @@ header h2 {
   border: 1px black solid;
 }
 
+.image-text span::before {
+  content: "";
+  opacity: 0;
+}
+
 .image-text {
   font-size: 1.9rem;
   text-align: center;
@@ -672,11 +677,49 @@ header h2 {
   padding: 0 15px;
   color: rgba(0, 0, 0, 0.404);
 }
+.image-text span:first-of-type {
+  -webkit-animation: fade 1s ease-in-out;
+          animation: fade 1s ease-in-out;
+}
+.image-text span:nth-of-type(2) {
+  -webkit-animation: fade 1s ease-in-out;
+          animation: fade 1s ease-in-out;
+  -webkit-animation-delay: 1.5s;
+          animation-delay: 1.5s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  opacity: 0;
+}
+.image-text span:nth-of-type(3) {
+  -webkit-animation: fade 1s ease-in-out;
+          animation: fade 1s ease-in-out;
+  -webkit-animation-delay: 3s;
+          animation-delay: 3s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  opacity: 0;
+}
+.image-text span:nth-of-type(4) {
+  -webkit-animation: fade 1s ease-in-out;
+          animation: fade 1s ease-in-out;
+  -webkit-animation-delay: 3s;
+          animation-delay: 3s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  opacity: 0;
+}
 
 .arrow {
   margin-top: 6px;
   cursor: pointer;
+  -webkit-animation: slideUp 1s ease-in-out;
+          animation: slideUp 1s ease-in-out;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-delay: 4s;
+          animation-delay: 4s;
   transition: all 0.2s ease-in-out;
+  opacity: 0;
 }
 .arrow:hover {
   padding: 6px;

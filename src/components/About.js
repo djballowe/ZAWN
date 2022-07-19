@@ -17,12 +17,14 @@ function About() {
       <div className="about-cover">
         <img src={Cover} alt="" />
         <div className="image-text">
-          <p>A SMALL COMPANY WITH BIG DREAMS OF A CLEANER TOMORROW.</p>
-          <div>
+          <span>A SMALL COMPANY </span>
+          <span>WITH BIG DREAMS </span>
+          <span>OF A CLEANER </span>
+          <span>TOMORROW</span>
+          <div className="arrow">
             <Arrow
               path={mdiChevronDown}
               size={2.5}
-              className="arrow"
               onClick={handleClick}
             />
           </div>
