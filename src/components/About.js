@@ -1,9 +1,7 @@
-import React, { useState, useRef } from "react";
+import React, { useRef } from "react";
 import Cover from "../Images/About/aboutcover2.png";
 import Beach from "../Images/About/about.jpg";
 import Arrow from "@mdi/react";
-import { mdiArrowUpCircleOutline } from "@mdi/js";
-import DownArrow from "@mdi/react";
 import { mdiChevronDown } from "@mdi/js";
 
 function About() {
