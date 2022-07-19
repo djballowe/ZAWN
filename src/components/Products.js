@@ -1,12 +1,8 @@
-import React, { useState } from "react";
-import ProductMain from "./ProductMain";
-import data from "../data.js";
-import { useNavigate, useParams } from "react-router-dom";
+import React from "react";
+import { useNavigate } from "react-router-dom";
 
 function Products(props) {
-  const [isHovering, setIsHovering] = useState(false);
   let navigate = useNavigate();
-  let { product } = useParams();
 
   const handleClick = (e) => {
     const id = e.target.id;
