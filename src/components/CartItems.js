@@ -28,7 +28,7 @@ export default function CartItems(props) {
         cartItemsArray.map((item) => item.id).indexOf(index),
         1
       );
-        setParent(value);
+      setParent(value);
     }
     console.log(cartItemsArray);
   };
@@ -46,33 +46,39 @@ export default function CartItems(props) {
         right: isOpen ? "0" : "-200px",
       }}
     >
-      <div className="cart-image">
-        <img src={require(`../Images/${props.src}`)} alt="" />
+      <div className="cart-item-container">
+        <div className="cart-image">
+          <img src={require(`../Images/${props.src}`)} alt="" />
+        </div>
+        <div>
+          <div className="cart-item-text">
+            <h3>{props.item}</h3>
+            <p>Forest Green</p>
+          </div>
+          <div className="quantity" id="+" name={props.id}>
+            <button
+              className="plus-btn"
+              onClick={handleClick}
+              id="+"
+              name={props.id}
+            >
+              <img src={Plus} alt="" id="+" name={props.id} />
+            </button>
+            <div>{isQuantity}</div>
+            <button
+              className="minus-btn"
+              id="-"
+              onClick={handleClick}
+              name={props.id}
+            >
+              <img src={Minus} alt="" id="-" name={props.id} />
+            </button>
+          </div>
+        </div>
       </div>
       <div className="item-container">
         <div className="item-text">
-          <h3>{props.item}</h3>
-          <p>Forest Green</p>
           <p>${props.price}</p>
-        </div>
-        <div className="quantity" id="+" name={props.id}>
-          <button
-            className="plus-btn"
-            onClick={handleClick}
-            id="+"
-            name={props.id}
-          >
-            <img src={Plus} alt="" id="+" name={props.id} />
-          </button>
-          <div>{isQuantity}</div>
-          <button
-            className="minus-btn"
-            id="-"
-            onClick={handleClick}
-            name={props.id}
-          >
-            <img src={Minus} alt="" id="-" name={props.id} />
-          </button>
         </div>
       </div>
     </div>
