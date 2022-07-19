@@ -141,18 +141,17 @@
 
   .shopNow {
     display: flex;
-    cursor: pointer;
-    &:hover {
-      transform: translateY(8px);
-    }
-
     p {
       animation-delay: 3s;
       animation: fade ease-in-out 2s;
-
     }
     div {
       animation: slideUp ease-in-out 2s;
+      transition: all 0.3s ease-in-out;
+      cursor: pointer;
+      &:hover {
+        transform: translateY(8px);
+      }
     }
   }
 

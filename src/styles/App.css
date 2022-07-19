@@ -354,10 +354,6 @@ header h2 {
   }
   .shopNow {
     display: flex;
-    cursor: pointer;
-  }
-  .shopNow:hover {
-    transform: translateY(8px);
   }
   .shopNow p {
     -webkit-animation-delay: 3s;
@@ -368,6 +364,11 @@ header h2 {
   .shopNow div {
     -webkit-animation: slideUp ease-in-out 2s;
             animation: slideUp ease-in-out 2s;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+  }
+  .shopNow div:hover {
+    transform: translateY(8px);
   }
   .collection-text h2 {
     font-size: 3rem;

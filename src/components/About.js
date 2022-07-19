@@ -30,8 +30,9 @@ function About() {
           </div>
         </div>
       </div>
+      <div className="scroll" ref={aboutRef}></div>
       <div className="about-description">
-        <h2 ref={aboutRef}>What is ZAWN?</h2>
+        <h2>What is ZAWN?</h2>
         <p>
           The name takes after the deep and narrow sea-inlet in the British
           Isles near Cornwall. Cut by erosion over the course of thousands of
