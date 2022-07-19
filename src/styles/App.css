@@ -1059,8 +1059,17 @@ input:focus {
 
 .slide-images {
   display: flex;
-  justify-content: space-between;
+  overflow: scroll;
+  margin-top: 20px;
 }
 .slide-images img {
   max-width: 100px;
+  min-width: 100px;
+  margin: 0 10px;
+}
+.slide-images img:first-of-type {
+  margin-left: 0px;
+}
+.slide-images img:last-of-type {
+  margin-right: 0px;
 }/*# sourceMappingURL=App.css.map */
