@@ -11,6 +11,8 @@ import CartIcon from "@mdi/react";
 import { mdiWalletTravel } from "@mdi/js";
 import Cart from "./Cart";
 import { cartItemsArray } from "./ProductMain";
+import Arrow from "@mdi/react";
+import { mdiChevronDown } from "@mdi/js";
 
 function Header() {
   const [isMobile, setIsMobile] = useState(false);
@@ -38,6 +40,12 @@ function Header() {
 
   return (
     <Router>
+      <div className="banner">
+        <Arrow path={mdiChevronDown} rotate={90} size={1}/>
+        <p>Get free shipping when you spent $50!</p>
+        <p>Save up to $20 on our Bathroom Essentials bundle</p>
+        <Arrow path={mdiChevronDown} rotate={-90} size={1}/>
+      </div>
       <div
         className="test-cart"
         style={{

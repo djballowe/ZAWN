@@ -216,6 +216,21 @@ header h2 {
     font-size: 2rem;
   }
 }
+.banner {
+  background-color: black;
+  color: white;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.banner p {
+  padding: 12px;
+}
+.banner p:nth-of-type(2) {
+  display: none;
+}
+
 .products-container {
   display: flex;
   flex-direction: column;
@@ -548,7 +563,7 @@ header h2 {
   height: 40px;
   width: 40px;
   border-radius: 20px;
-  border: black 1px solid;
+  cursor: pointer;
   background-color: white;
 }
 
@@ -556,7 +571,7 @@ header h2 {
   height: 40px;
   width: 40px;
   border-radius: 20px;
-  border: black 1px solid;
+  cursor: pointer;
   background-color: black;
 }
 
@@ -564,7 +579,7 @@ header h2 {
   height: 40px;
   width: 40px;
   border-radius: 20px;
-  border: black 1px solid;
+  cursor: pointer;
   background-color: rgb(150, 200, 221);
 }
 
@@ -572,7 +587,7 @@ header h2 {
   height: 40px;
   width: 40px;
   border-radius: 20px;
-  border: black 1px solid;
+  cursor: pointer;
   background-color: rgb(115, 147, 117);
 }
 
@@ -580,7 +595,7 @@ header h2 {
   height: 40px;
   width: 40px;
   border-radius: 20px;
-  border: black 1px solid;
+  cursor: pointer;
   background-color: rgb(150, 200, 221);
 }
 
@@ -588,7 +603,7 @@ header h2 {
   height: 40px;
   width: 40px;
   border-radius: 20px;
-  border: black 1px solid;
+  cursor: pointer;
   background-color: white;
 }
 
@@ -596,7 +611,7 @@ header h2 {
   height: 40px;
   width: 40px;
   border-radius: 20px;
-  border: black 1px solid;
+  cursor: pointer;
   background-color: rgba(239, 215, 171, 0.507);
 }
 
@@ -604,7 +619,7 @@ header h2 {
   height: 40px;
   width: 40px;
   border-radius: 20px;
-  border: black 1px solid;
+  cursor: pointer;
   background-color: rgb(83, 63, 36);
 }
 
@@ -612,7 +627,7 @@ header h2 {
   height: 40px;
   width: 40px;
   border-radius: 20px;
-  border: black 1px solid;
+  cursor: pointer;
   background-color: rgb(188, 139, 116);
 }
 
@@ -620,7 +635,7 @@ header h2 {
   height: 40px;
   width: 40px;
   border-radius: 20px;
-  border: black 1px solid;
+  cursor: pointer;
   background-color: rgb(121, 42, 41);
 }
 
@@ -628,8 +643,16 @@ header h2 {
   height: 40px;
   width: 40px;
   border-radius: 20px;
-  border: black 1px solid;
+  cursor: pointer;
   background-color: rgba(239, 215, 171, 0.507);
+}
+
+.selected {
+  border: black 2px solid;
+}
+
+.notSelected {
+  border: rgb(165, 165, 165) 2px solid;
 }
 
 .side-bar-nav {
@@ -645,7 +668,7 @@ header h2 {
   text-align: center;
   flex-direction: column;
   justify-content: center;
-  transition: all ease-in 0.4s;
+  transition: all ease-in 0.3s;
 }
 .side-bar-nav li {
   padding: 10px 0;

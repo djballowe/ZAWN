@@ -2,7 +2,7 @@
   height: 40px;
   width: 40px;
   border-radius: 20px;
-  border: black 1px solid;
+  cursor: pointer;
   background-color: $color;
 }
 
@@ -48,4 +48,12 @@
 
 .Maple {
   @include Color(rgba(239, 215, 171, 0.507));
+}
+
+.selected {
+  border: black 2px solid;
+}
+
+.notSelected {
+  border: rgb(165, 165, 165) 2px solid;
 }
