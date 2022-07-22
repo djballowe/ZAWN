@@ -1173,11 +1173,24 @@ input:focus {
   margin-bottom: 20px;
 }
 
-.call, .email {
+.call,
+.email {
   display: flex;
   align-items: center;
   margin-bottom: 3px;
 }
-.call p, .email p {
+.call p,
+.email p {
   margin-right: 7px;
+}
+.call button,
+.email button {
+  border: none;
+  background-color: transparent;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+.call button:hover,
+.email button:hover {
+  opacity: 0.5;
 }/*# sourceMappingURL=App.css.map */

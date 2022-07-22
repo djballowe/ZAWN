@@ -37,10 +37,20 @@
   margin-bottom: 20px;
 }
 
-.call, .email {
+.call,
+.email {
   @include flex();
   p {
     margin-right: 7px;
   }
   margin-bottom: 3px;
+  button {
+    border: none;
+    background-color: transparent;
+    font-size: 0.95rem;
+    cursor: pointer;
+    &:hover {
+      opacity: 0.5;
+    }
+  }
 }

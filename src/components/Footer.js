@@ -84,13 +84,16 @@ export default function Footer() {
       <div>
         <p id="help">Need Help?</p>
         <div className="call">
-          <p>Call:</p> <a href="">1-618-465-4763</a>
+          <p>Call:</p>
+          <button>1-618-4763</button>
         </div>
         <div className="email">
           <p>Email:</p>{" "}
-          <a onClick={() => Linking.openURL("mailto:info@zawnproducts.com")}>
+          <button
+            onClick={() => (window.location = "mailto:info@zawnproducts.com")}
+          >
             info@zawnproducts.com
-          </a>
+          </button>
         </div>
       </div>
     </div>
