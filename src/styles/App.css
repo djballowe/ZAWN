@@ -237,15 +237,16 @@ header h2 {
   }
 }
 .banner {
-  background-color: black;
+  background-color: rgb(51, 51, 51);
   color: white;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 12px;
+  position: relative;
 }
 .banner p {
-  padding: 12px;
   -webkit-animation: slideUpBanner 0.3s ease-in;
           animation: slideUpBanner 0.3s ease-in;
 }
@@ -254,8 +255,15 @@ header h2 {
   -webkit-animation: slideUp 0.3s ease-in;
           animation: slideUp 0.3s ease-in;
 }
-.banner img {
+.banner img:first-of-type {
   height: 25px;
+  position: absolute;
+  left: 30%;
+}
+.banner img:last-of-type {
+  position: absolute;
+  height: 25px;
+  right: 30%;
 }
 
 .products-container {
