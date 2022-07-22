@@ -51,7 +51,7 @@ export default function Footer() {
         </p>
         <p
           onClick={() => {
-            navigate("/product")
+            navigate("/product");
           }}
         >
           Shop
@@ -59,15 +59,39 @@ export default function Footer() {
       </div>
       <div className="support">
         <p>Support</p>
-        <p>Contact Us</p>
-        <p>Shipping Policy</p>
-        <p>Return Policy</p>
-        <p>FAQ</p>
+        <p
+          onClick={() => {
+            navigate("/contact");
+          }}
+        >
+          Contact Us
+        </p>
+        <p
+          onClick={() => {
+            navigate("/shipping");
+          }}
+        >
+          Shipping Policy
+        </p>
+        <p
+          onClick={() => {
+            navigate("/return");
+          }}
+        >
+          Return Policy
+        </p>
       </div>
-      <div className="help">
-        <p>Need Help?</p>
-        <p>Call: 1-618-465-4763</p>
-        <p>Email: info@ZAWNproducts.com</p>
+      <div>
+        <p id="help">Need Help?</p>
+        <div className="call">
+          <p>Call:</p> <a href="">1-618-465-4763</a>
+        </div>
+        <div className="email">
+          <p>Email:</p>{" "}
+          <a onClick={() => Linking.openURL("mailto:info@zawnproducts.com")}>
+            info@zawnproducts.com
+          </a>
+        </div>
       </div>
     </div>
   );

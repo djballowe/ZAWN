@@ -1136,7 +1136,6 @@ input:focus {
 }
 .footer-container {
   display: flex;
-  align-items: center;
   padding: 50px 100px;
   justify-content: space-between;
   border-top: 1px solid rgba(0, 0, 0, 0.24);
@@ -1154,15 +1153,31 @@ input:focus {
   cursor: pointer;
 }
 
-.explore p:first-of-type, .support p:first-of-type, .help p:first-of-type {
+.explore p:first-of-type,
+.support p:first-of-type {
   margin-bottom: 10px;
   padding: none;
 }
-.explore p, .support p, .help p {
+.explore p,
+.support p {
   padding: 3px 0;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
-.explore p:hover, .support p:hover, .help p:hover {
+.explore p:hover,
+.support p:hover {
   opacity: 0.5;
+}
+
+#help {
+  margin-bottom: 20px;
+}
+
+.call, .email {
+  display: flex;
+  align-items: center;
+  margin-bottom: 3px;
+}
+.call p, .email p {
+  margin-right: 7px;
 }/*# sourceMappingURL=App.css.map */

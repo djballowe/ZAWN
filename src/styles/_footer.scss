@@ -1,5 +1,5 @@
 .footer-container {
-  @include flex();
+  display: flex;
   padding: 50px 100px;
   justify-content: space-between;
   border-top: 1px solid rgba(0, 0, 0, 0.24);
@@ -17,17 +17,30 @@
   }
 }
 
-.explore, .support, .help {
-    p:first-of-type {
-        margin-bottom: 10px;
-        padding: none;
+.explore,
+.support {
+  p:first-of-type {
+    margin-bottom: 10px;
+    padding: none;
+  }
+  p {
+    padding: 3px 0;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+      opacity: 0.5;
     }
-    p {
-        padding: 3px 0;
-        cursor: pointer;
-        transition: all .2s ease-in-out;
-        &:hover {
-            opacity: .5;
-        }
-    }
+  }
+}
+
+#help {
+  margin-bottom: 20px;
+}
+
+.call, .email {
+  @include flex();
+  p {
+    margin-right: 7px;
+  }
+  margin-bottom: 3px;
 }

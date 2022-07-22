@@ -15,6 +15,10 @@ import LeftArrow from "../Images/chevron-left.png";
 import RightArrow from "../Images/chevron-right.png";
 import Footer from "./Footer";
 import ScrollToTop from "./ScrollToTop";
+import Blog from "./Blog";
+import Contact from "./Contact";
+import Shipping from "./Shipping";
+import Return from "./Return";
 
 function Header() {
   const [isMobile, setIsMobile] = useState(false);
@@ -169,6 +173,10 @@ function Header() {
             path="/product/:id"
             element={<ProductMain handle={cartClick} />}
           />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/return" element={<Return />} />
+          <Route path="/shipping" element={<Shipping />} />
           <Route path="*" element={<Error />} />
         </Routes>
       </ScrollToTop>
