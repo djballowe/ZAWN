@@ -1,0 +1,16 @@
+.return-container {
+  margin-inline: auto;
+  width: min(90%, 40rem);
+  div:first-of-type {
+    text-align: center;
+    margin: 50px 0;
+  }
+  h2 {
+    font-size: 2rem;
+  }
+  p {
+    line-height: 200%;
+    margin-bottom: 50px;
+  }
+
+}

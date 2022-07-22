@@ -1237,4 +1237,37 @@ input:focus {
   border: 1px solid #2d2d2d;
   background-color: #def2d7;
   color: #2d2d2d;
+}
+
+.return-container {
+  margin-inline: auto;
+  width: min(90%, 40rem);
+}
+.return-container div:first-of-type {
+  text-align: center;
+  margin: 50px 0;
+}
+.return-container h2 {
+  font-size: 2rem;
+}
+.return-container p {
+  line-height: 200%;
+  margin-bottom: 50px;
+}
+
+.shipping-container {
+  margin-inline: auto;
+  width: min(90%, 40rem);
+}
+.shipping-container div:first-of-type {
+  text-align: center;
+  margin: 50px 0;
+}
+.shipping-container h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+.shipping-container p {
+  line-height: 200%;
+  margin-bottom: 50px;
 }/*# sourceMappingURL=App.css.map */
