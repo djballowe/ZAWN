@@ -1134,15 +1134,23 @@ input:focus {
     max-width: 480px;
   }
 }
+.footer-container-2 {
+  background-color: #e3ebf4;
+  padding: 50px 100px;
+  border-top: 1px solid rgba(0, 0, 0, 0.24);
+}
+
 .footer-container {
   display: flex;
-  padding: 50px 100px;
   justify-content: space-between;
-  border-top: 1px solid rgba(0, 0, 0, 0.24);
   background-color: #e3ebf4;
 }
 .footer-container h2 {
   font-size: 2rem;
+}
+
+.subscriber-input {
+  position: relative;
 }
 
 .subscriber {
@@ -1150,6 +1158,23 @@ input:focus {
 }
 .subscriber p {
   padding: 10px 0;
+  cursor: pointer;
+}
+.subscriber input {
+  width: calc(100% - 20px);
+  height: 20px;
+  padding: 10px 10px;
+  border-radius: 20px;
+  border: solid rgb(133, 133, 133) 1px;
+}
+.subscriber button {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  right: 0;
+  top: 19%;
   cursor: pointer;
 }
 
@@ -1193,4 +1218,13 @@ input:focus {
 .call button:hover,
 .email button:hover {
   opacity: 0.5;
+}
+
+.error {
+  margin-top: 10px;
+  padding: 5px 10px;
+  border-radius: 10px;
+  border: 1px solid #ff7474;
+  background-color: #f2d7d7;
+  color: #ff7474;
 }/*# sourceMappingURL=App.css.map */
