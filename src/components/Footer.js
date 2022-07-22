@@ -6,7 +6,8 @@ import { useNavigate } from "react-router-dom";
 export default function Footer() {
   let navigate = useNavigate();
   const [email, setEmail] = useState(false);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState(false);
+  const [success, setSuccess] = useState(false);
 
   const isValid = () => {
     return /\S+@\S+\.\S+/.test(email);
@@ -16,15 +17,20 @@ export default function Footer() {
     if (!isValid(e.target.value)) {
       setError(true);
     } else {
-      setError(null);
+      setError(false);
     }
     setEmail(e.target.value);
   };
 
   const handleClick = () => {
+    let message = document.getElementById("error");
     if (error === true) {
+      setError(true);
+      message.style.display = "block";
+    } else {
+      setSuccess(true);
+      message.style.display = "none";
     }
-    console.log("submit");
   };
 
   return (
@@ -60,14 +66,17 @@ export default function Footer() {
               />{" "}
             </button>
           </div>
-        </div>
-        <div
-          className="error"
-          style={{
-            display: error ? "block" : "none",
-          }}
-        >
-          <p>Please enter a valid email</p>
+          <div className="error" id="error">
+            <p>Please enter a valid email</p>
+          </div>
+          <div
+            className="thank-you"
+            style={{
+              display: success ? "block" : "none",
+            }}
+          >
+            <p>Thank You!</p>
+          </div>
         </div>
         <div className="explore">
           <p>Explore</p>

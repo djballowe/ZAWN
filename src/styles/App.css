@@ -1227,4 +1227,14 @@ input:focus {
   border: 1px solid #ff7474;
   background-color: #f2d7d7;
   color: #ff7474;
+  display: none;
+}
+
+.thank-you {
+  margin-top: 10px;
+  padding: 5px 10px;
+  border-radius: 10px;
+  border: 1px solid #2d2d2d;
+  background-color: #def2d7;
+  color: #2d2d2d;
 }/*# sourceMappingURL=App.css.map */
