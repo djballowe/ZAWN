@@ -24,10 +24,6 @@ function ProductPage() {
     );
   });
 
-  useRef(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   return (
     <div className="products-container">
       <div className="collection">
