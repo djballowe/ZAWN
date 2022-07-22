@@ -137,6 +137,10 @@ body {
 .logo img {
   height: 60px;
 }
+.logo a {
+  text-decoration: none;
+  color: black;
+}
 .logo a:hover {
   text-decoration: none;
 }
@@ -1136,13 +1140,13 @@ input:focus {
 }
 .footer-container-2 {
   background-color: #e3ebf4;
-  padding: 50px 100px;
   border-top: 1px solid rgba(0, 0, 0, 0.24);
 }
 
 .footer-container {
-  display: flex;
-  justify-content: space-between;
+  margin-top: 20px;
+  margin-inline: auto;
+  width: min(90%, 80rem);
   background-color: #e3ebf4;
 }
 .footer-container h2 {
@@ -1161,9 +1165,9 @@ input:focus {
 }
 .subscriber input {
   width: calc(100% - 20px);
-  height: 20px;
+  height: 25px;
   padding: 10px 10px;
-  border-radius: 20px;
+  border-radius: 25px;
   border: solid rgb(133, 133, 133) 1px;
 }
 .subscriber button {
@@ -1173,14 +1177,20 @@ input:focus {
   border: none;
   position: absolute;
   right: 0;
-  top: 19%;
+  top: 23%;
   cursor: pointer;
 }
 
+.explore,
+.support {
+  margin-top: 30px;
+}
 .explore p:first-of-type,
 .support p:first-of-type {
+  color: rgba(45, 45, 45, 0.541);
   margin-bottom: 10px;
   padding: none;
+  font-size: 1.5rem;
 }
 .explore p,
 .support p {
@@ -1238,6 +1248,10 @@ input:focus {
   color: #2d2d2d;
 }
 
+.logo {
+  height: 40px;
+}
+
 .return-container {
   margin-inline: auto;
   width: min(90%, 40rem);
@@ -1272,8 +1286,8 @@ input:focus {
 }
 
 .contact-container {
-  height: 55vh;
-  padding: 0 100px;
+  margin: 30px 0;
+  text-align: center;
 }
 .contact-container h2 {
   font-size: 2rem;
@@ -1281,7 +1295,7 @@ input:focus {
 
 .contact-inputs {
   margin-inline: auto;
-  width: min(90%, 30rem);
+  width: min(90%, 80rem);
 }
 .contact-inputs form {
   display: flex;

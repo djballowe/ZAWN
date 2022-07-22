@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { mdiArrowLeft } from "@mdi/js";
 import Arrow from "@mdi/react";
 import { useNavigate } from "react-router-dom";
+import Logo from "../Images/wave.png";
 
 export default function Footer() {
   let navigate = useNavigate();
@@ -36,7 +37,10 @@ export default function Footer() {
   return (
     <div className="footer-container-2">
       <div className="footer-container">
-        <h2>ZAWN</h2>
+        <div className="logo">
+          <h2>ZAWN</h2>
+          <img src={Logo} alt="" />
+        </div>
         <div className="subscriber">
           <p>Subscribe to Our Newsletter</p>
           <p>

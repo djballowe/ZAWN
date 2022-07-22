@@ -9,6 +9,8 @@
     height: 60px;
   }
   a {
+    text-decoration: none;
+    color: black;
     &:hover {
       text-decoration: none;
     }
