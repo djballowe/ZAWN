@@ -4,6 +4,8 @@
 }
 
 .footer-container {
+  display: flex;
+  flex-direction: column;
   margin-top: 20px;
   margin-inline: auto;
   width: min(90%, 80rem);
@@ -28,6 +30,7 @@
     padding: 10px 10px;
     border-radius: 25px;
     border: solid rgb(133, 133, 133) 1px;
+    margin-top: 20px
   }
   button {
     @include flex();
@@ -35,7 +38,7 @@
     border: none;
     position: absolute;
     right: 0;
-    top: 23%;
+    top: 45%;
     cursor: pointer;
   }
 }
@@ -57,10 +60,6 @@
       opacity: 0.5;
     }
   }
-}
-
-#help {
-  margin-bottom: 20px;
 }
 
 .call,
@@ -100,10 +99,44 @@
   color: #2d2d2d;
 }
 
+.help {
+  margin-top: 30px;
+}
+
+#help {
+  color: rgba(45, 45, 45, 0.541);
+  margin-bottom: 10px;
+  padding: none;
+  font-size: 1.5rem;
+}
+
 .logo {
   height: 40px;
 }
 
+@media screen and (min-width: 805px) and (max-width: 999px) {
+  .footer-links {
+    display: flex;
+    justify-content: space-around;
+  }
+  .help {
+    margin-top: 30px;
+  }
+}
+
 @media screen and (min-width: 1000px) {
+  .footer-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px 0 100px 0;
+  }
+  .footer-links {
+    display: flex;
+    margin: 0 30px;
+  }
+  .help, .support, .explore {
+    margin: 0 30px;
+  }
   
 }

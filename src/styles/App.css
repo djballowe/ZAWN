@@ -222,6 +222,12 @@ header h2 {
   header h2 {
     font-size: 2rem;
   }
+  .banner img:first-of-type {
+    left: 50%;
+  }
+  .banner img:last-of-type {
+    right: 10%;
+  }
 }
 @-webkit-keyframes slideUpBanner {
   0% {
@@ -267,12 +273,12 @@ header h2 {
 .banner img:first-of-type {
   height: 25px;
   position: absolute;
-  left: 30%;
+  left: 1%;
 }
 .banner img:last-of-type {
   position: absolute;
   height: 25px;
-  right: 30%;
+  right: 1%;
 }
 
 .products-container {
@@ -1144,6 +1150,8 @@ input:focus {
 }
 
 .footer-container {
+  display: flex;
+  flex-direction: column;
   margin-top: 20px;
   margin-inline: auto;
   width: min(90%, 80rem);
@@ -1169,6 +1177,7 @@ input:focus {
   padding: 10px 10px;
   border-radius: 25px;
   border: solid rgb(133, 133, 133) 1px;
+  margin-top: 20px;
 }
 .subscriber button {
   display: flex;
@@ -1177,7 +1186,7 @@ input:focus {
   border: none;
   position: absolute;
   right: 0;
-  top: 23%;
+  top: 45%;
   cursor: pointer;
 }
 
@@ -1201,10 +1210,6 @@ input:focus {
 .explore p:hover,
 .support p:hover {
   opacity: 0.5;
-}
-
-#help {
-  margin-bottom: 20px;
 }
 
 .call,
@@ -1248,10 +1253,45 @@ input:focus {
   color: #2d2d2d;
 }
 
+.help {
+  margin-top: 30px;
+}
+
+#help {
+  color: rgba(45, 45, 45, 0.541);
+  margin-bottom: 10px;
+  padding: none;
+  font-size: 1.5rem;
+}
+
 .logo {
   height: 40px;
 }
 
+@media screen and (min-width: 805px) and (max-width: 999px) {
+  .footer-links {
+    display: flex;
+    justify-content: space-around;
+  }
+  .help {
+    margin-top: 30px;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .footer-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px 0 100px 0;
+  }
+  .footer-links {
+    display: flex;
+    margin: 0 30px;
+  }
+  .help, .support, .explore {
+    margin: 0 30px;
+  }
+}
 .return-container {
   margin-inline: auto;
   width: min(90%, 40rem);
@@ -1343,4 +1383,11 @@ input:focus {
   color: #92a9bd;
   background-color: white;
   border: 1px solid rgba(0, 0, 0, 0.291);
+}
+
+@media screen and (min-width: 1000px) {
+  .contact-container {
+    margin-inline: auto;
+    width: min(90%, 50rem);
+  }
 }/*# sourceMappingURL=App.css.map */

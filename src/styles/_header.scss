@@ -94,6 +94,14 @@ header {
       font-size: 2rem;
     }
   }
+  .banner {
+    img:first-of-type {
+      left: 50%;
+    }
+    img:last-of-type {
+      right: 10%;
+    }
+  }
 }
 
 @keyframes slideUpBanner {
@@ -128,11 +136,11 @@ header {
   img:first-of-type {
     height: 25px;
     position: absolute;
-    left: 30%;
+    left: 1%;
   }
   img:last-of-type {
     position: absolute;
     height: 25px;
-    right: 30%;
+    right: 1%;
   }
 }
