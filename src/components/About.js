@@ -56,19 +56,6 @@ function About() {
           </p>
         </div>
       </div>
-      <div className="contact">
-        <h2>Like what we're doing?</h2>
-        <p>
-          Stay up to date with discounts, prizes, and more content that makes
-          sustainable living easier and fun
-        </p>
-        <div className="input-field">
-          <input type="text" placeholder="Email" />
-          <div className="button">
-            <button>Submit</button>
-          </div>
-        </div>
-      </div>
     </div>
   );
 }

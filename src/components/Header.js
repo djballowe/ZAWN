@@ -13,6 +13,8 @@ import Cart from "./Cart";
 import { cartItemsArray } from "./ProductMain";
 import LeftArrow from "../Images/chevron-left.png";
 import RightArrow from "../Images/chevron-right.png";
+import Footer from "./Footer";
+import ScrollToTop from "./ScrollToTop";
 
 function Header() {
   const [isMobile, setIsMobile] = useState(false);
@@ -96,7 +98,9 @@ function Header() {
           />
         </div>
         <div className="logo">
-          <h2>ZAWN</h2>
+          <h2>
+            <Link to="/">ZAWN</Link>
+          </h2>
         </div>
         <div className="nav-container">
           <div className="mobile-menu">
@@ -156,16 +160,19 @@ function Header() {
           </ul>
         </div>
       </header>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/product" element={<ProductPage />} />
-        <Route
-          path="/product/:id"
-          element={<ProductMain handle={cartClick} />}
-        />
-        <Route path="*" element={<Error />} />
-      </Routes>
+      <ScrollToTop>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/product" element={<ProductPage />} />
+          <Route
+            path="/product/:id"
+            element={<ProductMain handle={cartClick} />}
+          />
+          <Route path="*" element={<Error />} />
+        </Routes>
+      </ScrollToTop>
+      <Footer />
     </Router>
   );
 }

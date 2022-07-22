@@ -137,6 +137,9 @@ body {
 .logo img {
   height: 60px;
 }
+.logo a:hover {
+  text-decoration: none;
+}
 
 header {
   display: flex;
@@ -247,13 +250,15 @@ header h2 {
   position: relative;
 }
 .banner p {
-  -webkit-animation: slideUpBanner 0.3s ease-in;
-          animation: slideUpBanner 0.3s ease-in;
+  -webkit-animation: slideUpBanner 0.3s ease-in-out;
+          animation: slideUpBanner 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 .banner p:nth-of-type(2) {
   display: none;
-  -webkit-animation: slideUp 0.3s ease-in;
-          animation: slideUp 0.3s ease-in;
+  -webkit-animation: slideUp 0.3s ease-in-out;
+          animation: slideUp 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 .banner img:first-of-type {
   height: 25px;
@@ -1128,4 +1133,36 @@ input:focus {
   .slide-images {
     max-width: 480px;
   }
+}
+.footer-container {
+  display: flex;
+  align-items: center;
+  padding: 50px 100px;
+  justify-content: space-between;
+  border-top: 1px solid rgba(0, 0, 0, 0.24);
+  background-color: #e3ebf4;
+}
+.footer-container h2 {
+  font-size: 2rem;
+}
+
+.subscriber {
+  width: 300px;
+}
+.subscriber p {
+  padding: 10px 0;
+  cursor: pointer;
+}
+
+.explore p:first-of-type, .support p:first-of-type, .help p:first-of-type {
+  margin-bottom: 10px;
+  padding: none;
+}
+.explore p, .support p, .help p {
+  padding: 3px 0;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.explore p:hover, .support p:hover, .help p:hover {
+  opacity: 0.5;
 }/*# sourceMappingURL=App.css.map */

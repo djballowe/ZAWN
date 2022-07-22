@@ -1,0 +1,33 @@
+.footer-container {
+  @include flex();
+  padding: 50px 100px;
+  justify-content: space-between;
+  border-top: 1px solid rgba(0, 0, 0, 0.24);
+  h2 {
+    font-size: 2rem;
+  }
+  background-color: #e3ebf4;
+}
+
+.subscriber {
+  width: 300px;
+  p {
+    padding: 10px 0;
+    cursor: pointer;
+  }
+}
+
+.explore, .support, .help {
+    p:first-of-type {
+        margin-bottom: 10px;
+        padding: none;
+    }
+    p {
+        padding: 3px 0;
+        cursor: pointer;
+        transition: all .2s ease-in-out;
+        &:hover {
+            opacity: .5;
+        }
+    }
+}
