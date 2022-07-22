@@ -216,6 +216,26 @@ header h2 {
     font-size: 2rem;
   }
 }
+@-webkit-keyframes slideUpBanner {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+@keyframes slideUpBanner {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
 .banner {
   background-color: black;
   color: white;
@@ -226,9 +246,16 @@ header h2 {
 }
 .banner p {
   padding: 12px;
+  -webkit-animation: slideUpBanner 0.3s ease-in;
+          animation: slideUpBanner 0.3s ease-in;
 }
 .banner p:nth-of-type(2) {
   display: none;
+  -webkit-animation: slideUp 0.3s ease-in;
+          animation: slideUp 0.3s ease-in;
+}
+.banner img {
+  height: 25px;
 }
 
 .products-container {

@@ -89,6 +89,17 @@ header {
   }
 }
 
+@keyframes slideUpBanner {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
 .banner {
   background-color: black;
   color: white;
@@ -98,9 +109,14 @@ header {
   align-items: center;
   p {
     padding: 12px;
+    animation: slideUpBanner .3s ease-in;
   }
   p:nth-of-type(2) {
     display: none;
+    animation: slideUp .3s ease-in;
+  }
+  img {
+    height: 25px;
   }
 }
 
