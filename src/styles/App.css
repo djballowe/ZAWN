@@ -1507,4 +1507,36 @@ input:focus {
 }
 .checkbox input:focus {
   outline: none;
+}
+
+.checkout-shipping form {
+  display: flex;
+  flex-direction: column;
+}
+.checkout-shipping h2 {
+  margin-bottom: 20px;
+}
+.checkout-shipping input, .checkout-shipping select {
+  transition: all 0.2s ease-in;
+  border-radius: 10px;
+  height: 40px;
+  border: 1px solid rgba(0, 0, 0, 0.291);
+  padding: 0 5px;
+  background-color: transparent;
+  margin-bottom: 10px;
+}
+.checkout-shipping input:focus, .checkout-shipping select:focus {
+  outline: 1px solid black;
+}
+
+.name,
+.address {
+  display: flex;
+  flex-direction: column;
+}
+
+.text {
+  display: flex;
+  align-items: center;
+  align-items: center;
 }/*# sourceMappingURL=App.css.map */

@@ -53,26 +53,25 @@ export default function Checkout() {
             <p>Email me with news and offers</p>
           </div>
         </div>
-        <div>
+        <div className="checkout-shipping">
           <h2>Shipping address</h2>
           <form action="">
             <select name="" id="">
-              <option>select country</option>
               {options}
             </select>
-            <div>
+            <div className="name">
               <input type="text" placeholder="First name" />
               <input type="text" placeholder="Last name" />
             </div>
             <input type="text" placeholder="Address" />
             <input type="text" placeholder="Apartment, suite, ect" />
-            <div>
+            <div className="address">
               <input type="text" placeholder="City" />
               <input type="text" placeholder="State" />
               <input type="text" placeholder="ZIP code" />
             </div>
             <input type="text" placeholder="Phone" />
-            <div>
+            <div className="text">
               <input type="checkbox" />
               <p>Text me with news and offers</p>
             </div>
