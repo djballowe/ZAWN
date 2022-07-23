@@ -11,16 +11,33 @@ import CartIcon from "@mdi/react";
 import { mdiWalletTravel } from "@mdi/js";
 import Cart from "./Cart";
 import { cartItemsArray } from "./ProductMain";
-import Arrow from "@mdi/react";
-import { mdiChevronDown } from "@mdi/js";
+import LeftArrow from "../Images/chevron-left.png";
+import RightArrow from "../Images/chevron-right.png";
+import Footer from "./Footer";
+import ScrollToTop from "./ScrollToTop";
+import Blog from "./Blog";
+import Contact from "./Contact";
+import Shipping from "./Shipping";
+import Return from "./Return";
 
 function Header() {
   const [isMobile, setIsMobile] = useState(false);
   const [isAmount, setIsAmount] = useState(0);
   const [isActive, setIsActive] = useState(false);
+  const [isBanner, setIsBanner] = useState(1);
 
   const handleClick = () => {
     isMobile ? setIsMobile(false) : setIsMobile(true);
+  };
+
+  const bannerClick = (e) => {
+    const id = e.target.id;
+    const max = document.getElementById("banner-text").childElementCount;
+    if (id === "+") {
+      isBanner === max ? setIsBanner(1) : setIsBanner(isBanner + 1);
+    } else {
+      isBanner === 1 ? setIsBanner(max) : setIsBanner(isBanner - 1);
+    }
   };
 
   const cartClick = () => {
@@ -41,10 +58,24 @@ function Header() {
   return (
     <Router>
       <div className="banner">
-        <Arrow path={mdiChevronDown} rotate={90} size={1}/>
-        <p>Get free shipping when you spent $50!</p>
-        <p>Save up to $20 on our Bathroom Essentials bundle</p>
-        <Arrow path={mdiChevronDown} rotate={-90} size={1}/>
+        <img src={LeftArrow} alt="" id="-" onClick={bannerClick} />
+        <div id="banner-text">
+          <p
+            style={{
+              display: isBanner == "1" ? "block" : "none",
+            }}
+          >
+            Get free shipping when you spent $50!
+          </p>
+          <p
+            style={{
+              display: isBanner == "2" ? "block" : "none",
+            }}
+          >
+            Save up to $20 on our Bathroom Essentials bundle
+          </p>
+        </div>
+        <img src={RightArrow} alt="" id="+" onClick={bannerClick} />
       </div>
       <div
         className="test-cart"
@@ -71,7 +102,9 @@ function Header() {
           />
         </div>
         <div className="logo">
-          <h2>ZAWN</h2>
+          <h2>
+            <Link to="/">ZAWN</Link>
+          </h2>
         </div>
         <div className="nav-container">
           <div className="mobile-menu">
@@ -131,16 +164,23 @@ function Header() {
           </ul>
         </div>
       </header>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/product" element={<ProductPage />} />
-        <Route
-          path="/product/:id"
-          element={<ProductMain handle={cartClick} />}
-        />
-        <Route path="*" element={<Error />} />
-      </Routes>
+      <ScrollToTop>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/product" element={<ProductPage />} />
+          <Route
+            path="/product/:id"
+            element={<ProductMain handle={cartClick} />}
+          />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/return" element={<Return />} />
+          <Route path="/shipping" element={<Shipping />} />
+          <Route path="*" element={<Error />} />
+        </Routes>
+      </ScrollToTop>
+      <Footer />
     </Router>
   );
 }
