@@ -1317,19 +1317,19 @@ input:focus {
   margin-bottom: 50px;
 }
 
-.shipping-container {
+.shipping-policy-container {
   margin-inline: auto;
   width: min(90%, 40rem);
 }
-.shipping-container div:first-of-type {
+.shipping-policy-container div:first-of-type {
   text-align: center;
   margin: 50px 0;
 }
-.shipping-container h2 {
+.shipping-policy-container h2 {
   font-size: 2rem;
   margin-bottom: 10px;
 }
-.shipping-container p {
+.shipping-policy-container p {
   line-height: 200%;
   margin-bottom: 50px;
 }
@@ -1399,4 +1399,8 @@ input:focus {
     margin-inline: auto;
     width: min(90%, 50rem);
   }
+}
+.checkout-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }/*# sourceMappingURL=App.css.map */
