@@ -40,6 +40,18 @@ function Header() {
     }
   };
 
+  const intervalClick = () => {
+    const max = document.getElementById("banner-text").childElementCount;
+    if (isBanner === max) {
+      setIsBanner(1);
+    } else if (isBanner === 1) {
+      setIsBanner(isBanner + 1);
+    }
+    console.log(isBanner);
+  };
+
+  // setInterval(intervalClick, 3000)
+
   const cartClick = () => {
     let total = 0;
     cartItemsArray.forEach((item) => {
@@ -53,7 +65,13 @@ function Header() {
     isActive === true
       ? (document.body.style.overflow = "hidden")
       : (document.body.style.overflow = "visible");
-  });
+
+    const interval = setInterval(() => {
+      isBanner === 2 ? setIsBanner(1) : setIsBanner(isBanner + 1);
+      console.log(isBanner)
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [isActive, isBanner]);
 
   return (
     <Router>
@@ -62,14 +80,14 @@ function Header() {
         <div id="banner-text">
           <p
             style={{
-              display: isBanner == "1" ? "block" : "none",
+              display: isBanner === 1 ? "block" : "none",
             }}
           >
             Get free shipping when you spent $50!
           </p>
           <p
             style={{
-              display: isBanner == "2" ? "block" : "none",
+              display: isBanner === 2 ? "block" : "none",
             }}
           >
             Save up to $20 on our Bathroom Essentials bundle
