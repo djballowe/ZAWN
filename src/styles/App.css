@@ -1406,9 +1406,12 @@ input:focus {
 }
 
 .checkout-information {
-  margin-top: 30px;
+  margin: 30px 0;
 }
 
+.logo {
+  margin-bottom: 20px;
+}
 .logo h2 {
   font-size: 3rem;
 }
@@ -1416,8 +1419,59 @@ input:focus {
   height: 80px;
 }
 
-.checkout-cart-items {
-  display: none;
+.cart-item-checkout {
+  display: flex;
+  align-items: center;
+}
+
+.coupon-code {
+  display: flex;
+  align-items: center;
+  align-items: center;
+  justify-content: space-between;
+}
+.coupon-code input {
+  transition: all 0.2s ease-in;
+  border-radius: 10px;
+  height: 40px;
+  width: calc(100% - 100px);
+  border: 1px solid rgba(0, 0, 0, 0.291);
+  padding: 0 5px;
+}
+.coupon-code input:focus {
+  outline: 1px solid black;
+}
+.coupon-code button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 60px;
+  background-color: rgb(51, 51, 51);
+  border-radius: 10px;
+  border: none;
+}
+.coupon-code img {
+  height: 35px;
+}
+
+.checkout-subtotal,
+.checkout-shipping,
+.checkout-tax,
+.checkout-total,
+.currency,
+.cart-item-checkout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+.checkout-subtotal-container {
+  margin: 20px 0;
+  padding: 15px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.291);
+  border-top: 1px solid rgba(0, 0, 0, 0.291);
 }
 
 .express {
@@ -1509,14 +1563,15 @@ input:focus {
   outline: none;
 }
 
-.checkout-shipping form {
+.checkout-shipping-info form {
   display: flex;
   flex-direction: column;
 }
-.checkout-shipping h2 {
+.checkout-shipping-info h2 {
   margin-bottom: 20px;
 }
-.checkout-shipping input, .checkout-shipping select {
+.checkout-shipping-info input,
+.checkout-shipping-info select {
   transition: all 0.2s ease-in;
   border-radius: 10px;
   height: 40px;
@@ -1525,7 +1580,8 @@ input:focus {
   background-color: transparent;
   margin-bottom: 10px;
 }
-.checkout-shipping input:focus, .checkout-shipping select:focus {
+.checkout-shipping-info input:focus,
+.checkout-shipping-info select:focus {
   outline: 1px solid black;
 }
 
@@ -1538,5 +1594,44 @@ input:focus {
 .text {
   display: flex;
   align-items: center;
+}
+.text p {
+  margin-left: 5px;
+}
+.text input {
+  margin: 0;
+}
+
+.continue {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.continue button {
+  padding: 10px;
+  margin: 10px 0;
+  background-color: #92a9bd;
+  border-radius: 10px;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.continue button:hover {
+  color: #92a9bd;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.291);
+}
+
+.show-order {
+  display: flex;
   align-items: center;
+}
+.show-order p {
+  margin: 0 5px;
+}
+.show-order img {
+  transform: rotate(90deg);
+  height: 30px;
 }/*# sourceMappingURL=App.css.map */
