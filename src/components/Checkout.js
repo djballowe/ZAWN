@@ -1,28 +1,54 @@
 import React from "react";
+import Logo from "../Images/wave.png";
+import PayPal from "../Images/Payment pngs/paypal.png";
+import ApplePay from "../Images/Payment pngs/applepay.png";
+import Amazon from "../Images/Payment pngs/amazon.png";
+import { countryList } from "../CountryData";
 
 export default function Checkout() {
+  const options = countryList.map((country) => {
+    return (
+      <option key={country} value={country}>
+        {country}
+      </option>
+    );
+  });
+
   return (
     <div className="checkout-container">
       <div className="checkout-information">
         <div className="logo">
           <h2>ZAWN</h2>
-          <img src="" alt="" />
+          <img src={Logo} alt="" />
         </div>
-        <div>
+        <div className="express">
           <p>Express Checkout</p>
-          <button></button>
-          <button></button>
-          <button></button>
+          <div className="payment-buttons">
+            <button>
+              <img src={Amazon} alt="" />
+            </button>
+            <button>
+              <img src={PayPal} alt="" />
+            </button>
+            <button>
+              <img src={ApplePay} alt="" />
+            </button>
+          </div>
         </div>
-        <div>
+        <div className="divider">
+          <div></div>
+          <p>OR</p>
+          <div></div>
+        </div>
+        <div className="contact-info">
           <h3>Contact Information</h3>
           <p>
             Already have an account? <a href="">Log in</a>
           </p>
         </div>
-        <div>
-          <input type="Email" placeholder="Email" />
-          <div>
+        <div className="checkout-email">
+          <input type="Email" placeholder="Email" required />
+          <div className="checkbox">
             <input type="checkbox" />
             <p>Email me with news and offers</p>
           </div>
@@ -30,7 +56,10 @@ export default function Checkout() {
         <div>
           <h2>Shipping address</h2>
           <form action="">
-            <input type="text" placeholder="Country/region" />
+            <select name="" id="">
+              <option>select country</option>
+              {options}
+            </select>
             <div>
               <input type="text" placeholder="First name" />
               <input type="text" placeholder="Last name" />

@@ -1,4 +1,110 @@
 .checkout-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  margin-inline: auto;
+  width: min(90%, 80rem);
+}
+
+.checkout-information {
+  margin-top: 30px;
+}
+
+.logo {
+  h2 {
+    font-size: 3rem;
+  }
+  img {
+    height: 80px;
+  }
+}
+
+.checkout-cart-items {
+  display: none;
+}
+
+.express {
+  padding: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.291);
+  text-align: center;
+  margin: 20px 0;
+  border-radius: 10px;
+  p {
+    padding-bottom: 10px;
+  }
+}
+
+.payment-buttons {
+  display: flex;
+  flex-direction: column;
+  button {
+    @include flex();
+    justify-content: center;
+    height: 50px;
+    margin: 5px 0;
+    border-radius: 10px;
+    &:nth-of-type(1) {
+      background-color: rgba(250, 214, 118, 255);
+      border: 1px solid transparent;
+    }
+    &:nth-of-type(2) {
+      background-color: rgba(255, 196, 57, 255);
+      border: 1px solid transparent;
+    }
+    &:nth-of-type(3) {
+      background-color: white;
+      border: black 1px solid;
+    }
+    img {
+      height: 30px;
+    }
+  }
+}
+
+.contact-info {
+  h3 {
+    font-size: 1.5rem;
+  }
+  margin-bottom: 20px;
+}
+
+.divider {
+  text-align: center;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  div {
+    background-color: rgba(0, 0, 0, 0.291);
+    height: 1px;
+    flex: 1;
+  }
+  p {
+    margin: 0 7px;
+    color: rgba(0, 0, 0, 0.291);
+  }
+}
+
+.checkout-email {
+  display: flex;
+  flex-direction: column;
+  input {
+    transition: all .2s ease-in;
+    border-radius: 10px;
+    height: 40px;
+    border: 1px solid rgba(0, 0, 0, 0.291);
+    padding: 0 5px;
+    &:focus {
+        outline: 1px solid black;
+    }
+  }
+}
+
+.checkbox {
+  @include flex();
+  p {
+    margin-left: 5px;
+  }
+  input {
+    &:focus {
+        outline: none;
+    }
+  }
 }
