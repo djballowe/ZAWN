@@ -25,6 +25,7 @@ import { mdiAccountOutline } from "@mdi/js";
 import Profile from "@mdi/react";
 import LogIn from "./Login/LogIn";
 import { Register } from "./Login/LogIn"
+import AccountPage from "./Login/AccountPage";
 
 function Header() {
   const [isMobile, setIsMobile] = useState(false);
@@ -211,6 +212,7 @@ function Header() {
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<LogIn />} />
+          <Route path="/account" element={<AccountPage />} />
           <Route path="*" element={<Error />} />
         </Routes>
       </ScrollToTop>

@@ -66,7 +66,9 @@ export const Register = () => {
         <div></div>
       </div>
       <div className="google">
-        <button>
+        <button onClick={() => {
+            navigate("/account");
+          }}>
           Sign up with <img src={Google} alt="" />
         </button>
       </div>
