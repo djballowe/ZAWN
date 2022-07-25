@@ -2,7 +2,10 @@
   margin-inline: auto;
   width: min(90%, 30rem);
   text-align: center;
-  height: 50vh;
+  height: 60vh;
+  button {
+    margin-bottom: 10px;
+  }
 }
 
 .login-text {
@@ -23,10 +26,37 @@
     margin-right: 10px;
   }
   a {
-    transition: all .2s ease-in-out;
-    color: rgba(99, 99, 99, 0.815);
+    transition: all 0.2s ease-in-out;
+    color: #92a9bd;
     &:hover {
-        color: black;
+      color: black;
+    }
+  }
+}
+
+.google {
+  display: flex;
+  flex-direction: column;
+  margin-inline: auto;
+  width: min(90%, 80rem);
+  img {
+    height: 30px;
+    margin-left: 5px
+  }
+  button {
+    @include flex();
+    justify-content: center;
+    padding: 10px;
+    background-color: transparent;
+    border-radius: 30px;
+    border: 1px solid #92a9bd;
+    color: black;
+    font-size: 1.2rem;
+    height: 50px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+        border: 1px solid black;
     }
   }
 }

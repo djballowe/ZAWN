@@ -1,4 +1,5 @@
 import React from "react";
+import Google from "../Images/Payment pngs/google.png";
 
 const LogIn = () => {
   return (
@@ -14,6 +15,18 @@ const LogIn = () => {
           <button type="submit">Log In</button>
         </form>
       </div>
+      <div className="divider">
+        <div></div>
+        <p>OR</p>
+        <div></div>
+      </div>
+
+      <div className="google">
+        <button>
+          Log in with <img src={Google} alt="" />
+        </button>
+      </div>
+
       <div className="new-customer">
         <p>New Customer?</p>
         <a href="">Create an Account</a>

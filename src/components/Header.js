@@ -23,7 +23,7 @@ import Return from "./Return";
 import Checkout from "./Checkout";
 import { mdiAccountOutline } from "@mdi/js";
 import Profile from "@mdi/react";
-import LogIn from "./Login/LogIn";
+import LogIn from "./LogIn";
 
 function Header() {
   const [isMobile, setIsMobile] = useState(false);
