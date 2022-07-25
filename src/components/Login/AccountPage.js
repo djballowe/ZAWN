@@ -14,24 +14,48 @@ export default function AccountPage() {
           <h2>Orders</h2>
         </div>
       </div>
-      <div className="orders-catagories">
-        <p>Order Number</p>
-        <p>Date</p>
-        <p>Payment status</p>
-        <p>Fulfillment Status</p>
-        <p>Total</p>
-      </div>
-      <div className="order-comps">
-        <p>#247012</p>
-        <p>January 19, 2022</p>
-        <p>Paid</p>
-        <p>Fulfilled</p>
-        <p>$37</p>
-      </div>
+        <Orders />
     </div>
   );
 }
 
 export function Orders() {
-  return <div>Orders</div>;
+  return (
+    <div className="order-components-container">
+      <div className="orders-components-mobile">
+        <div className="orders">
+          <p>Order Number:</p>
+          <p>#247012</p>
+        </div>
+        <div className="order-details-container">
+          <div className="order-details">
+            <div className="date">
+              <p>Date</p>
+              <p>January 19, 2022</p>
+            </div>
+            <div className="payment">
+              <p>Payment status</p>
+              <p>Paid</p>
+            </div>
+          </div>
+          <div className="order-details">
+            <div className="fulfillment">
+              <p>Fulfillment Status</p>
+              <p>Fulfilled</p>
+            </div>
+            <div className="order-total">
+              <p>Total</p>
+              <p>$37</p>
+            </div>
+          </div>
+          <div className="button order-button">
+            <button>
+              <p>View Order Details</p>
+            </button>
+          </div>
+        </div>
+        <div className="orders-desktop"></div>
+      </div>
+    </div>
+  );
 }
