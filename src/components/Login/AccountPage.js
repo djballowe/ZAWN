@@ -14,7 +14,7 @@ export default function AccountPage() {
           <h2>Orders</h2>
         </div>
       </div>
-        <Orders />
+      <Orders />
     </div>
   );
 }

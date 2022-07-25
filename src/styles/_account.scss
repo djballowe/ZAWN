@@ -63,16 +63,18 @@
 }
 
 .order-details-container {
+   
 }
 
 .date,
 .payment,
-.order-details,
+.fulfillment,
 .order-total {
   p:first-of-type {
     font-size: 0.7rem;
     color: rgba(99, 99, 99, 0.815);
   }
+  width: 80px;
 }
 
 .order-button {
@@ -86,5 +88,5 @@
 }
 
 .orders-components-mobile {
-    width: 300px;
+    width: 200px;
 }

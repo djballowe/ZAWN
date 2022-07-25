@@ -1809,9 +1809,15 @@ input:focus {
   margin: 20px 0;
 }
 
+.date,
+.payment,
+.fulfillment,
+.order-total {
+  width: 80px;
+}
 .date p:first-of-type,
 .payment p:first-of-type,
-.order-details p:first-of-type,
+.fulfillment p:first-of-type,
 .order-total p:first-of-type {
   font-size: 0.7rem;
   color: rgba(99, 99, 99, 0.815);
@@ -1826,5 +1832,5 @@ input:focus {
 }
 
 .orders-components-mobile {
-  width: 300px;
+  width: 200px;
 }/*# sourceMappingURL=App.css.map */
