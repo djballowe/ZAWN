@@ -49,6 +49,37 @@ header {
   right: 1%;
 }
 
+.banner {
+  background-color: rgb(51, 51, 51);
+  color: white;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px;
+  position: relative;
+  cursor: pointer;
+  p {
+    animation: slideUpBanner 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+  }
+  p:nth-of-type(2) {
+    display: none;
+    animation: slideUp 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+  }
+  img:first-of-type {
+    height: 25px;
+    position: absolute;
+    left: 1%;
+  }
+  img:last-of-type {
+    position: absolute;
+    height: 25px;
+    right: 1%;
+  }
+}
+
 @media screen and (min-width: 760px) {
   .nav {
     @include flex();
@@ -96,10 +127,21 @@ header {
   }
   .banner {
     img:first-of-type {
-      left: 50%;
+      left: 20%;
     }
     img:last-of-type {
-      right: 10%;
+      right: 20%;
+    }
+  }
+}
+
+@media screen and (min-width: 1300px) {
+  .banner {
+    img:first-of-type {
+      left: 30%;
+    }
+    img:last-of-type {
+      right: 30%;
     }
   }
 }
@@ -112,35 +154,5 @@ header {
   100% {
     opacity: 1;
     transform: translateY(0px);
-  }
-}
-
-.banner {
-  background-color: rgb(51, 51, 51);
-  color: white;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 12px;
-  position: relative;
-  p {
-    animation: slideUpBanner 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
-  }
-  p:nth-of-type(2) {
-    display: none;
-    animation: slideUp 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
-  }
-  img:first-of-type {
-    height: 25px;
-    position: absolute;
-    left: 1%;
-  }
-  img:last-of-type {
-    position: absolute;
-    height: 25px;
-    right: 1%;
   }
 }

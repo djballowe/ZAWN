@@ -5,11 +5,14 @@ import Close from "@mdi/react";
 import { mdiClose } from "@mdi/js";
 import CartItems from "./CartItems";
 import { cartItemsArray } from "./ProductMain";
+import { useNavigate } from "react-router-dom";
 
 export default function Cart(props) {
   const [isTotal, setIsTotal] = useState(0);
   const [isQuantity, setIsQuantity] = useState(props.quantity);
   const [isActive, setIsActive] = useState(props.open);
+
+  let navigate = useNavigate();
 
   const setParentTotal = (value) => {
     setIsQuantity(value);
@@ -78,7 +81,14 @@ export default function Cart(props) {
             <p>Subtotal</p>
             <p>${isTotal}</p>
           </div>
-          <button>Proceed to Checkout</button>
+          <button
+            onClick={() => {
+              navigate("/checkout");
+              props.onClick();
+            }}
+          >
+            Proceed to Checkout
+          </button>
         </div>
       </div>
     </div>

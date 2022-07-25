@@ -4,7 +4,7 @@ import Home from "./components/Home";
 import ProductPage from "./components/ProductPage";
 import ProductMain from "./components/ProductMain";
 
-function App() {
+function App(props) {
   return (
     <div className="App">
       <Header />

@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Shipping() {
   return (
-    <div className="shipping-container">
+    <div className="shipping-policy-container">
       <div>
         <h2>Shipping Details</h2>
       </div>
