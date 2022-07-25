@@ -2,7 +2,7 @@
   margin-inline: auto;
   width: min(90%, 30rem);
   text-align: center;
-  height: 60vh;
+  margin-bottom: 100px;
   button {
     margin-bottom: 10px;
   }
@@ -22,26 +22,48 @@
   justify-content: center;
   color: rgba(99, 99, 99, 0.815);
   margin-top: 20px;
-  p {
+  p:last-of-type {
     margin-right: 10px;
-  }
-  a {
-    transition: all 0.2s ease-in-out;
+    position: relative;
+    text-decoration: none;
+    margin-left: 10px;
     color: #92a9bd;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
     &:hover {
       color: black;
     }
   }
+
+  p::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    border-radius: 4px;
+    background-color: #92a9bd;
+    bottom: 0;
+    left: 0;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  p:hover::before {
+    transform-origin: left;
+    transform: scaleX(1);
+  }
 }
 
 .google {
+  margin-top: 10px;
   display: flex;
   flex-direction: column;
   margin-inline: auto;
   width: min(90%, 80rem);
   img {
     height: 30px;
-    margin-left: 5px
+    margin-left: 5px;
   }
   button {
     @include flex();
@@ -56,7 +78,7 @@
     cursor: pointer;
     transition: all 0.2s ease-in-out;
     &:hover {
-        border: 1px solid black;
+      border: 1px solid black;
     }
   }
 }

@@ -23,7 +23,8 @@ import Return from "./Return";
 import Checkout from "./Checkout";
 import { mdiAccountOutline } from "@mdi/js";
 import Profile from "@mdi/react";
-import LogIn from "./LogIn";
+import LogIn from "./Login/LogIn";
+import { Register } from "./Login/LogIn"
 
 function Header() {
   const [isMobile, setIsMobile] = useState(false);
@@ -208,6 +209,7 @@ function Header() {
           <Route path="/return" element={<Return />} />
           <Route path="/shipping" element={<Shipping />} />
           <Route path="/checkout" element={<Checkout />} />
+          <Route path="/register" element={<Register />} />
           <Route path="/login" element={<LogIn />} />
           <Route path="*" element={<Error />} />
         </Routes>
