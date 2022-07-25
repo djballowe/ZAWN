@@ -1382,9 +1382,10 @@ input:focus {
   padding: 10px;
   background-color: #92a9bd;
   border-radius: 30px;
-  border: none;
+  border: 1px solid transparent;
   color: white;
   font-size: 1.2rem;
+  height: 50px;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
@@ -1422,6 +1423,19 @@ input:focus {
 .cart-item-checkout {
   display: flex;
   align-items: center;
+}
+.cart-item-checkout img {
+  height: 70px;
+  border-radius: 8px;
+  border: 1px solid black;
+}
+
+.cart-item-info {
+  display: flex;
+  align-items: center;
+}
+.cart-item-info div {
+  margin-left: 10px;
 }
 
 .coupon-code {
@@ -1591,14 +1605,14 @@ input:focus {
   flex-direction: column;
 }
 
-.text {
+.offers-text {
   display: flex;
   align-items: center;
 }
-.text p {
+.offers-text p {
   margin-left: 5px;
 }
-.text input {
+.offers-text input {
   margin: 0;
 }
 
@@ -1634,4 +1648,36 @@ input:focus {
 .show-order img {
   transform: rotate(90deg);
   height: 30px;
+}
+
+.login-container {
+  margin-inline: auto;
+  width: min(90%, 30rem);
+  text-align: center;
+  height: 50vh;
+}
+
+.login-text p {
+  margin-top: 10px;
+}
+.login-text h2 {
+  font-size: 4rem;
+}
+
+.new-customer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(99, 99, 99, 0.815);
+  margin-top: 20px;
+}
+.new-customer p {
+  margin-right: 10px;
+}
+.new-customer a {
+  transition: all 0.2s ease-in-out;
+  color: rgba(99, 99, 99, 0.815);
+}
+.new-customer a:hover {
+  color: black;
 }/*# sourceMappingURL=App.css.map */

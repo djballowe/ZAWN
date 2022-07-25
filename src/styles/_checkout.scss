@@ -27,6 +27,18 @@
 
 .cart-item-checkout {
   @include flex();
+  img {
+    height: 70px;
+    border-radius: 8px;
+    border: 1px solid black
+  }
+}
+
+.cart-item-info {
+  @include flex();
+  div {
+    margin-left: 10px
+  }
 }
 
 .coupon-code {
@@ -191,7 +203,7 @@
   @include column();
 }
 
-.text {
+.offers-text {
   @include flex();
   p {
     margin-left: 5px;

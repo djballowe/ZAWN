@@ -1,0 +1,32 @@
+.login-container {
+  margin-inline: auto;
+  width: min(90%, 30rem);
+  text-align: center;
+  height: 50vh;
+}
+
+.login-text {
+  p {
+    margin-top: 10px;
+  }
+  h2 {
+    font-size: 4rem;
+  }
+}
+
+.new-customer {
+  @include flex();
+  justify-content: center;
+  color: rgba(99, 99, 99, 0.815);
+  margin-top: 20px;
+  p {
+    margin-right: 10px;
+  }
+  a {
+    transition: all .2s ease-in-out;
+    color: rgba(99, 99, 99, 0.815);
+    &:hover {
+        color: black;
+    }
+  }
+}

@@ -21,6 +21,9 @@ import Contact from "./Contact";
 import Shipping from "./Shipping";
 import Return from "./Return";
 import Checkout from "./Checkout";
+import { mdiAccountOutline } from "@mdi/js";
+import Profile from "@mdi/react";
+import LogIn from "./Login/LogIn";
 
 function Header() {
   const [isMobile, setIsMobile] = useState(false);
@@ -171,6 +174,11 @@ function Header() {
                 <Link to="/about">About</Link>
               </li>
               <li>
+                <Link to="/login">
+                  <Profile path={mdiAccountOutline} size={1} />
+                </Link>
+              </li>
+              <li>
                 <CartIcon path={mdiWalletTravel} size={1} onClick={cartClick} />
                 <div
                   onClick={cartClick}
@@ -200,6 +208,7 @@ function Header() {
           <Route path="/return" element={<Return />} />
           <Route path="/shipping" element={<Shipping />} />
           <Route path="/checkout" element={<Checkout />} />
+          <Route path="/login" element={<LogIn />} />
           <Route path="*" element={<Error />} />
         </Routes>
       </ScrollToTop>

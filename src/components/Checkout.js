@@ -6,6 +6,7 @@ import Amazon from "../Images/Payment pngs/amazon.png";
 import { countryList } from "../CountryData";
 import Arrow from "../Images/arrow.png";
 import whiteArrow from "../Images/chevron-right.png";
+import CheckoutItems from "./CheckoutItems";
 
 export default function Checkout() {
   const options = countryList.map((country) => {
@@ -30,17 +31,6 @@ export default function Checkout() {
           </div>
         </div>
         <div className="checkout-cart-items">
-          <div className="cart-item-checkout">
-            <img
-              src="../Images/Product Page/Tooth Brush/ToothBrush2.jpg"
-              alt=""
-            />
-            <div>
-              <p>Item</p>
-              <p>color</p>
-            </div>
-            <p>$64.00</p>
-          </div>
           <div className="coupon-code">
             <input type="text" placeholder="Gift card or discount code" />
             <button>
@@ -48,6 +38,7 @@ export default function Checkout() {
             </button>
           </div>
           <div className="checkout-subtotal-container">
+            <CheckoutItems />
             <div className="checkout-subtotal">
               <p>Subtotal</p>
               <p>$64.00</p>
@@ -120,7 +111,7 @@ export default function Checkout() {
             <input type="text" placeholder="ZIP code" required />
           </div>
           <input type="text" placeholder="Phone" required />
-          <div className="text">
+          <div className="offers-text">
             <input type="checkbox" />
             <p>Text me with news and offers</p>
           </div>
