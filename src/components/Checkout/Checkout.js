@@ -7,9 +7,12 @@ import { countryList } from "../CountryData";
 import Arrow from "../Images/arrow.png";
 import whiteArrow from "../Images/chevron-right.png";
 import CheckoutItems from "./CheckoutItems";
+import { useNavigate } from "react-router-dom";
 
 export default function Checkout() {
   const [isOpen, setIsOpen] = useState(false);
+
+  let navigate = useNavigate();
 
   const options = countryList.map((country) => {
     return (
@@ -134,7 +137,13 @@ export default function Checkout() {
         </form>
       </div>
       <div className="continue">
-        <button>Continue to Shipping</button>
+        <button
+          onClick={() => {
+            navigate("/checkout-shipping");
+          }}
+        >
+          Continue to Shipping
+        </button>
         <p>Return to cart</p>
       </div>
     </div>

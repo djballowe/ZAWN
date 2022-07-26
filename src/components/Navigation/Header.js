@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
-import { Outlet, useLocation } from "react-router-dom";
 import Home from "./Home";
 import About from "./About";
 import Error from "./Error";
@@ -26,6 +25,7 @@ import Profile from "@mdi/react";
 import LogIn from "./Login/LogIn";
 import { Register } from "./Login/LogIn"
 import AccountPage from "./Login/AccountPage";
+import CheckoutShipping from "./CheckoutShipping"
 
 function Header() {
   const [isMobile, setIsMobile] = useState(false);
@@ -210,6 +210,7 @@ function Header() {
           <Route path="/return" element={<Return />} />
           <Route path="/shipping" element={<Shipping />} />
           <Route path="/checkout" element={<Checkout />} />
+          <Route path="/checkout-shipping" element={<CheckoutShipping />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<LogIn />} />
           <Route path="/account" element={<AccountPage />} />
