@@ -26,6 +26,7 @@ import LogIn from "../Login/LogIn";
 import { Register } from "../Login/LogIn";
 import AccountPage from "../Login/AccountPage";
 import CheckoutShipping from "../Checkout/CheckoutShipping";
+import Payment from "../Checkout/Payment"
 
 function Header() {
   const [isMobile, setIsMobile] = useState(false);
@@ -211,6 +212,7 @@ function Header() {
           <Route path="/shipping" element={<Shipping />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/checkout-shipping" element={<CheckoutShipping />} />
+          <Route path="/payment" element={<Payment />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<LogIn />} />
           <Route path="/account" element={<AccountPage />} />

@@ -1,0 +1,47 @@
+.shipping-info,
+.shipping-method {
+  border: 1px solid var(--border);
+  margin: 20px 0;
+}
+
+.shipping-email,
+.shipping-address,
+.payment-shipping-method {
+  padding: 10px;
+  p:first-of-type {
+    color: rgb(109, 109, 109);
+  }
+}
+
+.shipping-email {
+  border-bottom: 1px solid var(--border);
+}
+
+.payment-shipping-method {
+  border-top: 1px solid var(--border);
+}
+
+.shipping-checkbox {
+  @include flex();
+  p {
+    padding: 10px;
+  }
+  img {
+    height: 40px
+  }
+}
+
+.shipping-method-selection {
+  @include flex();
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.shipping-method-selection:last-of-type {
+  border: none;
+}
+
+.payment-payment {
+    margin: 15px 0;
+}

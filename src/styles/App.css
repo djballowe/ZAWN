@@ -1671,6 +1671,9 @@ input:focus {
   background-color: white;
   border: 1px solid rgba(0, 0, 0, 0.291);
 }
+.continue p {
+  cursor: pointer;
+}
 
 .show-order {
   display: flex;
@@ -1860,4 +1863,56 @@ input:focus {
 
 .orders-components-mobile {
   width: 200px;
+}
+
+.shipping-info,
+.shipping-method {
+  border: 1px solid var(--border);
+  margin: 20px 0;
+}
+
+.shipping-email,
+.shipping-address,
+.payment-shipping-method {
+  padding: 10px;
+}
+.shipping-email p:first-of-type,
+.shipping-address p:first-of-type,
+.payment-shipping-method p:first-of-type {
+  color: rgb(109, 109, 109);
+}
+
+.shipping-email {
+  border-bottom: 1px solid var(--border);
+}
+
+.payment-shipping-method {
+  border-top: 1px solid var(--border);
+}
+
+.shipping-checkbox {
+  display: flex;
+  align-items: center;
+}
+.shipping-checkbox p {
+  padding: 10px;
+}
+.shipping-checkbox img {
+  height: 40px;
+}
+
+.shipping-method-selection {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.shipping-method-selection:last-of-type {
+  border: none;
+}
+
+.payment-payment {
+  margin: 15px 0;
 }/*# sourceMappingURL=App.css.map */
