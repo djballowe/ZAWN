@@ -33,12 +33,17 @@ export default function CartItems(props) {
     console.log(cartItemsArray);
   };
 
+  let source = props.src
+
+  console.log(`src/Images${source}`)
+
   useEffect(() => {
     setIsQuantity(props.quantity);
     setIsOpen(props.open);
   }, [props.open, props.quantity]);
 
   return (
+    
     <div
       className="item-full"
       style={{
@@ -49,7 +54,7 @@ export default function CartItems(props) {
       <div className="cart-item-container">
         <div className="cart-image">
           <img
-            src={require(`../Images/${props.src}`)}
+            src={require(`src/Images/${source}`)}
             alt=""
           />
         </div>

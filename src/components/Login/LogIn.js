@@ -1,5 +1,5 @@
 import React from "react";
-import Google from "/home/david/GitHub/CHO/src/Images/Payment pngs/google.png";
+import Google from "../Images/Payment pngs/google.png";
 import { useNavigate } from "react-router-dom";
 
 const LogIn = () => {
