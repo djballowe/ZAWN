@@ -1411,9 +1411,8 @@ input:focus {
   }
 }
 .checkout-container {
-  margin-inline: auto;
-  width: min(90%, 80rem);
   margin-bottom: 30px;
+  max-width: 650px;
 }
 
 .checkout-information {
@@ -1865,6 +1864,13 @@ input:focus {
   width: 200px;
 }
 
+.flex-container {
+  display: flex;
+  justify-content: space-around;
+  margin-inline: auto;
+  width: min(90%, 80rem);
+}
+
 .shipping-info,
 .shipping-method {
   border: 1px solid var(--border);
@@ -1915,4 +1921,34 @@ input:focus {
 
 .payment-payment {
   margin: 15px 0;
+}
+
+.order-checkout-component-desktop {
+  display: none;
+}
+
+@media screen and (min-width: 1000px) {
+  .checkout-container {
+    padding: 0 20px;
+    width: 500px;
+  }
+  .checkout-border {
+    background-color: var(--border);
+    width: 1px;
+  }
+  .order-checkout-component {
+    display: none;
+  }
+  .order-checkout-component-desktop {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    width: 400px;
+  }
+  .checkout-cart {
+    display: none;
+  }
+  .checkout-desktop {
+    display: flex;
+  }
 }/*# sourceMappingURL=App.css.map */
