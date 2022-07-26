@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { cartItemsArray } from "./ProductMain";
 
 const Color = (props) => {
   const [isSelected, setIsSelected] = useState();

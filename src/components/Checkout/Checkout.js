@@ -3,7 +3,7 @@ import Logo from "../Images/wave.png";
 import PayPal from "../Images/Payment pngs/paypal.png";
 import ApplePay from "../Images/Payment pngs/applepay.png";
 import Amazon from "../Images/Payment pngs/amazon.png";
-import { countryList } from "../CountryData";
+import { countryList } from "../../CountryData";
 import Arrow from "../Images/arrow.png";
 import whiteArrow from "../Images/chevron-right.png";
 import CheckoutItems from "./CheckoutItems";
