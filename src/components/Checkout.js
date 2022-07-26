@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Logo from "../Images/wave.png";
 import PayPal from "../Images/Payment pngs/paypal.png";
 import ApplePay from "../Images/Payment pngs/applepay.png";
@@ -9,6 +9,8 @@ import whiteArrow from "../Images/chevron-right.png";
 import CheckoutItems from "./CheckoutItems";
 
 export default function Checkout() {
+  const [isOpen, setIsOpen] = useState(false);
+
   const options = countryList.map((country) => {
     return (
       <option key={country} value={country}>
@@ -26,11 +28,25 @@ export default function Checkout() {
         </div>
         <div className="checkout-cart">
           <div className="show-order">
-            <p>Show order summary</p>
-            <img src={Arrow} alt="" />
+            <p>{isOpen ? "Hide order summary" : "Show order summary"}</p>
+            <img
+              src={Arrow}
+              alt=""
+              style={{
+                transform: isOpen ? "rotate(90deg)" : "rotate(0)",
+              }}
+              onClick={() => {
+                isOpen ? setIsOpen(false) : setIsOpen(true);
+              }}
+            />
           </div>
         </div>
-        <div className="checkout-cart-items">
+        <div
+          className="checkout-cart-items"
+          style={{
+            height: isOpen ? "350px" : "0px",
+          }}
+        >
           <div className="coupon-code">
             <input type="text" placeholder="Gift card or discount code" />
             <button>

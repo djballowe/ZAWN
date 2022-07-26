@@ -1413,10 +1413,12 @@ input:focus {
 .checkout-container {
   margin-inline: auto;
   width: min(90%, 80rem);
+  margin-bottom: 30px;
 }
 
 .checkout-information {
   margin: 30px 0;
+  border-bottom: 1px solid var(--border);
 }
 
 .logo {
@@ -1427,6 +1429,29 @@ input:focus {
 }
 .logo img {
   height: 80px;
+}
+
+@-webkit-keyframes dropDown {
+  from {
+    height: 100%;
+  }
+  to {
+    height: 1px;
+  }
+}
+
+@keyframes dropDown {
+  from {
+    height: 100%;
+  }
+  to {
+    height: 1px;
+  }
+}
+.checkout-cart-items {
+  transition: height 0.5s cubic-bezier(0.82, 0.085, 0.395, 0.895);
+  margin-top: 20px;
+  overflow: hidden;
 }
 
 .cart-item-checkout {
@@ -1657,6 +1682,8 @@ input:focus {
 .show-order img {
   transform: rotate(90deg);
   height: 30px;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
 }
 
 .login-container {
