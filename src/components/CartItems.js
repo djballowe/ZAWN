@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import Plus from "../Images/plus.png";
-import Minus from "../Images/minus.png";
-import { cartItemsArray } from "../Main Pages/ProductMain";
+import Plus from "./Images/plus.png";
+import Minus from "./Images/minus.png";
+import { cartItemsArray } from "./Main Pages/ProductMain";
 
 export default function CartItems(props) {
   const [isQuantity, setIsQuantity] = useState(props.quantity);
@@ -35,8 +35,6 @@ export default function CartItems(props) {
 
   let source = props.src
 
-  console.log(`src/Images${source}`)
-
   useEffect(() => {
     setIsQuantity(props.quantity);
     setIsOpen(props.open);
@@ -54,7 +52,7 @@ export default function CartItems(props) {
       <div className="cart-item-container">
         <div className="cart-image">
           <img
-            src={require(`src/Images/${source}`)}
+            src={require(`./Images/${source}`)}
             alt=""
           />
         </div>
