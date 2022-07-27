@@ -19,7 +19,13 @@ export default function AccountPage() {
           <h2>Orders</h2>
         </div>
       </div>
-      <Orders />
+      <div className="orders-wrapper">
+        <Orders />
+        <Orders />
+        <Orders />
+        
+        
+      </div>
     </div>
   );
 }
