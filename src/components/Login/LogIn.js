@@ -1,6 +1,7 @@
 import React from "react";
 import Google from "../Images/Payment pngs/google.png";
 import { useNavigate } from "react-router-dom";
+import signInWithGoogle from "../../firebase/Config";
 
 const LogIn = () => {
   let navigate = useNavigate();
@@ -28,7 +29,7 @@ const LogIn = () => {
         <div></div>
       </div>
       <div className="google">
-        <button>
+        <button onClick={signInWithGoogle}>
           Log in with <img src={Google} alt="" />
         </button>
       </div>
