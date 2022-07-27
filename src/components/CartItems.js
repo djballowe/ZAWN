@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import Plus from "../Images/plus.png";
-import Minus from "../Images/minus.png";
-import { cartItemsArray } from "./ProductMain";
+import Plus from "./Images/plus.png";
+import Minus from "./Images/minus.png";
+import { cartItemsArray } from "./Main Pages/ProductMain";
 
 export default function CartItems(props) {
   const [isQuantity, setIsQuantity] = useState(props.quantity);
@@ -33,12 +33,15 @@ export default function CartItems(props) {
     console.log(cartItemsArray);
   };
 
+  let source = props.src
+
   useEffect(() => {
     setIsQuantity(props.quantity);
     setIsOpen(props.open);
   }, [props.open, props.quantity]);
 
   return (
+    
     <div
       className="item-full"
       style={{
@@ -48,7 +51,10 @@ export default function CartItems(props) {
     >
       <div className="cart-item-container">
         <div className="cart-image">
-          <img src={require(`../Images/${props.src}`)} alt="" />
+          <img
+            src={require(`./Images/${source}`)}
+            alt=""
+          />
         </div>
         <div className="cart-item-container-text">
           <div className="cart-item-text">

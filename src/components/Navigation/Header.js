@@ -1,26 +1,32 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
-import { Outlet, useLocation } from "react-router-dom";
-import Home from "./Home";
-import About from "./About";
+import Home from "../Main Pages/Home";
+import About from "../Main Pages/About";
 import Error from "./Error";
-import ProductPage from "./ProductPage";
-import ProductMain from "./ProductMain";
+import ProductPage from "../Main Pages/ProductPage";
+import ProductMain from "../Main Pages/ProductMain";
 import Icon from "@mdi/react";
 import { mdiMenu } from "@mdi/js";
 import CartIcon from "@mdi/react";
 import { mdiWalletTravel } from "@mdi/js";
-import Cart from "./Cart";
-import { cartItemsArray } from "./ProductMain";
+import Cart from "../Cart/Cart";
+import { cartItemsArray } from "../Main Pages/ProductMain";
 import LeftArrow from "../Images/chevron-left.png";
 import RightArrow from "../Images/chevron-right.png";
 import Footer from "./Footer";
 import ScrollToTop from "./ScrollToTop";
-import Blog from "./Blog";
-import Contact from "./Contact";
-import Shipping from "./Shipping";
-import Return from "./Return";
-import Checkout from "./Checkout";
+import Blog from "../Main Pages/Blog";
+import Contact from "../Main Pages/Contact";
+import Shipping from "../Main Pages/Shipping";
+import Return from "../Main Pages/Return";
+import Checkout from "../Checkout/Checkout";
+import { mdiAccountOutline } from "@mdi/js";
+import Profile from "@mdi/react";
+import LogIn from "../Login/LogIn";
+import { Register } from "../Login/LogIn";
+import AccountPage from "../Login/AccountPage";
+import CheckoutShipping from "../Checkout/CheckoutShipping";
+import Payment from "../Checkout/Payment"
 
 function Header() {
   const [isMobile, setIsMobile] = useState(false);
@@ -171,6 +177,11 @@ function Header() {
                 <Link to="/about">About</Link>
               </li>
               <li>
+                <Link to="/login">
+                  <Profile path={mdiAccountOutline} size={1} />
+                </Link>
+              </li>
+              <li>
                 <CartIcon path={mdiWalletTravel} size={1} onClick={cartClick} />
                 <div
                   onClick={cartClick}
@@ -200,6 +211,11 @@ function Header() {
           <Route path="/return" element={<Return />} />
           <Route path="/shipping" element={<Shipping />} />
           <Route path="/checkout" element={<Checkout />} />
+          <Route path="/checkout-shipping" element={<CheckoutShipping />} />
+          <Route path="/payment" element={<Payment />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<LogIn />} />
+          <Route path="/account" element={<AccountPage />} />
           <Route path="*" element={<Error />} />
         </Routes>
       </ScrollToTop>

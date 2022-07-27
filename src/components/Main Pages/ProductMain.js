@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import data from "../data.js";
+import data from "../Data/data";
 import Star from "@mdi/react";
 import { mdiStar } from "@mdi/js";
 import Leaf from "@mdi/react";
@@ -11,8 +11,8 @@ import Person from "@mdi/react";
 import { mdiAccountCheck } from "@mdi/js";
 import Heart from "@mdi/react";
 import { mdiCharity } from "@mdi/js";
-import Color from "./Color.js";
-import Slides from "./Slides.js";
+import Color from "../Data/Color";
+import Slides from "../Data/Slides";
 
 export const cartItemsArray = [];
 

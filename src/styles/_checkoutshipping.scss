@@ -1,0 +1,89 @@
+.flex-container {
+  display: flex;
+  justify-content: center;
+  margin-inline: auto;
+  width: min(90%, 80rem);
+}
+
+.shipping-info,
+.shipping-method {
+  border: 1px solid var(--border);
+  margin: 20px 0;
+}
+
+.shipping-email,
+.shipping-address,
+.payment-shipping-method {
+  padding: 10px;
+  p:first-of-type {
+    color: rgb(109, 109, 109);
+  }
+}
+
+.shipping-email {
+  border-bottom: 1px solid var(--border);
+}
+
+.payment-shipping-method {
+  border-top: 1px solid var(--border);
+}
+
+.shipping-checkbox {
+  @include flex();
+  p {
+    padding: 10px;
+  }
+  img {
+    height: 40px;
+  }
+}
+
+.shipping-method-selection {
+  @include flex();
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.shipping-method-selection:last-of-type {
+  border: none;
+}
+
+.payment-payment {
+  margin: 15px 0;
+}
+
+.order-checkout-component-desktop {
+  display: none;
+}
+
+@media screen and (min-width: 1000px) {
+  .checkout-container {
+    padding: 0 20px;
+    width: 500px;
+  }
+
+  .checkout-border {
+    background-color: var(--border);
+    width: 1px;
+  }
+
+  .order-checkout-component {
+    display: none;
+  }
+  .order-checkout-component-desktop {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    width: 400px;
+  }
+  .checkout-cart {
+    display: none;
+  }
+  .checkout-desktop {
+    display: flex;
+  }
+  .flex-container {
+    justify-content: space-between;
+  }
+}

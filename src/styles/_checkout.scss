@@ -4,12 +4,13 @@
 }
 
 .checkout-container {
-  margin-inline: auto;
-  width: min(90%, 80rem);
+  margin-bottom: 30px;
+  max-width: 650px;
 }
 
 .checkout-information {
   margin: 30px 0;
+  border-bottom: 1px solid var(--border);
 }
 
 .logo {
@@ -22,11 +23,35 @@
   }
 }
 
+@keyframes dropDown {
+  from {
+    height: 100%;
+  }
+  to {
+    height: 1px;
+  }
+}
+
 .checkout-cart-items {
+  transition: height 0.5s cubic-bezier(0.82, 0.085, 0.395, 0.895);
+  margin-top: 20px;
+  overflow: hidden;
 }
 
 .cart-item-checkout {
   @include flex();
+  img {
+    height: 70px;
+    border-radius: 8px;
+    border: 1px solid black;
+  }
+}
+
+.cart-item-info {
+  @include flex();
+  div {
+    margin-left: 10px;
+  }
 }
 
 .coupon-code {
@@ -191,7 +216,7 @@
   @include column();
 }
 
-.text {
+.offers-text {
   @include flex();
   p {
     margin-left: 5px;
@@ -220,6 +245,9 @@
       border: 1px solid rgba(0, 0, 0, 0.291);
     }
   }
+  p {
+    cursor: pointer;
+  }
 }
 
 .show-order {
@@ -230,5 +258,7 @@
   img {
     transform: rotate(90deg);
     height: 30px;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
   }
 }
