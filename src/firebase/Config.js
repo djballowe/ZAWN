@@ -4,6 +4,7 @@ import {
   getAuth,
   signInWithPopup,
   signOut,
+  onAuthStateChanged,
 } from "firebase/auth";
 
 const firebaseConfig = {
@@ -42,13 +43,15 @@ function signInWithGoogle() {
     });
 }
 
+export const user = auth.currentUser;
+
 function accountSignOut() {
   signOut(auth)
     .then(() => {
-      // Sign-out successful.
+      alert("You have been successfully signed out");
     })
     .catch((error) => {
-      // An error happened.
+      alert("An error has occurred");
     });
 }
 

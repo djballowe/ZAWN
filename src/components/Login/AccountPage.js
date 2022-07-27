@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { accountSignOut } from "../../firebase/Config";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../../firebase/Config";
 
 export default function AccountPage() {
+  const [user] = useAuthState(auth);
+
   return (
     <div className="account-container">
       <ul className="account-navigation">
