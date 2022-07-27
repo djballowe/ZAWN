@@ -1,6 +1,6 @@
 .flex-container {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   margin-inline: auto;
   width: min(90%, 80rem);
 }
@@ -82,5 +82,8 @@
   }
   .checkout-desktop {
     display: flex;
+  }
+  .flex-container {
+    justify-content: space-between;
   }
 }

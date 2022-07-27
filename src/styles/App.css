@@ -1866,7 +1866,7 @@ input:focus {
 
 .flex-container {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   margin-inline: auto;
   width: min(90%, 80rem);
 }
@@ -1950,5 +1950,8 @@ input:focus {
   }
   .checkout-desktop {
     display: flex;
+  }
+  .flex-container {
+    justify-content: space-between;
   }
 }/*# sourceMappingURL=App.css.map */
