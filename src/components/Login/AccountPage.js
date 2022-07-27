@@ -1,4 +1,5 @@
 import React from "react";
+import { accountSignOut } from "../../firebase/Config";
 
 export default function AccountPage() {
   return (
@@ -6,7 +7,7 @@ export default function AccountPage() {
       <ul className="account-navigation">
         <li>Orders</li>
         <li>Addresses</li>
-        <li>Logout</li>
+        <li onClick={accountSignOut}>Logout</li>
       </ul>
       <div className="account-orders">
         <div className="order-container">

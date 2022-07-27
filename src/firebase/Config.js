@@ -1,5 +1,10 @@
 import { initializeApp } from "firebase/app";
-import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
+import {
+  GoogleAuthProvider,
+  getAuth,
+  signInWithPopup,
+  signOut,
+} from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAGj9ZAGvWMEjEheB3S4nbgvYl5CScesKQ",
@@ -11,13 +16,11 @@ const firebaseConfig = {
   measurementId: "G-CMM6P2H65N",
 };
 
+export const app = initializeApp(firebaseConfig);
+export const provider = new GoogleAuthProvider(app);
+export const auth = getAuth(app);
+
 function signInWithGoogle() {
-  const app = initializeApp(firebaseConfig);
-
-  const provider = new GoogleAuthProvider(app);
-
-  const auth = getAuth(app);
-
   signInWithPopup(auth, provider)
     .then((result) => {
       // This gives you a Google Access Token. You can use it to access the Google API.
@@ -26,7 +29,6 @@ function signInWithGoogle() {
       // The signed-in user info.
       const user = result.user;
       // ...
-      alert(user.displayName);
     })
     .catch((error) => {
       // Handle Errors here.
@@ -40,4 +42,14 @@ function signInWithGoogle() {
     });
 }
 
-export default signInWithGoogle;
+function accountSignOut() {
+  signOut(auth)
+    .then(() => {
+      // Sign-out successful.
+    })
+    .catch((error) => {
+      // An error happened.
+    });
+}
+
+export { signInWithGoogle, accountSignOut };

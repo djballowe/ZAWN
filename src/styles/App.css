@@ -1784,6 +1784,7 @@ input:focus {
 }
 .account-navigation li {
   padding: 0 15px;
+  cursor: pointer;
 }
 
 .account-orders {

@@ -26,7 +26,7 @@ import LogIn from "../Login/LogIn";
 import { Register } from "../Login/LogIn";
 import AccountPage from "../Login/AccountPage";
 import CheckoutShipping from "../Checkout/CheckoutShipping";
-import Payment from "../Checkout/Payment"
+import Payment from "../Checkout/Payment";
 
 function Header() {
   const [isMobile, setIsMobile] = useState(false);
