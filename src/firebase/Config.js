@@ -2,12 +2,13 @@ import { initializeApp } from "firebase/app";
 import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDFTHmljBDByNaLwui3E8G2ReEjZNg_HbQ",
-  authDomain: "chat-app-209d7.firebaseapp.com",
-  projectId: "chat-app-209d7",
-  storageBucket: "chat-app-209d7.appspot.com",
-  messagingSenderId: "424310263028",
-  appId: "1:424310263028:web:4d6e82f12d11a5f1d022a1",
+  apiKey: "AIzaSyAGj9ZAGvWMEjEheB3S4nbgvYl5CScesKQ",
+  authDomain: "zawn-d7f63.firebaseapp.com",
+  projectId: "zawn-d7f63",
+  storageBucket: "zawn-d7f63.appspot.com",
+  messagingSenderId: "897391096622",
+  appId: "1:897391096622:web:15da70cae49ea3f61980bf",
+  measurementId: "G-CMM6P2H65N",
 };
 
 function signInWithGoogle() {
