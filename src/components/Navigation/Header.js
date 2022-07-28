@@ -64,6 +64,11 @@ function Header() {
       ? (document.body.style.overflow = "hidden")
       : (document.body.style.overflow = "visible");
 
+    let total = 0;
+    cartItemsArray.forEach((item) => {
+      total += item.quantity;
+    });
+    setIsAmount(total);
     //TODO REENABLE ON DEPLOYMENT
 
     // const interval = setInterval(() => {
