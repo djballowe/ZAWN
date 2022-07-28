@@ -14,7 +14,7 @@ import { mdiCharity } from "@mdi/js";
 import Color from "../Data/Color";
 import Slides from "../Data/Slides";
 
-export const cartItemsArray = [];
+export const cartItemsArray = JSON.parse(localStorage.getItem("cart")) || [];
 
 class CartItemCreator {
   constructor(title, src, price, id, quantity) {
@@ -23,7 +23,6 @@ class CartItemCreator {
     this.price = price;
     this.id = id;
     this.quantity = quantity;
-
   }
 }
 
@@ -53,6 +52,7 @@ function ProductMain(props) {
         )
       );
     }
+    localStorage.setItem("cart", JSON.stringify(cartItemsArray));
     console.log(cartItemsArray);
   };
 
