@@ -5,6 +5,7 @@ import {
   signInWithPopup,
   signOut,
   onAuthStateChanged,
+  createUserWithEmailAndPassword,
 } from "firebase/auth";
 
 const firebaseConfig = {
@@ -43,6 +44,18 @@ function signInWithGoogle() {
     });
 }
 
+function signInWithEmail(email, password) {
+  createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      const user = userCredential.user;
+      console.log(user)
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+    });
+}
+
 export const user = auth.currentUser;
 
 function accountSignOut() {
@@ -55,4 +68,4 @@ function accountSignOut() {
     });
 }
 
-export { signInWithGoogle, accountSignOut };
+export { signInWithGoogle, accountSignOut, signInWithEmail };
