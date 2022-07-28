@@ -15,23 +15,24 @@ export default function CartItems(props) {
   const handleClick = (e) => {
     const index = e.target.getAttribute("name");
     const name = cartItemsArray.find((x) => x.id === index);
-    let value = 0;
+    let value = name.quantity;
     if (e.target.id === "+") {
       value = name.quantity += 1;
       setIsQuantity(value);
-      setParent(value);
+      setParent();
     } else if (e.target.id === "-" && name.quantity !== 1) {
       value = name.quantity -= 1;
       setIsQuantity(value);
-      setParent(value);
+      setParent();
     } else if (e.target.id === "-" && name.quantity === 1) {
       cartItemsArray.splice(
         cartItemsArray.map((item) => item.id).indexOf(index),
         1
       );
-      setParent(value);
+      setParent();
+      updateStorage();
     }
-    updateStorage();
+
     console.log(cartItemsArray);
   };
 

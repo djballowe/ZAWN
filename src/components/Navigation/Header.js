@@ -64,6 +64,7 @@ function Header() {
       ? (document.body.style.overflow = "hidden")
       : (document.body.style.overflow = "visible");
 
+
     let total = 0;
     cartItemsArray.forEach((item) => {
       total += item.quantity;
@@ -111,7 +112,7 @@ function Header() {
             visibility: isActive ? "visible" : "hidden",
           }}
         >
-          <Cart onClick={cartClick} quantity={isAmount} open={isActive} />
+          <Cart onClick={cartClick} open={isActive} />
           <div
             onClick={cartClick}
             className="overlay"

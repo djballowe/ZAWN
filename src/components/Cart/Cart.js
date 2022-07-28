@@ -9,13 +9,17 @@ import { useNavigate } from "react-router-dom";
 
 export default function Cart(props) {
   const [isTotal, setIsTotal] = useState(0);
-  const [isQuantity, setIsQuantity] = useState(props.quantity);
+  const [isQuantity, setIsQuantity] = useState("");
   const [isActive, setIsActive] = useState(props.open);
 
   let navigate = useNavigate();
 
-  const setParentTotal = (value) => {
-    setIsQuantity(value);
+  const setParentTotal = () => {
+    let total = 0;
+    cartItemsArray.forEach((item) => {
+      total += item.quantity;
+    });
+    setIsQuantity(total);
   };
 
   const cartComp = cartItemsArray.map((item) => {
@@ -41,7 +45,7 @@ export default function Cart(props) {
     });
     setIsActive(props.open);
     setIsTotal(total.toFixed(2));
-  }, [props.open, isQuantity]);
+  }, [props.open, isQuantity, props.quantity, isTotal]);
 
   return (
     <div
