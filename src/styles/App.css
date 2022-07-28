@@ -1160,12 +1160,6 @@ input:focus {
     max-width: 480px;
   }
 }
-.footer-wrapper {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-}
-
 .footer-container-2 {
   background-color: #e3ebf4;
   border-top: 1px solid rgba(0, 0, 0, 0.24);
@@ -1381,6 +1375,9 @@ input:focus {
   margin-bottom: 15px;
 }
 .contact-inputs input:nth-of-type(4) {
+  margin-bottom: 15px;
+}
+.contact-inputs input:nth-of-type(5) {
   margin-bottom: 15px;
 }
 .contact-inputs input:focus {

@@ -26,7 +26,6 @@ const LogIn = () => {
       alert("Password must be at least 8 characters long");
     } else {
       signInWithEmail(isEmail, isPassword);
-      alert("Welcome to Zawn");
     }
   };
 
@@ -95,10 +94,11 @@ export const Register = () => {
       </div>
       <div className="contact-inputs">
         <form action="">
-          <input type="text" placeholder="First Name" required />
-          <input type="text" placeholder="Last Name" required />
-          <input type="email" placeholder="E-mail" required />
-          <input type="password" placeholder="Password" required />
+          <input type="text" placeholder="First Name" id="first-name" required />
+          <input type="text" placeholder="Last Name" id="last-name" required />
+          <input type="email" placeholder="E-mail" id="email" required />
+          <input type="password" placeholder="Password" id="password" required />
+          <input type="password" placeholder="Confirm Password" id="confirm-password" required />
           <button type="submit">Create Account</button>
         </form>
       </div>
