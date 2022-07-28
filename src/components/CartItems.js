@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Plus from "./Images/plus.png";
 import Minus from "./Images/minus.png";
 import { cartItemsArray } from "./Main Pages/ProductMain";
+import { updateStorage } from "./Main Pages/ProductMain";
 
 export default function CartItems(props) {
   const [isQuantity, setIsQuantity] = useState(props.quantity);
@@ -30,10 +31,11 @@ export default function CartItems(props) {
       );
       setParent(value);
     }
+    updateStorage();
     console.log(cartItemsArray);
   };
 
-  let source = props.src
+  let source = props.src;
 
   useEffect(() => {
     setIsQuantity(props.quantity);
@@ -41,7 +43,6 @@ export default function CartItems(props) {
   }, [props.open, props.quantity]);
 
   return (
-    
     <div
       className="item-full"
       style={{
@@ -51,10 +52,7 @@ export default function CartItems(props) {
     >
       <div className="cart-item-container">
         <div className="cart-image">
-          <img
-            src={require(`./Images/${source}`)}
-            alt=""
-          />
+          <img src={require(`./Images/${source}`)} alt="" />
         </div>
         <div className="cart-item-container-text">
           <div className="cart-item-text">

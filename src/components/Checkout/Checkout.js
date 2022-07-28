@@ -7,9 +7,13 @@ import { countryList } from "../../CountryData";
 import { useNavigate } from "react-router-dom";
 import OrderCheckout from "./OrderCheckout";
 import OrderCheckoutDS from "./OrderCheckoutDS";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../../firebase/Config";
+import { accountSignOut } from "../../firebase/Config";
 
 export default function Checkout() {
   let navigate = useNavigate();
+  const [user] = useAuthState(auth);
 
   const options = countryList.map((country) => {
     return (
@@ -50,9 +54,28 @@ export default function Checkout() {
         </div>
         <div className="contact-info">
           <h3>Contact Information</h3>
-          <p>
-            Already have an account? <a href="">Log in</a>
-          </p>
+          <div>
+            {" "}
+            {user ? (
+              <p>
+                Signed in as: {user.displayName}{" "}
+                <span onClick={accountSignOut}>
+                  <a href="">Log out</a>
+                </span>
+              </p>
+            ) : (
+              <p>
+                Already have an account?{" "}
+                <span
+                  onClick={() => {
+                    navigate("/login");
+                  }}
+                >
+                  <a href="">Log in</a>
+                </span>
+              </p>
+            )}
+          </div>
         </div>
         <div className="checkout-email">
           <input type="Email" placeholder="Email" required />
@@ -93,7 +116,13 @@ export default function Checkout() {
           >
             Continue to Shipping
           </button>
-          <p>Return to cart</p>
+          <p
+            onClick={() => {
+              navigate(-1);
+            }}
+          >
+            Return to cart
+          </p>
         </div>
       </div>
       <div className="checkout-border"></div>

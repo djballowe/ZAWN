@@ -2,11 +2,24 @@ import React, { useState } from "react";
 import CheckoutItems from "./CheckoutItems";
 import Arrow from "../Images/arrow.png";
 import whiteArrow from "../Images/chevron-right.png";
+import { cartItemsArray } from "../Main Pages/ProductMain";
 
 export default function OrderCheckout() {
   const [isOpen, setIsOpen] = useState(false);
 
-  
+  const checkOutCart = cartItemsArray.map((item) => {
+    return (
+      <CheckoutItems
+        key={item.id}
+        id={item.id}
+        item={item.title}
+        price={item.price}
+        quantity={item.quantity}
+        src={item.src}
+      />
+    );
+  });
+
   return (
     <div>
       <div className="checkout-cart">
@@ -38,7 +51,7 @@ export default function OrderCheckout() {
             </button>
           </div>
           <div className="checkout-subtotal-container">
-            <CheckoutItems />
+            {checkOutCart}
             <div className="checkout-subtotal">
               <p>Subtotal</p>
               <p>$64.00</p>

@@ -75,7 +75,6 @@ export const user = auth.currentUser;
 function accountSignOut() {
   signOut(auth)
     .then(() => {
-      alert("You have been successfully signed out");
     })
     .catch((error) => {
       alert("An error has occurred");

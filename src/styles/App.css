@@ -1573,6 +1573,18 @@ input:focus {
 .contact-info h3 {
   font-size: 1.5rem;
 }
+.contact-info button {
+  border: none;
+  background-color: transparent;
+  color: rgba(0, 0, 0, 0.397);
+}
+.contact-info a {
+  color: rgba(0, 0, 0, 0.411);
+  transition: color 0.3s ease-in-out;
+}
+.contact-info a:hover {
+  color: black;
+}
 
 .divider {
   text-align: center;
@@ -1665,8 +1677,8 @@ input:focus {
   padding: 10px;
   margin: 10px 0;
   background-color: #92a9bd;
+  border: 1px solid transparent;
   border-radius: 10px;
-  border: none;
   color: white;
   font-size: 1rem;
   cursor: pointer;
