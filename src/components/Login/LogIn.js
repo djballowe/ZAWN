@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Google from "../Images/Payment pngs/google.png";
 import { useNavigate } from "react-router-dom";
-import { signInWithEmail, signInWithGoogle } from "../../firebase/Config";
+import { createWithEmail, signInWithGoogle, signInWithEmail } from "../../firebase/Config";
 import { auth } from "../../firebase/Config";
 import { useAuthState } from "react-firebase-hooks/auth";
 import AccountPage from "./AccountPage";
@@ -21,12 +21,7 @@ const LogIn = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    if (isPassword.length < 8) {
-      alert("Password must be at least 8 characters long");
-    } else {
-      signInWithEmail(isEmail, isPassword);
-    }
+    signInWithEmail(isEmail, isPassword);
   };
 
   let navigate = useNavigate();
@@ -34,6 +29,7 @@ const LogIn = () => {
   const handleClick = () => {
     navigate("/register");
   };
+
   if (user) {
     return <AccountPage />;
   } else {
@@ -109,7 +105,7 @@ export const Register = () => {
     } else if (isPassword.length < 8) {
       alert("Password must be at least 8 characters");
     } else {
-      signInWithEmail(isEmail, isPassword);
+      createWithEmail(isEmail, isPassword);
     }
   };
   if (user) {

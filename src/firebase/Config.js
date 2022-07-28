@@ -4,8 +4,8 @@ import {
   getAuth,
   signInWithPopup,
   signOut,
-  onAuthStateChanged,
   createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
 } from "firebase/auth";
 
 const firebaseConfig = {
@@ -44,10 +44,24 @@ function signInWithGoogle() {
     });
 }
 
-function signInWithEmail(email, password) {
+function createWithEmail(email, password) {
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       const user = userCredential.user;
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      alert(errorMessage);
+    });
+}
+
+function signInWithEmail(email, password) {
+  signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      // Signed in
+      const user = userCredential.user;
+      // ...
     })
     .catch((error) => {
       const errorCode = error.code;
@@ -68,4 +82,4 @@ function accountSignOut() {
     });
 }
 
-export { signInWithGoogle, accountSignOut, signInWithEmail };
+export { signInWithGoogle, accountSignOut, createWithEmail, signInWithEmail };
