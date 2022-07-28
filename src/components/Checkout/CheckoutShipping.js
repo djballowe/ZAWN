@@ -33,6 +33,13 @@ export default function CheckoutShipping() {
               <div className="shipping-method-selection">
                 <div className="shipping-checkbox">
                   <input type="checkbox" />
+                  <p>Free Shipping</p>
+                </div>
+                <p>$0</p>
+              </div>
+              <div className="shipping-method-selection">
+                <div className="shipping-checkbox">
+                  <input type="checkbox" />
                   <p>Standard Shipping</p>
                 </div>
                 <p>$7.95</p>
@@ -66,7 +73,7 @@ export default function CheckoutShipping() {
                 navigate("/checkout");
               }}
             >
-              Return to cart
+              Return to Details
             </p>
           </div>
         </div>

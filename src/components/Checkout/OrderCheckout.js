@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import CheckoutItems from "./CheckoutItems";
 import Arrow from "../Images/arrow.png";
 import whiteArrow from "../Images/chevron-right.png";
 import { cartItemsArray } from "../Main Pages/ProductMain";
+import getTotal from "../Data/GetTotal";
 
 export default function OrderCheckout() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isTotal, setIsTotal] = useState(0);
+  const [isShipping, setIsShipping] = useState(0);
 
   const checkOutCart = cartItemsArray.map((item) => {
     return (
@@ -19,6 +22,13 @@ export default function OrderCheckout() {
       />
     );
   });
+
+  let tax = (isTotal * 0.0509).toFixed(2);
+
+  useEffect(() => {
+    setIsTotal(getTotal());
+    isTotal >= 50 ? setIsShipping(0) : setIsShipping(7.95);
+  }, [isShipping, isTotal]);
 
   return (
     <div>
@@ -54,22 +64,24 @@ export default function OrderCheckout() {
             {checkOutCart}
             <div className="checkout-subtotal">
               <p>Subtotal</p>
-              <p>$64.00</p>
+              <p>${isTotal}</p>
             </div>
             <div className="checkout-shipping">
               <p>Shipping</p>
-              <p>$16.44</p>
+              <p>{isShipping === 0 ? "Free" : `$${isShipping}`}</p>
             </div>
             <div className="checkout-tax">
               <p>Taxes</p>
-              <p>$4.64</p>
+              <p>${tax}</p>
             </div>
           </div>
           <div className="checkout-total">
             <p>Total</p>
             <div className="currency">
               <p>USD</p>
-              <p>$85.08</p>
+              <p>
+                ${(isShipping + parseInt(isTotal) + parseInt(tax)).toFixed(2)}
+              </p>
             </div>
           </div>
         </div>

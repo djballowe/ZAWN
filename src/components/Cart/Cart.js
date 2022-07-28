@@ -6,6 +6,7 @@ import { mdiClose } from "@mdi/js";
 import CartItems from "../CartItems";
 import { cartItemsArray } from "../Main Pages/ProductMain";
 import { useNavigate } from "react-router-dom";
+import getTotal from "../Data/GetTotal";
 
 export default function Cart(props) {
   const [isTotal, setIsTotal] = useState(0);
@@ -38,13 +39,8 @@ export default function Cart(props) {
   });
 
   useEffect(() => {
-    let total = 0;
-    cartItemsArray.forEach((item) => {
-      total +=
-        Math.round((item.price * item.quantity + Number.EPSILON) * 100) / 100;
-    });
     setIsActive(props.open);
-    setIsTotal(total.toFixed(2));
+    setIsTotal(getTotal());
   }, [props.open, isQuantity, props.quantity, isTotal]);
 
   return (
