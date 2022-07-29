@@ -2,9 +2,8 @@ import React from "react";
 
 export default function Addresses() {
   return (
-    <div>
-      <div>
-        <p>Default Address</p>
+    <div className="address-details-container">
+      <div className="address-details">
         <p>David Ballowe</p>
         <p>3403 Vine Circle</p>
         <p>Rocklin CA 957650</p>

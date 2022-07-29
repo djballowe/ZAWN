@@ -74,7 +74,7 @@ export default function Cart(props) {
           ></div>
         </div>
       </div>
-      <div className="components">{cartComp}</div>
+      <div className="cart-components">{cartComp}</div>
       <div className="test">
         <div className="checkout">
           <div className="subtotal">

@@ -106,5 +106,60 @@
   margin-top: 10px;
 }
 
+.addresses-wrapper {
+  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 200px);
+  grid-template-rows: repeat(auto, 200px);
+  gap: 60px;
+  margin-inline: auto;
+  width: min(90%, 50rem);
+  margin-top: 10px;
+}
+
+.add-address {
+  @include flex();
+  justify-content: center;
+  text-decoration: underline;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  &:hover {
+    color: var(--primary);
+  }
+}
+
+.address-details-container {
+  width: 200px;
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.address-details {
+  p {
+    padding: 5px 0;
+  }
+}
+
+.crud {
+  button {
+    background-color: var(--primary);
+    color: white;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    width: 70px;
+    transition: all 0.3s ease-in-out;
+    &:nth-of-type(2) {
+      margin-left: 5px;
+    }
+    &:hover {
+      background-color: transparent;
+      border: 1px solid rgba(0, 0, 0, 0.329);
+      color: black;
+    }
+  }
+}
+
 @media screen and (min-width: 1000px) {
 }

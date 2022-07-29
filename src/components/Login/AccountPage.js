@@ -54,13 +54,15 @@ export default function AccountPage() {
       <div
         className="addresses-wrapper"
         style={{
-          display: isAddressOpen ? "block" : "none",
+          display: isAddressOpen ? "grid" : "none",
         }}
       >
-        <div>
-          <Addresses />
-        </div>
-        <div>
+        <Addresses />
+        <Addresses />
+        <Addresses />
+        <Addresses />
+        <Addresses />
+        <div className="add-address">
           <p>Add a new address</p>
         </div>
       </div>
