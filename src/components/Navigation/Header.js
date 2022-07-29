@@ -217,8 +217,6 @@ function Header() {
           <Route path="/return" element={<Return />} />
           <Route path="/shipping" element={<Shipping />} />
           <Route path="/checkout" element={<Checkout />} />
-          <Route path="/checkout-shipping" element={<CheckoutShipping />} />
-          <Route path="/payment" element={<Payment />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<LogIn />} />
           <Route path="/account" element={<AccountPage />} />

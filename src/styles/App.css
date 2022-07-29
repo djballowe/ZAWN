@@ -1799,6 +1799,10 @@ input:focus {
 .account-navigation li {
   padding: 0 15px;
   cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.account-navigation li:hover {
+  color: var(--primary);
 }
 
 .account-orders {
@@ -1939,6 +1943,11 @@ input:focus {
 
 .payment-payment {
   margin: 15px 0;
+}
+
+.card-form {
+  display: flex;
+  flex-direction: column;
 }
 
 @media screen and (min-width: 1000px) {

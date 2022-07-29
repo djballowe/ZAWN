@@ -1,30 +1,68 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { accountSignOut } from "../../firebase/Config";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../../firebase/Config";
+import Addresses from "./Addresses";
 
 export default function AccountPage() {
+  const [isAddressOpen, setIsAddressOpen] = useState(false);
   const [user] = useAuthState(auth);
+
+  const handleClick = (e) => {
+    e.target.id === "orders" ? setIsAddressOpen(false) : setIsAddressOpen(true);
+  };
 
   return (
     <div className="account-container">
       <ul className="account-navigation">
-        <li>Orders</li>
-        <li>Addresses</li>
+        <li
+          onClick={handleClick}
+          id="orders"
+          style={{
+            textDecoration: isAddressOpen ? "none" : "underline",
+          }}
+        >
+          Orders
+        </li>
+        <li
+          onClick={handleClick}
+          id="addresses"
+          style={{
+            textDecoration: isAddressOpen ? "underline" : "none",
+          }}
+        >
+          Addresses
+        </li>
         <li onClick={accountSignOut}>Logout</li>
       </ul>
       <div className="account-orders">
         <div className="order-container">
-          <div className="order-notification">1</div>
-          <h2>Orders</h2>
+          {/* <div className="order-notification">1</div> */}
+          <h2>{isAddressOpen ? "Addresses" : "Orders"}</h2>
         </div>
       </div>
-      <div className="orders-wrapper">
+      <div
+        className="orders-wrapper"
+        style={{
+          display: isAddressOpen ? "none" : "grid",
+        }}
+      >
         <Orders />
         <Orders />
         <Orders />
-        
-        
+      </div>
+      <div
+        className="addresses-wrapper"
+        style={{
+          display: isAddressOpen ? "block" : "none",
+        }}
+      >
+        <div>
+          <Addresses />
+        </div>
+        <div>
+          <p>Add a new address</p>
+        </div>
       </div>
     </div>
   );
