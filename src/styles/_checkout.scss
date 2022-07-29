@@ -4,6 +4,8 @@
 }
 
 .checkout-container {
+  justify-content: center;
+  flex-direction: column;
   margin-bottom: 30px;
   max-width: 650px;
 }
@@ -141,8 +143,8 @@
     color: rgba(0, 0, 0, 0.397);
   }
   a {
-    color: rgba(0, 0, 0, 0.411);  
-    transition: color .3s ease-in-out;
+    color: rgba(0, 0, 0, 0.411);
+    transition: color 0.3s ease-in-out;
     &:hover {
       color: black;
     }

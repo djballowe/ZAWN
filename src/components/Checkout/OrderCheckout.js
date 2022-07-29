@@ -6,7 +6,7 @@ import { cartItemsArray } from "../Main Pages/ProductMain";
 import getTotal from "../Data/GetTotal";
 
 export default function OrderCheckout() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
   const [isTotal, setIsTotal] = useState(0);
   const [isShipping, setIsShipping] = useState(0);
 
