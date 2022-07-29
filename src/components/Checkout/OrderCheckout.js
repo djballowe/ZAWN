@@ -51,7 +51,7 @@ export default function OrderCheckout() {
         <div
           className="checkout-cart-items"
           style={{
-            height: isOpen ? "350px" : "0px",
+            height: isOpen ? "auto" : "0px",
           }}
         >
           <div className="coupon-code">

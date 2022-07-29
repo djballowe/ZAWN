@@ -23,15 +23,6 @@
   }
 }
 
-@keyframes dropDown {
-  from {
-    height: 100%;
-  }
-  to {
-    height: 1px;
-  }
-}
-
 .checkout-cart-items {
   transition: height 0.5s cubic-bezier(0.82, 0.085, 0.395, 0.895);
   margin-top: 20px;
