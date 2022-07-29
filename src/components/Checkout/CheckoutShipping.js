@@ -1,8 +1,4 @@
 import React from "react";
-import OrderCheckout from "./OrderCheckout";
-import Logo from "../Images/wave.png";
-import { useNavigate } from "react-router-dom";
-import OrderCheckoutDS from "./OrderCheckoutDS";
 
 export default function CheckoutShipping() {
   return (

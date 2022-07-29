@@ -1417,11 +1417,15 @@ input:focus {
     width: min(90%, 50rem);
   }
 }
+.flex-container {
+  margin-inline: auto;
+  width: min(90%, 60rem);
+}
+
 .checkout-container {
   justify-content: center;
   flex-direction: column;
   margin-bottom: 30px;
-  max-width: 650px;
 }
 
 .checkout-information {
@@ -1657,9 +1661,11 @@ input:focus {
   display: flex;
   flex-direction: column;
   text-align: center;
+  align-items: center;
 }
 .continue button {
   padding: 10px;
+  width: 430px;
   margin: 10px 0;
   background-color: #92a9bd;
   border: 1px solid transparent;
@@ -1883,13 +1889,6 @@ input:focus {
   margin-top: 10px;
 }
 
-.flex-container {
-  display: flex;
-  justify-content: center;
-  margin-inline: auto;
-  width: min(90%, 80rem);
-}
-
 .shipping-info,
 .shipping-method {
   border: 1px solid var(--border);
@@ -1940,4 +1939,18 @@ input:focus {
 
 .payment-payment {
   margin: 15px 0;
+}
+
+@media screen and (min-width: 1000px) {
+  .top {
+    display: flex;
+    justify-content: space-around;
+  }
+  .info-components {
+    margin-top: 100px;
+  }
+  .flex-container {
+    margin-inline: auto;
+    width: min(90%, 80rem);
+  }
 }/*# sourceMappingURL=App.css.map */

@@ -1,7 +1,4 @@
 import React from "react";
-import OrderCheckout from "./OrderCheckout";
-import OrderCheckoutDS from "./OrderCheckoutDS";
-import Logo from "../Images/wave.png";
 import PayPal from "../Images/Payment pngs/paypal.png";
 import { useNavigate } from "react-router-dom";
 

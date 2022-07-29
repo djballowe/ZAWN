@@ -18,45 +18,51 @@ export default function Checkout() {
   return (
     <div className="flex-container">
       <div className="checkout-container">
-        <div className="checkout-information">
-          <div className="logo">
-            <h2>ZAWN</h2>
-            <img src={Logo} alt="" />
+        <div className="top">
+          <div className="desk">
+            <div className="checkout-information">
+              <div className="logo">
+                <h2>ZAWN</h2>
+                <img src={Logo} alt="" />
+              </div>
+              <OrderCheckout />
+            </div>
+            <div className="express">
+              <p>Express Checkout</p>
+              <div className="payment-buttons">
+                <button>
+                  <img src={Amazon} alt="" />
+                </button>
+                <button>
+                  <img src={PayPal} alt="" />
+                </button>
+                <button>
+                  <img src={ApplePay} alt="" />
+                </button>
+              </div>
+            </div>
+            <div className="divider">
+              <div></div>
+              <p>OR</p>
+              <div></div>
+            </div>
+            <Payment />
           </div>
-          <OrderCheckout />
-        </div>
-        <div className="express">
-          <p>Express Checkout</p>
-          <div className="payment-buttons">
-            <button>
-              <img src={Amazon} alt="" />
-            </button>
-            <button>
-              <img src={PayPal} alt="" />
-            </button>
-            <button>
-              <img src={ApplePay} alt="" />
-            </button>
+          <div className="info-components">
+            <ShippingForm />
+            <CheckoutShipping />
           </div>
         </div>
-        <div className="divider">
-          <div></div>
-          <p>OR</p>
-          <div></div>
-        </div>
-        <ShippingForm />
-        <CheckoutShipping />
-        <Payment />
         <div className="continue">
           <button type="submit">Continue</button>
+          <p
+            onClick={() => {
+              navigate(-1);
+            }}
+          >
+            Return to cart
+          </p>
         </div>
-        <p
-          onClick={() => {
-            navigate(-1);
-          }}
-        >
-          Return to cart
-        </p>
       </div>
     </div>
   );
