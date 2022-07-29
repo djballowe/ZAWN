@@ -58,7 +58,10 @@
 
   .flex-container {
     margin-inline: auto;
-  width: min(90%, 80rem);
+    width: min(90%, 80rem);
   }
-
+  .border-checkout {
+    width: 1px;
+    background-color: black;
+  }
 }

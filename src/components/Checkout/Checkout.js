@@ -3,7 +3,6 @@ import Logo from "../Images/wave.png";
 import PayPal from "../Images/Payment pngs/paypal.png";
 import ApplePay from "../Images/Payment pngs/applepay.png";
 import Amazon from "../Images/Payment pngs/amazon.png";
-import { countryList } from "../../CountryData";
 import { useNavigate } from "react-router-dom";
 import OrderCheckout from "./OrderCheckout";
 import CheckoutShipping from "./CheckoutShipping";
@@ -47,21 +46,22 @@ export default function Checkout() {
               <div></div>
             </div>
             <Payment />
+            <div className="continue">
+              <button type="submit">Continue</button>
+              <p
+                onClick={() => {
+                  navigate(-1);
+                }}
+              >
+                Return to cart
+              </p>
+            </div>
           </div>
+          <div className="border-checkout"></div>
           <div className="info-components">
             <ShippingForm />
             <CheckoutShipping />
           </div>
-        </div>
-        <div className="continue">
-          <button type="submit">Continue</button>
-          <p
-            onClick={() => {
-              navigate(-1);
-            }}
-          >
-            Return to cart
-          </p>
         </div>
       </div>
     </div>
