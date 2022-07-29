@@ -1,14 +1,14 @@
 import React from "react";
-import testImage from "../Images/Product Page/Tooth Brush/ToothBrush2.jpg";
+
 
 export default function CheckoutItems(props) {
-
+  
 
   return (
     <div>
       <div className="cart-item-checkout">
         <div className="cart-item-info">
-          <img src={testImage} alt="" />
+          <img src={`../Images/${props.src}`} alt="" />
           <div>
             <p>{props.item}</p>
             <p>color</p>

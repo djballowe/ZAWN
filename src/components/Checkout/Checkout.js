@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Logo from "../Images/wave.png";
 import PayPal from "../Images/Payment pngs/paypal.png";
 import ApplePay from "../Images/Payment pngs/applepay.png";
@@ -11,9 +11,21 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../../firebase/Config";
 import { accountSignOut } from "../../firebase/Config";
 
+export const tempUser = JSON.parse(localStorage.getItem("temp-user")) || [];
+
 export default function Checkout() {
   let navigate = useNavigate();
   const [user] = useAuthState(auth);
+  const [isFirstName, setIsFirstName] = useState("");
+  const [isLastName, setIsLastName] = useState("");
+  const [isAddress, setIsAddress] = useState("");
+  const [isApartment, setIsApartment] = useState("");
+  const [isCity, setIsCity] = useState("");
+  const [isState, setIsState] = useState("");
+  const [isZip, setIsZip] = useState("");
+  const [isPhone, setIsPhone] = useState("");
+
+  const handleSubmit = () => {};
 
   const options = countryList.map((country) => {
     return (
@@ -21,6 +33,17 @@ export default function Checkout() {
         {country}
       </option>
     );
+  });
+
+  useEffect(() => {
+    const isValidZip = /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(isZip);
+    if (isZip !== "") {
+      isValidZip
+        ? (document.getElementById("zip").style.backgroundColor =
+            "rgba(202, 240, 202, 0.815)")
+        : (document.getElementById("zip").style.backgroundColor =
+            "rgba(241, 182, 182, 0.733)");
+    }
   });
 
   return (
@@ -86,36 +109,86 @@ export default function Checkout() {
         </div>
         <div className="checkout-shipping-info">
           <h2>Shipping address</h2>
-          <form action="">
+          <form action="" onSubmit={handleSubmit}>
             <select name="" id="">
               {options}
             </select>
             <div className="name">
-              <input type="text" placeholder="First name" required />
-              <input type="text" placeholder="Last name" required />
+              <input
+                type="text"
+                placeholder="First name"
+                onChange={(e) => {
+                  setIsFirstName(e.target.value);
+                }}
+                required
+              />
+              <input
+                type="text"
+                placeholder="Last name"
+                onChange={(e) => {
+                  setIsLastName(e.target.value);
+                }}
+                required
+              />
             </div>
-            <input type="text" placeholder="Address" required />
-            <input type="text" placeholder="Apartment, suite, ect" required />
+            <input
+              type="text"
+              placeholder="Address"
+              onChange={(e) => {
+                setIsAddress(e.target.value);
+              }}
+              required
+            />
+            <input
+              type="text"
+              placeholder="Apartment, suite, ect"
+              onChange={(e) => {
+                setIsApartment(e.target.value);
+              }}
+            />
             <div className="address">
-              <input type="text" placeholder="City" required />
-              <input type="text" placeholder="State" required />
-              <input type="text" placeholder="ZIP code" required />
+              <input
+                type="text"
+                placeholder="City"
+                onChange={(e) => {
+                  setIsCity(e.target.value);
+                }}
+                required
+              />
+              <input
+                type="text"
+                placeholder="State"
+                onChange={(e) => {
+                  setIsState(e.target.value);
+                }}
+                required
+              />
+              <input
+                type="text"
+                id="zip"
+                placeholder="ZIP code"
+                onChange={(e) => {
+                  setIsZip(e.target.value);
+                }}
+                required
+              />
             </div>
-            <input type="text" placeholder="Phone" required />
+            <input
+              type="text"
+              placeholder="Phone"
+              onChange={(e) => {
+                setIsPhone(e.target.id);
+              }}
+              required
+            />
             <div className="offers-text">
               <input type="checkbox" />
               <p>Text me with news and offers</p>
             </div>
+            <div className="continue">
+              <button type="submit">Continue to Shipping</button>
+            </div>
           </form>
-        </div>
-        <div className="continue">
-          <button
-            onClick={() => {
-              navigate("/checkout-shipping");
-            }}
-          >
-            Continue to Shipping
-          </button>
           <p
             onClick={() => {
               navigate(-1);
