@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore } from"firebase/firestore"
+import { getFirestore, collection } from"firebase/firestore"
 import {
   GoogleAuthProvider,
   getAuth,
@@ -23,6 +23,7 @@ export const app = initializeApp(firebaseConfig);
 export const provider = new GoogleAuthProvider(app);
 export const auth = getAuth(app);
 export const db = getFirestore(app);
+export const shippingCollectionRef = collection(db, "Shipping");
 
 function signInWithGoogle() {
   signInWithPopup(auth, provider)

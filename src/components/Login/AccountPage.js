@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { accountSignOut } from "../../firebase/Config";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "../../firebase/Config";
 import Addresses from "./Addresses";
 import AddAddress from "./AddAddress";
+import { doc, getDocs } from "firebase/firestore";
+import { auth, shippingCollectionRef } from "../../firebase/Config";
 
 export default function AccountPage() {
   const [isAddressOpen, setIsAddressOpen] = useState(false);
   const [isAddAddress, setIsAddAddress] = useState(false);
+  const [userAddresses, setUserAddresses] = useState([]);
   const [user] = useAuthState(auth);
 
   const handleClick = (e) => {
@@ -18,6 +20,36 @@ export default function AccountPage() {
     isAddAddress ? setIsAddAddress(false) : setIsAddAddress(true);
   };
 
+  const ad = userAddresses.map((item) => {
+    if (item.uid === user.uid) {
+      return (
+        <Addresses
+          FirstName={item.FirstName}
+          LastName={item.LastName}
+          address={item.AddressOne}
+          city={item.City}
+          state={item.State}
+          zip={item.Zip}
+          key={item.id}
+          id={item.id}
+        />
+      );
+    }
+  });
+
+  useEffect(() => {
+    const getAddresses = async () => {
+      const data = await getDocs(shippingCollectionRef);
+      setUserAddresses(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    };
+
+    getAddresses();
+
+    isAddAddress
+      ? (document.body.style.overflow = "hidden")
+      : (document.body.style.overflow = "visible");
+  }, [isAddAddress]);
+
   return (
     <div className="account-container">
       <div
@@ -27,7 +59,7 @@ export default function AccountPage() {
         }}
       >
         <div
-          onClick={handleClick}
+          onClick={addressClick}
           className="overlay"
           style={{
             opacity: isAddAddress ? "1" : "0",
@@ -78,11 +110,7 @@ export default function AccountPage() {
           display: isAddressOpen ? "grid" : "none",
         }}
       >
-        <Addresses />
-        <Addresses />
-        <Addresses />
-        <Addresses />
-        <Addresses />
+        {ad}
         <div className="add-address">
           <p onClick={addressClick}>Add a new address</p>
         </div>

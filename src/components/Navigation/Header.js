@@ -33,6 +33,7 @@ function Header() {
   const [isAmount, setIsAmount] = useState(0);
   const [isActive, setIsActive] = useState(false);
   const [isBanner, setIsBanner] = useState(1);
+  const [isOverlay, setIsOverlay] = useState(false);
 
   // console.log(window.location.pathname);
 
@@ -57,13 +58,13 @@ function Header() {
     });
     setIsAmount(total);
     isActive ? setIsActive(false) : setIsActive(true);
+    isOverlay ? setIsOverlay(false) : setIsOverlay(true);
   };
 
   useEffect(() => {
     isActive === true
       ? (document.body.style.overflow = "hidden")
       : (document.body.style.overflow = "visible");
-
 
     let total = 0;
     cartItemsArray.forEach((item) => {

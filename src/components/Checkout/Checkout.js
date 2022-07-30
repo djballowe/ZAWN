@@ -9,8 +9,6 @@ import CheckoutShipping from "./CheckoutShipping";
 import Payment from "./Payment";
 import ShippingForm from "./ShippingForm";
 
-export const tempShipping = JSON.parse(localStorage.getItem("shipping")) || [];
-
 export default function Checkout() {
   let navigate = useNavigate();
 
