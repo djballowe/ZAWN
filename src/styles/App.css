@@ -2024,4 +2024,94 @@ input:focus {
     width: 1px;
     background-color: black;
   }
+}
+.add-address-container {
+  display: flex;
+  justify-content: flex-end;
+  transition: visibility 0.5s ease-in-out;
+}
+
+.add-address-body {
+  background-color: white;
+  height: 100vh;
+  width: 350px;
+  position: fixed;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  top: 0;
+  right: 0;
+  transition: right 0.5s cubic-bezier(0.82, 0.085, 0.395, 0.895);
+}
+
+.add-address p {
+  cursor: pointer;
+}
+
+.address-form {
+  padding: 20px;
+}
+.address-form form {
+  display: flex;
+  flex-direction: column;
+}
+.address-form form p {
+  margin: 20px 0;
+}
+.address-form input {
+  transition: all 0.2s ease-in;
+  border-radius: 25px;
+  height: 50px;
+  border: 1px solid rgba(0, 0, 0, 0.291);
+  padding: 0 5px;
+  background-color: transparent;
+}
+.address-form input:focus {
+  outline: 1px solid black;
+}
+.address-form button {
+  background-color: black;
+  color: white;
+  margin-top: 10px;
+  border: none;
+  border-radius: 25px;
+  height: 50px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  margin-top: 30px;
+}
+.address-form button:hover {
+  color: black;
+  border: 1px solid black;
+  background-color: white;
+}
+
+.address-name {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+.address-name input {
+  width: 100%;
+}
+.address-name input:nth-of-type(1) {
+  margin-right: 10px;
+}
+
+.address-phone {
+  display: flex;
+  flex-direction: column;
+}
+.address-phone input:nth-of-type(1) {
+  margin-bottom: 20px;
+}
+.address-phone input:nth-of-type(2) {
+  margin-bottom: 20px;
+}
+
+@media screen and (min-width: 1000px) {
+  .add-address-body {
+    width: 550px;
+  }
 }/*# sourceMappingURL=App.css.map */

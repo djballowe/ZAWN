@@ -3,17 +3,38 @@ import { accountSignOut } from "../../firebase/Config";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../../firebase/Config";
 import Addresses from "./Addresses";
+import AddAddress from "./AddAddress";
 
 export default function AccountPage() {
   const [isAddressOpen, setIsAddressOpen] = useState(false);
+  const [isAddAddress, setIsAddAddress] = useState(false);
   const [user] = useAuthState(auth);
 
   const handleClick = (e) => {
     e.target.id === "orders" ? setIsAddressOpen(false) : setIsAddressOpen(true);
   };
 
+  const addressClick = () => {
+    isAddAddress ? setIsAddAddress(false) : setIsAddAddress(true);
+  };
+
   return (
     <div className="account-container">
+      <div
+        className="add-address-container"
+        style={{
+          visibility: isAddAddress ? "visible" : "hidden",
+        }}
+      >
+        <div
+          onClick={handleClick}
+          className="overlay"
+          style={{
+            opacity: isAddAddress ? "1" : "0",
+          }}
+        ></div>
+        <AddAddress open={isAddAddress} click={addressClick} />
+      </div>
       <ul className="account-navigation">
         <li
           onClick={handleClick}
@@ -63,7 +84,7 @@ export default function AccountPage() {
         <Addresses />
         <Addresses />
         <div className="add-address">
-          <p>Add a new address</p>
+          <p onClick={addressClick}>Add a new address</p>
         </div>
       </div>
     </div>
