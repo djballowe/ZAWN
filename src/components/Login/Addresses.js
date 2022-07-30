@@ -14,8 +14,10 @@ export default function Addresses(props) {
         <p>United States</p>
       </div>
       <div className="crud">
-        <button>Edit</button>
-        <button>Delete</button>
+        <button onClick={props.edit} id={props.id} name='edit'>
+          Edit
+        </button>
+        <button onClick={props.edit} id={props.id} name='delete'>Delete</button>
       </div>
     </div>
   );

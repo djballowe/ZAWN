@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { accountSignOut } from "../../firebase/Config";
+import { accountSignOut, db } from "../../firebase/Config";
 import { useAuthState } from "react-firebase-hooks/auth";
 import Addresses from "./Addresses";
 import AddAddress from "./AddAddress";
-import { doc, getDocs } from "firebase/firestore";
+import { getDocs, deleteDoc, doc } from "firebase/firestore";
 import { auth, shippingCollectionRef } from "../../firebase/Config";
 
 export default function AccountPage() {
@@ -20,6 +20,12 @@ export default function AccountPage() {
     isAddAddress ? setIsAddAddress(false) : setIsAddAddress(true);
   };
 
+  const editDeleteAddress = (e) => {
+    let found = userAddresses.find((item) => item.id === e.target.id);
+    const userDoc = doc(db, "Shipping", found.id);
+    e.target.name === "delete" ? deleteDoc(userDoc) : addressClick();
+  };
+
   const ad = userAddresses.map((item) => {
     if (item.uid === user.uid) {
       return (
@@ -32,6 +38,7 @@ export default function AccountPage() {
           zip={item.Zip}
           key={item.id}
           id={item.id}
+          edit={editDeleteAddress}
         />
       );
     }
@@ -48,7 +55,7 @@ export default function AccountPage() {
     isAddAddress
       ? (document.body.style.overflow = "hidden")
       : (document.body.style.overflow = "visible");
-  }, [isAddAddress]);
+  }, [isAddAddress, userAddresses]);
 
   return (
     <div className="account-container">

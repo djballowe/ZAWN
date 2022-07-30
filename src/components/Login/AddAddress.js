@@ -12,7 +12,6 @@ export default function AddAddress(props) {
   const [isLastName, setIsLastName] = useState("");
   const [isPhone, setIsPhone] = useState("");
   const [isAddressOne, setIsAddressOne] = useState("");
-  const [isAddressTwo, setIsAddressTwo] = useState("");
   const [isCity, setIsCity] = useState("");
   const [isZip, setIsZip] = useState("");
   const [isState, setIsState] = useState("");
@@ -25,7 +24,6 @@ export default function AddAddress(props) {
       LastName: isLastName,
       Phone: isPhone,
       AddressOne: isAddressOne,
-      AddressTwo: isAddressTwo,
       Zip: isZip,
       City: isCity,
       State: isState,
@@ -58,6 +56,7 @@ export default function AddAddress(props) {
             <input
               required
               type="text"
+              value={isFirstName}
               placeholder="First name"
               onChange={(e) => {
                 setIsFirstName(e.target.value);
@@ -66,6 +65,7 @@ export default function AddAddress(props) {
             <input
               required
               type="text"
+              value={isLastName}
               placeholder="Last Name"
               onChange={(e) => {
                 setIsLastName(e.target.value);
@@ -75,6 +75,7 @@ export default function AddAddress(props) {
           <div className="address-phone">
             <input
               type="text"
+              value={isPhone}
               placeholder="Phone Number"
               onChange={(e) => {
                 setIsPhone(e.target.value);
@@ -83,16 +84,10 @@ export default function AddAddress(props) {
             <input
               required
               type="text"
+              value={isAddressOne}
               placeholder="Address 1"
               onChange={(e) => {
                 setIsAddressOne(e.target.value);
-              }}
-            />
-            <input
-              type="text"
-              placeholder="Address 2"
-              onChange={(e) => {
-                setIsAddressTwo(e.target.value);
               }}
             />
           </div>
@@ -100,6 +95,7 @@ export default function AddAddress(props) {
             <input
               required
               type="text"
+              value={isCity}
               placeholder="City"
               onChange={(e) => {
                 setIsCity(e.target.value);
@@ -108,6 +104,7 @@ export default function AddAddress(props) {
             <input
               required
               type="text"
+              value={isZip}
               placeholder="Zip Code"
               onChange={(e) => {
                 setIsZip(e.target.value);
@@ -117,6 +114,7 @@ export default function AddAddress(props) {
           <input
             required
             type="text"
+            value={isState}
             placeholder="State"
             onChange={(e) => {
               setIsState(e.target.value);
