@@ -51,7 +51,6 @@ function createWithEmail(email, password, first, last) {
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       const user = userCredential.user;
-      user.displayName = `${first} ${last}`;
     })
     .catch((error) => {
       const errorCode = error.code;

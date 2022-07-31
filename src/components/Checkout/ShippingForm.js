@@ -10,6 +10,7 @@ export default function ShippingForm() {
   let navigate = useNavigate();
 
   const [user] = useAuthState(auth);
+  const [userAddresses, setUserAddresses] = useState([]);
   const [isFirstName, setIsFirstName] = useState("");
   const [isLastName, setIsLastName] = useState("");
   const [isAddress, setIsAddress] = useState("");
@@ -20,19 +21,33 @@ export default function ShippingForm() {
   const [isEmail, setIsEmail] = useState("");
   const shippingCollectionRef = collection(db, "Shipping");
 
+  if (user) {
+    let found = userAddresses.find((item) => item.uid === user.uid);
+    if (found) {
+      document.getElementById("first-name").value = found.FirstName;
+      document.getElementById("last-name").value = found.LastName;
+      document.getElementById("address").value = found.AddressOne;
+      document.getElementById("city").value = found.City;
+      document.getElementById("state").value = found.State;
+      document.getElementById("zip").value = found.Zip;
+      document.getElementById("phone").value = found.Phone;
+    }
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    await addDoc(shippingCollectionRef, {
-      FirstName: isFirstName,
-      LastName: isLastName,
-      Address: isAddress,
-      City: isCity,
-      State: isState,
-      Zip: isZip,
-      Phone: isPhone,
-      Email: isEmail,
-    });
+    if (!user) {
+      await addDoc(shippingCollectionRef, {
+        FirstName: isFirstName,
+        LastName: isLastName,
+        Address: isAddress,
+        City: isCity,
+        State: isState,
+        Zip: isZip,
+        Phone: isPhone,
+        Email: isEmail,
+      });
+    }
     navigate("/checkout-shipping");
   };
 
@@ -45,8 +60,14 @@ export default function ShippingForm() {
         : (document.getElementById("zip").style.backgroundColor =
             "rgba(241, 182, 182, 0.733)");
     }
-  });
-  
+    const getAddresses = async () => {
+      const data = await getDocs(shippingCollectionRef);
+      setUserAddresses(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    };
+
+    getAddresses();
+  }, []);
+
   return (
     <div>
       <div className="contact-info">
@@ -55,7 +76,7 @@ export default function ShippingForm() {
           {" "}
           {user ? (
             <p>
-              Signed in as: {user.displayName}{" "}
+              Signed in as: {user.email}{" "}
               <span onClick={accountSignOut}>
                 <a href="">Log out</a>
               </span>
@@ -77,6 +98,7 @@ export default function ShippingForm() {
       <div className="checkout-email">
         <input
           type="Email"
+          value={user ? `${user.email}` : ""}
           placeholder="Email"
           onChange={(e) => {
             setIsEmail(e.target.id);
@@ -95,6 +117,7 @@ export default function ShippingForm() {
             <input
               type="text"
               placeholder="First name"
+              id="first-name"
               onChange={(e) => {
                 setIsFirstName(e.target.value);
               }}
@@ -103,6 +126,7 @@ export default function ShippingForm() {
             <input
               type="text"
               placeholder="Last name"
+              id="last-name"
               onChange={(e) => {
                 setIsLastName(e.target.value);
               }}
@@ -112,6 +136,7 @@ export default function ShippingForm() {
           <input
             type="text"
             placeholder="Address"
+            id="address"
             onChange={(e) => {
               setIsAddress(e.target.value);
             }}
@@ -121,6 +146,7 @@ export default function ShippingForm() {
             <input
               type="text"
               placeholder="City"
+              id="city"
               onChange={(e) => {
                 setIsCity(e.target.value);
               }}
@@ -129,6 +155,7 @@ export default function ShippingForm() {
             <input
               type="text"
               placeholder="State"
+              id="state"
               onChange={(e) => {
                 setIsState(e.target.value);
               }}
@@ -147,6 +174,7 @@ export default function ShippingForm() {
           <input
             type="text"
             placeholder="Phone"
+            id="phone"
             onChange={(e) => {
               setIsPhone(e.target.id);
             }}

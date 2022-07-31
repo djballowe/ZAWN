@@ -111,7 +111,7 @@ export const Register = () => {
     } else if (isPassword.length < 8) {
       alert("Password must be at least 8 characters");
     } else {
-      createWithEmail(isEmail, isPassword, isFirstName, isLastName);
+      createWithEmail(isEmail, isPassword);
     }
   };
   if (user) {
