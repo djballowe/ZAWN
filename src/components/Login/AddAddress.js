@@ -34,6 +34,7 @@ export default function AddAddress(props) {
   useEffect(() => {
     setIsOpen(props.open);
   }, [props.open]);
+  
   return (
     <div
       className="add-address-body"

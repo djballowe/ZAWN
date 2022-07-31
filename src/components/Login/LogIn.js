@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import Google from "../Images/Payment pngs/google.png";
 import { useNavigate } from "react-router-dom";
-import { createWithEmail, signInWithGoogle, signInWithEmail } from "../../firebase/Config";
+import {
+  createWithEmail,
+  signInWithGoogle,
+  signInWithEmail,
+} from "../../firebase/Config";
 import { auth } from "../../firebase/Config";
 import { useAuthState } from "react-firebase-hooks/auth";
 import AccountPage from "./AccountPage";
@@ -81,6 +85,8 @@ export const Register = () => {
   const [isEmail, setIsEmail] = useState("");
   const [isPassword, setIsPassword] = useState("");
   const [isConfirmPassword, setIsConfirmPassword] = useState("");
+  const [isFirstName, setIsFirstName] = useState("");
+  const [isLastName, setIsLastName] = useState("");
   const [user] = useAuthState(auth);
 
   let navigate = useNavigate();
@@ -105,7 +111,7 @@ export const Register = () => {
     } else if (isPassword.length < 8) {
       alert("Password must be at least 8 characters");
     } else {
-      createWithEmail(isEmail, isPassword);
+      createWithEmail(isEmail, isPassword, isFirstName, isLastName);
     }
   };
   if (user) {
@@ -123,14 +129,18 @@ export const Register = () => {
               type="text"
               placeholder="First Name"
               id="first-name"
-              onChange={handleChange}
+              onChange={(e) => {
+                setIsFirstName(e.target.value);
+              }}
               required
             />
             <input
               type="text"
               placeholder="Last Name"
               id="last-name"
-              onChange={handleChange}
+              onChange={(e) => {
+                setIsLastName(e.target.value);
+              }}
               required
             />
             <input

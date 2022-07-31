@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection } from"firebase/firestore"
+import { getFirestore, collection } from "firebase/firestore";
 import {
   GoogleAuthProvider,
   getAuth,
@@ -47,10 +47,11 @@ function signInWithGoogle() {
     });
 }
 
-function createWithEmail(email, password) {
+function createWithEmail(email, password, first, last) {
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       const user = userCredential.user;
+      user.displayName = `${first} ${last}`;
     })
     .catch((error) => {
       const errorCode = error.code;
@@ -77,8 +78,7 @@ export const user = auth.currentUser;
 
 function accountSignOut() {
   signOut(auth)
-    .then(() => {
-    })
+    .then(() => {})
     .catch((error) => {
       alert("An error has occurred");
     });
