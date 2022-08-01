@@ -1,14 +1,11 @@
 import React from "react";
 
-
 export default function CheckoutItems(props) {
-  
-
   return (
     <div>
       <div className="cart-item-checkout">
         <div className="cart-item-info">
-          <img src={`../Images/${props.src}`} alt="" />
+          <img src={require(`/home/david/GitHub/CHO/src/components/Images/${props.src}`)} alt="" />
           <div>
             <p>{props.item}</p>
             <p>color</p>
