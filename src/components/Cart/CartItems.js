@@ -8,8 +8,6 @@ export default function CartItems(props) {
   const [isQuantity, setIsQuantity] = useState(props.quantity);
   const [isOpen, setIsOpen] = useState(props.open);
 
-  
-
   const setParent = (value) => {
     props.set(value);
   };

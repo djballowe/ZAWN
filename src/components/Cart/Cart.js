@@ -7,6 +7,7 @@ import CartItems from "./CartItems";
 import { cartItemsArray } from "../Main Pages/ProductMain";
 import { useNavigate } from "react-router-dom";
 import getTotal from "../Data/GetTotal";
+import { updateStorage } from "../Main Pages/ProductMain";
 
 export default function Cart(props) {
   const [isTotal, setIsTotal] = useState(0);
@@ -21,6 +22,7 @@ export default function Cart(props) {
       total += item.quantity;
     });
     setIsQuantity(total);
+    updateStorage();
   };
 
   const cartComp = cartItemsArray.map((item) => {
