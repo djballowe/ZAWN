@@ -1,4 +1,5 @@
 import React from "react";
+import getTotal from "../Data/GetTotal";
 
 export default function CheckoutShipping() {
   return (
@@ -6,13 +7,17 @@ export default function CheckoutShipping() {
       <div className="checkout-container">
         <h2>Shipping Method</h2>
         <div className="shipping-method">
-          <div className="shipping-method-selection">
-            <div className="shipping-checkbox">
-              <input type="checkbox" />
-              <p>Free Shipping</p>
-            </div>
-            <p>$0</p>
-          </div>
+          <>
+            {getTotal >= 50 && (
+              <div className="shipping-method-selection">
+                <div className="shipping-checkbox">
+                  <input type="checkbox" />
+                  <p>Free Shipping</p>
+                </div>
+                <p>$0</p>
+              </div>
+            )}
+          </>
           <div className="shipping-method-selection">
             <div className="shipping-checkbox">
               <input type="checkbox" />

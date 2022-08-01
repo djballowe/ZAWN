@@ -61,7 +61,7 @@ export default function OrderCheckout() {
             </button>
           </div>
           <div className="checkout-subtotal-container">
-            {checkOutCart}
+            <div>{checkOutCart}</div>
             <div className="checkout-subtotal">
               <p>Subtotal</p>
               <p>${isTotal}</p>
