@@ -5,12 +5,14 @@ import ApplePay from "../Images/Payment pngs/applepay.png";
 import Amazon from "../Images/Payment pngs/amazon.png";
 import { useNavigate } from "react-router-dom";
 import OrderCheckout from "./OrderCheckout";
-import CheckoutShipping from "./CheckoutShipping";
+import useCheckoutShipping from "./CheckoutShipping";
 import Payment from "./Payment";
 import ShippingForm from "./ShippingForm";
 
 export default function Checkout() {
   let navigate = useNavigate();
+
+  const {render, idIsChecked} = useCheckoutShipping();
 
   return (
     <div className="flex-container">
@@ -22,7 +24,7 @@ export default function Checkout() {
                 <h2>ZAWN</h2>
                 <img src={Logo} alt="" />
               </div>
-              <OrderCheckout />
+              <OrderCheckout shipping={idIsChecked} />
             </div>
             <div className="express">
               <p>Express Checkout</p>
@@ -58,7 +60,7 @@ export default function Checkout() {
           <div className="border-checkout"></div>
           <div className="info-components">
             <ShippingForm />
-            <CheckoutShipping />
+            {render}
           </div>
         </div>
       </div>

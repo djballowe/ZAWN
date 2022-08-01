@@ -5,10 +5,11 @@ import whiteArrow from "../Images/chevron-right.png";
 import { cartItemsArray } from "../Main Pages/ProductMain";
 import getTotal from "../Data/GetTotal";
 
-export default function OrderCheckout() {
+export default function OrderCheckout(props) {
   const [isOpen, setIsOpen] = useState(true);
   const [isTotal, setIsTotal] = useState(0);
   const [isShipping, setIsShipping] = useState(0);
+  const typeShipping = props.shipping;
 
   const checkOutCart = cartItemsArray.map((item) => {
     return (
@@ -27,8 +28,16 @@ export default function OrderCheckout() {
 
   useEffect(() => {
     setIsTotal(getTotal());
-    isTotal >= 50 ? setIsShipping(0) : setIsShipping(7.95);
-  }, [isShipping, isTotal]);
+    if (typeShipping === "standard") {
+      setIsShipping(7.95);
+    } else if (typeShipping === "priority") {
+      setIsShipping(11.95);
+    } else if (typeShipping === "business") {
+      setIsShipping(16.44);
+    } else {
+      setIsShipping(0);
+    }
+  }, [isShipping, isTotal, typeShipping]);
 
   return (
     <div>
