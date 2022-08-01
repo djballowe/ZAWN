@@ -18,7 +18,7 @@ export default function Payment() {
                   <input type="checkbox" />
                   <p>Credit Card</p>
                 </div>
-                {/* <form action="" className="card-form">
+                <form action="" className="card-form">
                   <input type="text" placeholder="Card number" required />
                   <input type="text" placeholder="Name on card" required />
                   <div>
@@ -29,7 +29,7 @@ export default function Payment() {
                     />
                     <input type="text" placeholder="Security code" required />
                   </div>
-                </form> */}
+                </form>
               </div>
             </div>
             <div className="shipping-method-selection">

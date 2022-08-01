@@ -30,7 +30,6 @@ export default function CartItems(props) {
         1
       );
       setParent();
-      updateStorage();
     }
 
     console.log(cartItemsArray);
