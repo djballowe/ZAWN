@@ -7,10 +7,10 @@ import { useNavigate } from "react-router-dom";
 import OrderCheckout from "./OrderCheckout";
 import useCheckoutShipping from "./CheckoutShipping";
 import Payment from "./Payment";
-import ShippingForm from "./ShippingForm";
 import { Elements } from "@stripe/react-stripe-js";
 import { publishableKey } from "../../stripe/ConfigStripe";
 import { loadStripe } from "@stripe/stripe-js";
+import useShippingForm from "./ShippingForm";
 
 const stripePromise = loadStripe(publishableKey);
 
@@ -18,11 +18,40 @@ export default function Checkout() {
   let navigate = useNavigate();
 
   const { render, idIsChecked } = useCheckoutShipping();
+  const {
+    renderInfo,
+    isFirstName,
+    isLastName,
+    isAddress,
+    isCity,
+    isState,
+    isZip,
+    isPhone,
+    isEmail,
+  } = useShippingForm();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (
+      !isFirstName ||
+      !isLastName ||
+      !isAddress ||
+      !isCity ||
+      !isState ||
+      !isZip ||
+      !isPhone ||
+      !isEmail
+    ) {
+      alert('Please Fill out all shipping fields')
+    }
+    
+    
+  };
 
   return (
     <div className="flex-container">
       <div className="checkout-container">
-        <form action="">
+        <form action="" onSubmit={handleSubmit}>
           <div className="top">
             <div className="desk">
               <div className="checkout-information">
@@ -67,7 +96,7 @@ export default function Checkout() {
             </div>
             <div className="border-checkout"></div>
             <div className="info-components">
-              <ShippingForm />
+              {renderInfo}
               {render}
             </div>
           </div>

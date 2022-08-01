@@ -6,7 +6,7 @@ import { accountSignOut } from "../../firebase/Config";
 import { addDoc, collection, getDocs } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 
-export default function ShippingForm() {
+export default function useShippingForm() {
   let navigate = useNavigate();
 
   const [user] = useAuthState(auth);
@@ -34,23 +34,6 @@ export default function ShippingForm() {
     }
   }
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!user) {
-      await addDoc(shippingCollectionRef, {
-        FirstName: isFirstName,
-        LastName: isLastName,
-        Address: isAddress,
-        City: isCity,
-        State: isState,
-        Zip: isZip,
-        Phone: isPhone,
-        Email: isEmail,
-      });
-    }
-    navigate("/checkout-shipping");
-  };
-
   useEffect(() => {
     const isValidZip = /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(isZip);
     if (isZip !== "") {
@@ -68,51 +51,59 @@ export default function ShippingForm() {
     getAddresses();
   }, []);
 
-  return (
-    <div>
-      <div className="contact-info">
-        <h3>Contact Information</h3>
-        <div>
-          {" "}
-          {user ? (
-            <p>
-              Signed in as: {user.email}{" "}
-              <span onClick={accountSignOut}>
-                <a href="">Log out</a>
-              </span>
-            </p>
-          ) : (
-            <p>
-              Already have an account?{" "}
-              <span
-                onClick={() => {
-                  navigate("/login");
-                }}
-              >
-                <a href="">Log in</a>
-              </span>
-            </p>
-          )}
+  return {
+    isFirstName,
+    isLastName,
+    isAddress,
+    isCity,
+    isState,
+    isZip,
+    isPhone,
+    isEmail,
+    renderInfo: (
+      <div>
+        <div className="contact-info">
+          <h3>Contact Information</h3>
+          <div>
+            {" "}
+            {user ? (
+              <p>
+                Signed in as: {user.email}{" "}
+                <span onClick={accountSignOut}>
+                  <a href="">Log out</a>
+                </span>
+              </p>
+            ) : (
+              <p>
+                Already have an account?{" "}
+                <span
+                  onClick={() => {
+                    navigate("/login");
+                  }}
+                >
+                  <a href="">Log in</a>
+                </span>
+              </p>
+            )}
+          </div>
         </div>
-      </div>
-      <div className="checkout-email">
-        <input
-          type="Email"
-          value={user ? `${user.email}` : ""}
-          placeholder="Email"
-          onChange={(e) => {
-            setIsEmail(e.target.id);
-          }}
-          required
-        />
-        <div className="checkbox">
-          <input type="checkbox" />
-          <p>Email me with news and offers</p>
+        <div className="checkout-email">
+          <input
+            type="Email"
+            value={user ? `${user.email}` : ""}
+            placeholder="Email"
+            onChange={(e) => {
+              setIsEmail(e.target.id);
+            }}
+            required
+          />
+          <div className="checkbox">
+            <input type="checkbox" />
+            <p>Email me with news and offers</p>
+          </div>
         </div>
-      </div>
-      <div className="checkout-shipping-info">
-        <h2>Shipping address</h2>
-        <form action="" onSubmit={handleSubmit}>
+        <div className="checkout-shipping-info">
+          <h2>Shipping address</h2>
           <div className="name">
             <input
               type="text"
@@ -184,8 +175,8 @@ export default function ShippingForm() {
             <input type="checkbox" />
             <p>Text me with news and offers</p>
           </div>
-        </form>
+        </div>
       </div>
-    </div>
-  );
+    ),
+  };
 }

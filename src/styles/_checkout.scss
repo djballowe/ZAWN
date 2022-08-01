@@ -203,9 +203,7 @@
 }
 
 .checkout-shipping-info {
-  form {
-    @include column();
-  }
+  @include column();
   h2 {
     margin-bottom: 20px;
   }

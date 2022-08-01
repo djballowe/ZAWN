@@ -1628,7 +1628,7 @@ input:focus {
   outline: none;
 }
 
-.checkout-shipping-info form {
+.checkout-shipping-info {
   display: flex;
   flex-direction: column;
 }
