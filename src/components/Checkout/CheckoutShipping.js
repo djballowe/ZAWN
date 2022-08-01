@@ -10,9 +10,9 @@ export default function useCheckoutShipping() {
   };
 
   useEffect(() => {
-    getTotal >= 50 ? setIdIsChecked("free") : setIdIsChecked("standard");
+    getTotal() >= 50 ? setIdIsChecked("free") : setIdIsChecked("standard");
   }, []);
-  
+
   return {
     idIsChecked,
     render: (
@@ -21,7 +21,7 @@ export default function useCheckoutShipping() {
           <h2>Shipping Method</h2>
           <div className="shipping-method">
             <>
-              {getTotal >= 50 && (
+              {getTotal() >= 50 && (
                 <div className="shipping-method-selection">
                   <div className="shipping-checkbox">
                     <input
