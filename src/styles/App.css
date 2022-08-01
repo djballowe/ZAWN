@@ -1635,8 +1635,7 @@ input:focus {
 .checkout-shipping-info h2 {
   margin-bottom: 20px;
 }
-.checkout-shipping-info input,
-.checkout-shipping-info select {
+.checkout-shipping-info input {
   transition: all 0.2s ease-in;
   border-radius: 10px;
   height: 40px;
@@ -1645,9 +1644,14 @@ input:focus {
   background-color: transparent;
   margin-bottom: 10px;
 }
-.checkout-shipping-info input:focus,
-.checkout-shipping-info select:focus {
+.checkout-shipping-info input:focus {
   outline: 1px solid black;
+}
+
+.card-element-container {
+  border: 1px solid var(--border);
+  padding: 20px;
+  margin-top: 10px;
 }
 
 .name,

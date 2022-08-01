@@ -1,43 +1,29 @@
 import React from "react";
 import PayPal from "../Images/Payment pngs/paypal.png";
 import { useNavigate } from "react-router-dom";
+import { CardElement } from "@stripe/react-stripe-js";
 
 export default function Payment() {
   let navigate = useNavigate();
+
+  const configCardElement = {
+    iconStyle: "solid",
+    style: {
+      base: {
+        fontSize: "16px",
+      },
+    },
+    hidePostalCode: true,
+  };
 
   return (
     <div>
       <div className="checkout-container">
         <div className="payment-payment">
-          <h2>Payment</h2>
+          <h2>Credit Card Payment</h2>
           <p>All transactions are secure and encrypted.</p>
-          <div className="shipping-method">
-            <div className="shipping-method-selection">
-              <div>
-                <div className="shipping-checkbox">
-                  <input type="checkbox" />
-                  <p>Credit Card</p>
-                </div>
-                <form action="" className="card-form">
-                  <input type="text" placeholder="Card number" required />
-                  <input type="text" placeholder="Name on card" required />
-                  <div>
-                    <input
-                      type="text"
-                      placeholder="Expiration date (MM / YY)"
-                      required
-                    />
-                    <input type="text" placeholder="Security code" required />
-                  </div>
-                </form>
-              </div>
-            </div>
-            <div className="shipping-method-selection">
-              <div className="shipping-checkbox">
-                <input type="checkbox" />
-                <img src={PayPal} alt="" />
-              </div>
-            </div>
+          <div className="card-element-container">
+            <CardElement options={configCardElement} />
           </div>
         </div>
         <div className="payment-payment">
