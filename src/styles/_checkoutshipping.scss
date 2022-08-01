@@ -1,10 +1,3 @@
-.flex-container {
-  display: flex;
-  justify-content: center;
-  margin-inline: auto;
-  width: min(90%, 80rem);
-}
-
 .shipping-info,
 .shipping-method {
   border: 1px solid var(--border);
@@ -53,37 +46,27 @@
   margin: 15px 0;
 }
 
-.order-checkout-component-desktop {
-  display: none;
+.card-form {
+  display: flex;
+  flex-direction: column;
 }
 
 @media screen and (min-width: 1000px) {
-  .checkout-container {
-    padding: 0 20px;
-    width: 500px;
+  .top {
+    display: flex;
+    justify-content: space-around;
   }
 
-  .checkout-border {
-    background-color: var(--border);
-    width: 1px;
+  .info-components {
+    margin-top: 100px;
   }
 
-  .order-checkout-component {
-    display: none;
-  }
-  .order-checkout-component-desktop {
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    width: 400px;
-  }
-  .checkout-cart {
-    display: none;
-  }
-  .checkout-desktop {
-    display: flex;
-  }
   .flex-container {
-    justify-content: space-between;
+    margin-inline: auto;
+    width: min(90%, 80rem);
+  }
+  .border-checkout {
+    width: 1px;
+    background-color: black;
   }
 }

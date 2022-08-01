@@ -132,6 +132,10 @@ body {
   font-family: "Albert Sans", sans-serif;
 }
 
+.App {
+  position: relative;
+}
+
 @import "./header";
 @import "./product";
 @import "./colors";
@@ -147,3 +151,4 @@ body {
 @import "./login";
 @import "./account";
 @import "./checkoutshipping";
+@import "./addaddress";

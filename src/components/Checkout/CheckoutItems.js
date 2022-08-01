@@ -1,19 +1,18 @@
-import React from "react";
-import testImage from "../Images/Product Page/Tooth Brush/ToothBrush2.jpg";
 
-export default function CheckoutItems() {
+
+export default function CheckoutItems(props) {
   return (
     <div>
       <div className="cart-item-checkout">
         <div className="cart-item-info">
-          <img src={testImage} alt="" />
+          <img src={require(`/home/david/GitHub/CHO/src/components/Images/${props.src}`)} alt="" />
           <div>
-            <p>Item</p>
+            <p>{props.item}</p>
             <p>color</p>
-            <p>quantity</p>
+            <p>{props.quantity}</p>
           </div>
         </div>
-        <p>$64.00</p>
+        <p>{props.price}</p>
       </div>
     </div>
   );

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import Plus from "./Images/plus.png";
-import Minus from "./Images/minus.png";
-import { cartItemsArray } from "./Main Pages/ProductMain";
+import Plus from "../Images/plus.png";
+import Minus from "../Images/minus.png";
+import { cartItemsArray } from "../Main Pages/ProductMain";
+import { updateStorage } from "../Main Pages/ProductMain";
 
 export default function CartItems(props) {
   const [isQuantity, setIsQuantity] = useState(props.quantity);
@@ -14,26 +15,27 @@ export default function CartItems(props) {
   const handleClick = (e) => {
     const index = e.target.getAttribute("name");
     const name = cartItemsArray.find((x) => x.id === index);
-    let value = 0;
+    let value = name.quantity;
     if (e.target.id === "+") {
       value = name.quantity += 1;
       setIsQuantity(value);
-      setParent(value);
+      setParent();
     } else if (e.target.id === "-" && name.quantity !== 1) {
       value = name.quantity -= 1;
       setIsQuantity(value);
-      setParent(value);
+      setParent();
     } else if (e.target.id === "-" && name.quantity === 1) {
       cartItemsArray.splice(
         cartItemsArray.map((item) => item.id).indexOf(index),
         1
       );
-      setParent(value);
+      setParent();
     }
+
     console.log(cartItemsArray);
   };
 
-  let source = props.src
+  let source = props.src;
 
   useEffect(() => {
     setIsQuantity(props.quantity);
@@ -41,7 +43,6 @@ export default function CartItems(props) {
   }, [props.open, props.quantity]);
 
   return (
-    
     <div
       className="item-full"
       style={{
@@ -51,10 +52,7 @@ export default function CartItems(props) {
     >
       <div className="cart-item-container">
         <div className="cart-image">
-          <img
-            src={require(`./Images/${source}`)}
-            alt=""
-          />
+          <img src={require(`../Images/${source}`)} alt="" />
         </div>
         <div className="cart-item-container-text">
           <div className="cart-item-text">

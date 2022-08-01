@@ -26,13 +26,14 @@ import LogIn from "../Login/LogIn";
 import { Register } from "../Login/LogIn";
 import AccountPage from "../Login/AccountPage";
 import CheckoutShipping from "../Checkout/CheckoutShipping";
-import Payment from "../Checkout/Payment"
+import Payment from "../Checkout/Payment";
 
 function Header() {
   const [isMobile, setIsMobile] = useState(false);
   const [isAmount, setIsAmount] = useState(0);
   const [isActive, setIsActive] = useState(false);
   const [isBanner, setIsBanner] = useState(1);
+  const [isOverlay, setIsOverlay] = useState(false);
 
   // console.log(window.location.pathname);
 
@@ -57,6 +58,7 @@ function Header() {
     });
     setIsAmount(total);
     isActive ? setIsActive(false) : setIsActive(true);
+    isOverlay ? setIsOverlay(false) : setIsOverlay(true);
   };
 
   useEffect(() => {
@@ -64,6 +66,11 @@ function Header() {
       ? (document.body.style.overflow = "hidden")
       : (document.body.style.overflow = "visible");
 
+    let total = 0;
+    cartItemsArray.forEach((item) => {
+      total += item.quantity;
+    });
+    setIsAmount(total);
     //TODO REENABLE ON DEPLOYMENT
 
     // const interval = setInterval(() => {
@@ -106,7 +113,7 @@ function Header() {
             visibility: isActive ? "visible" : "hidden",
           }}
         >
-          <Cart onClick={cartClick} quantity={isAmount} open={isActive} />
+          <Cart onClick={cartClick} open={isActive} />
           <div
             onClick={cartClick}
             className="overlay"
@@ -211,8 +218,6 @@ function Header() {
           <Route path="/return" element={<Return />} />
           <Route path="/shipping" element={<Shipping />} />
           <Route path="/checkout" element={<Checkout />} />
-          <Route path="/checkout-shipping" element={<CheckoutShipping />} />
-          <Route path="/payment" element={<Payment />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<LogIn />} />
           <Route path="/account" element={<AccountPage />} />

@@ -1,12 +1,44 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import CheckoutItems from "./CheckoutItems";
 import Arrow from "../Images/arrow.png";
 import whiteArrow from "../Images/chevron-right.png";
+import { cartItemsArray } from "../Main Pages/ProductMain";
+import getTotal from "../Data/GetTotal";
 
-export default function OrderCheckout() {
-  const [isOpen, setIsOpen] = useState(false);
+export default function OrderCheckout(props) {
+  const [isOpen, setIsOpen] = useState(true);
+  const [isTotal, setIsTotal] = useState(0);
+  const [isShipping, setIsShipping] = useState(0);
+  const typeShipping = props.shipping;
 
-  
+  const checkOutCart = cartItemsArray.map((item) => {
+    return (
+      <CheckoutItems
+        key={item.id}
+        id={item.id}
+        item={item.title}
+        price={item.price}
+        quantity={item.quantity}
+        src={item.src}
+      />
+    );
+  });
+
+  let tax = (isTotal * 0.0509).toFixed(2);
+
+  useEffect(() => {
+    setIsTotal(getTotal());
+    if (typeShipping === "standard") {
+      setIsShipping(7.95);
+    } else if (typeShipping === "priority") {
+      setIsShipping(11.95);
+    } else if (typeShipping === "business") {
+      setIsShipping(16.44);
+    } else {
+      setIsShipping(0);
+    }
+  }, [isShipping, isTotal, typeShipping]);
+
   return (
     <div>
       <div className="checkout-cart">
@@ -28,7 +60,7 @@ export default function OrderCheckout() {
         <div
           className="checkout-cart-items"
           style={{
-            height: isOpen ? "350px" : "0px",
+            height: isOpen ? "auto" : "0px",
           }}
         >
           <div className="coupon-code">
@@ -38,25 +70,27 @@ export default function OrderCheckout() {
             </button>
           </div>
           <div className="checkout-subtotal-container">
-            <CheckoutItems />
+            <div>{checkOutCart}</div>
             <div className="checkout-subtotal">
               <p>Subtotal</p>
-              <p>$64.00</p>
+              <p>${isTotal}</p>
             </div>
             <div className="checkout-shipping">
               <p>Shipping</p>
-              <p>$16.44</p>
+              <p>{isShipping === 0 ? "Free" : `$${isShipping}`}</p>
             </div>
             <div className="checkout-tax">
               <p>Taxes</p>
-              <p>$4.64</p>
+              <p>${tax}</p>
             </div>
           </div>
           <div className="checkout-total">
             <p>Total</p>
             <div className="currency">
               <p>USD</p>
-              <p>$85.08</p>
+              <p>
+                ${(isShipping + parseInt(isTotal) + parseInt(tax)).toFixed(2)}
+              </p>
             </div>
           </div>
         </div>

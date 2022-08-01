@@ -1,20 +1,127 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { accountSignOut, db } from "../../firebase/Config";
+import { useAuthState } from "react-firebase-hooks/auth";
+import Addresses from "./Addresses";
+import AddAddress from "./AddAddress";
+import { getDocs, deleteDoc, doc } from "firebase/firestore";
+import { auth, shippingCollectionRef } from "../../firebase/Config";
 
 export default function AccountPage() {
+  const [isAddressOpen, setIsAddressOpen] = useState(false);
+  const [isAddAddress, setIsAddAddress] = useState(false);
+  const [userAddresses, setUserAddresses] = useState([]);
+  const [user] = useAuthState(auth);
+
+  const handleClick = (e) => {
+    e.target.id === "orders" ? setIsAddressOpen(false) : setIsAddressOpen(true);
+  };
+
+  const addressClick = () => {
+    isAddAddress ? setIsAddAddress(false) : setIsAddAddress(true);
+  };
+
+  const editDeleteAddress = (e) => {
+    let found = userAddresses.find((item) => item.id === e.target.id);
+    const userDoc = doc(db, "Shipping", found.id);
+    e.target.name === "delete" ? deleteDoc(userDoc) : addressClick();
+  };
+
+  const ad = userAddresses.map((item) => {
+    if (item.uid === user.uid) {
+      return (
+        <Addresses
+          FirstName={item.FirstName}
+          LastName={item.LastName}
+          address={item.AddressOne}
+          city={item.City}
+          state={item.State}
+          zip={item.Zip}
+          key={item.id}
+          id={item.id}
+          edit={editDeleteAddress}
+        />
+      );
+    }
+  });
+
+  useEffect(() => {
+    const getAddresses = async () => {
+      const data = await getDocs(shippingCollectionRef);
+      setUserAddresses(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    };
+
+    getAddresses();
+
+    isAddAddress
+      ? (document.body.style.overflow = "hidden")
+      : (document.body.style.overflow = "visible");
+  }, [isAddAddress, userAddresses]);
+
   return (
     <div className="account-container">
+      <div
+        className="add-address-container"
+        style={{
+          visibility: isAddAddress ? "visible" : "hidden",
+        }}
+      >
+        <div
+          onClick={addressClick}
+          className="overlay"
+          style={{
+            opacity: isAddAddress ? "1" : "0",
+          }}
+        ></div>
+        <AddAddress open={isAddAddress} click={addressClick} />
+      </div>
       <ul className="account-navigation">
-        <li>Orders</li>
-        <li>Addresses</li>
-        <li>Logout</li>
+        <li
+          onClick={handleClick}
+          id="orders"
+          style={{
+            textDecoration: isAddressOpen ? "none" : "underline",
+          }}
+        >
+          Orders
+        </li>
+        <li
+          onClick={handleClick}
+          id="addresses"
+          style={{
+            textDecoration: isAddressOpen ? "underline" : "none",
+          }}
+        >
+          Addresses
+        </li>
+        <li onClick={accountSignOut}>Logout</li>
       </ul>
       <div className="account-orders">
         <div className="order-container">
-          <div className="order-notification">1</div>
-          <h2>Orders</h2>
+          {/* <div className="order-notification">1</div> */}
+          <h2>{isAddressOpen ? "Addresses" : "Orders"}</h2>
         </div>
       </div>
-      <Orders />
+      <div
+        className="orders-wrapper"
+        style={{
+          display: isAddressOpen ? "none" : "grid",
+        }}
+      >
+        <Orders />
+        <Orders />
+        <Orders />
+      </div>
+      <div
+        className="addresses-wrapper"
+        style={{
+          display: isAddressOpen ? "grid" : "none",
+        }}
+      >
+        {ad}
+        <div className="add-address">
+          <p onClick={addressClick}>Add a new address</p>
+        </div>
+      </div>
     </div>
   );
 }

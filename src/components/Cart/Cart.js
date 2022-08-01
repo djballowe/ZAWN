@@ -3,19 +3,26 @@ import CartIcon from "@mdi/react";
 import { mdiWalletTravel } from "@mdi/js";
 import Close from "@mdi/react";
 import { mdiClose } from "@mdi/js";
-import CartItems from "../CartItems";
+import CartItems from "./CartItems";
 import { cartItemsArray } from "../Main Pages/ProductMain";
 import { useNavigate } from "react-router-dom";
+import getTotal from "../Data/GetTotal";
+import { updateStorage } from "../Main Pages/ProductMain";
 
 export default function Cart(props) {
   const [isTotal, setIsTotal] = useState(0);
-  const [isQuantity, setIsQuantity] = useState(props.quantity);
+  const [isQuantity, setIsQuantity] = useState("");
   const [isActive, setIsActive] = useState(props.open);
 
   let navigate = useNavigate();
 
-  const setParentTotal = (value) => {
-    setIsQuantity(value);
+  const setParentTotal = () => {
+    let total = 0;
+    cartItemsArray.forEach((item) => {
+      total += item.quantity;
+    });
+    setIsQuantity(total);
+    updateStorage();
   };
 
   const cartComp = cartItemsArray.map((item) => {
@@ -34,14 +41,9 @@ export default function Cart(props) {
   });
 
   useEffect(() => {
-    let total = 0;
-    cartItemsArray.forEach((item) => {
-      total +=
-        Math.round((item.price * item.quantity + Number.EPSILON) * 100) / 100;
-    });
     setIsActive(props.open);
-    setIsTotal(total.toFixed(2));
-  }, [props.open, isQuantity]);
+    setIsTotal(getTotal());
+  }, [props.open, isQuantity, props.quantity, isTotal]);
 
   return (
     <div
@@ -74,7 +76,7 @@ export default function Cart(props) {
           ></div>
         </div>
       </div>
-      <div className="components">{cartComp}</div>
+      <div className="cart-components">{cartComp}</div>
       <div className="test">
         <div className="checkout">
           <div className="subtotal">
