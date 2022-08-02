@@ -34,6 +34,11 @@ export default function useShippingForm() {
     }
   }
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+  }
+
   useEffect(() => {
     const isValidZip = /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(isZip);
     if (isZip !== "") {
@@ -87,95 +92,107 @@ export default function useShippingForm() {
             )}
           </div>
         </div>
-        <div className="checkout-email">
-          <input
-            type="Email"
-            value={user ? `${user.email}` : ""}
-            placeholder="Email"
-            onChange={(e) => {
-              setIsEmail(e.target.id);
-            }}
-            required
-          />
-          <div className="checkbox">
-            <input type="checkbox" />
-            <p>Email me with news and offers</p>
+        <form action="" onSubmit={handleSubmit}>
+          <div className="checkout-email">
+            <input
+              type="Email"
+              value={user ? `${user.email}` : ""}
+              placeholder="Email"
+              onChange={(e) => {
+                setIsEmail(e.target.id);
+              }}
+              required
+            />
+            <div className="checkbox">
+              <input type="checkbox" />
+              <p>Email me with news and offers</p>
+            </div>
           </div>
-        </div>
-        <div className="checkout-shipping-info">
-          <h2>Shipping address</h2>
-          <div className="name">
+          <div className="checkout-shipping-info">
+            <h2>Shipping address</h2>
+            <div className="name">
+              <input
+                type="text"
+                placeholder="First name"
+                id="first-name"
+                onChange={(e) => {
+                  setIsFirstName(e.target.value);
+                }}
+                required
+              />
+              <input
+                type="text"
+                placeholder="Last name"
+                id="last-name"
+                onChange={(e) => {
+                  setIsLastName(e.target.value);
+                }}
+                required
+              />
+            </div>
             <input
               type="text"
-              placeholder="First name"
-              id="first-name"
+              placeholder="Address"
+              id="address"
               onChange={(e) => {
-                setIsFirstName(e.target.value);
+                setIsAddress(e.target.value);
               }}
               required
             />
+            <div className="address">
+              <input
+                type="text"
+                placeholder="City"
+                id="city"
+                onChange={(e) => {
+                  setIsCity(e.target.value);
+                }}
+                required
+              />
+              <input
+                type="text"
+                placeholder="State"
+                id="state"
+                onChange={(e) => {
+                  setIsState(e.target.value);
+                }}
+                required
+              />
+              <input
+                type="text"
+                id="zip"
+                placeholder="ZIP code"
+                onChange={(e) => {
+                  setIsZip(e.target.value);
+                }}
+                required
+              />
+            </div>
             <input
               type="text"
-              placeholder="Last name"
-              id="last-name"
+              placeholder="Phone"
+              id="phone"
               onChange={(e) => {
-                setIsLastName(e.target.value);
+                setIsPhone(e.target.id);
               }}
               required
             />
+            <div className="offers-text">
+              <input type="checkbox" />
+              <p>Text me with news and offers</p>
+            </div>
+            <div className="continue">
+              <button type="submit">Continue</button>
+              <p
+                onClick={() => {
+                  navigate(-1);
+                }}
+              >
+                Return to cart
+              </p>
+            </div>
           </div>
-          <input
-            type="text"
-            placeholder="Address"
-            id="address"
-            onChange={(e) => {
-              setIsAddress(e.target.value);
-            }}
-            required
-          />
-          <div className="address">
-            <input
-              type="text"
-              placeholder="City"
-              id="city"
-              onChange={(e) => {
-                setIsCity(e.target.value);
-              }}
-              required
-            />
-            <input
-              type="text"
-              placeholder="State"
-              id="state"
-              onChange={(e) => {
-                setIsState(e.target.value);
-              }}
-              required
-            />
-            <input
-              type="text"
-              id="zip"
-              placeholder="ZIP code"
-              onChange={(e) => {
-                setIsZip(e.target.value);
-              }}
-              required
-            />
-          </div>
-          <input
-            type="text"
-            placeholder="Phone"
-            id="phone"
-            onChange={(e) => {
-              setIsPhone(e.target.id);
-            }}
-            required
-          />
-          <div className="offers-text">
-            <input type="checkbox" />
-            <p>Text me with news and offers</p>
-          </div>
-        </div>
+        </form>
       </div>
     ),
   };

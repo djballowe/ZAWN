@@ -30,28 +30,9 @@ export default function Checkout() {
     isEmail,
   } = useShippingForm();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (
-      !isFirstName ||
-      !isLastName ||
-      !isAddress ||
-      !isCity ||
-      !isState ||
-      !isZip ||
-      !isPhone ||
-      !isEmail
-    ) {
-      alert('Please Fill out all shipping fields')
-    }
-    
-    
-  };
-
   return (
     <div className="flex-container">
       <div className="checkout-container">
-        <form action="" onSubmit={handleSubmit}>
           <div className="top">
             <div className="desk">
               <div className="checkout-information">
@@ -83,24 +64,13 @@ export default function Checkout() {
               <Elements stripe={stripePromise}>
                 <Payment />
               </Elements>
-              <div className="continue">
-                <button type="submit">Continue</button>
-                <p
-                  onClick={() => {
-                    navigate(-1);
-                  }}
-                >
-                  Return to cart
-                </p>
-              </div>
             </div>
             <div className="border-checkout"></div>
             <div className="info-components">
-              {renderInfo}
               {render}
+              {renderInfo}
             </div>
           </div>
-        </form>
       </div>
     </div>
   );
