@@ -62,6 +62,17 @@ export default function ShippingForm(props) {
           .createPaymentMethod({
             type: "card",
             card: cardElement,
+            billing_details: {
+              name: `${isFirstName} ${isLastName}`,
+              email: isEmail,
+              phone: isPhone,
+              address: {
+                line1: isAddress,
+                city: isCity,
+                state: isState,
+                postal_code: isZip,
+              },
+            },
           })
           .then(({ paymentMethod }) => {
             stripe
