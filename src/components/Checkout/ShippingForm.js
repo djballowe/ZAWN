@@ -24,19 +24,20 @@ export default function ShippingForm(props) {
   const [isEmail, setIsEmail] = useState("");
   const shippingCollectionRef = collection(db, "Shipping");
   const stripe = useStripe();
+  const elements = useElements();
 
-  if (user) {
-    let found = userAddresses.find((item) => item.uid === user.uid);
-    if (found) {
-      document.getElementById("first-name").value = found.FirstName;
-      document.getElementById("last-name").value = found.LastName;
-      document.getElementById("address").value = found.AddressOne;
-      document.getElementById("city").value = found.City;
-      document.getElementById("state").value = found.State;
-      document.getElementById("zip").value = found.Zip;
-      document.getElementById("phone").value = found.Phone;
-    }
-  }
+  // if (user) {
+  //   let found = userAddresses.find((item) => item.uid === user.uid);
+  //   if (found) {
+  //     document.getElementById("first-name").value = found.FirstName;
+  //     document.getElementById("last-name").value = found.LastName;
+  //     document.getElementById("address").value = found.AddressOne;
+  //     document.getElementById("city").value = found.City;
+  //     document.getElementById("state").value = found.State;
+  //     document.getElementById("zip").value = found.Zip;
+  //     document.getElementById("phone").value = found.Phone;
+  //   }
+  // }
 
   const configCardElement = {
     iconStyle: "solid",
@@ -50,23 +51,17 @@ export default function ShippingForm(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const cardElement = elements.getElement("card");
 
     apiInstance
       .post("/payments/create", {
         amount: props.total * 100,
-        shipping: {
-          name: `${isFirstName} + ${isLastName}`,
-          address: isAddress,
-        },
       })
       .then(({ data: clientSecret }) => {
         stripe
           .createPaymentMethod({
             type: "card",
-            billing_details: {
-              name: `${isFirstName} + ${isLastName}`,
-              address: isAddress,
-            },
+            card: cardElement,
           })
           .then(({ paymentMethod }) => {
             stripe
@@ -124,7 +119,7 @@ export default function ShippingForm(props) {
           )}
         </div>
       </div>
-      <form action="">
+      <form action="" onSubmit={handleSubmit}>
         <div className="checkout-email">
           <input
             type="Email"
