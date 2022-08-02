@@ -84,6 +84,7 @@ export default function ShippingForm(props) {
               .then(({ paymentIntent }) => {
                 console.log(paymentIntent);
                 setPaymentProcessing(false);
+                navigate("/thank-you");
               });
           });
       });
