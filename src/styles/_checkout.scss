@@ -253,10 +253,9 @@
     font-size: 1rem;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
-    &:hover {
-      color: #92a9bd;
-      background-color: white;
-      border: 1px solid rgba(0, 0, 0, 0.291);
+    &:disabled {
+      color: white;
+      background-color: #7b8d9d72;
     }
   }
   p {

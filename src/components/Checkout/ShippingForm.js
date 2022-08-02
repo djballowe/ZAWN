@@ -22,6 +22,7 @@ export default function ShippingForm(props) {
   const [isZip, setIsZip] = useState("");
   const [isPhone, setIsPhone] = useState("");
   const [isEmail, setIsEmail] = useState("");
+  const [paymentProcessing, setPaymentProcessing] = useState(false);
   const shippingCollectionRef = collection(db, "Shipping");
   const stripe = useStripe();
   const elements = useElements();
@@ -52,6 +53,7 @@ export default function ShippingForm(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
     const cardElement = elements.getElement("card");
+    setPaymentProcessing(true);
 
     apiInstance
       .post("/payments/create", {
@@ -81,6 +83,7 @@ export default function ShippingForm(props) {
               })
               .then(({ paymentIntent }) => {
                 console.log(paymentIntent);
+                setPaymentProcessing(false);
               });
           });
       });
@@ -251,7 +254,9 @@ export default function ShippingForm(props) {
             <p>Text me with news and offers</p>
           </div>
           <div className="continue">
-            <button type="submit">Continue</button>
+            <button type="submit" disabled={paymentProcessing}>
+              Continue
+            </button>
             <p
               onClick={() => {
                 navigate(-1);

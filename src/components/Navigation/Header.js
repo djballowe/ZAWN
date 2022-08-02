@@ -25,7 +25,6 @@ import Profile from "@mdi/react";
 import LogIn from "../Login/LogIn";
 import { Register } from "../Login/LogIn";
 import AccountPage from "../Login/AccountPage";
-import CheckoutShipping from "../Checkout/CheckoutShipping";
 
 
 function Header() {

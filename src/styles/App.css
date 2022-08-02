@@ -1685,10 +1685,9 @@ input:focus {
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
-.continue button:hover {
-  color: #92a9bd;
-  background-color: white;
-  border: 1px solid rgba(0, 0, 0, 0.291);
+.continue button:disabled {
+  color: white;
+  background-color: rgba(123, 141, 157, 0.4470588235);
 }
 .continue p {
   cursor: pointer;
