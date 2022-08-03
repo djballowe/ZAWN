@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "../../firebase/Config";
+import { auth, orderHistoryRef } from "../../firebase/Config";
 import { db } from "../../firebase/Config";
 import { accountSignOut } from "../../firebase/Config";
-import { collection, getDocs } from "firebase/firestore";
+import { addDoc, collection, getDocs } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import { apiInstance } from "../Data/Utils";
 import { useStripe } from "@stripe/react-stripe-js";
 import { CardElement, useElements } from "@stripe/react-stripe-js";
 import { cartItemsArray } from "../Main Pages/ProductMain";
-
 
 export default function ShippingForm(props) {
   let navigate = useNavigate();
@@ -39,9 +38,14 @@ export default function ShippingForm(props) {
     hidePostalCode: true,
   };
 
-  const handleSubmit = (e) => {
+  async function handleSubmit(e) {
     e.preventDefault();
     const cardElement = elements.getElement("card");
+    let today = new Date();
+    var dd = String(today.getDate()).padStart(2, "0");
+    var mm = String(today.getMonth() + 1).padStart(2, "0");
+    var yyyy = today.getFullYear();
+    today = mm + "/" + dd + "/" + yyyy;
     setPaymentProcessing(true);
 
     apiInstance
@@ -81,7 +85,19 @@ export default function ShippingForm(props) {
               });
           });
       });
-  };
+    await addDoc(orderHistoryRef, {
+      uid: user.uid,
+      FirstName: isFirstName,
+      LastName: isLastName,
+      address: isAddress,
+      city: isCity,
+      state: isState,
+      zip: isZip,
+      email: isEmail,
+      amount: props.total,
+      date: today,
+    });
+  }
 
   useEffect(() => {
     const getAddresses = async () => {
@@ -103,7 +119,6 @@ export default function ShippingForm(props) {
     if (user) {
       getAddresses();
     }
-
   }, [shippingCollectionRef, user, userAddresses]);
 
   return (
