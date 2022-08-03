@@ -136,10 +136,6 @@ body {
   font-family: "Albert Sans", sans-serif;
 }
 
-.App {
-  position: relative;
-}
-
 .logo {
   display: flex;
   align-items: center;
@@ -1169,6 +1165,7 @@ input:focus {
 .footer-container-2 {
   background-color: #e3ebf4;
   border-top: 1px solid rgba(0, 0, 0, 0.24);
+  margin-top: 50px;
 }
 
 .footer-container {
@@ -1350,6 +1347,7 @@ input:focus {
 .contact-container {
   margin: 30px 0;
   text-align: center;
+  min-height: 55vh;
 }
 .contact-container h2 {
   font-size: 2rem;
@@ -1792,6 +1790,7 @@ input:focus {
 
 .account-container {
   margin: 50px 0;
+  min-height: 40vh;
 }
 
 .greeting {
@@ -1864,14 +1863,26 @@ input:focus {
 
 .date,
 .payment,
-.fulfillment,
-.order-total {
+.city,
+.state,
+.zip,
+.total {
   width: 80px;
 }
 .date p:first-of-type,
 .payment p:first-of-type,
-.fulfillment p:first-of-type,
-.order-total p:first-of-type {
+.city p:first-of-type,
+.state p:first-of-type,
+.zip p:first-of-type,
+.total p:first-of-type {
+  font-size: 0.7rem;
+  color: rgba(99, 99, 99, 0.815);
+}
+
+.address {
+  width: auto;
+}
+.address p:first-of-type {
   font-size: 0.7rem;
   color: rgba(99, 99, 99, 0.815);
 }
@@ -1894,11 +1905,11 @@ input:focus {
 .orders-wrapper {
   justify-content: center;
   display: grid;
-  grid-template-columns: repeat(auto-fit, 200px);
-  grid-template-rows: repeat(auto, 200px);
+  grid-template-columns: repeat(auto-fit, 300px);
+  grid-template-rows: repeat(auto, 300px);
   gap: 60px;
   margin-inline: auto;
-  width: min(90%, 50rem);
+  width: min(90%, 60rem);
   margin-top: 10px;
 }
 

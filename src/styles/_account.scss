@@ -1,5 +1,6 @@
 .account-container {
   margin: 50px 0;
+  min-height: 40vh;
 }
 
 .greeting {
@@ -69,13 +70,23 @@
 
 .date,
 .payment,
-.fulfillment,
-.order-total {
+.city,
+.state,
+.zip,
+.total {
   p:first-of-type {
     font-size: 0.7rem;
     color: rgba(99, 99, 99, 0.815);
   }
   width: 80px;
+}
+
+.address {
+  p:first-of-type {
+    font-size: 0.7rem;
+    color: rgba(99, 99, 99, 0.815);
+  }
+  width: auto;
 }
 
 .order-button {
@@ -98,11 +109,11 @@
 .orders-wrapper {
   justify-content: center;
   display: grid;
-  grid-template-columns: repeat(auto-fit, 200px);
-  grid-template-rows: repeat(auto, 200px);
+  grid-template-columns: repeat(auto-fit, 300px);
+  grid-template-rows: repeat(auto, 300px);
   gap: 60px;
   margin-inline: auto;
-  width: min(90%, 50rem);
+  width: min(90%, 60rem);
   margin-top: 10px;
 }
 
