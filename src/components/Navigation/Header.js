@@ -225,7 +225,7 @@ function Header() {
           <Route path="*" element={<Error />} />
         </Routes>
       </ScrollToTop>
-      {window.location.pathname === "/checkout" ? null : <Footer />}
+      <Footer />
     </Router>
   );
 }
