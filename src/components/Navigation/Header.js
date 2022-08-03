@@ -35,8 +35,6 @@ function Header() {
   const [isBanner, setIsBanner] = useState(1);
   const [isOverlay, setIsOverlay] = useState(false);
 
-  // console.log(window.location.pathname);
-
   const handleClick = () => {
     isMobile ? setIsMobile(false) : setIsMobile(true);
   };
@@ -218,14 +216,14 @@ function Header() {
           <Route path="/return" element={<Return />} />
           <Route path="/shipping" element={<Shipping />} />
           <Route path="/checkout" element={<Checkout />} />
-          <Route path="/thank-you" element={<OrderForm />} />
+          <Route path="/thank-you" element={<OrderForm />}/>
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<LogIn />} />
           <Route path="/account" element={<AccountPage />} />
           <Route path="*" element={<Error />} />
         </Routes>
       </ScrollToTop>
-      <Footer />
+      {window.location.pathname === "/checkout" ? null : <Footer />}
     </Router>
   );
 }

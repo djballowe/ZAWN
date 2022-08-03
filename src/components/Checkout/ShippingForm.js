@@ -10,6 +10,7 @@ import { useStripe } from "@stripe/react-stripe-js";
 import { CardElement, useElements } from "@stripe/react-stripe-js";
 import { cartItemsArray } from "../Main Pages/ProductMain";
 
+
 export default function ShippingForm(props) {
   let navigate = useNavigate();
 
@@ -27,19 +28,6 @@ export default function ShippingForm(props) {
   const shippingCollectionRef = collection(db, "Shipping");
   const stripe = useStripe();
   const elements = useElements();
-
-  // if (user) {
-  //   let found = userAddresses.find((item) => item.uid === user.uid);
-  //   if (found) {
-  //     document.getElementById("first-name").value = found.FirstName;
-  //     document.getElementById("last-name").value = found.LastName;
-  //     document.getElementById("address").value = found.AddressOne;
-  //     document.getElementById("city").value = found.City;
-  //     document.getElementById("state").value = found.State;
-  //     document.getElementById("zip").value = found.Zip;
-  //     document.getElementById("phone").value = found.Phone;
-  //   }
-  // }
 
   const configCardElement = {
     iconStyle: "solid",
@@ -96,21 +84,27 @@ export default function ShippingForm(props) {
   };
 
   useEffect(() => {
-    const isValidZip = /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(isZip);
-    if (isZip !== "") {
-      isValidZip
-        ? (document.getElementById("zip").style.backgroundColor =
-            "rgba(202, 240, 202, 0.815)")
-        : (document.getElementById("zip").style.backgroundColor =
-            "rgba(241, 182, 182, 0.733)");
-    }
     const getAddresses = async () => {
       const data = await getDocs(shippingCollectionRef);
       setUserAddresses(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+      let found = userAddresses.find((item) => item.uid === user.uid);
+      if (found) {
+        setIsFirstName(found.FirstName);
+        setIsLastName(found.LastName);
+        setIsAddress(found.AddressOne);
+        setIsCity(found.City);
+        setIsState(found.State);
+        setIsZip(found.Zip);
+        setIsPhone(found.Phone);
+        setIsEmail(user.email);
+      }
     };
 
-    getAddresses();
-  }, []);
+    if (user) {
+      getAddresses();
+    }
+
+  }, [shippingCollectionRef, user, userAddresses]);
 
   return (
     <div>
@@ -143,10 +137,10 @@ export default function ShippingForm(props) {
         <div className="checkout-email">
           <input
             type="Email"
-            value={user ? `${user.email}` : ""}
+            defaultValue={isEmail ? `${isEmail}` : ""}
             placeholder="Email"
             onChange={(e) => {
-              setIsEmail(e.target.id);
+              setIsEmail(e.target.value);
             }}
             required
           />
@@ -160,6 +154,7 @@ export default function ShippingForm(props) {
           <div className="name">
             <input
               type="text"
+              defaultValue={isFirstName ? `${isFirstName}` : ""}
               placeholder="First name"
               id="first-name"
               onChange={(e) => {
@@ -169,6 +164,7 @@ export default function ShippingForm(props) {
             />
             <input
               type="text"
+              defaultValue={isLastName ? `${isLastName}` : ""}
               placeholder="Last name"
               id="last-name"
               onChange={(e) => {
@@ -179,6 +175,7 @@ export default function ShippingForm(props) {
           </div>
           <input
             type="text"
+            defaultValue={isAddress ? `${isAddress}` : ""}
             placeholder="Address"
             id="address"
             onChange={(e) => {
@@ -189,6 +186,7 @@ export default function ShippingForm(props) {
           <div className="address">
             <input
               type="text"
+              defaultValue={isCity ? `${isCity}` : ""}
               placeholder="City"
               id="city"
               onChange={(e) => {
@@ -198,6 +196,7 @@ export default function ShippingForm(props) {
             />
             <input
               type="text"
+              defaultValue={isState ? `${isState}` : ""}
               placeholder="State"
               id="state"
               onChange={(e) => {
@@ -207,6 +206,7 @@ export default function ShippingForm(props) {
             />
             <input
               type="text"
+              defaultValue={isZip ? `${isZip}` : ""}
               id="zip"
               placeholder="ZIP code"
               onChange={(e) => {
@@ -217,6 +217,7 @@ export default function ShippingForm(props) {
           </div>
           <input
             type="text"
+            defaultValue={isPhone ? `${isPhone}` : ""}
             placeholder="Phone"
             id="phone"
             onChange={(e) => {
