@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "../../firebase/Config";
+import { auth, orderHistoryRef } from "../../firebase/Config";
 import { db } from "../../firebase/Config";
 import { accountSignOut } from "../../firebase/Config";
 import { addDoc, collection, getDocs } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
+import { apiInstance } from "../Data/Utils";
+import { useStripe } from "@stripe/react-stripe-js";
+import { CardElement, useElements } from "@stripe/react-stripe-js";
+import { cartItemsArray } from "../Main Pages/ProductMain";
 
-export default function ShippingForm() {
+export default function ShippingForm(props) {
   let navigate = useNavigate();
 
   const [user] = useAuthState(auth);
@@ -19,54 +23,103 @@ export default function ShippingForm() {
   const [isZip, setIsZip] = useState("");
   const [isPhone, setIsPhone] = useState("");
   const [isEmail, setIsEmail] = useState("");
+  const [paymentProcessing, setPaymentProcessing] = useState(false);
   const shippingCollectionRef = collection(db, "Shipping");
+  const stripe = useStripe();
+  const elements = useElements();
 
-  if (user) {
-    let found = userAddresses.find((item) => item.uid === user.uid);
-    if (found) {
-      document.getElementById("first-name").value = found.FirstName;
-      document.getElementById("last-name").value = found.LastName;
-      document.getElementById("address").value = found.AddressOne;
-      document.getElementById("city").value = found.City;
-      document.getElementById("state").value = found.State;
-      document.getElementById("zip").value = found.Zip;
-      document.getElementById("phone").value = found.Phone;
-    }
-  }
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!user) {
-      await addDoc(shippingCollectionRef, {
-        FirstName: isFirstName,
-        LastName: isLastName,
-        Address: isAddress,
-        City: isCity,
-        State: isState,
-        Zip: isZip,
-        Phone: isPhone,
-        Email: isEmail,
-      });
-    }
-    navigate("/checkout-shipping");
+  const configCardElement = {
+    iconStyle: "solid",
+    style: {
+      base: {
+        fontSize: "16px",
+      },
+    },
+    hidePostalCode: true,
   };
 
+  async function handleSubmit(e) {
+    e.preventDefault();
+    const cardElement = elements.getElement("card");
+    let today = new Date();
+    var dd = String(today.getDate()).padStart(2, "0");
+    var mm = String(today.getMonth() + 1).padStart(2, "0");
+    var yyyy = today.getFullYear();
+    today = mm + "/" + dd + "/" + yyyy;
+    setPaymentProcessing(true);
+
+    apiInstance
+      .post("/payments/create", {
+        amount: props.total * 100,
+      })
+      .then(({ data: clientSecret }) => {
+        stripe
+          .createPaymentMethod({
+            type: "card",
+            card: cardElement,
+            billing_details: {
+              name: `${isFirstName} ${isLastName}`,
+              email: isEmail,
+              phone: isPhone,
+              address: {
+                line1: isAddress,
+                city: isCity,
+                state: isState,
+                postal_code: isZip,
+              },
+            },
+          })
+          .then(({ paymentMethod }) => {
+            stripe
+              .confirmCardPayment(clientSecret, {
+                payment_method: paymentMethod.id,
+              })
+              .then(({ paymentIntent }) => {
+                console.log(paymentIntent);
+                setPaymentProcessing(false);
+                while (cartItemsArray.length) {
+                  cartItemsArray.pop();
+                }
+                localStorage.clear();
+                navigate("/thank-you");
+              });
+          });
+      });
+    await addDoc(orderHistoryRef, {
+      uid: user.uid,
+      FirstName: isFirstName,
+      LastName: isLastName,
+      address: isAddress,
+      city: isCity,
+      state: isState,
+      zip: isZip,
+      email: isEmail,
+      amount: props.total,
+      date: today,
+    });
+  }
+
   useEffect(() => {
-    const isValidZip = /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(isZip);
-    if (isZip !== "") {
-      isValidZip
-        ? (document.getElementById("zip").style.backgroundColor =
-            "rgba(202, 240, 202, 0.815)")
-        : (document.getElementById("zip").style.backgroundColor =
-            "rgba(241, 182, 182, 0.733)");
-    }
     const getAddresses = async () => {
       const data = await getDocs(shippingCollectionRef);
       setUserAddresses(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+      let found = userAddresses.find((item) => item.uid === user.uid);
+      if (found) {
+        setIsFirstName(found.FirstName);
+        setIsLastName(found.LastName);
+        setIsAddress(found.AddressOne);
+        setIsCity(found.City);
+        setIsState(found.State);
+        setIsZip(found.Zip);
+        setIsPhone(found.Phone);
+        setIsEmail(user.email);
+      }
     };
 
-    getAddresses();
-  }, []);
+    if (user) {
+      getAddresses();
+    }
+  }, [shippingCollectionRef, user, userAddresses]);
 
   return (
     <div>
@@ -95,27 +148,28 @@ export default function ShippingForm() {
           )}
         </div>
       </div>
-      <div className="checkout-email">
-        <input
-          type="Email"
-          value={user ? `${user.email}` : ""}
-          placeholder="Email"
-          onChange={(e) => {
-            setIsEmail(e.target.id);
-          }}
-          required
-        />
-        <div className="checkbox">
-          <input type="checkbox" />
-          <p>Email me with news and offers</p>
+      <form action="" onSubmit={handleSubmit}>
+        <div className="checkout-email">
+          <input
+            type="Email"
+            defaultValue={isEmail ? `${isEmail}` : ""}
+            placeholder="Email"
+            onChange={(e) => {
+              setIsEmail(e.target.value);
+            }}
+            required
+          />
+          <div className="checkbox">
+            <input type="checkbox" />
+            <p>Email me with news and offers</p>
+          </div>
         </div>
-      </div>
-      <div className="checkout-shipping-info">
-        <h2>Shipping address</h2>
-        <form action="" onSubmit={handleSubmit}>
+        <div className="checkout-shipping-info">
+          <h2>Shipping address</h2>
           <div className="name">
             <input
               type="text"
+              defaultValue={isFirstName ? `${isFirstName}` : ""}
               placeholder="First name"
               id="first-name"
               onChange={(e) => {
@@ -125,6 +179,7 @@ export default function ShippingForm() {
             />
             <input
               type="text"
+              defaultValue={isLastName ? `${isLastName}` : ""}
               placeholder="Last name"
               id="last-name"
               onChange={(e) => {
@@ -135,6 +190,7 @@ export default function ShippingForm() {
           </div>
           <input
             type="text"
+            defaultValue={isAddress ? `${isAddress}` : ""}
             placeholder="Address"
             id="address"
             onChange={(e) => {
@@ -145,6 +201,7 @@ export default function ShippingForm() {
           <div className="address">
             <input
               type="text"
+              defaultValue={isCity ? `${isCity}` : ""}
               placeholder="City"
               id="city"
               onChange={(e) => {
@@ -154,6 +211,7 @@ export default function ShippingForm() {
             />
             <input
               type="text"
+              defaultValue={isState ? `${isState}` : ""}
               placeholder="State"
               id="state"
               onChange={(e) => {
@@ -163,6 +221,7 @@ export default function ShippingForm() {
             />
             <input
               type="text"
+              defaultValue={isZip ? `${isZip}` : ""}
               id="zip"
               placeholder="ZIP code"
               onChange={(e) => {
@@ -173,6 +232,7 @@ export default function ShippingForm() {
           </div>
           <input
             type="text"
+            defaultValue={isPhone ? `${isPhone}` : ""}
             placeholder="Phone"
             id="phone"
             onChange={(e) => {
@@ -180,12 +240,55 @@ export default function ShippingForm() {
             }}
             required
           />
+          <div>
+            <div className="card-info-container">
+              <div className="payment-payment">
+                <h2>Credit Card Information</h2>
+                <p>All transactions are secure and encrypted.</p>
+                <div className="card-element-container">
+                  <CardElement options={configCardElement} />
+                </div>
+              </div>
+              <div className="payment-payment">
+                <h2>Billing Address</h2>
+                <p>
+                  Select the address that matches your card or payment method.
+                </p>
+                <div className="shipping-method">
+                  <div className="shipping-method-selection">
+                    <div className="shipping-checkbox">
+                      <input type="checkbox" />
+                      <p>Same as shipping address</p>
+                    </div>
+                  </div>
+                  <div className="shipping-method-selection">
+                    <div className="shipping-checkbox">
+                      <input type="checkbox" />
+                      <p>Use a different billing address</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
           <div className="offers-text">
             <input type="checkbox" />
             <p>Text me with news and offers</p>
           </div>
-        </form>
-      </div>
+          <div className="continue">
+            <button type="submit" disabled={paymentProcessing}>
+              Continue
+            </button>
+            <p
+              onClick={() => {
+                navigate(-1);
+              }}
+            >
+              Return to cart
+            </p>
+          </div>
+        </div>
+      </form>
     </div>
   );
 }

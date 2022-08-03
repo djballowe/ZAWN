@@ -136,10 +136,6 @@ body {
   font-family: "Albert Sans", sans-serif;
 }
 
-.App {
-  position: relative;
-}
-
 .logo {
   display: flex;
   align-items: center;
@@ -1169,6 +1165,7 @@ input:focus {
 .footer-container-2 {
   background-color: #e3ebf4;
   border-top: 1px solid rgba(0, 0, 0, 0.24);
+  margin-top: 50px;
 }
 
 .footer-container {
@@ -1350,6 +1347,7 @@ input:focus {
 .contact-container {
   margin: 30px 0;
   text-align: center;
+  min-height: 55vh;
 }
 .contact-container h2 {
   font-size: 2rem;
@@ -1423,15 +1421,12 @@ input:focus {
     width: min(90%, 50rem);
   }
 }
-.flex-container {
-  margin-inline: auto;
-  width: min(90%, 60rem);
-}
-
 .checkout-container {
   justify-content: center;
   flex-direction: column;
   margin-bottom: 30px;
+  margin-inline: auto;
+  width: min(90%, 60rem);
 }
 
 .checkout-information {
@@ -1628,15 +1623,14 @@ input:focus {
   outline: none;
 }
 
-.checkout-shipping-info form {
+.checkout-shipping-info {
   display: flex;
   flex-direction: column;
 }
 .checkout-shipping-info h2 {
   margin-bottom: 20px;
 }
-.checkout-shipping-info input,
-.checkout-shipping-info select {
+.checkout-shipping-info input {
   transition: all 0.2s ease-in;
   border-radius: 10px;
   height: 40px;
@@ -1645,9 +1639,14 @@ input:focus {
   background-color: transparent;
   margin-bottom: 10px;
 }
-.checkout-shipping-info input:focus,
-.checkout-shipping-info select:focus {
+.checkout-shipping-info input:focus {
   outline: 1px solid black;
+}
+
+.card-element-container {
+  border: 1px solid var(--border);
+  padding: 20px;
+  margin-top: 10px;
 }
 
 .name,
@@ -1671,11 +1670,10 @@ input:focus {
   display: flex;
   flex-direction: column;
   text-align: center;
-  align-items: center;
 }
 .continue button {
   padding: 10px;
-  width: 430px;
+  width: auto;
   margin: 10px 0;
   background-color: #92a9bd;
   border: 1px solid transparent;
@@ -1685,10 +1683,9 @@ input:focus {
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
-.continue button:hover {
-  color: #92a9bd;
-  background-color: white;
-  border: 1px solid rgba(0, 0, 0, 0.291);
+.continue button:disabled {
+  color: white;
+  background-color: rgba(123, 141, 157, 0.4470588235);
 }
 .continue p {
   cursor: pointer;
@@ -1793,6 +1790,7 @@ input:focus {
 
 .account-container {
   margin: 50px 0;
+  min-height: 40vh;
 }
 
 .greeting {
@@ -1865,14 +1863,26 @@ input:focus {
 
 .date,
 .payment,
-.fulfillment,
-.order-total {
+.city,
+.state,
+.zip,
+.total {
   width: 80px;
 }
 .date p:first-of-type,
 .payment p:first-of-type,
-.fulfillment p:first-of-type,
-.order-total p:first-of-type {
+.city p:first-of-type,
+.state p:first-of-type,
+.zip p:first-of-type,
+.total p:first-of-type {
+  font-size: 0.7rem;
+  color: rgba(99, 99, 99, 0.815);
+}
+
+.address {
+  width: auto;
+}
+.address p:first-of-type {
   font-size: 0.7rem;
   color: rgba(99, 99, 99, 0.815);
 }
@@ -1895,11 +1905,11 @@ input:focus {
 .orders-wrapper {
   justify-content: center;
   display: grid;
-  grid-template-columns: repeat(auto-fit, 200px);
-  grid-template-rows: repeat(auto, 200px);
+  grid-template-columns: repeat(auto-fit, 300px);
+  grid-template-rows: repeat(auto, 300px);
   gap: 60px;
   margin-inline: auto;
-  width: min(90%, 50rem);
+  width: min(90%, 60rem);
   margin-top: 10px;
 }
 
@@ -2012,21 +2022,13 @@ input:focus {
   flex-direction: column;
 }
 
-@media screen and (min-width: 1000px) {
-  .top {
-    display: flex;
-    justify-content: space-around;
-  }
+@media screen and (min-width: 850px) {
   .info-components {
-    margin-top: 100px;
+    margin-top: 10px;
   }
-  .flex-container {
+  .checkout-container {
     margin-inline: auto;
-    width: min(90%, 80rem);
-  }
-  .border-checkout {
-    width: 1px;
-    background-color: black;
+    width: min(90%, 40rem);
   }
 }
 .add-address-container {
@@ -2118,4 +2120,44 @@ input:focus {
   .add-address-body {
     width: 550px;
   }
+}
+.complete-container {
+  display: flex;
+  margin-top: 100px;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.complete-container button {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  width: auto;
+  margin: 10px 0;
+  background-color: #92a9bd;
+  border: 1px solid transparent;
+  border-radius: 20px;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.complete-container button img {
+  height: 25px;
+}
+.complete-container p:last-of-type {
+  margin-top: 10px;
+}
+
+.shadow {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 50px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.complete-text {
+  margin: 20px 0;
 }/*# sourceMappingURL=App.css.map */

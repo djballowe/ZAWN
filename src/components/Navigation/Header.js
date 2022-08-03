@@ -25,8 +25,7 @@ import Profile from "@mdi/react";
 import LogIn from "../Login/LogIn";
 import { Register } from "../Login/LogIn";
 import AccountPage from "../Login/AccountPage";
-import CheckoutShipping from "../Checkout/CheckoutShipping";
-import Payment from "../Checkout/Payment";
+import OrderForm from "../Checkout/OrderForm";
 
 function Header() {
   const [isMobile, setIsMobile] = useState(false);
@@ -34,8 +33,6 @@ function Header() {
   const [isActive, setIsActive] = useState(false);
   const [isBanner, setIsBanner] = useState(1);
   const [isOverlay, setIsOverlay] = useState(false);
-
-  // console.log(window.location.pathname);
 
   const handleClick = () => {
     isMobile ? setIsMobile(false) : setIsMobile(true);
@@ -218,6 +215,7 @@ function Header() {
           <Route path="/return" element={<Return />} />
           <Route path="/shipping" element={<Shipping />} />
           <Route path="/checkout" element={<Checkout />} />
+          <Route path="/thank-you" element={<OrderForm />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<LogIn />} />
           <Route path="/account" element={<AccountPage />} />

@@ -3,15 +3,12 @@
   flex-direction: column;
 }
 
-.flex-container {
-  margin-inline: auto;
-  width: min(90%, 60rem);
-}
-
 .checkout-container {
   justify-content: center;
   flex-direction: column;
   margin-bottom: 30px;
+  margin-inline: auto;
+  width: min(90%, 60rem);
 }
 
 .checkout-information {
@@ -203,14 +200,11 @@
 }
 
 .checkout-shipping-info {
-  form {
-    @include column();
-  }
+  @include column();
   h2 {
     margin-bottom: 20px;
   }
-  input,
-  select {
+  input {
     transition: all 0.2s ease-in;
     border-radius: 10px;
     height: 40px;
@@ -222,6 +216,12 @@
       outline: 1px solid black;
     }
   }
+}
+
+.card-element-container {
+  border: 1px solid var(--border);
+  padding: 20px;
+  margin-top: 10px;
 }
 
 .name,
@@ -242,10 +242,9 @@
 .continue {
   @include column();
   text-align: center;
-  align-items: center;
   button {
     padding: 10px;
-    width: 430px;
+    width: auto;
     margin: 10px 0;
     background-color: #92a9bd;
     border: 1px solid transparent;
@@ -254,10 +253,9 @@
     font-size: 1rem;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
-    &:hover {
-      color: #92a9bd;
-      background-color: white;
-      border: 1px solid rgba(0, 0, 0, 0.291);
+    &:disabled {
+      color: white;
+      background-color: #7b8d9d72;
     }
   }
   p {

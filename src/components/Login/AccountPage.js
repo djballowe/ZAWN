@@ -4,10 +4,15 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import Addresses from "./Addresses";
 import AddAddress from "./AddAddress";
 import { getDocs, deleteDoc, doc } from "firebase/firestore";
-import { auth, shippingCollectionRef } from "../../firebase/Config";
+import {
+  auth,
+  shippingCollectionRef,
+  orderHistoryRef,
+} from "../../firebase/Config";
 
 export default function AccountPage() {
   const [isAddressOpen, setIsAddressOpen] = useState(false);
+  const [orders, setOrders] = useState([]);
   const [isAddAddress, setIsAddAddress] = useState(false);
   const [userAddresses, setUserAddresses] = useState([]);
   const [user] = useAuthState(auth);
@@ -25,6 +30,26 @@ export default function AccountPage() {
     const userDoc = doc(db, "Shipping", found.id);
     e.target.name === "delete" ? deleteDoc(userDoc) : addressClick();
   };
+
+  const displayOrders = orders.map((item) => {
+    if (item.uid === user.uid) {
+      return (
+        <Orders
+          first={item.FirstName}
+          last={item.LastName}
+          address={item.address}
+          total={item.amount}
+          city={item.city}
+          date={item.date}
+          email={item.email}
+          state={item.state}
+          uid={item.uid}
+          zip={item.zip}
+          key={item.id}
+        />
+      );
+    }
+  });
 
   const ad = userAddresses.map((item) => {
     if (item.uid === user.uid) {
@@ -44,6 +69,8 @@ export default function AccountPage() {
     }
   });
 
+  
+
   useEffect(() => {
     const getAddresses = async () => {
       const data = await getDocs(shippingCollectionRef);
@@ -52,10 +79,18 @@ export default function AccountPage() {
 
     getAddresses();
 
+    const getOrders = async () => {
+      const data = await getDocs(orderHistoryRef);
+      setOrders(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    };
+
+
+    getOrders();
+
     isAddAddress
       ? (document.body.style.overflow = "hidden")
       : (document.body.style.overflow = "visible");
-  }, [isAddAddress, userAddresses]);
+  }, [isAddAddress, userAddresses, orders]);
 
   return (
     <div className="account-container">
@@ -107,9 +142,7 @@ export default function AccountPage() {
           display: isAddressOpen ? "none" : "grid",
         }}
       >
-        <Orders />
-        <Orders />
-        <Orders />
+        {displayOrders}
       </div>
       <div
         className="addresses-wrapper"
@@ -126,7 +159,8 @@ export default function AccountPage() {
   );
 }
 
-export function Orders() {
+export function Orders(props) {
+
   return (
     <div className="order-components-container">
       <div className="orders-components-mobile">
@@ -138,21 +172,39 @@ export function Orders() {
           <div className="order-details">
             <div className="date">
               <p>Date</p>
-              <p>January 19, 2022</p>
+              <p>{props.date}</p>
             </div>
             <div className="payment">
-              <p>Payment status</p>
-              <p>Paid</p>
+              <p>Name</p>
+              <p>
+                {props.first} {props.last}
+              </p>
             </div>
           </div>
           <div className="order-details">
-            <div className="fulfillment">
-              <p>Fulfillment Status</p>
-              <p>Fulfilled</p>
+            <div className="city">
+              <p>City</p>
+              <p>{props.city}</p>
             </div>
-            <div className="order-total">
+            <div className="state">
+              <p>State</p>
+              <p>{props.state}</p>
+            </div>
+          </div>
+          <div className="order-details">
+            <div className="address">
+              <p>Address</p>
+              <p>{props.address}</p>
+            </div>
+          </div>
+          <div className="order-details">
+            <div className="zip">
+              <p>Zip Code</p>
+              <p>{props.zip}</p>
+            </div>
+            <div className="total">
               <p>Total</p>
-              <p>$37</p>
+              <p>${props.total}</p>
             </div>
           </div>
           <div className="button order-button">

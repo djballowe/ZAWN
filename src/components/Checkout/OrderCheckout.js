@@ -26,6 +26,8 @@ export default function OrderCheckout(props) {
 
   let tax = (isTotal * 0.0509).toFixed(2);
 
+  let total = (isShipping + parseInt(isTotal) + parseInt(tax)).toFixed(2);
+
   useEffect(() => {
     setIsTotal(getTotal());
     if (typeShipping === "standard") {
@@ -37,7 +39,8 @@ export default function OrderCheckout(props) {
     } else {
       setIsShipping(0);
     }
-  }, [isShipping, isTotal, typeShipping]);
+    props.setParent(total);
+  }, [isShipping, isTotal, props, total, typeShipping]);
 
   return (
     <div>
@@ -88,9 +91,7 @@ export default function OrderCheckout(props) {
             <p>Total</p>
             <div className="currency">
               <p>USD</p>
-              <p>
-                ${(isShipping + parseInt(isTotal) + parseInt(tax)).toFixed(2)}
-              </p>
+              <p>${total}</p>
             </div>
           </div>
         </div>

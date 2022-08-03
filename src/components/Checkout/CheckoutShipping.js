@@ -17,7 +17,7 @@ export default function useCheckoutShipping() {
     idIsChecked,
     render: (
       <div>
-        <div className="checkout-container">
+        <div className="checkout-shipping-container">
           <h2>Shipping Method</h2>
           <div className="shipping-method">
             <>
