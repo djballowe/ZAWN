@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { apiInstance } from "../Data/Utils";
 import { useStripe } from "@stripe/react-stripe-js";
 import { CardElement, useElements } from "@stripe/react-stripe-js";
+import { cartItemsArray } from "../Main Pages/ProductMain";
 
 export default function ShippingForm(props) {
   let navigate = useNavigate();
@@ -84,6 +85,10 @@ export default function ShippingForm(props) {
               .then(({ paymentIntent }) => {
                 console.log(paymentIntent);
                 setPaymentProcessing(false);
+                while (cartItemsArray.length) {
+                  cartItemsArray.pop();
+                }
+                localStorage.clear();
                 navigate("/thank-you");
               });
           });

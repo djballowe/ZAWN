@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import Plus from "../Images/plus.png";
 import Minus from "../Images/minus.png";
 import { cartItemsArray } from "../Main Pages/ProductMain";
-import { updateStorage } from "../Main Pages/ProductMain";
 
 export default function CartItems(props) {
   const [isQuantity, setIsQuantity] = useState(props.quantity);
