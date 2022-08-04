@@ -8,11 +8,14 @@ import { cartItemsArray } from "../Main Pages/ProductMain";
 import { useNavigate } from "react-router-dom";
 import getTotal from "../Data/GetTotal";
 import { updateStorage } from "../Main Pages/ProductMain";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../../firebase/Config";
 
 export default function Cart(props) {
   const [isTotal, setIsTotal] = useState(0);
   const [isQuantity, setIsQuantity] = useState("");
   const [isActive, setIsActive] = useState(props.open);
+  const [user] = useAuthState(auth);
 
   let navigate = useNavigate();
 
@@ -85,8 +88,14 @@ export default function Cart(props) {
           </div>
           <button
             onClick={() => {
-              navigate("/checkout");
-              props.onClick();
+              if (user) {
+                navigate("/checkout");
+                props.onClick();
+              } else {
+                navigate("/login");
+                props.onClick();
+                alert('Please Login to continue')
+              }
             }}
           >
             Proceed to Checkout

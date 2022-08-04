@@ -152,7 +152,7 @@ export default function ShippingForm(props) {
         <div className="checkout-email">
           <input
             type="Email"
-            defaultValue={isEmail ? `${isEmail}` : ""}
+            defaultValue={user.email}
             placeholder="Email"
             onChange={(e) => {
               setIsEmail(e.target.value);

@@ -1,0 +1,68 @@
+[debug] [2022-08-04T14:27:50.655Z] ----------------------------------------------------------------------
+[debug] [2022-08-04T14:27:50.656Z] Command:       /usr/local/bin/node /usr/local/bin/firebase functions:shell
+[debug] [2022-08-04T14:27:50.657Z] CLI Version:   11.3.0
+[debug] [2022-08-04T14:27:50.657Z] Platform:      linux
+[debug] [2022-08-04T14:27:50.657Z] Node Version:  v18.4.0
+[debug] [2022-08-04T14:27:50.657Z] Time:          Thu Aug 04 2022 07:27:50 GMT-0700 (Pacific Daylight Time)
+[debug] [2022-08-04T14:27:50.657Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-08-04T14:27:50.695Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-08-04T14:27:50.696Z] > authorizing via signed-in user (db@davidballowe.com)
+[debug] [2022-08-04T14:27:50.696Z] [iam] checking project zawn-d7f63 for permissions ["firebase.projects.get"]
+[debug] [2022-08-04T14:27:50.696Z] > refreshing access token with scopes: []
+[debug] [2022-08-04T14:27:50.698Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2022-08-04T14:27:50.698Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2022-08-04T14:27:50.922Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2022-08-04T14:27:50.922Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2022-08-04T14:27:50.930Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/zawn-d7f63:testIamPermissions [none]
+[debug] [2022-08-04T14:27:50.930Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/zawn-d7f63:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2022-08-04T14:27:51.154Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/zawn-d7f63:testIamPermissions 200
+[debug] [2022-08-04T14:27:51.155Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/zawn-d7f63:testIamPermissions {"permissions":["firebase.projects.get"]}
+[warn] ⚠  Your requested "node" version "16" doesn't match your global version "18". Using node@18 from host. {"metadata":{"emulator":{"name":"functions"},"message":"Your requested \"node\" version \"16\" doesn't match your global version \"18\". Using node@18 from host."}}
+[debug] [2022-08-04T14:27:51.191Z] defaultcredentials: writing to file /home/david/.config/firebase/db_davidballowe_com_application_default_credentials.json
+[debug] [2022-08-04T14:27:51.193Z] DEBUG: Setting GAC to /home/david/.config/firebase/db_davidballowe_com_application_default_credentials.json
+[debug] [2022-08-04T14:27:51.193Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/zawn-d7f63/adminSdkConfig [none]
+[debug] [2022-08-04T14:27:51.656Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/zawn-d7f63/adminSdkConfig 200
+[debug] [2022-08-04T14:27:51.656Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/zawn-d7f63/adminSdkConfig {"projectId":"zawn-d7f63","storageBucket":"zawn-d7f63.appspot.com","locationId":"us-central"}
+[debug] [2022-08-04T14:27:51.686Z] [functions] Watching "/home/david/GitHub/CHO/functions" for Cloud Functions...
+[debug] [2022-08-04T14:27:51.693Z] Validating nodejs source
+[debug] [2022-08-04T14:27:52.533Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "firebase-admin": "^10.0.2",
+    "firebase-functions": "^3.18.0",
+    "stripe": "^9.16.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.9.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^0.2.0"
+  },
+  "private": true
+}
+[debug] [2022-08-04T14:27:52.533Z] Building nodejs source
+[debug] [2022-08-04T14:27:52.533Z] Analyzing nodejs backend spec
+[debug] [2022-08-04T14:27:52.535Z] Could not find functions.yaml. Must use http discovery
+[debug] [2022-08-04T14:27:52.649Z] Serving at port 9005
+
+[debug] [2022-08-04T14:27:52.730Z] Got response from /__/functions.yaml {"endpoints":{"api":{"platform":"gcfv1","httpsTrigger":{},"entryPoint":"api"}},"specVersion":"v1alpha1","requiredAPIs":[]}
+[debug] [2022-08-04T14:27:52.734Z] shutdown requested via /__/quitquitquit
+
+[debug] [2022-08-04T14:27:52.740Z] [functions[us-central1-api]] http function initialized (http://localhost:5000/zawn-d7f63/us-central1/api).
+[info] i  functions: Loaded functions: api 
+[warn] ⚠  functions: The following emulators are not running, calls to these services will affect production: firestore, database, pubsub, storage 
