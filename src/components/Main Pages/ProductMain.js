@@ -28,7 +28,9 @@ class CartItemCreator {
 
 export function updateStorage() {
   localStorage.clear();
-  localStorage.setItem("cart", JSON.stringify(cartItemsArray));
+  if (cartItemsArray.length !== 0) {
+    localStorage.setItem("cart", JSON.stringify(cartItemsArray));
+  }
 }
 
 function ProductMain(props) {
@@ -58,7 +60,6 @@ function ProductMain(props) {
       );
     }
     updateStorage();
-    console.log(cartItemsArray);
   };
 
   return (

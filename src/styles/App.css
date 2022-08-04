@@ -1103,10 +1103,13 @@ input:focus {
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
-.checkout button:hover {
-  color: black;
-  border: 1px solid black;
-  background-color: white;
+.checkout button:disabled {
+  background-color: rgba(166, 166, 166, 0.63);
+  color: rgb(255, 255, 255);
+}
+
+.cart-empty {
+  margin-top: 50px;
 }
 
 .test {

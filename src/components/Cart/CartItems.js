@@ -30,13 +30,14 @@ export default function CartItems(props) {
       );
       setParent();
     }
-
+    console.log(localStorage);
     console.log(cartItemsArray);
   };
 
   let source = props.src;
 
   useEffect(() => {
+    console.log('cart-item-use')
     setIsQuantity(props.quantity);
     setIsOpen(props.open);
   }, [props.open, props.quantity]);
