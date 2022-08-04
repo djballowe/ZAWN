@@ -66,3 +66,294 @@
 [debug] [2022-08-04T14:27:52.740Z] [functions[us-central1-api]] http function initialized (http://localhost:5000/zawn-d7f63/us-central1/api).
 [info] i  functions: Loaded functions: api 
 [warn] ⚠  functions: The following emulators are not running, calls to these services will affect production: firestore, database, pubsub, storage 
+[debug] [2022-08-04T15:55:31.033Z] ----------------------------------------------------------------------
+[debug] [2022-08-04T15:55:31.034Z] Command:       /usr/local/bin/node /usr/local/bin/firebase emulators:start --only functions
+[debug] [2022-08-04T15:55:31.035Z] CLI Version:   11.3.0
+[debug] [2022-08-04T15:55:31.035Z] Platform:      linux
+[debug] [2022-08-04T15:55:31.035Z] Node Version:  v18.4.0
+[debug] [2022-08-04T15:55:31.035Z] Time:          Thu Aug 04 2022 08:55:31 GMT-0700 (Pacific Daylight Time)
+[debug] [2022-08-04T15:55:31.035Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-08-04T15:55:31.088Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-08-04T15:55:31.088Z] > authorizing via signed-in user (db@davidballowe.com)
+[info] i  emulators: Starting emulators: functions {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: functions"}}
+[debug] [2022-08-04T15:55:31.134Z] [hub] writing locator at /tmp/hub-zawn-d7f63.json
+[warn] ⚠  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: auth, firestore, database, hosting, pubsub, storage {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mauth, firestore, database, hosting, pubsub, storage\u001b[22m"}}
+[warn] ⚠  Your requested "node" version "16" doesn't match your global version "18". Using node@18 from host. {"metadata":{"emulator":{"name":"functions"},"message":"Your requested \"node\" version \"16\" doesn't match your global version \"18\". Using node@18 from host."}}
+[debug] [2022-08-04T15:55:31.202Z] defaultcredentials: writing to file /home/david/.config/firebase/db_davidballowe_com_application_default_credentials.json
+[debug] [2022-08-04T15:55:31.204Z] Setting GAC to /home/david/.config/firebase/db_davidballowe_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to /home/david/.config/firebase/db_davidballowe_com_application_default_credentials.json"}}
+[debug] [2022-08-04T15:55:31.206Z] > refreshing access token with scopes: []
+[debug] [2022-08-04T15:55:31.208Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2022-08-04T15:55:31.208Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2022-08-04T15:55:31.376Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2022-08-04T15:55:31.376Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2022-08-04T15:55:31.386Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/zawn-d7f63/adminSdkConfig [none]
+[debug] [2022-08-04T15:55:31.852Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/zawn-d7f63/adminSdkConfig 200
+[debug] [2022-08-04T15:55:31.852Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/zawn-d7f63/adminSdkConfig {"projectId":"zawn-d7f63","storageBucket":"zawn-d7f63.appspot.com","locationId":"us-central"}
+[debug] [2022-08-04T15:55:31.868Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2022-08-04T15:55:31.869Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2022-08-04T15:55:31.869Z] Starting Emulator UI with command {"binary":"node","args":["/home/david/.cache/firebase/emulators/ui-v1.8.1/server/server.js"],"optionalArgs":[],"joinArgs":false} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"/home/david/.cache/firebase/emulators/ui-v1.8.1/server/server.js\"],\"optionalArgs\":[],\"joinArgs\":false}"}}
+[info] i  ui: Emulator UI logging to ui-debug.log {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI logging to \u001b[1mui-debug.log\u001b[22m"}}
+[debug] [2022-08-04T15:55:31.942Z] Web / API server started at localhost:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at localhost:4000\n"}}
+[info] i  functions: Watching "/home/david/GitHub/CHO/functions" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"/home/david/GitHub/CHO/functions\" for Cloud Functions..."}}
+[debug] [2022-08-04T15:55:32.145Z] Validating nodejs source
+[debug] [2022-08-04T15:55:33.086Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "firebase-admin": "^10.0.2",
+    "firebase-functions": "^3.18.0",
+    "stripe": "^9.16.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.9.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^0.2.0"
+  },
+  "private": true
+}
+[debug] [2022-08-04T15:55:33.086Z] Building nodejs source
+[debug] [2022-08-04T15:55:33.086Z] Analyzing nodejs backend spec
+[debug] [2022-08-04T15:55:33.087Z] Could not find functions.yaml. Must use http discovery
+[debug] [2022-08-04T15:55:33.169Z] Serving at port 9005
+
+[debug] [2022-08-04T15:55:33.222Z] Got response from /__/functions.yaml {"endpoints":{"api":{"platform":"gcfv1","httpsTrigger":{},"entryPoint":"api"}},"specVersion":"v1alpha1","requiredAPIs":[]}
+[debug] [2022-08-04T15:55:33.225Z] shutdown requested via /__/quitquitquit
+
+[info] ✔  functions[us-central1-api]: http function initialized (http://localhost:5001/zawn-d7f63/us-central1/api). {"metadata":{"emulator":{"name":"functions"},"message":"\u001b[1mhttp\u001b[22m function initialized (http://localhost:5001/zawn-d7f63/us-central1/api)."}}
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://localhost:4000                │
+└─────────────────────────────────────────────────────────────┘
+
+┌───────────┬────────────────┬─────────────────────────────────┐
+│ Emulator  │ Host:Port      │ View in Emulator UI             │
+├───────────┼────────────────┼─────────────────────────────────┤
+│ Functions │ localhost:5001 │ http://localhost:4000/functions │
+└───────────┴────────────────┴─────────────────────────────────┘
+  Emulator Hub running at localhost:4400
+  Other reserved ports: 4500
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
+[debug] [2022-08-04T15:55:53.171Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2022-08-04T15:55:53.171Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2022-08-04T15:55:53.171Z] Accepted request OPTIONS /zawn-d7f63/us-central1/api/payments/create --> us-central1-api
+[debug] [2022-08-04T15:55:53.177Z] [worker-pool] addWorker(us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] addWorker(us-central1-api)"}}
+[debug] [2022-08-04T15:55:53.177Z] [worker-pool] Adding worker with key us-central1-api, total=1 {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] Adding worker with key us-central1-api, total=1"}}
+[debug] [2022-08-04T15:55:53.177Z] [worker-pool] submitWork(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitWork(triggerId=us-central1-api)"}}
+[debug] [2022-08-04T15:55:53.178Z] [worker-us-central1-api-9825e598-2b41-4f8e-ac9f-b4d4d5029a3f]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-9825e598-2b41-4f8e-ac9f-b4d4d5029a3f]: BUSY"}}
+[debug] [2022-08-04T15:55:53.631Z] [runtime-status] [1489440] Resolved module firebase-admin {"declared":true,"installed":true,"version":"10.3.0","resolution":"/home/david/GitHub/CHO/functions/node_modules/firebase-admin/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [1489440] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"10.3.0\",\"resolution\":\"/home/david/GitHub/CHO/functions/node_modules/firebase-admin/lib/index.js\"}"}}
+[debug] [2022-08-04T15:55:53.633Z] [runtime-status] [1489440] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.22.0","resolution":"/home/david/GitHub/CHO/functions/node_modules/firebase-functions/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [1489440] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"3.22.0\",\"resolution\":\"/home/david/GitHub/CHO/functions/node_modules/firebase-functions/lib/index.js\"}"}}
+[debug] [2022-08-04T15:55:53.633Z] [runtime-status] [1489440] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [1489440] Outgoing network have been stubbed. [{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"net\",\"status\":\"mocked\"}]"}}
+[debug] [2022-08-04T15:55:53.633Z] [runtime-status] [1489440] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.22.0","resolution":"/home/david/GitHub/CHO/functions/node_modules/firebase-functions/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [1489440] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"3.22.0\",\"resolution\":\"/home/david/GitHub/CHO/functions/node_modules/firebase-functions/lib/index.js\"}"}}
+[debug] [2022-08-04T15:55:53.654Z] [runtime-status] [1489440] Checked functions.config() {"config":{}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [1489440] Checked functions.config() {\"config\":{}}"}}
+[debug] [2022-08-04T15:55:53.654Z] [runtime-status] [1489440] firebase-functions has been stubbed. {"functionsResolution":{"declared":true,"installed":true,"version":"3.22.0","resolution":"/home/david/GitHub/CHO/functions/node_modules/firebase-functions/lib/index.js"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [1489440] firebase-functions has been stubbed. {\"functionsResolution\":{\"declared\":true,\"installed\":true,\"version\":\"3.22.0\",\"resolution\":\"/home/david/GitHub/CHO/functions/node_modules/firebase-functions/lib/index.js\"}}"}}
+[debug] [2022-08-04T15:55:53.655Z] [runtime-status] [1489440] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.22.0","resolution":"/home/david/GitHub/CHO/functions/node_modules/firebase-functions/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [1489440] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"3.22.0\",\"resolution\":\"/home/david/GitHub/CHO/functions/node_modules/firebase-functions/lib/index.js\"}"}}
+[debug] [2022-08-04T15:55:53.655Z] [runtime-status] [1489440] Resolved module firebase-admin {"declared":true,"installed":true,"version":"10.3.0","resolution":"/home/david/GitHub/CHO/functions/node_modules/firebase-admin/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [1489440] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"10.3.0\",\"resolution\":\"/home/david/GitHub/CHO/functions/node_modules/firebase-admin/lib/index.js\"}"}}
+[debug] [2022-08-04T15:55:53.655Z] [runtime-status] [1489440] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.22.0","resolution":"/home/david/GitHub/CHO/functions/node_modules/firebase-functions/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [1489440] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"3.22.0\",\"resolution\":\"/home/david/GitHub/CHO/functions/node_modules/firebase-functions/lib/index.js\"}"}}
+[debug] [2022-08-04T15:55:53.656Z] [runtime-status] [1489440] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"10.3.0","resolution":"/home/david/GitHub/CHO/functions/node_modules/firebase-admin/lib/index.js"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [1489440] firebase-admin has been stubbed. {\"adminResolution\":{\"declared\":true,\"installed\":true,\"version\":\"10.3.0\",\"resolution\":\"/home/david/GitHub/CHO/functions/node_modules/firebase-admin/lib/index.js\"}}"}}
+[debug] [2022-08-04T15:55:53.656Z] [runtime-status] [1489440] Functions runtime initialized. {"cwd":"/home/david/GitHub/CHO/functions","node_version":"18.4.0"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [1489440] Functions runtime initialized. {\"cwd\":\"/home/david/GitHub/CHO/functions\",\"node_version\":\"18.4.0\"}"}}
+[debug] [2022-08-04T15:55:53.710Z] [runtime-status] [1489440] Beginning invocation function api! {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [1489440] Beginning invocation function api!"}}
+[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
+[debug] [2022-08-04T15:55:53.710Z] [runtime-status] [1489440] Running api in signature http {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [1489440] Running api in signature http"}}
+[debug] [2022-08-04T15:55:53.713Z] [runtime-status] [1489440] Attempting to listen to port: /tmp/fire_emu_f33a57d2c6335dd2.sock {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [1489440] Attempting to listen to port: /tmp/fire_emu_f33a57d2c6335dd2.sock"}}
+[debug] [2022-08-04T15:55:53.788Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2022-08-04T15:55:53.788Z] [functions] Got req.url=/zawn-d7f63/us-central1/api/payments/create, mapping to path=/payments/create {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/zawn-d7f63/us-central1/api/payments/create, mapping to path=/payments/create"}}
+[debug] [2022-08-04T15:55:53.790Z] [runtime-status] [1489440] Ephemeral server handling OPTIONS request {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [1489440] Ephemeral server handling OPTIONS request"}}
+[debug] [2022-08-04T15:55:53.792Z] [runtime-status] [1489440] Ephemeral server survived. {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [1489440] Ephemeral server survived."}}
+[info] i  functions: Finished "api" in ~1s {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in ~1s"}}
+[debug] [2022-08-04T15:55:53.792Z] [worker-us-central1-api-9825e598-2b41-4f8e-ac9f-b4d4d5029a3f]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-9825e598-2b41-4f8e-ac9f-b4d4d5029a3f]: IDLE"}}
+[debug] [2022-08-04T15:55:53.792Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2022-08-04T15:55:53.797Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2022-08-04T15:55:53.797Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2022-08-04T15:55:53.797Z] Accepted request POST /zawn-d7f63/us-central1/api/payments/create --> us-central1-api
+[debug] [2022-08-04T15:55:53.797Z] [worker-pool] submitWork(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitWork(triggerId=us-central1-api)"}}
+[debug] [2022-08-04T15:55:53.797Z] [worker-us-central1-api-9825e598-2b41-4f8e-ac9f-b4d4d5029a3f]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-9825e598-2b41-4f8e-ac9f-b4d4d5029a3f]: BUSY"}}
+[debug] [2022-08-04T15:55:53.802Z] [runtime-status] [1489440] Beginning invocation function api! {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [1489440] Beginning invocation function api!"}}
+[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
+[debug] [2022-08-04T15:55:53.802Z] [runtime-status] [1489440] Running api in signature http {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [1489440] Running api in signature http"}}
+[debug] [2022-08-04T15:55:53.803Z] [runtime-status] [1489440] Attempting to listen to port: /tmp/fire_emu_f33a57d2c6335dd2.sock {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [1489440] Attempting to listen to port: /tmp/fire_emu_f33a57d2c6335dd2.sock"}}
+[debug] [2022-08-04T15:55:53.903Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2022-08-04T15:55:53.903Z] [functions] Got req.url=/zawn-d7f63/us-central1/api/payments/create, mapping to path=/payments/create {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/zawn-d7f63/us-central1/api/payments/create, mapping to path=/payments/create"}}
+[debug] [2022-08-04T15:55:53.923Z] [runtime-status] [1489440] Ephemeral server handling POST request {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [1489440] Ephemeral server handling POST request"}}
+[debug] [2022-08-04T15:55:53.935Z] [runtime-status] [1489440] Ephemeral server survived. {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [1489440] Ephemeral server survived."}}
+[info] i  functions: Finished "api" in ~1s {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in ~1s"}}
+[debug] [2022-08-04T15:55:54.325Z] [worker-us-central1-api-9825e598-2b41-4f8e-ac9f-b4d4d5029a3f]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-9825e598-2b41-4f8e-ac9f-b4d4d5029a3f]: IDLE"}}
+[debug] [2022-08-04T15:55:54.326Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2022-08-04T15:57:21.578Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2022-08-04T15:57:21.578Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2022-08-04T15:57:21.578Z] Accepted request OPTIONS /zawn-d7f63/us-central1/api/payments/create --> us-central1-api
+[debug] [2022-08-04T15:57:21.578Z] [worker-pool] submitWork(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitWork(triggerId=us-central1-api)"}}
+[debug] [2022-08-04T15:57:21.578Z] [worker-us-central1-api-9825e598-2b41-4f8e-ac9f-b4d4d5029a3f]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-9825e598-2b41-4f8e-ac9f-b4d4d5029a3f]: BUSY"}}
+[debug] [2022-08-04T15:57:21.579Z] [runtime-status] [1489440] Beginning invocation function api! {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [1489440] Beginning invocation function api!"}}
+[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
+[debug] [2022-08-04T15:57:21.579Z] [runtime-status] [1489440] Running api in signature http {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [1489440] Running api in signature http"}}
+[debug] [2022-08-04T15:57:21.579Z] [runtime-status] [1489440] Attempting to listen to port: /tmp/fire_emu_f33a57d2c6335dd2.sock {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [1489440] Attempting to listen to port: /tmp/fire_emu_f33a57d2c6335dd2.sock"}}
+[debug] [2022-08-04T15:57:21.682Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2022-08-04T15:57:21.682Z] [functions] Got req.url=/zawn-d7f63/us-central1/api/payments/create, mapping to path=/payments/create {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/zawn-d7f63/us-central1/api/payments/create, mapping to path=/payments/create"}}
+[debug] [2022-08-04T15:57:21.684Z] [runtime-status] [1489440] Ephemeral server handling OPTIONS request {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [1489440] Ephemeral server handling OPTIONS request"}}
+[debug] [2022-08-04T15:57:21.684Z] [runtime-status] [1489440] Ephemeral server survived. {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [1489440] Ephemeral server survived."}}
+[info] i  functions: Finished "api" in ~1s {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in ~1s"}}
+[debug] [2022-08-04T15:57:21.685Z] [worker-us-central1-api-9825e598-2b41-4f8e-ac9f-b4d4d5029a3f]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-9825e598-2b41-4f8e-ac9f-b4d4d5029a3f]: IDLE"}}
+[debug] [2022-08-04T15:57:21.685Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2022-08-04T15:57:21.713Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2022-08-04T15:57:21.713Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2022-08-04T15:57:21.713Z] Accepted request POST /zawn-d7f63/us-central1/api/payments/create --> us-central1-api
+[debug] [2022-08-04T15:57:21.713Z] [worker-pool] submitWork(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitWork(triggerId=us-central1-api)"}}
+[debug] [2022-08-04T15:57:21.713Z] [worker-us-central1-api-9825e598-2b41-4f8e-ac9f-b4d4d5029a3f]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-9825e598-2b41-4f8e-ac9f-b4d4d5029a3f]: BUSY"}}
+[debug] [2022-08-04T15:57:21.714Z] [runtime-status] [1489440] Beginning invocation function api! {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [1489440] Beginning invocation function api!"}}
+[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
+[debug] [2022-08-04T15:57:21.714Z] [runtime-status] [1489440] Running api in signature http {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [1489440] Running api in signature http"}}
+[debug] [2022-08-04T15:57:21.714Z] [runtime-status] [1489440] Attempting to listen to port: /tmp/fire_emu_f33a57d2c6335dd2.sock {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [1489440] Attempting to listen to port: /tmp/fire_emu_f33a57d2c6335dd2.sock"}}
+[debug] [2022-08-04T15:57:21.815Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2022-08-04T15:57:21.816Z] [functions] Got req.url=/zawn-d7f63/us-central1/api/payments/create, mapping to path=/payments/create {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/zawn-d7f63/us-central1/api/payments/create, mapping to path=/payments/create"}}
+[debug] [2022-08-04T15:57:21.817Z] [runtime-status] [1489440] Ephemeral server handling POST request {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [1489440] Ephemeral server handling POST request"}}
+[debug] [2022-08-04T15:57:21.820Z] [runtime-status] [1489440] Ephemeral server survived. {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [1489440] Ephemeral server survived."}}
+[info] i  functions: Finished "api" in ~1s {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in ~1s"}}
+[debug] [2022-08-04T15:57:22.414Z] [worker-us-central1-api-9825e598-2b41-4f8e-ac9f-b4d4d5029a3f]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-9825e598-2b41-4f8e-ac9f-b4d4d5029a3f]: IDLE"}}
+[debug] [2022-08-04T15:57:22.414Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2022-08-04T16:00:29.538Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2022-08-04T16:00:29.538Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2022-08-04T16:00:29.538Z] Accepted request OPTIONS /zawn-d7f63/us-central1/api/payments/create --> us-central1-api
+[debug] [2022-08-04T16:00:29.538Z] [worker-pool] submitWork(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitWork(triggerId=us-central1-api)"}}
+[debug] [2022-08-04T16:00:29.538Z] [worker-us-central1-api-9825e598-2b41-4f8e-ac9f-b4d4d5029a3f]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-9825e598-2b41-4f8e-ac9f-b4d4d5029a3f]: BUSY"}}
+[debug] [2022-08-04T16:00:29.539Z] [runtime-status] [1489440] Beginning invocation function api! {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [1489440] Beginning invocation function api!"}}
+[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
+[debug] [2022-08-04T16:00:29.540Z] [runtime-status] [1489440] Running api in signature http {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [1489440] Running api in signature http"}}
+[debug] [2022-08-04T16:00:29.540Z] [runtime-status] [1489440] Attempting to listen to port: /tmp/fire_emu_f33a57d2c6335dd2.sock {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [1489440] Attempting to listen to port: /tmp/fire_emu_f33a57d2c6335dd2.sock"}}
+[debug] [2022-08-04T16:00:29.642Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2022-08-04T16:00:29.642Z] [functions] Got req.url=/zawn-d7f63/us-central1/api/payments/create, mapping to path=/payments/create {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/zawn-d7f63/us-central1/api/payments/create, mapping to path=/payments/create"}}
+[debug] [2022-08-04T16:00:29.643Z] [runtime-status] [1489440] Ephemeral server handling OPTIONS request {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [1489440] Ephemeral server handling OPTIONS request"}}
+[debug] [2022-08-04T16:00:29.644Z] [runtime-status] [1489440] Ephemeral server survived. {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [1489440] Ephemeral server survived."}}
+[info] i  functions: Finished "api" in ~1s {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in ~1s"}}
+[debug] [2022-08-04T16:00:29.644Z] [worker-us-central1-api-9825e598-2b41-4f8e-ac9f-b4d4d5029a3f]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-9825e598-2b41-4f8e-ac9f-b4d4d5029a3f]: IDLE"}}
+[debug] [2022-08-04T16:00:29.644Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2022-08-04T16:00:29.646Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2022-08-04T16:00:29.646Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2022-08-04T16:00:29.646Z] Accepted request POST /zawn-d7f63/us-central1/api/payments/create --> us-central1-api
+[debug] [2022-08-04T16:00:29.646Z] [worker-pool] submitWork(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitWork(triggerId=us-central1-api)"}}
+[debug] [2022-08-04T16:00:29.646Z] [worker-us-central1-api-9825e598-2b41-4f8e-ac9f-b4d4d5029a3f]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-9825e598-2b41-4f8e-ac9f-b4d4d5029a3f]: BUSY"}}
+[debug] [2022-08-04T16:00:29.654Z] [runtime-status] [1489440] Beginning invocation function api! {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [1489440] Beginning invocation function api!"}}
+[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
+[debug] [2022-08-04T16:00:29.654Z] [runtime-status] [1489440] Running api in signature http {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [1489440] Running api in signature http"}}
+[debug] [2022-08-04T16:00:29.655Z] [runtime-status] [1489440] Attempting to listen to port: /tmp/fire_emu_f33a57d2c6335dd2.sock {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [1489440] Attempting to listen to port: /tmp/fire_emu_f33a57d2c6335dd2.sock"}}
+[debug] [2022-08-04T16:00:29.749Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2022-08-04T16:00:29.749Z] [functions] Got req.url=/zawn-d7f63/us-central1/api/payments/create, mapping to path=/payments/create {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/zawn-d7f63/us-central1/api/payments/create, mapping to path=/payments/create"}}
+[debug] [2022-08-04T16:00:29.750Z] [runtime-status] [1489440] Ephemeral server handling POST request {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [1489440] Ephemeral server handling POST request"}}
+[debug] [2022-08-04T16:00:29.752Z] [runtime-status] [1489440] Ephemeral server survived. {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [1489440] Ephemeral server survived."}}
+[info] i  functions: Finished "api" in ~1s {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in ~1s"}}
+[debug] [2022-08-04T16:00:30.025Z] [worker-us-central1-api-9825e598-2b41-4f8e-ac9f-b4d4d5029a3f]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-9825e598-2b41-4f8e-ac9f-b4d4d5029a3f]: IDLE"}}
+[debug] [2022-08-04T16:00:30.026Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2022-08-04T16:04:39.199Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2022-08-04T16:04:39.199Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2022-08-04T16:04:39.200Z] Accepted request OPTIONS /zawn-d7f63/us-central1/api/payments/create --> us-central1-api
+[debug] [2022-08-04T16:04:39.200Z] [worker-pool] submitWork(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitWork(triggerId=us-central1-api)"}}
+[debug] [2022-08-04T16:04:39.200Z] [worker-us-central1-api-9825e598-2b41-4f8e-ac9f-b4d4d5029a3f]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-9825e598-2b41-4f8e-ac9f-b4d4d5029a3f]: BUSY"}}
+[debug] [2022-08-04T16:04:39.201Z] [runtime-status] [1489440] Beginning invocation function api! {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [1489440] Beginning invocation function api!"}}
+[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
+[debug] [2022-08-04T16:04:39.202Z] [runtime-status] [1489440] Running api in signature http {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [1489440] Running api in signature http"}}
+[debug] [2022-08-04T16:04:39.203Z] [runtime-status] [1489440] Attempting to listen to port: /tmp/fire_emu_f33a57d2c6335dd2.sock {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [1489440] Attempting to listen to port: /tmp/fire_emu_f33a57d2c6335dd2.sock"}}
+[debug] [2022-08-04T16:04:39.303Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2022-08-04T16:04:39.303Z] [functions] Got req.url=/zawn-d7f63/us-central1/api/payments/create, mapping to path=/payments/create {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/zawn-d7f63/us-central1/api/payments/create, mapping to path=/payments/create"}}
+[debug] [2022-08-04T16:04:39.305Z] [runtime-status] [1489440] Ephemeral server handling OPTIONS request {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [1489440] Ephemeral server handling OPTIONS request"}}
+[debug] [2022-08-04T16:04:39.305Z] [runtime-status] [1489440] Ephemeral server survived. {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [1489440] Ephemeral server survived."}}
+[info] i  functions: Finished "api" in ~1s {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in ~1s"}}
+[debug] [2022-08-04T16:04:39.305Z] [worker-us-central1-api-9825e598-2b41-4f8e-ac9f-b4d4d5029a3f]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-9825e598-2b41-4f8e-ac9f-b4d4d5029a3f]: IDLE"}}
+[debug] [2022-08-04T16:04:39.305Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2022-08-04T16:04:39.313Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2022-08-04T16:04:39.314Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2022-08-04T16:04:39.314Z] Accepted request POST /zawn-d7f63/us-central1/api/payments/create --> us-central1-api
+[debug] [2022-08-04T16:04:39.314Z] [worker-pool] submitWork(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitWork(triggerId=us-central1-api)"}}
+[debug] [2022-08-04T16:04:39.314Z] [worker-us-central1-api-9825e598-2b41-4f8e-ac9f-b4d4d5029a3f]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-9825e598-2b41-4f8e-ac9f-b4d4d5029a3f]: BUSY"}}
+[debug] [2022-08-04T16:04:39.315Z] [runtime-status] [1489440] Beginning invocation function api! {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [1489440] Beginning invocation function api!"}}
+[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
+[debug] [2022-08-04T16:04:39.316Z] [runtime-status] [1489440] Running api in signature http {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [1489440] Running api in signature http"}}
+[debug] [2022-08-04T16:04:39.316Z] [runtime-status] [1489440] Attempting to listen to port: /tmp/fire_emu_f33a57d2c6335dd2.sock {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [1489440] Attempting to listen to port: /tmp/fire_emu_f33a57d2c6335dd2.sock"}}
+[debug] [2022-08-04T16:04:39.416Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2022-08-04T16:04:39.416Z] [functions] Got req.url=/zawn-d7f63/us-central1/api/payments/create, mapping to path=/payments/create {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/zawn-d7f63/us-central1/api/payments/create, mapping to path=/payments/create"}}
+[debug] [2022-08-04T16:04:39.418Z] [runtime-status] [1489440] Ephemeral server handling POST request {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [1489440] Ephemeral server handling POST request"}}
+[debug] [2022-08-04T16:04:39.419Z] [runtime-status] [1489440] Ephemeral server survived. {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [1489440] Ephemeral server survived."}}
+[info] i  functions: Finished "api" in ~1s {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in ~1s"}}
+[debug] [2022-08-04T16:04:39.752Z] [worker-us-central1-api-9825e598-2b41-4f8e-ac9f-b4d4d5029a3f]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-9825e598-2b41-4f8e-ac9f-b4d4d5029a3f]: IDLE"}}
+[debug] [2022-08-04T16:04:39.752Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2022-08-04T16:05:07.488Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2022-08-04T16:05:07.488Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2022-08-04T16:05:07.488Z] Accepted request OPTIONS /zawn-d7f63/us-central1/api/payments/create --> us-central1-api
+[debug] [2022-08-04T16:05:07.488Z] [worker-pool] submitWork(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitWork(triggerId=us-central1-api)"}}
+[debug] [2022-08-04T16:05:07.488Z] [worker-us-central1-api-9825e598-2b41-4f8e-ac9f-b4d4d5029a3f]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-9825e598-2b41-4f8e-ac9f-b4d4d5029a3f]: BUSY"}}
+[debug] [2022-08-04T16:05:07.489Z] [runtime-status] [1489440] Beginning invocation function api! {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [1489440] Beginning invocation function api!"}}
+[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
+[debug] [2022-08-04T16:05:07.489Z] [runtime-status] [1489440] Running api in signature http {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [1489440] Running api in signature http"}}
+[debug] [2022-08-04T16:05:07.490Z] [runtime-status] [1489440] Attempting to listen to port: /tmp/fire_emu_f33a57d2c6335dd2.sock {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [1489440] Attempting to listen to port: /tmp/fire_emu_f33a57d2c6335dd2.sock"}}
+[debug] [2022-08-04T16:05:07.591Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2022-08-04T16:05:07.591Z] [functions] Got req.url=/zawn-d7f63/us-central1/api/payments/create, mapping to path=/payments/create {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/zawn-d7f63/us-central1/api/payments/create, mapping to path=/payments/create"}}
+[debug] [2022-08-04T16:05:07.593Z] [runtime-status] [1489440] Ephemeral server handling OPTIONS request {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [1489440] Ephemeral server handling OPTIONS request"}}
+[debug] [2022-08-04T16:05:07.593Z] [runtime-status] [1489440] Ephemeral server survived. {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [1489440] Ephemeral server survived."}}
+[info] i  functions: Finished "api" in ~1s {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in ~1s"}}
+[debug] [2022-08-04T16:05:07.594Z] [worker-us-central1-api-9825e598-2b41-4f8e-ac9f-b4d4d5029a3f]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-9825e598-2b41-4f8e-ac9f-b4d4d5029a3f]: IDLE"}}
+[debug] [2022-08-04T16:05:07.594Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2022-08-04T16:05:07.596Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2022-08-04T16:05:07.596Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2022-08-04T16:05:07.596Z] Accepted request POST /zawn-d7f63/us-central1/api/payments/create --> us-central1-api
+[debug] [2022-08-04T16:05:07.596Z] [worker-pool] submitWork(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitWork(triggerId=us-central1-api)"}}
+[debug] [2022-08-04T16:05:07.596Z] [worker-us-central1-api-9825e598-2b41-4f8e-ac9f-b4d4d5029a3f]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-9825e598-2b41-4f8e-ac9f-b4d4d5029a3f]: BUSY"}}
+[debug] [2022-08-04T16:05:07.603Z] [runtime-status] [1489440] Beginning invocation function api! {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [1489440] Beginning invocation function api!"}}
+[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
+[debug] [2022-08-04T16:05:07.603Z] [runtime-status] [1489440] Running api in signature http {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [1489440] Running api in signature http"}}
+[debug] [2022-08-04T16:05:07.604Z] [runtime-status] [1489440] Attempting to listen to port: /tmp/fire_emu_f33a57d2c6335dd2.sock {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [1489440] Attempting to listen to port: /tmp/fire_emu_f33a57d2c6335dd2.sock"}}
+[debug] [2022-08-04T16:05:07.699Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2022-08-04T16:05:07.699Z] [functions] Got req.url=/zawn-d7f63/us-central1/api/payments/create, mapping to path=/payments/create {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/zawn-d7f63/us-central1/api/payments/create, mapping to path=/payments/create"}}
+[debug] [2022-08-04T16:05:07.700Z] [runtime-status] [1489440] Ephemeral server handling POST request {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [1489440] Ephemeral server handling POST request"}}
+[debug] [2022-08-04T16:05:07.702Z] [runtime-status] [1489440] Ephemeral server survived. {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [1489440] Ephemeral server survived."}}
+[info] i  functions: Finished "api" in ~1s {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in ~1s"}}
+[debug] [2022-08-04T16:05:07.951Z] [worker-us-central1-api-9825e598-2b41-4f8e-ac9f-b4d4d5029a3f]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-9825e598-2b41-4f8e-ac9f-b4d4d5029a3f]: IDLE"}}
+[debug] [2022-08-04T16:05:07.951Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2022-08-04T16:06:24.673Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2022-08-04T16:06:24.673Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2022-08-04T16:06:24.673Z] Accepted request OPTIONS /zawn-d7f63/us-central1/api/payments/create --> us-central1-api
+[debug] [2022-08-04T16:06:24.673Z] [worker-pool] submitWork(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitWork(triggerId=us-central1-api)"}}
+[debug] [2022-08-04T16:06:24.673Z] [worker-us-central1-api-9825e598-2b41-4f8e-ac9f-b4d4d5029a3f]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-9825e598-2b41-4f8e-ac9f-b4d4d5029a3f]: BUSY"}}
+[debug] [2022-08-04T16:06:24.674Z] [runtime-status] [1489440] Beginning invocation function api! {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [1489440] Beginning invocation function api!"}}
+[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
+[debug] [2022-08-04T16:06:24.675Z] [runtime-status] [1489440] Running api in signature http {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [1489440] Running api in signature http"}}
+[debug] [2022-08-04T16:06:24.675Z] [runtime-status] [1489440] Attempting to listen to port: /tmp/fire_emu_f33a57d2c6335dd2.sock {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [1489440] Attempting to listen to port: /tmp/fire_emu_f33a57d2c6335dd2.sock"}}
+[debug] [2022-08-04T16:06:24.776Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2022-08-04T16:06:24.777Z] [functions] Got req.url=/zawn-d7f63/us-central1/api/payments/create, mapping to path=/payments/create {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/zawn-d7f63/us-central1/api/payments/create, mapping to path=/payments/create"}}
+[debug] [2022-08-04T16:06:24.777Z] [runtime-status] [1489440] Ephemeral server handling OPTIONS request {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [1489440] Ephemeral server handling OPTIONS request"}}
+[debug] [2022-08-04T16:06:24.778Z] [runtime-status] [1489440] Ephemeral server survived. {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [1489440] Ephemeral server survived."}}
+[info] i  functions: Finished "api" in ~1s {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in ~1s"}}
+[debug] [2022-08-04T16:06:24.778Z] [worker-us-central1-api-9825e598-2b41-4f8e-ac9f-b4d4d5029a3f]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-9825e598-2b41-4f8e-ac9f-b4d4d5029a3f]: IDLE"}}
+[debug] [2022-08-04T16:06:24.778Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2022-08-04T16:06:24.782Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2022-08-04T16:06:24.783Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2022-08-04T16:06:24.783Z] Accepted request POST /zawn-d7f63/us-central1/api/payments/create --> us-central1-api
+[debug] [2022-08-04T16:06:24.783Z] [worker-pool] submitWork(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitWork(triggerId=us-central1-api)"}}
+[debug] [2022-08-04T16:06:24.783Z] [worker-us-central1-api-9825e598-2b41-4f8e-ac9f-b4d4d5029a3f]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-9825e598-2b41-4f8e-ac9f-b4d4d5029a3f]: BUSY"}}
+[debug] [2022-08-04T16:06:24.788Z] [runtime-status] [1489440] Beginning invocation function api! {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [1489440] Beginning invocation function api!"}}
+[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
+[debug] [2022-08-04T16:06:24.788Z] [runtime-status] [1489440] Running api in signature http {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [1489440] Running api in signature http"}}
+[debug] [2022-08-04T16:06:24.789Z] [runtime-status] [1489440] Attempting to listen to port: /tmp/fire_emu_f33a57d2c6335dd2.sock {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [1489440] Attempting to listen to port: /tmp/fire_emu_f33a57d2c6335dd2.sock"}}
+[debug] [2022-08-04T16:06:24.885Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2022-08-04T16:06:24.886Z] [functions] Got req.url=/zawn-d7f63/us-central1/api/payments/create, mapping to path=/payments/create {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/zawn-d7f63/us-central1/api/payments/create, mapping to path=/payments/create"}}
+[debug] [2022-08-04T16:06:24.887Z] [runtime-status] [1489440] Ephemeral server handling POST request {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [1489440] Ephemeral server handling POST request"}}
+[debug] [2022-08-04T16:06:24.889Z] [runtime-status] [1489440] Ephemeral server survived. {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [1489440] Ephemeral server survived."}}
+[info] i  functions: Finished "api" in ~1s {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in ~1s"}}
+[debug] [2022-08-04T16:06:25.261Z] [worker-us-central1-api-9825e598-2b41-4f8e-ac9f-b4d4d5029a3f]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-9825e598-2b41-4f8e-ac9f-b4d4d5029a3f]: IDLE"}}
+[debug] [2022-08-04T16:06:25.262Z] [work-queue] {"queueLength":0,"workRunningCount":0}

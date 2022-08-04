@@ -94,7 +94,7 @@ export default function Cart(props) {
               } else {
                 navigate("/login");
                 props.onClick();
-                alert('Please Login to continue')
+                alert("Please Login to continue");
               }
             }}
           >
