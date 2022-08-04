@@ -38,14 +38,29 @@ export default function ShippingForm(props) {
     hidePostalCode: true,
   };
 
-  async function handleSubmit(e) {
-    e.preventDefault();
-    const cardElement = elements.getElement("card");
+  async function addOrder() {
     let today = new Date();
     var dd = String(today.getDate()).padStart(2, "0");
     var mm = String(today.getMonth() + 1).padStart(2, "0");
     var yyyy = today.getFullYear();
     today = mm + "/" + dd + "/" + yyyy;
+    await addDoc(orderHistoryRef, {
+      uid: user.uid,
+      FirstName: isFirstName,
+      LastName: isLastName,
+      address: isAddress,
+      city: isCity,
+      state: isState,
+      zip: isZip,
+      email: isEmail,
+      amount: props.total,
+      date: today,
+    });
+  }
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    const cardElement = elements.getElement("card");
     setPaymentProcessing(true);
 
     apiInstance
@@ -81,22 +96,11 @@ export default function ShippingForm(props) {
                   cartItemsArray.pop();
                 }
                 localStorage.clear();
+                addOrder();
                 navigate("/thank-you");
               });
           });
       });
-    await addDoc(orderHistoryRef, {
-      uid: user.uid,
-      FirstName: isFirstName,
-      LastName: isLastName,
-      address: isAddress,
-      city: isCity,
-      state: isState,
-      zip: isZip,
-      email: isEmail,
-      amount: props.total,
-      date: today,
-    });
   }
 
   useEffect(() => {
@@ -120,7 +124,7 @@ export default function ShippingForm(props) {
   }, [shippingCollectionRef, user, userAddresses]);
 
   if (!user) {
-    <div>Loading</div>
+    <div>Loading</div>;
   } else {
     return (
       <div>
