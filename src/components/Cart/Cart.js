@@ -14,6 +14,7 @@ export default function Cart(props) {
   const [isQuantity, setIsQuantity] = useState("");
   const [isActive, setIsActive] = useState(props.open);
   const [emptyCart, setEmptyCart] = useState(false);
+  const [help, setHelp] = useState(true);
 
   let navigate = useNavigate();
 
@@ -22,6 +23,10 @@ export default function Cart(props) {
     cartItemsArray.forEach((item) => {
       total += item.quantity;
     });
+    if (!cartItemsArray.length) {
+      props.onClick();
+    }
+    help ? setHelp(false) : setHelp(true);
     setIsQuantity(total);
     updateStorage();
   };
