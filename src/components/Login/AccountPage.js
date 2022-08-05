@@ -11,13 +11,13 @@ import {
 } from "../../firebase/Config";
 import EditAddress from "./EditAddress";
 
-
 export default function AccountPage(props) {
   const [isAddressOpen, setIsAddressOpen] = useState(false);
   const [orders, setOrders] = useState([]);
   const [isAddAddress, setIsAddAddress] = useState(false);
   const [userAddresses, setUserAddresses] = useState([]);
   const [editAddress, setEditAddress] = useState(false);
+  const [name, setName] = useState("");
   const [user] = useAuthState(auth);
 
   const handleClick = (e) => {
@@ -32,9 +32,10 @@ export default function AccountPage(props) {
     let found = userAddresses.find((item) => item.id === e.target.id);
     const userDoc = doc(db, "Shipping", found.id);
     if (e.target.name === "delete") {
-      deleteDoc(userDoc)
+      deleteDoc(userDoc);
     } else {
-      setEditAddress(true)
+      setEditAddress(true);
+      setName(found);
     }
     getAddresses();
   };
@@ -119,8 +120,12 @@ export default function AccountPage(props) {
       >
         <EditAddress
           open={editAddress}
-          click={addressClick}
+          click={() => {
+            setEditAddress(false);
+          }}
           handle={getAddresses}
+          name={name}
+          update={getAddresses}
         />
       </div>
       <ul className="account-navigation">

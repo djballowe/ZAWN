@@ -66,8 +66,6 @@ function Header() {
       total += item.quantity;
     });
     setIsAmount(total);
-    console.log('use')
-
     //TODO REENABLE ON DEPLOYMENT
 
     // const interval = setInterval(() => {
