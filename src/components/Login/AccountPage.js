@@ -26,6 +26,7 @@ export default function AccountPage(props) {
 
   const addressClick = () => {
     isAddAddress ? setIsAddAddress(false) : setIsAddAddress(true);
+    document.getElementById("new-address-form").reset();
   };
 
   const editDeleteAddress = (e) => {
