@@ -18,7 +18,6 @@ header {
   @include flex();
   justify-content: space-between;
   padding: 30px 30px;
-  z-index: 50;
   h2 {
     font-size: 1.7rem;
     cursor: pointer;

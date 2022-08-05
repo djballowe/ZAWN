@@ -55,8 +55,13 @@ function Header() {
     });
     setIsAmount(total);
     isActive ? setIsActive(false) : setIsActive(true);
-    isOverlay ? setIsOverlay(false) : setIsOverlay(true);
+    isOverlay ? setIsOverlay(false) : setIsOverlay(false)
   };
+
+  const overlayClick = () => {
+    isOverlay ? setIsOverlay(false) : setIsOverlay(false)
+    console.log(isOverlay)
+  }
 
   useEffect(() => {
     isActive === true
@@ -116,7 +121,7 @@ function Header() {
             onClick={cartClick}
             className="overlay"
             style={{
-              opacity: isActive ? "1" : "0",
+              opacity: isOverlay ? "1" : "0",
             }}
           ></div>
         </div>
@@ -219,7 +224,7 @@ function Header() {
           <Route path="/thank-you" element={<OrderForm />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<LogIn />} />
-          <Route path="/account" element={<AccountPage />} />
+          <Route path="/account" element={<AccountPage handle={overlayClick} />} />
           <Route path="*" element={<Error />} />
         </Routes>
       </ScrollToTop>

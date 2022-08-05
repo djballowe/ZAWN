@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { accountSignOut, db } from "../../firebase/Config";
 import { useAuthState } from "react-firebase-hooks/auth";
 import Addresses from "./Addresses";
@@ -10,7 +10,7 @@ import {
   orderHistoryRef,
 } from "../../firebase/Config";
 
-export default function AccountPage() {
+export default function AccountPage(props) {
   const [isAddressOpen, setIsAddressOpen] = useState(false);
   const [orders, setOrders] = useState([]);
   const [isAddAddress, setIsAddAddress] = useState(false);
@@ -29,6 +29,7 @@ export default function AccountPage() {
     let found = userAddresses.find((item) => item.id === e.target.id);
     const userDoc = doc(db, "Shipping", found.id);
     e.target.name === "delete" ? deleteDoc(userDoc) : addressClick();
+    getAddresses();
   };
 
   const displayOrders = orders.map((item) => {
@@ -69,14 +70,12 @@ export default function AccountPage() {
     }
   });
 
-  
+  const getAddresses = useCallback(async () => {
+    const data = await getDocs(shippingCollectionRef);
+    setUserAddresses(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+  }, []);
 
   useEffect(() => {
-    const getAddresses = async () => {
-      const data = await getDocs(shippingCollectionRef);
-      setUserAddresses(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-    };
-
     getAddresses();
 
     const getOrders = async () => {
@@ -84,13 +83,12 @@ export default function AccountPage() {
       setOrders(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
 
-
     getOrders();
 
     isAddAddress
       ? (document.body.style.overflow = "hidden")
       : (document.body.style.overflow = "visible");
-  }, [isAddAddress, userAddresses, orders]);
+  }, [isAddAddress]);
 
   return (
     <div className="account-container">
@@ -100,14 +98,11 @@ export default function AccountPage() {
           visibility: isAddAddress ? "visible" : "hidden",
         }}
       >
-        <div
-          onClick={addressClick}
-          className="overlay"
-          style={{
-            opacity: isAddAddress ? "1" : "0",
-          }}
-        ></div>
-        <AddAddress open={isAddAddress} click={addressClick} />
+        <AddAddress
+          open={isAddAddress}
+          click={addressClick}
+          handle={getAddresses}
+        />
       </div>
       <ul className="account-navigation">
         <li
@@ -160,7 +155,6 @@ export default function AccountPage() {
 }
 
 export function Orders(props) {
-
   return (
     <div className="order-components-container">
       <div className="orders-components-mobile">

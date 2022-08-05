@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, orderHistoryRef } from "../../firebase/Config";
 import { db } from "../../firebase/Config";
@@ -103,25 +103,25 @@ export default function ShippingForm(props) {
       });
   }
 
-  useEffect(() => {
-    const getAddresses = async () => {
-      const data = await getDocs(shippingCollectionRef);
-      setUserAddresses(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-      let found = userAddresses.find((item) => item.uid === user.uid);
-      if (found) {
-        setIsFirstName(found.FirstName);
-        setIsLastName(found.LastName);
-        setIsAddress(found.AddressOne);
-        setIsCity(found.City);
-        setIsState(found.State);
-        setIsZip(found.Zip);
-        setIsPhone(found.Phone);
-        setIsEmail(user.email);
-      }
-    };
+  const getAddresses = useCallback(async () => {
+    const data = await getDocs(shippingCollectionRef);
+    setUserAddresses(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    let found = userAddresses.find((item) => item.uid === user.uid);
+    if (found) {
+      setIsFirstName(found.FirstName);
+      setIsLastName(found.LastName);
+      setIsAddress(found.AddressOne);
+      setIsCity(found.City);
+      setIsState(found.State);
+      setIsZip(found.Zip);
+      setIsPhone(found.Phone);
+      setIsEmail(user.email);
+    }
+  }, []);
 
+  useEffect(() => {
     getAddresses();
-  }, [shippingCollectionRef, user, userAddresses]);
+  }, []);
 
   if (!user) {
     <div>Loading</div>;
