@@ -29,13 +29,13 @@ export default function AddAddress(props) {
       State: isState,
     });
     document.getElementById("new-address-form").reset();
-    props.handle()
-;  }
+    props.handle();
+  }
 
   useEffect(() => {
     setIsOpen(props.open);
   }, [props.open]);
-  
+
   return (
     <div
       className="add-address-body"

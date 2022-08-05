@@ -10,6 +10,7 @@ import {
   orderHistoryRef,
 } from "../../firebase/Config";
 
+
 export default function AccountPage(props) {
   const [isAddressOpen, setIsAddressOpen] = useState(false);
   const [orders, setOrders] = useState([]);
@@ -20,9 +21,9 @@ export default function AccountPage(props) {
   const handleClick = (e) => {
     e.target.id === "orders" ? setIsAddressOpen(false) : setIsAddressOpen(true);
   };
-
   const addressClick = () => {
     isAddAddress ? setIsAddAddress(false) : setIsAddAddress(true);
+    props.overlay();
   };
 
   const editDeleteAddress = (e) => {

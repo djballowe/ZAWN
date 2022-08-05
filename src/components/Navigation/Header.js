@@ -24,7 +24,6 @@ import { mdiAccountOutline } from "@mdi/js";
 import Profile from "@mdi/react";
 import LogIn from "../Login/LogIn";
 import { Register } from "../Login/LogIn";
-import AccountPage from "../Login/AccountPage";
 import OrderForm from "../Checkout/OrderForm";
 
 function Header() {
@@ -55,13 +54,14 @@ function Header() {
     });
     setIsAmount(total);
     isActive ? setIsActive(false) : setIsActive(true);
-    isOverlay ? setIsOverlay(false) : setIsOverlay(false)
+    
+    console.log(isOverlay)
   };
 
   const overlayClick = () => {
-    isOverlay ? setIsOverlay(false) : setIsOverlay(false)
-    console.log(isOverlay)
-  }
+    isOverlay ? setIsOverlay(false) : setIsOverlay(true);
+    console.log(isOverlay);
+  };
 
   useEffect(() => {
     isActive === true
@@ -223,8 +223,7 @@ function Header() {
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/thank-you" element={<OrderForm />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<LogIn />} />
-          <Route path="/account" element={<AccountPage handle={overlayClick} />} />
+          <Route path="/login" element={<LogIn overlay={overlayClick} />} />
           <Route path="*" element={<Error />} />
         </Routes>
       </ScrollToTop>
