@@ -10,7 +10,7 @@ import { auth } from "../../firebase/Config";
 import { useAuthState } from "react-firebase-hooks/auth";
 import AccountPage from "./AccountPage";
 
-const LogIn = (props) => {
+const LogIn = () => {
   const [user] = useAuthState(auth);
   const [isEmail, setIsEmail] = useState("");
   const [isPassword, setIsPassword] = useState("");
@@ -35,7 +35,7 @@ const LogIn = (props) => {
   };
 
   if (user) {
-    return <AccountPage overlay={props.overlay} />;
+    return <AccountPage />;
   } else {
     return (
       <div className="login-container">

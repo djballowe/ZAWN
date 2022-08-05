@@ -54,13 +54,6 @@ function Header() {
     });
     setIsAmount(total);
     isActive ? setIsActive(false) : setIsActive(true);
-    
-    console.log(isOverlay)
-  };
-
-  const overlayClick = () => {
-    isOverlay ? setIsOverlay(false) : setIsOverlay(true);
-    console.log(isOverlay);
   };
 
   useEffect(() => {
@@ -73,6 +66,7 @@ function Header() {
       total += item.quantity;
     });
     setIsAmount(total);
+    console.log('use')
 
     //TODO REENABLE ON DEPLOYMENT
 
@@ -81,7 +75,7 @@ function Header() {
     //   isBanner === max ? setIsBanner(1) : setIsBanner(isBanner + 1);
     // }, 5000);
     // return () => clearInterval(interval);
-  }, [isActive]);
+  }, [isActive, isOverlay]);
 
   return (
     <Router>
@@ -121,7 +115,7 @@ function Header() {
             onClick={cartClick}
             className="overlay"
             style={{
-              opacity: isOverlay ? "1" : "0",
+              opacity: isActive ? "1" : "0",
             }}
           ></div>
         </div>
@@ -223,7 +217,7 @@ function Header() {
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/thank-you" element={<OrderForm />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<LogIn overlay={overlayClick} />} />
+          <Route path="/login" element={<LogIn />} />
           <Route path="*" element={<Error />} />
         </Routes>
       </ScrollToTop>

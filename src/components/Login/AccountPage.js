@@ -9,6 +9,7 @@ import {
   shippingCollectionRef,
   orderHistoryRef,
 } from "../../firebase/Config";
+import EditAddress from "./EditAddress";
 
 
 export default function AccountPage(props) {
@@ -16,20 +17,25 @@ export default function AccountPage(props) {
   const [orders, setOrders] = useState([]);
   const [isAddAddress, setIsAddAddress] = useState(false);
   const [userAddresses, setUserAddresses] = useState([]);
+  const [editAddress, setEditAddress] = useState(false);
   const [user] = useAuthState(auth);
 
   const handleClick = (e) => {
     e.target.id === "orders" ? setIsAddressOpen(false) : setIsAddressOpen(true);
   };
+
   const addressClick = () => {
     isAddAddress ? setIsAddAddress(false) : setIsAddAddress(true);
-    props.overlay();
   };
 
   const editDeleteAddress = (e) => {
     let found = userAddresses.find((item) => item.id === e.target.id);
     const userDoc = doc(db, "Shipping", found.id);
-    e.target.name === "delete" ? deleteDoc(userDoc) : addressClick();
+    if (e.target.name === "delete") {
+      deleteDoc(userDoc)
+    } else {
+      setEditAddress(true)
+    }
     getAddresses();
   };
 
@@ -101,6 +107,18 @@ export default function AccountPage(props) {
       >
         <AddAddress
           open={isAddAddress}
+          click={addressClick}
+          handle={getAddresses}
+        />
+      </div>
+      <div
+        className="add-address-container"
+        style={{
+          visibility: editAddress ? "visible" : "hidden",
+        }}
+      >
+        <EditAddress
+          open={editAddress}
           click={addressClick}
           handle={getAddresses}
         />

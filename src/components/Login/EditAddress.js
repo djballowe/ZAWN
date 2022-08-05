@@ -3,7 +3,7 @@ import Close from "@mdi/react";
 import { mdiClose } from "@mdi/js";
 import { auth, shippingCollectionRef } from "../../firebase/Config";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { addDoc } from "firebase/firestore";
+import { updateDoc } from "firebase/firestore";
 
 export default function AddAddress(props) {
   const [user] = useAuthState(auth);
@@ -16,9 +16,9 @@ export default function AddAddress(props) {
   const [isZip, setIsZip] = useState("");
   const [isState, setIsState] = useState("");
 
-  async function createNewAddress(e) {
+  async function editAddress(e) {
     e.preventDefault();
-    await addDoc(shippingCollectionRef, {
+    await updateDoc(shippingCollectionRef, {
       uid: user.uid,
       FirstName: isFirstName,
       LastName: isLastName,
@@ -28,11 +28,11 @@ export default function AddAddress(props) {
       City: isCity,
       State: isState,
     });
-    document.getElementById("new-address-form").reset();
   }
 
   useEffect(() => {
     setIsOpen(props.open);
+
   }, [props.open]);
 
   return (
@@ -44,20 +44,20 @@ export default function AddAddress(props) {
     >
       <div className="cart-top">
         <div className="bag">
-          <p>Add New Address</p>
+          <p>Edit Address</p>
         </div>
         <button>
           <Close path={mdiClose} size={1} onClick={props.click} />
         </button>
       </div>
       <div className="address-form">
-        <form action="" onSubmit={createNewAddress} id="new-address-form">
+        <form action="" onSubmit={editAddress} id="new-address-form">
           <p>Please fill in the fields below:</p>
           <div className="address-name">
             <input
               required
               type="text"
-              value={isFirstName}
+              defaultValue={isFirstName}
               placeholder="First name"
               onChange={(e) => {
                 setIsFirstName(e.target.value);
@@ -66,7 +66,7 @@ export default function AddAddress(props) {
             <input
               required
               type="text"
-              value={isLastName}
+              defaultValue={isLastName}
               placeholder="Last Name"
               onChange={(e) => {
                 setIsLastName(e.target.value);
@@ -76,7 +76,7 @@ export default function AddAddress(props) {
           <div className="address-phone">
             <input
               type="text"
-              value={isPhone}
+              defaultValue={isPhone}
               placeholder="Phone Number"
               onChange={(e) => {
                 setIsPhone(e.target.value);
@@ -85,7 +85,7 @@ export default function AddAddress(props) {
             <input
               required
               type="text"
-              value={isAddressOne}
+              defaultValue={isAddressOne}
               placeholder="Address 1"
               onChange={(e) => {
                 setIsAddressOne(e.target.value);
@@ -96,7 +96,7 @@ export default function AddAddress(props) {
             <input
               required
               type="text"
-              value={isCity}
+              defaultValue={isCity}
               placeholder="City"
               onChange={(e) => {
                 setIsCity(e.target.value);
@@ -105,7 +105,7 @@ export default function AddAddress(props) {
             <input
               required
               type="text"
-              value={isZip}
+              defaultValue={isZip}
               placeholder="Zip Code"
               onChange={(e) => {
                 setIsZip(e.target.value);
@@ -115,13 +115,13 @@ export default function AddAddress(props) {
           <input
             required
             type="text"
-            value={isState}
+            defaultValue={isState}
             placeholder="State"
             onChange={(e) => {
               setIsState(e.target.value);
             }}
           />
-          <button onClick={props.click}>Add Address</button>
+          <button onClick={props.click}>Save</button>
         </form>
       </div>
     </div>
