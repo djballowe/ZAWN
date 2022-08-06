@@ -14,7 +14,6 @@ export default function ShippingForm(props) {
   let navigate = useNavigate();
 
   const [user] = useAuthState(auth);
-  const [userAddresses, setUserAddresses] = useState([]);
   const [isFirstName, setIsFirstName] = useState("");
   const [isLastName, setIsLastName] = useState("");
   const [isAddress, setIsAddress] = useState("");
@@ -103,25 +102,30 @@ export default function ShippingForm(props) {
       });
   }
 
-  const getAddresses = useCallback(async () => {
-    const data = await getDocs(shippingCollectionRef);
-    setUserAddresses(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-    let found = userAddresses.find((item) => item.uid === user.uid);
-    if (found) {
-      setIsFirstName(found.FirstName);
-      setIsLastName(found.LastName);
-      setIsAddress(found.AddressOne);
-      setIsCity(found.City);
-      setIsState(found.State);
-      setIsZip(found.Zip);
-      setIsPhone(found.Phone);
-      setIsEmail(user.email);
-    }
-  }, []);
-
   useEffect(() => {
+    const getAddresses = async () => {
+      if (user) {
+        const data = await getDocs(shippingCollectionRef);
+        const addresses = data.docs.map((doc) => ({
+          ...doc.data(),
+          id: doc.id,
+        }));
+
+        let found = addresses.find((item) => item.uid === user.uid);
+
+        setIsFirstName(found.FirstName);
+        setIsLastName(found.LastName);
+        setIsAddress(found.AddressOne);
+        setIsPhone(found.Phone);
+        setIsCity(found.City);
+        setIsState(found.State);
+        setIsZip(found.Zip);
+      }
+    };
+
+    console.log("use");
     getAddresses();
-  }, []);
+  }, [user]);
 
   if (!user) {
     <div>Loading</div>;

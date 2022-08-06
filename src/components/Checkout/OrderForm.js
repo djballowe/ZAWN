@@ -6,9 +6,6 @@ import { useNavigate } from "react-router-dom";
 
 export default function OrderForm() {
   let navigate = useNavigate();
-  const handleClick = () => {
-    navigate('/')
-  };
 
   return (
     <div>
@@ -22,7 +19,11 @@ export default function OrderForm() {
             </p>
             <p>Your Order Number is #5616519891</p>
           </div>
-          <button onClick={handleClick}>
+          <button
+            onClick={() => {
+              navigate("/");
+            }}
+          >
             <img src={Arrow} alt="" /> Return to home
           </button>
         </div>

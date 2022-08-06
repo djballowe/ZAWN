@@ -25,13 +25,13 @@ import Profile from "@mdi/react";
 import LogIn from "../Login/LogIn";
 import { Register } from "../Login/LogIn";
 import OrderForm from "../Checkout/OrderForm";
+import MobileNav from "../../MobilNav";
 
 function Header() {
   const [isMobile, setIsMobile] = useState(false);
   const [isAmount, setIsAmount] = useState(0);
   const [isActive, setIsActive] = useState(false);
   const [isBanner, setIsBanner] = useState(1);
-  const [isOverlay, setIsOverlay] = useState(false);
 
   const handleClick = () => {
     isMobile ? setIsMobile(false) : setIsMobile(true);
@@ -56,7 +56,10 @@ function Header() {
     isActive ? setIsActive(false) : setIsActive(true);
   };
 
+
+
   useEffect(() => {
+
     isActive === true
       ? (document.body.style.overflow = "hidden")
       : (document.body.style.overflow = "visible");
@@ -73,15 +76,11 @@ function Header() {
     //   isBanner === max ? setIsBanner(1) : setIsBanner(isBanner + 1);
     // }, 5000);
     // return () => clearInterval(interval);
-  }, [isActive, isOverlay]);
+  }, [isActive]);
 
   return (
     <Router>
-      <div
-        style={{
-          display: window.location.pathname === "/checkout" ? "none" : "block",
-        }}
-      >
+      <div>
         <div className="banner">
           <img src={LeftArrow} alt="" id="-" onClick={bannerClick} />
           <div id="banner-text">
@@ -132,42 +131,7 @@ function Header() {
             </h2>
           </div>
           <div className="nav-container">
-            <div className="mobile-menu">
-              <div className="icon">
-                <CartIcon
-                  path={mdiWalletTravel}
-                  size={1.2}
-                  onClick={cartClick}
-                />
-              </div>
-              <div
-                className="side-bar-nav"
-                onClick={handleClick}
-                style={{
-                  visibility: isMobile ? "visible" : "hidden",
-                  opacity: isMobile ? "1" : "0",
-                }}
-              >
-                <ul>
-                  <li>
-                    <Link to="/" onClick={handleClick}>
-                      Home
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/product" onClick={handleClick}>
-                      Collection
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/about" onClick={handleClick}>
-                      About
-                    </Link>
-                  </li>
-                  <li></li>
-                </ul>
-              </div>
-            </div>
+           <MobileNav handle={cartClick} cart={isMobile} />
             <ul className="nav">
               <li>
                 <Link to="/">Home</Link>

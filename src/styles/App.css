@@ -140,12 +140,15 @@ body {
   display: flex;
   align-items: center;
 }
-.logo img {
-  height: 60px;
-}
 .logo a {
   text-decoration: none;
   color: black;
+}
+.logo h2 {
+  font-size: 3rem;
+}
+.logo img {
+  height: 80px;
 }
 
 header {
@@ -270,6 +273,11 @@ header h2 {
   }
   .banner img:last-of-type {
     right: 30%;
+  }
+  .logo {
+    margin: 0px;
+    display: flex;
+    align-items: center;
   }
 }
 @-webkit-keyframes slideUpBanner {
@@ -1436,13 +1444,13 @@ input:focus {
   border-bottom: 1px solid var(--border);
 }
 
-.logo {
+.logo-checkout {
   margin-bottom: 20px;
 }
-.logo h2 {
+.logo-checkout h2 {
   font-size: 3rem;
 }
-.logo img {
+.logo-checkout img {
   height: 80px;
 }
 

@@ -11,7 +11,7 @@ import {
 } from "../../firebase/Config";
 import EditAddress from "./EditAddress";
 
-export default function AccountPage(props) {
+export default function AccountPage() {
   const [isAddressOpen, setIsAddressOpen] = useState(false);
   const [orders, setOrders] = useState([]);
   const [isAddAddress, setIsAddAddress] = useState(false);
