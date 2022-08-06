@@ -61,103 +61,111 @@ function Header() {
     // return () => clearInterval(interval);
   }, [isActive]);
 
-  return (
-    <div>
-      <div className="banner">
-        <img src={LeftArrow} alt="" id="-" onClick={bannerClick} />
-        <div id="banner-text">
-          <p
-            style={{
-              display: isBanner === 1 ? "block" : "none",
-            }}
-          >
-            Get free shipping when you spent $50!
-          </p>
-          <p
-            style={{
-              display: isBanner === 2 ? "block" : "none",
-            }}
-          >
-            Save up to $20 on our Bathroom Essentials bundle
-          </p>
+  if (window.location.pathname === "/checkout") {
+    return null;
+  } else {
+    return (
+      <div>
+        <div className="banner">
+          <img src={LeftArrow} alt="" id="-" onClick={bannerClick} />
+          <div id="banner-text">
+            <p
+              style={{
+                display: isBanner === 1 ? "block" : "none",
+              }}
+            >
+              Get free shipping when you spent $50!
+            </p>
+            <p
+              style={{
+                display: isBanner === 2 ? "block" : "none",
+              }}
+            >
+              Save up to $20 on our Bathroom Essentials bundle
+            </p>
+          </div>
+          <img src={RightArrow} alt="" id="+" onClick={bannerClick} />
         </div>
-        <img src={RightArrow} alt="" id="+" onClick={bannerClick} />
-      </div>
-      <div
-        className="test-cart"
-        style={{
-          visibility: isActive ? "visible" : "hidden",
-        }}
-      >
-        <Cart onClick={cartClick} open={isActive} />
         <div
-          onClick={cartClick}
-          className="overlay"
+          className="test-cart"
           style={{
-            opacity: isActive ? "1" : "0",
+            visibility: isActive ? "visible" : "hidden",
           }}
-        ></div>
-      </div>
-      <header>
-        <div className="mobile-menu">
-          <Icon
-            path={mdiMenu}
-            title="mobileMenu"
-            size={1.4}
-            onClick={handleClick}
-          />
+        >
+          <Cart onClick={cartClick} open={isActive} />
+          <div
+            onClick={cartClick}
+            className="overlay"
+            style={{
+              opacity: isActive ? "1" : "0",
+            }}
+          ></div>
         </div>
-        <div className="logo">
-          <h2>ZAWN</h2>
-        </div>
-        <div className="nav-container">
-          <MobileNav cart={cartClick} mobile={handleClick} handle={isMobile} />
-          <ul className="nav">
-            <li
-              onClick={() => {
-                navigate("/");
-              }}
-            >
-              <a>Home</a>
-            </li>
-            <li
-              onClick={() => {
-                navigate("product");
-              }}
-            >
-              <a>Collection</a>
-            </li>
-            <li
-              onClick={() => {
-                navigate("about");
-              }}
-            >
-              <a>About</a>
-            </li>
-            <li
-              onClick={() => {
-                navigate("login");
-              }}
-            >
-              <Profile path={mdiAccountOutline} size={1} />
-            </li>
-            <li>
-              <CartIcon path={mdiWalletTravel} size={1} onClick={cartClick} />
-              <div
-                onClick={cartClick}
-                className="cart-num"
-                style={{
-                  display: isAmount > 0 ? "flex" : "none",
+        <header>
+          <div className="mobile-menu">
+            <Icon
+              path={mdiMenu}
+              title="mobileMenu"
+              size={1.4}
+              onClick={handleClick}
+            />
+          </div>
+          <div className="logo">
+            <h2>ZAWN</h2>
+          </div>
+          <div className="nav-container">
+            <MobileNav
+              cart={cartClick}
+              mobile={handleClick}
+              handle={isMobile}
+            />
+            <ul className="nav">
+              <li
+                onClick={() => {
+                  navigate("/");
                 }}
               >
-                {isAmount}
-              </div>
-            </li>
-          </ul>
-        </div>
-      </header>
-    </div>
-  );
+                <a>Home</a>
+              </li>
+              <li
+                onClick={() => {
+                  navigate("product");
+                }}
+              >
+                <a>Collection</a>
+              </li>
+              <li
+                onClick={() => {
+                  navigate("about");
+                }}
+              >
+                <a>About</a>
+              </li>
+              <li
+                onClick={() => {
+                  navigate("login");
+                }}
+              >
+                <Profile path={mdiAccountOutline} size={1} />
+              </li>
+              <li>
+                <CartIcon path={mdiWalletTravel} size={1} onClick={cartClick} />
+                <div
+                  onClick={cartClick}
+                  className="cart-num"
+                  style={{
+                    display: isAmount > 0 ? "flex" : "none",
+                  }}
+                >
+                  {isAmount}
+                </div>
+              </li>
+            </ul>
+          </div>
+        </header>
+      </div>
+    );
+  }
 }
 
 export default Header;
