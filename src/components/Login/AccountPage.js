@@ -73,8 +73,7 @@ export default function AccountPage() {
           zip={item.Zip}
           key={item.id}
           id={item.id}
-          edit={editDeleteAddress}
-        />
+          edit={editDeleteAddress} />
       );
     }
   });

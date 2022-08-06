@@ -18,6 +18,9 @@ import LogIn from "./components/Login/LogIn";
 import Error from "./components/Navigation/Error";
 
 function App() {
+
+  
+
   return (
     <div className="App">
       <Router>

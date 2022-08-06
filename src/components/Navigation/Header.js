@@ -9,8 +9,8 @@ import LeftArrow from "../Images/chevron-left.png";
 import RightArrow from "../Images/chevron-right.png";
 import { mdiAccountOutline } from "@mdi/js";
 import Profile from "@mdi/react";
-import MobileNav from "../../MobilNav";
-import { Navigate, useNavigate } from "react-router-dom";
+import MobileNav from "./MobilNav";
+import { useNavigate } from "react-router-dom";
 
 function Header() {
   let navigate = useNavigate();
@@ -118,21 +118,21 @@ function Header() {
                 navigate("/");
               }}
             >
-              Home
+              <a>Home</a>
             </li>
             <li
               onClick={() => {
                 navigate("product");
               }}
             >
-              Collection
+              <a>Collection</a>
             </li>
             <li
               onClick={() => {
                 navigate("about");
               }}
             >
-              About
+              <a>About</a>
             </li>
             <li
               onClick={() => {
