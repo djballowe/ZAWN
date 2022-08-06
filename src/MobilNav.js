@@ -11,17 +11,22 @@ export default function MobileNav(props) {
     isMobile ? setIsMobile(false) : setIsMobile(true);
   };
 
-  console.log(props.cart);
+  useEffect(() => {
+    setIsMobile(props.handle);
+  }, [props.handle]);
 
   return (
     <div>
       <div className="mobile-menu">
         <div className="icon">
-          <CartIcon path={mdiWalletTravel} size={1.2} onClick={props.handle} />
+          <CartIcon path={mdiWalletTravel} size={1.2} onClick={props.cart} />
         </div>
         <div
           className="side-bar-nav"
-          onClick={handleClick}
+          onClick={() => {
+            handleClick();
+            props.mobile();
+          }}
           style={{
             visibility: isMobile ? "visible" : "hidden",
             opacity: isMobile ? "1" : "0",
@@ -31,6 +36,7 @@ export default function MobileNav(props) {
             <li
               onClick={() => {
                 handleClick();
+                props.mobile();
                 navigate("/");
               }}
             >
@@ -39,6 +45,7 @@ export default function MobileNav(props) {
             <li
               onClick={() => {
                 handleClick();
+                props.mobile();
                 navigate("product");
               }}
             >
@@ -47,6 +54,7 @@ export default function MobileNav(props) {
             <li
               onClick={() => {
                 handleClick();
+                props.mobile();
                 navigate("/about");
               }}
             >
@@ -55,6 +63,7 @@ export default function MobileNav(props) {
             <li
               onClick={() => {
                 handleClick();
+                props.mobile();
                 navigate("/account");
               }}
             >

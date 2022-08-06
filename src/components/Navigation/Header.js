@@ -56,10 +56,7 @@ function Header() {
     isActive ? setIsActive(false) : setIsActive(true);
   };
 
-
-
   useEffect(() => {
-
     isActive === true
       ? (document.body.style.overflow = "hidden")
       : (document.body.style.overflow = "visible");
@@ -131,7 +128,11 @@ function Header() {
             </h2>
           </div>
           <div className="nav-container">
-           <MobileNav handle={cartClick} cart={isMobile} />
+            <MobileNav
+              cart={cartClick}
+              mobile={handleClick}
+              handle={isMobile}
+            />
             <ul className="nav">
               <li>
                 <Link to="/">Home</Link>
