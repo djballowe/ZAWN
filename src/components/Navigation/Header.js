@@ -1,10 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
-import Home from "../Main Pages/Home";
-import About from "../Main Pages/About";
-import Error from "./Error";
-import ProductPage from "../Main Pages/ProductPage";
-import ProductMain from "../Main Pages/ProductMain";
 import Icon from "@mdi/react";
 import { mdiMenu } from "@mdi/js";
 import CartIcon from "@mdi/react";
@@ -13,21 +7,13 @@ import Cart from "../Cart/Cart";
 import { cartItemsArray } from "../Main Pages/ProductMain";
 import LeftArrow from "../Images/chevron-left.png";
 import RightArrow from "../Images/chevron-right.png";
-import Footer from "./Footer";
-import ScrollToTop from "./ScrollToTop";
-import Blog from "../Main Pages/Blog";
-import Contact from "../Main Pages/Contact";
-import Shipping from "../Main Pages/Shipping";
-import Return from "../Main Pages/Return";
-import Checkout from "../Checkout/Checkout";
 import { mdiAccountOutline } from "@mdi/js";
 import Profile from "@mdi/react";
-import LogIn from "../Login/LogIn";
-import { Register } from "../Login/LogIn";
-import OrderForm from "../Checkout/OrderForm";
 import MobileNav from "../../MobilNav";
+import { Navigate, useNavigate } from "react-router-dom";
 
 function Header() {
+  let navigate = useNavigate();
   const [isMobile, setIsMobile] = useState(false);
   const [isAmount, setIsAmount] = useState(0);
   const [isActive, setIsActive] = useState(false);
@@ -76,116 +62,101 @@ function Header() {
   }, [isActive]);
 
   return (
-    <Router>
-      <div>
-        <div className="banner">
-          <img src={LeftArrow} alt="" id="-" onClick={bannerClick} />
-          <div id="banner-text">
-            <p
-              style={{
-                display: isBanner === 1 ? "block" : "none",
-              }}
-            >
-              Get free shipping when you spent $50!
-            </p>
-            <p
-              style={{
-                display: isBanner === 2 ? "block" : "none",
-              }}
-            >
-              Save up to $20 on our Bathroom Essentials bundle
-            </p>
-          </div>
-          <img src={RightArrow} alt="" id="+" onClick={bannerClick} />
-        </div>
-        <div
-          className="test-cart"
-          style={{
-            visibility: isActive ? "visible" : "hidden",
-          }}
-        >
-          <Cart onClick={cartClick} open={isActive} />
-          <div
-            onClick={cartClick}
-            className="overlay"
+    <div>
+      <div className="banner">
+        <img src={LeftArrow} alt="" id="-" onClick={bannerClick} />
+        <div id="banner-text">
+          <p
             style={{
-              opacity: isActive ? "1" : "0",
+              display: isBanner === 1 ? "block" : "none",
             }}
-          ></div>
+          >
+            Get free shipping when you spent $50!
+          </p>
+          <p
+            style={{
+              display: isBanner === 2 ? "block" : "none",
+            }}
+          >
+            Save up to $20 on our Bathroom Essentials bundle
+          </p>
         </div>
-        <header>
-          <div className="mobile-menu">
-            <Icon
-              path={mdiMenu}
-              title="mobileMenu"
-              size={1.4}
-              onClick={handleClick}
-            />
-          </div>
-          <div className="logo">
-            <h2>
-              <Link to="/">ZAWN</Link>
-            </h2>
-          </div>
-          <div className="nav-container">
-            <MobileNav
-              cart={cartClick}
-              mobile={handleClick}
-              handle={isMobile}
-            />
-            <ul className="nav">
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/product">Collection</Link>
-              </li>
-              <li>
-                <Link to="/about">About</Link>
-              </li>
-              <li>
-                <Link to="/login">
-                  <Profile path={mdiAccountOutline} size={1} />
-                </Link>
-              </li>
-              <li>
-                <CartIcon path={mdiWalletTravel} size={1} onClick={cartClick} />
-                <div
-                  onClick={cartClick}
-                  className="cart-num"
-                  style={{
-                    display: isAmount > 0 ? "flex" : "none",
-                  }}
-                >
-                  {isAmount}
-                </div>
-              </li>
-            </ul>
-          </div>
-        </header>
+        <img src={RightArrow} alt="" id="+" onClick={bannerClick} />
       </div>
-      <ScrollToTop>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/product" element={<ProductPage />} />
-          <Route
-            path="/product/:id"
-            element={<ProductMain handle={cartClick} />}
+      <div
+        className="test-cart"
+        style={{
+          visibility: isActive ? "visible" : "hidden",
+        }}
+      >
+        <Cart onClick={cartClick} open={isActive} />
+        <div
+          onClick={cartClick}
+          className="overlay"
+          style={{
+            opacity: isActive ? "1" : "0",
+          }}
+        ></div>
+      </div>
+      <header>
+        <div className="mobile-menu">
+          <Icon
+            path={mdiMenu}
+            title="mobileMenu"
+            size={1.4}
+            onClick={handleClick}
           />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/return" element={<Return />} />
-          <Route path="/shipping" element={<Shipping />} />
-          <Route path="/checkout" element={<Checkout />} />
-          <Route path="/thank-you" element={<OrderForm />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<LogIn />} />
-          <Route path="*" element={<Error />} />
-        </Routes>
-      </ScrollToTop>
-      {window.location.pathname === "/checkout" ? null : <Footer />}
-    </Router>
+        </div>
+        <div className="logo">
+          <h2>ZAWN</h2>
+        </div>
+        <div className="nav-container">
+          <MobileNav cart={cartClick} mobile={handleClick} handle={isMobile} />
+          <ul className="nav">
+            <li
+              onClick={() => {
+                navigate("/");
+              }}
+            >
+              Home
+            </li>
+            <li
+              onClick={() => {
+                navigate("product");
+              }}
+            >
+              Collection
+            </li>
+            <li
+              onClick={() => {
+                navigate("about");
+              }}
+            >
+              About
+            </li>
+            <li
+              onClick={() => {
+                navigate("login");
+              }}
+            >
+              <Profile path={mdiAccountOutline} size={1} />
+            </li>
+            <li>
+              <CartIcon path={mdiWalletTravel} size={1} onClick={cartClick} />
+              <div
+                onClick={cartClick}
+                className="cart-num"
+                style={{
+                  display: isAmount > 0 ? "flex" : "none",
+                }}
+              >
+                {isAmount}
+              </div>
+            </li>
+          </ul>
+        </div>
+      </header>
+    </div>
   );
 }
 
