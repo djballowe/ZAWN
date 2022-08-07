@@ -5,12 +5,15 @@
 
 .logo {
   @include flex();
-  img {
-    height: 60px;
-  }
   a {
     text-decoration: none;
     color: black;
+  }
+  h2 {
+    font-size: 3rem;
+  }
+  img {
+    height: 80px;
   }
 }
 
@@ -18,7 +21,6 @@ header {
   @include flex();
   justify-content: space-between;
   padding: 30px 30px;
-  z-index: 50;
   h2 {
     font-size: 1.7rem;
     cursor: pointer;
@@ -140,6 +142,11 @@ header {
     img:last-of-type {
       right: 30%;
     }
+  }
+  .logo {
+    margin: 0px;
+    display: flex;
+    align-items: center;
   }
 }
 

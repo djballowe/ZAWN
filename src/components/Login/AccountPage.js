@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { accountSignOut, db } from "../../firebase/Config";
 import { useAuthState } from "react-firebase-hooks/auth";
 import Addresses from "./Addresses";
@@ -9,12 +9,15 @@ import {
   shippingCollectionRef,
   orderHistoryRef,
 } from "../../firebase/Config";
+import EditAddress from "./EditAddress";
 
 export default function AccountPage() {
   const [isAddressOpen, setIsAddressOpen] = useState(false);
   const [orders, setOrders] = useState([]);
   const [isAddAddress, setIsAddAddress] = useState(false);
   const [userAddresses, setUserAddresses] = useState([]);
+  const [editAddress, setEditAddress] = useState(false);
+  const [name, setName] = useState("");
   const [user] = useAuthState(auth);
 
   const handleClick = (e) => {
@@ -23,12 +26,19 @@ export default function AccountPage() {
 
   const addressClick = () => {
     isAddAddress ? setIsAddAddress(false) : setIsAddAddress(true);
+    document.getElementById("new-address-form").reset();
   };
 
   const editDeleteAddress = (e) => {
     let found = userAddresses.find((item) => item.id === e.target.id);
     const userDoc = doc(db, "Shipping", found.id);
-    e.target.name === "delete" ? deleteDoc(userDoc) : addressClick();
+    if (e.target.name === "delete") {
+      deleteDoc(userDoc);
+    } else {
+      setEditAddress(true);
+      setName(found);
+    }
+    getAddresses();
   };
 
   const displayOrders = orders.map((item) => {
@@ -46,6 +56,7 @@ export default function AccountPage() {
           uid={item.uid}
           zip={item.zip}
           key={item.id}
+          order={item.OrderNumber}
         />
       );
     }
@@ -69,14 +80,12 @@ export default function AccountPage() {
     }
   });
 
-  
+  const getAddresses = useCallback(async () => {
+    const data = await getDocs(shippingCollectionRef);
+    setUserAddresses(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+  }, []);
 
   useEffect(() => {
-    const getAddresses = async () => {
-      const data = await getDocs(shippingCollectionRef);
-      setUserAddresses(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-    };
-
     getAddresses();
 
     const getOrders = async () => {
@@ -84,13 +93,12 @@ export default function AccountPage() {
       setOrders(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
 
-
     getOrders();
 
     isAddAddress
       ? (document.body.style.overflow = "hidden")
       : (document.body.style.overflow = "visible");
-  }, [isAddAddress, userAddresses, orders]);
+  }, [isAddAddress]);
 
   return (
     <div className="account-container">
@@ -100,14 +108,27 @@ export default function AccountPage() {
           visibility: isAddAddress ? "visible" : "hidden",
         }}
       >
-        <div
-          onClick={addressClick}
-          className="overlay"
-          style={{
-            opacity: isAddAddress ? "1" : "0",
+        <AddAddress
+          open={isAddAddress}
+          click={addressClick}
+          handle={getAddresses}
+        />
+      </div>
+      <div
+        className="add-address-container"
+        style={{
+          visibility: editAddress ? "visible" : "hidden",
+        }}
+      >
+        <EditAddress
+          open={editAddress}
+          click={() => {
+            setEditAddress(false);
           }}
-        ></div>
-        <AddAddress open={isAddAddress} click={addressClick} />
+          handle={getAddresses}
+          name={name}
+          update={getAddresses}
+        />
       </div>
       <ul className="account-navigation">
         <li
@@ -160,13 +181,12 @@ export default function AccountPage() {
 }
 
 export function Orders(props) {
-
   return (
     <div className="order-components-container">
       <div className="orders-components-mobile">
         <div className="orders">
-          <p>Order Number:</p>
-          <p>#247012</p>
+          <p>Order #:</p>
+          <p>{props.order}</p>
         </div>
         <div className="order-details-container">
           <div className="order-details">

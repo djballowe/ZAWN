@@ -3,9 +3,7 @@ import { cartItemsArray } from "./ProductMain";
 
 function Home() {
   return (
-    <div>
-      Home
-    </div>
+    <div></div>
   );
 }
 

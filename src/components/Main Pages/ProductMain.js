@@ -28,14 +28,16 @@ class CartItemCreator {
 
 export function updateStorage() {
   localStorage.clear();
-  localStorage.setItem("cart", JSON.stringify(cartItemsArray));
+  if (cartItemsArray.length !== 0) {
+    localStorage.setItem("cart", JSON.stringify(cartItemsArray));
+  }
 }
 
 function ProductMain(props) {
   let { id } = useParams();
-
+  
   let product = data.find((x) => x.id === id);
-
+  
   const color = product.color.map((color, index) => {
     return <Color key={index} color={color} />;
   });
@@ -58,7 +60,6 @@ function ProductMain(props) {
       );
     }
     updateStorage();
-    console.log(cartItemsArray);
   };
 
   return (

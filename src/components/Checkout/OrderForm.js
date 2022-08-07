@@ -6,9 +6,6 @@ import { useNavigate } from "react-router-dom";
 
 export default function OrderForm() {
   let navigate = useNavigate();
-  const handleClick = () => {
-    navigate('/')
-  };
 
   return (
     <div>
@@ -18,11 +15,17 @@ export default function OrderForm() {
             <Check path={mdiCheckboxMarkedCircleOutline} size={5} />
             <h1>Your order is complete!</h1>
             <p>
-              You will be receiving a confirmation email with order details.
+              You will be receiving a confirmation email with your order
+              details.
             </p>
-            <p>Your Order Number is #5616519891</p>
+            <p>Thank you for shopping at ZAWN</p>
           </div>
-          <button onClick={handleClick}>
+          <p>Need anything else?</p>
+          <button
+            onClick={() => {
+              navigate("/");
+            }}
+          >
             <img src={Arrow} alt="" /> Return to home
           </button>
         </div>

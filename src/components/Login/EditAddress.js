@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import Close from "@mdi/react";
 import { mdiClose } from "@mdi/js";
-import { auth, shippingCollectionRef } from "../../firebase/Config";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { addDoc } from "firebase/firestore";
+import { updateDoc, doc } from "firebase/firestore";
+import { db } from "../../firebase/Config";
 
 export default function AddAddress(props) {
-  const [user] = useAuthState(auth);
+  const { AddressOne, City, FirstName, LastName, Phone, State, Zip, id } =
+    props.name;
+
   const [isOpen, setIsOpen] = useState(props.open);
   const [isFirstName, setIsFirstName] = useState("");
   const [isLastName, setIsLastName] = useState("");
@@ -16,10 +18,10 @@ export default function AddAddress(props) {
   const [isZip, setIsZip] = useState("");
   const [isState, setIsState] = useState("");
 
-  async function createNewAddress(e) {
+  async function editAddress(e) {
     e.preventDefault();
-    await addDoc(shippingCollectionRef, {
-      uid: user.uid,
+    const updateAddressRef = doc(db, "Shipping", id)
+    await updateDoc(updateAddressRef, {
       FirstName: isFirstName,
       LastName: isLastName,
       Phone: isPhone,
@@ -28,7 +30,7 @@ export default function AddAddress(props) {
       City: isCity,
       State: isState,
     });
-    document.getElementById("new-address-form").reset();
+    props.update();
   }
 
   useEffect(() => {
@@ -44,20 +46,20 @@ export default function AddAddress(props) {
     >
       <div className="cart-top">
         <div className="bag">
-          <p>Add New Address</p>
+          <p>Edit Address</p>
         </div>
         <button>
           <Close path={mdiClose} size={1} onClick={props.click} />
         </button>
       </div>
       <div className="address-form">
-        <form action="" onSubmit={createNewAddress} id="new-address-form">
+        <form action="" onSubmit={editAddress} id="new-address-form">
           <p>Please fill in the fields below:</p>
           <div className="address-name">
             <input
               required
               type="text"
-              value={isFirstName}
+              defaultValue={FirstName}
               placeholder="First name"
               onChange={(e) => {
                 setIsFirstName(e.target.value);
@@ -66,7 +68,7 @@ export default function AddAddress(props) {
             <input
               required
               type="text"
-              value={isLastName}
+              defaultValue={LastName}
               placeholder="Last Name"
               onChange={(e) => {
                 setIsLastName(e.target.value);
@@ -76,7 +78,7 @@ export default function AddAddress(props) {
           <div className="address-phone">
             <input
               type="text"
-              value={isPhone}
+              defaultValue={Phone}
               placeholder="Phone Number"
               onChange={(e) => {
                 setIsPhone(e.target.value);
@@ -85,7 +87,7 @@ export default function AddAddress(props) {
             <input
               required
               type="text"
-              value={isAddressOne}
+              defaultValue={AddressOne}
               placeholder="Address 1"
               onChange={(e) => {
                 setIsAddressOne(e.target.value);
@@ -96,7 +98,7 @@ export default function AddAddress(props) {
             <input
               required
               type="text"
-              value={isCity}
+              defaultValue={City}
               placeholder="City"
               onChange={(e) => {
                 setIsCity(e.target.value);
@@ -105,7 +107,7 @@ export default function AddAddress(props) {
             <input
               required
               type="text"
-              value={isZip}
+              defaultValue={Zip}
               placeholder="Zip Code"
               onChange={(e) => {
                 setIsZip(e.target.value);
@@ -115,13 +117,13 @@ export default function AddAddress(props) {
           <input
             required
             type="text"
-            value={isState}
+            defaultValue={State}
             placeholder="State"
             onChange={(e) => {
               setIsState(e.target.value);
             }}
           />
-          <button onClick={props.click}>Add Address</button>
+          <button onClick={props.click}>Save</button>
         </form>
       </div>
     </div>

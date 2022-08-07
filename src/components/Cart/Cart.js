@@ -8,11 +8,16 @@ import { cartItemsArray } from "../Main Pages/ProductMain";
 import { useNavigate } from "react-router-dom";
 import getTotal from "../Data/GetTotal";
 import { updateStorage } from "../Main Pages/ProductMain";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../../firebase/Config";
 
 export default function Cart(props) {
   const [isTotal, setIsTotal] = useState(0);
   const [isQuantity, setIsQuantity] = useState("");
   const [isActive, setIsActive] = useState(props.open);
+  const [emptyCart, setEmptyCart] = useState(false);
+  const [help, setHelp] = useState(true);
+  const [user] = useAuthState(auth);
 
   let navigate = useNavigate();
 
@@ -21,6 +26,10 @@ export default function Cart(props) {
     cartItemsArray.forEach((item) => {
       total += item.quantity;
     });
+    if (!cartItemsArray.length) {
+      props.onClick();
+    }
+    help ? setHelp(false) : setHelp(true);
     setIsQuantity(total);
     updateStorage();
   };
@@ -41,6 +50,7 @@ export default function Cart(props) {
   });
 
   useEffect(() => {
+    cartItemsArray.length ? setEmptyCart(false) : setEmptyCart(true);
     setIsActive(props.open);
     setIsTotal(getTotal());
   }, [props.open, isQuantity, props.quantity, isTotal]);
@@ -76,7 +86,18 @@ export default function Cart(props) {
           ></div>
         </div>
       </div>
-      <div className="cart-components">{cartComp}</div>
+      <div
+        className="cart-components"
+        style={{
+          textAlign: emptyCart ? "center" : "",
+        }}
+      >
+        {emptyCart ? (
+          <h2 className="cart-empty">Your Cart is Empty!</h2>
+        ) : (
+          cartComp
+        )}
+      </div>
       <div className="test">
         <div className="checkout">
           <div className="subtotal">
@@ -85,9 +106,16 @@ export default function Cart(props) {
           </div>
           <button
             onClick={() => {
-              navigate("/checkout");
-              props.onClick();
+              if (user) {
+                navigate("/checkout");
+                props.onClick();
+              } else {
+                props.onClick();
+                navigate("/login");
+                alert("Please Login to Checkout");
+              }
             }}
+            disabled={emptyCart}
           >
             Proceed to Checkout
           </button>
