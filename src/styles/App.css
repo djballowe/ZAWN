@@ -2143,8 +2143,10 @@ input:focus {
 .complete-container button {
   display: flex;
   align-items: center;
+  justify-content: center;
   padding: 10px;
-  width: auto;
+  text-align: center;
+  width: 200px;
   margin: 10px 0;
   background-color: #92a9bd;
   border: 1px solid transparent;

@@ -42,9 +42,11 @@ export default function ShippingForm(props) {
     var dd = String(today.getDate()).padStart(2, "0");
     var mm = String(today.getMonth() + 1).padStart(2, "0");
     var yyyy = today.getFullYear();
+    let orderNum = (user.uid.slice(0, 4) + mm + dd).toUpperCase();
     today = mm + "/" + dd + "/" + yyyy;
     await addDoc(orderHistoryRef, {
       uid: user.uid,
+      OrderNumber: orderNum,
       FirstName: isFirstName,
       LastName: isLastName,
       address: isAddress,
@@ -89,7 +91,6 @@ export default function ShippingForm(props) {
                 payment_method: paymentMethod.id,
               })
               .then(({ paymentIntent }) => {
-                navigate("/thank-you");
                 console.log(paymentIntent);
                 setPaymentProcessing(false);
                 while (cartItemsArray.length) {
@@ -98,6 +99,7 @@ export default function ShippingForm(props) {
                 console.log("after clear");
                 localStorage.clear();
                 addOrder();
+                navigate("/thank-you");
               });
           });
       });

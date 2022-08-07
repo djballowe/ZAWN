@@ -56,6 +56,7 @@ export default function AccountPage() {
           uid={item.uid}
           zip={item.zip}
           key={item.id}
+          order={item.OrderNumber}
         />
       );
     }
@@ -73,7 +74,8 @@ export default function AccountPage() {
           zip={item.Zip}
           key={item.id}
           id={item.id}
-          edit={editDeleteAddress} />
+          edit={editDeleteAddress}
+        />
       );
     }
   });
@@ -183,8 +185,8 @@ export function Orders(props) {
     <div className="order-components-container">
       <div className="orders-components-mobile">
         <div className="orders">
-          <p>Order Number:</p>
-          <p>#247012</p>
+          <p>Order #:</p>
+          <p>{props.order}</p>
         </div>
         <div className="order-details-container">
           <div className="order-details">
