@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./styles/App.css";
 import Header from "./components/Navigation/Header";
 import Footer from "./components/Navigation/Footer";
@@ -18,35 +18,32 @@ import LogIn from "./components/Login/LogIn";
 import Error from "./components/Navigation/Error";
 
 function App() {
-
-  
+  const { nav, cartClick } = Header();
 
   return (
     <div className="App">
-      <Router>
-        <Header />
-        <ScrollToTop>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/product" element={<ProductPage />} />
-            <Route
-              path="/product/:id"
-              element={<ProductMain />}
-            />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/return" element={<Return />} />
-            <Route path="/shipping" element={<Shipping />} />
-            <Route path="/checkout" element={<Checkout />} />
-            <Route path="/thank-you" element={<OrderForm />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/login" element={<LogIn />} />
-            <Route path="*" element={<Error />} />
-          </Routes>
-        </ScrollToTop>
-        {window.location.pathname === "/checkout" ? null : <Footer />}
-      </Router>
+      {nav}
+      <ScrollToTop>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/product" element={<ProductPage />} />
+          <Route
+            path="/product/:id"
+            element={<ProductMain handle={cartClick} />}
+          />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/return" element={<Return />} />
+          <Route path="/shipping" element={<Shipping />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/thank-you" element={<OrderForm />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<LogIn />} />
+          <Route path="*" element={<Error />} />
+        </Routes>
+      </ScrollToTop>
+      <Footer />
     </div>
   );
 }

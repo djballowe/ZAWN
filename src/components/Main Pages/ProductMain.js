@@ -41,7 +41,7 @@ function ProductMain(props) {
   const color = product.color.map((color, index) => {
     return <Color key={index} color={color} />;
   });
-  
+
   const handleClick = () => {
     props.handle();
     if (cartItemsArray.find((x) => x.id === product.id)) {
