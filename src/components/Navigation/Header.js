@@ -61,7 +61,9 @@ function Header() {
   }, [isActive]);
 
   if (window.location.pathname === "/checkout") {
-    return null;
+    return {
+      nav: null,
+    };
   } else {
     return {
       cartClick,

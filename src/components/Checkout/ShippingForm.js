@@ -89,14 +89,15 @@ export default function ShippingForm(props) {
                 payment_method: paymentMethod.id,
               })
               .then(({ paymentIntent }) => {
+                navigate("/thank-you");
                 console.log(paymentIntent);
                 setPaymentProcessing(false);
                 while (cartItemsArray.length) {
                   cartItemsArray.pop();
                 }
+                console.log("after clear");
                 localStorage.clear();
                 addOrder();
-                navigate("/thank-you");
               });
           });
       });

@@ -5,7 +5,7 @@ import whiteArrow from "../Images/chevron-right.png";
 import { cartItemsArray } from "../Main Pages/ProductMain";
 import getTotal from "../Data/GetTotal";
 
-export default function OrderCheckout(props) {
+const OrderCheckout = React.memo((props) => {
   const [isOpen, setIsOpen] = useState(true);
   const [isTotal, setIsTotal] = useState(0);
   const [isShipping, setIsShipping] = useState(0);
@@ -28,8 +28,11 @@ export default function OrderCheckout(props) {
 
   let total = (isShipping + parseInt(isTotal) + parseInt(tax)).toFixed(2);
 
+  console.log(props);
+
   useEffect(() => {
     setIsTotal(getTotal());
+    console.log("use");
     if (typeShipping === "standard") {
       setIsShipping(7.95);
     } else if (typeShipping === "priority") {
@@ -40,7 +43,7 @@ export default function OrderCheckout(props) {
       setIsShipping(0);
     }
     props.setParent(total);
-  }, [isShipping, isTotal, props, total, typeShipping]);
+  }, [isShipping, typeShipping]);
 
   return (
     <div>
@@ -98,4 +101,6 @@ export default function OrderCheckout(props) {
       </div>
     </div>
   );
-}
+});
+
+export { OrderCheckout };

@@ -12,7 +12,7 @@ import Blog from "./components/Main Pages/Blog";
 import Return from "./components/Main Pages/Return";
 import Shipping from "./components/Main Pages/Shipping";
 import Checkout from "./components/Checkout/Checkout";
-import OrderForm from "./components/Checkout/OrderCheckout";
+import OrderForm from "./components/Checkout/OrderForm";
 import { Register } from "./components/Login/LogIn";
 import LogIn from "./components/Login/LogIn";
 import Error from "./components/Navigation/Error";

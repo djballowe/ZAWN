@@ -3,7 +3,7 @@ import Logo from "../Images/wave.png";
 import PayPal from "../Images/Payment pngs/paypal.png";
 import ApplePay from "../Images/Payment pngs/applepay.png";
 import Amazon from "../Images/Payment pngs/amazon.png";
-import OrderCheckout from "./OrderCheckout";
+import {OrderCheckout} from "./OrderCheckout";
 import useCheckoutShipping from "./CheckoutShipping";
 import ShippingForm from "./ShippingForm";
 import { loadStripe } from "@stripe/stripe-js";
@@ -20,6 +20,8 @@ export default function Checkout() {
   const setParent = (total) => {
     setIsTotal(total);
   };
+
+  console.log('checkout')
 
   return (
     <div className="checkout-container">
