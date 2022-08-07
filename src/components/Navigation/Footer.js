@@ -34,7 +34,7 @@ export default function Footer() {
     }
   };
 
-  if (window.location.pathname === "/checkout") {
+  if (window.location.pathname === "/checkout" || window.location.pathname === "/thank-you") {
     return null;
   } else {
     return (

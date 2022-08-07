@@ -2132,6 +2132,8 @@ input:focus {
   }
 }
 .complete-container {
+  margin-inline: auto;
+  width: min(90%, 60rem);
   display: flex;
   margin-top: 100px;
   flex-direction: column;
@@ -2154,6 +2156,9 @@ input:focus {
 }
 .complete-container button img {
   height: 25px;
+}
+.complete-container p:nth-of-type(1) {
+  margin-top: 30px;
 }
 .complete-container p:last-of-type {
   margin-top: 10px;

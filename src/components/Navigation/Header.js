@@ -60,7 +60,7 @@ function Header() {
     // return () => clearInterval(interval);
   }, [isActive]);
 
-  if (window.location.pathname === "/checkout") {
+  if (window.location.pathname === "/checkout" || window.location.pathname === "/thank-you") {
     return {
       nav: null,
     };
