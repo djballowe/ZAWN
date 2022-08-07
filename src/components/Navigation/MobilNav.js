@@ -64,7 +64,7 @@ export default function MobileNav(props) {
               onClick={() => {
                 handleClick();
                 props.mobile();
-                navigate("/account");
+                navigate("/login");
               }}
             >
               Account
