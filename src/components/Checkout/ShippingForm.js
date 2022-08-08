@@ -42,7 +42,8 @@ export default function ShippingForm(props) {
     var dd = String(today.getDate()).padStart(2, "0");
     var mm = String(today.getMonth() + 1).padStart(2, "0");
     var yyyy = today.getFullYear();
-    let orderNum = (user.uid.slice(0, 4) + mm + dd).toUpperCase();
+    let rand = Math.floor(Math.random() * 100);
+    let orderNum = (user.uid.slice(0, 4) + mm + dd + rand).toUpperCase();
     today = mm + "/" + dd + "/" + yyyy;
     await addDoc(orderHistoryRef, {
       uid: user.uid,
