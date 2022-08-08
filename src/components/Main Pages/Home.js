@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom";
 import Arrow from "../Images/chevron-left.png";
 import BestSellers from "../BestSellers";
 import data from "../Data/data";
-import Cover2 from "../Images/collection images/cover2.jpg"
-import Cover1 from "../Images/collection images/cover1.jpg"
+import Cover2 from "../Images/collection images/cover2.jpg";
+import Cover1 from "../Images/collection images/cover1.jpg";
 
 function Home() {
   let navigate = useNavigate();
@@ -45,22 +45,20 @@ function Home() {
           </div>
         </div>
       </div>
-      <div>
+      <div className="sellers-container">
+        <h1>Best Sellers</h1>
         <div className="sellers">
-          <h1>Best Sellers</h1>
-          <div className="best-sellers-container">
-            {sellers}
-          </div>
+          <div className="best-sellers-container">{sellers}</div>
         </div>
       </div>
-      <div>
+      <div className="home-cover-container">
         <div className="home-cover-images">
           <img src={Cover1} alt="" />
           <img src={Cover2} alt="" />
         </div>
-        <div>
-          <h1>Mornings feel</h1>
-          <h1>better with</h1>
+        <div className="home-cover-text">
+          <h1>Mornings <span>feel</span></h1>
+          <h1><span>better</span> with</h1>
           <h1>ZAWN</h1>
           <button>Shop Now</button>
         </div>

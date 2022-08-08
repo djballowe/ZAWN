@@ -2235,14 +2235,18 @@ input:focus {
   border-radius: 10px;
 }
 
+.sellers-container {
+  margin-top: 50px;
+}
+.sellers-container h1 {
+  text-align: center;
+}
+
 .sellers {
   display: flex;
   align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  margin: 50px 0;
-  margin-inline: auto;
-  width: min(100%, 90rem);
+  overflow: scroll;
+  margin: 20px 0;
 }
 .sellers h1 {
   text-align: center;
@@ -2251,17 +2255,57 @@ input:focus {
 
 .best-sellers-container {
   display: flex;
-  align-items: center;
 }
 
 .best-sellers {
-  margin: 0 20px;
+  margin: 0 5px;
 }
 .best-sellers img {
-  height: 400px;
+  height: auto;
+  width: 200px;
   border-radius: 10px;
 }
+.best-sellers p {
+  font-size: 0.9rem;
+}
 
+.home-cover-container {
+  margin: 50px 0;
+}
+
+.home-cover-images {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 .home-cover-images img {
-  height: 200px;
+  height: auto;
+  width: 49%;
+}
+
+.home-cover-text {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 1.4rem;
+}
+.home-cover-text span {
+  font-style: italic;
+}
+.home-cover-text button {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #92a9bd;
+  border-radius: 30px;
+  border: 1px solid transparent;
+  color: white;
+  font-size: 1.1rem;
+  height: 45px;
+  width: 130px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.home-cover-text button:hover {
+  color: #92a9bd;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.291);
 }/*# sourceMappingURL=App.css.map */
