@@ -8,6 +8,7 @@
   background-size: cover;
   background-blend-mode: multiply;
   color: white;
+  animation: fade ease-in-out 1s;
   a {
     color: white;
     font-size: 1.3rem;
@@ -20,7 +21,8 @@
 }
 
 .home-logo {
-    margin-bottom: 80px;
+  margin-bottom: 80px;
+  animation: slideUp ease-in-out 1s;
   h1 {
     font-size: 5rem;
   }
@@ -32,6 +34,7 @@
 }
 
 .home-collection {
+  animation: slideUp ease-in-out 1s;
   margin-top: 30px;
   @include flex();
   flex-direction: column;
@@ -51,12 +54,12 @@
 
 .banner-content {
   text-align: center;
-
   padding: 30px;
   border-radius: 10px;
 }
 
 .sellers-container {
+  animation: slideUp ease-in-out 1s;
   margin-top: 50px;
   h1 {
     text-align: center;
@@ -151,11 +154,11 @@
   }
   .home-logo {
     h1 {
-        font-size: 9rem;
+      font-size: 9rem;
     }
     p {
-        font-style: italic;
-        font-size: 2rem;
+      font-style: italic;
+      font-size: 2rem;
     }
   }
   .home-shop {
@@ -163,7 +166,7 @@
     display: flex;
     justify-content: center;
     a {
-        font-size: 1.5rem;
+      font-size: 1.5rem;
     }
   }
 }

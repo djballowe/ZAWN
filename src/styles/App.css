@@ -2190,6 +2190,8 @@ input:focus {
   background-size: cover;
   background-blend-mode: multiply;
   color: white;
+  -webkit-animation: fade ease-in-out 1s;
+          animation: fade ease-in-out 1s;
 }
 .banner-container a {
   color: white;
@@ -2203,6 +2205,8 @@ input:focus {
 
 .home-logo {
   margin-bottom: 80px;
+  -webkit-animation: slideUp ease-in-out 1s;
+          animation: slideUp ease-in-out 1s;
 }
 .home-logo h1 {
   font-size: 5rem;
@@ -2214,6 +2218,8 @@ input:focus {
 }
 
 .home-collection {
+  -webkit-animation: slideUp ease-in-out 1s;
+          animation: slideUp ease-in-out 1s;
   margin-top: 30px;
   display: flex;
   align-items: center;
@@ -2240,6 +2246,8 @@ input:focus {
 }
 
 .sellers-container {
+  -webkit-animation: slideUp ease-in-out 1s;
+          animation: slideUp ease-in-out 1s;
   margin-top: 50px;
   margin-inline: auto;
   width: min(90%, 80rem);
