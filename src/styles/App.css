@@ -2260,4 +2260,8 @@ input:focus {
 .best-sellers img {
   height: 400px;
   border-radius: 10px;
+}
+
+.home-cover-images img {
+  height: 200px;
 }/*# sourceMappingURL=App.css.map */
