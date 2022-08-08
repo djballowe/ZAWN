@@ -6,6 +6,8 @@ import BestSellers from "../BestSellers";
 import data from "../Data/data";
 import Cover2 from "../Images/collection images/cover2.jpg";
 import Cover1 from "../Images/collection images/cover1.jpg";
+import Cover3 from "../Images/collection images/green.jpg";
+import Cover4 from "../Images/collection images/green2.jpg";
 
 function Home() {
   let navigate = useNavigate();
@@ -30,9 +32,11 @@ function Home() {
         <div className="banner-content">
           <div className="home-logo">
             <h1>ZAWN</h1>
+            <p>Products made to bring joy to your life</p>
+            <p>and the planet</p>
           </div>
           <div className="home-collection">
-            <p>2021 Collection out now</p>
+            <p>2022 Collection out now</p>
             <div className="home-shop">
               <a
                 onClick={() => {
@@ -57,10 +61,38 @@ function Home() {
           <img src={Cover2} alt="" />
         </div>
         <div className="home-cover-text">
-          <h1>Mornings <span>feel</span></h1>
-          <h1><span>better</span> with</h1>
+          <h1>
+            Mornings <span>feel</span>
+          </h1>
+          <h1>
+            <span>better</span> with
+          </h1>
           <h1>ZAWN</h1>
-          <button>Shop Now</button>
+          <button
+            onClick={() => {
+              navigate("/product");
+            }}
+          >
+            Shop Now
+          </button>
+        </div>
+      </div>
+      <div className="home-cover-container">
+        <div className="home-cover-text">
+          <h1>Learn more</h1>
+          <h1>about our pledge</h1>
+          <h1></h1>
+          <button
+            onClick={() => {
+              navigate("/about");
+            }}
+          >
+            About
+          </button>
+        </div>
+        <div className="home-cover-images">
+          <img src={Cover3} alt="" />
+          <img src={Cover4} alt="" />
         </div>
       </div>
     </div>

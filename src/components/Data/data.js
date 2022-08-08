@@ -3,7 +3,7 @@ export default [
   {
     title: "Bamboo Tooth Brush 10 Pack",
     price: 14.95,
-    best_seller: false,
+    best_seller: true,
     status: {
       rating: 5,
       review: 7,
@@ -208,7 +208,7 @@ export default [
   {
     title: "All Natural Face Cream",
     price: 15.95,
-    best_seller: false,
+    best_seller: true,
     status: {
       rating: 4.9,
       review: 10,

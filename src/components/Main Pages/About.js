@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import Cover from "../Images/About/aboutcover2.png";
 import Beach from "../Images/About/about.jpg";
+import Plastic from "../Images/collection images/green3.jpg";
 import Arrow from "@mdi/react";
 import { mdiChevronDown } from "@mdi/js";
 
@@ -38,7 +39,7 @@ function About() {
       </div>
       <div className="our-promise">
         <div className="our-promise-image">
-          <img src={Beach} alt="" />
+          <img src={Plastic} alt="" />
         </div>
         <div className="about-description">
           <h2>Our Promise</h2>

@@ -1,6 +1,3 @@
-.home-container {
-}
-
 .banner-container {
   height: 80vh;
   @include flex();
@@ -23,6 +20,7 @@
 }
 
 .home-logo {
+    margin-bottom: 80px;
   h1 {
     font-size: 5rem;
   }
@@ -34,9 +32,10 @@
 }
 
 .home-collection {
-  margin-top: 20px;
+  margin-top: 30px;
   @include flex();
   flex-direction: column;
+  font-weight: bold;
   p {
     font-size: 2rem;
   }
@@ -62,6 +61,8 @@
   h1 {
     text-align: center;
   }
+  margin-inline: auto;
+  width: min(90%, 80rem);
 }
 
 .sellers {
@@ -79,7 +80,7 @@
 }
 
 .best-sellers {
-  margin: 0 5px;
+  margin: 0 15px;
   img {
     height: auto;
     width: 200px;
@@ -91,7 +92,7 @@
 }
 
 .home-cover-container {
-  margin: 50px 0;
+  margin: 150px 0;
 }
 
 .home-cover-images {
@@ -126,6 +127,43 @@
       color: #92a9bd;
       background-color: white;
       border: 1px solid rgba(0, 0, 0, 0.291);
+    }
+  }
+}
+
+@media screen and (min-width: 750px) {
+  .best-sellers {
+    img {
+      width: 400px;
+    }
+  }
+  .home-cover-container {
+    @include flex();
+    justify-content: space-around;
+  }
+  .home-cover-text {
+    margin-top: 0px;
+    padding: 50px;
+    font-size: 1.8rem;
+  }
+  .home-cover-images {
+    width: 65%;
+  }
+  .home-logo {
+    h1 {
+        font-size: 9rem;
+    }
+    p {
+        font-style: italic;
+        font-size: 2rem;
+    }
+  }
+  .home-shop {
+    width: 130px;
+    display: flex;
+    justify-content: center;
+    a {
+        font-size: 1.5rem;
     }
   }
 }

@@ -2201,6 +2201,9 @@ input:focus {
   height: 30px;
 }
 
+.home-logo {
+  margin-bottom: 80px;
+}
 .home-logo h1 {
   font-size: 5rem;
 }
@@ -2211,10 +2214,11 @@ input:focus {
 }
 
 .home-collection {
-  margin-top: 20px;
+  margin-top: 30px;
   display: flex;
   align-items: center;
   flex-direction: column;
+  font-weight: bold;
 }
 .home-collection p {
   font-size: 2rem;
@@ -2237,6 +2241,8 @@ input:focus {
 
 .sellers-container {
   margin-top: 50px;
+  margin-inline: auto;
+  width: min(90%, 80rem);
 }
 .sellers-container h1 {
   text-align: center;
@@ -2258,7 +2264,7 @@ input:focus {
 }
 
 .best-sellers {
-  margin: 0 5px;
+  margin: 0 15px;
 }
 .best-sellers img {
   height: auto;
@@ -2270,7 +2276,7 @@ input:focus {
 }
 
 .home-cover-container {
-  margin: 50px 0;
+  margin: 150px 0;
 }
 
 .home-cover-images {
@@ -2308,4 +2314,38 @@ input:focus {
   color: #92a9bd;
   background-color: white;
   border: 1px solid rgba(0, 0, 0, 0.291);
+}
+
+@media screen and (min-width: 750px) {
+  .best-sellers img {
+    width: 400px;
+  }
+  .home-cover-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .home-cover-text {
+    margin-top: 0px;
+    padding: 50px;
+    font-size: 1.8rem;
+  }
+  .home-cover-images {
+    width: 65%;
+  }
+  .home-logo h1 {
+    font-size: 9rem;
+  }
+  .home-logo p {
+    font-style: italic;
+    font-size: 2rem;
+  }
+  .home-shop {
+    width: 130px;
+    display: flex;
+    justify-content: center;
+  }
+  .home-shop a {
+    font-size: 1.5rem;
+  }
 }/*# sourceMappingURL=App.css.map */
