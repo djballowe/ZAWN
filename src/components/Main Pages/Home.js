@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { cartItemsArray } from "./ProductMain";
 import { useNavigate } from "react-router-dom";
 import Arrow from "../Images/chevron-left.png";
@@ -10,7 +10,9 @@ import Cover3 from "../Images/collection images/green.jpg";
 import Cover4 from "../Images/collection images/green2.jpg";
 
 function Home() {
+  const myRef = useRef();
   let navigate = useNavigate();
+  const [isVisible, setIsVisible] = useState();
 
   let bestSellers = data.filter((item) => item.best_seller === true);
 
@@ -25,6 +27,15 @@ function Home() {
       />
     );
   });
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      const entry = entries[0];
+      setIsVisible(entry.isIntersecting);
+    });
+    observer.observe(myRef.current);
+    console.log(observer);
+  }, []);
 
   return (
     <div className="home-container">
@@ -55,7 +66,12 @@ function Home() {
           <div className="best-sellers-container">{sellers}</div>
         </div>
       </div>
-      <div className="home-cover-container">
+      <div
+        className={
+          isVisible ? "animation home-cover-container" : "home-cover-container"
+        }
+        ref={myRef}
+      >
         <div className="home-cover-images">
           <img src={Cover1} alt="" />
           <img src={Cover2} alt="" />
@@ -81,7 +97,6 @@ function Home() {
         <div className="home-cover-text">
           <h1>Learn more</h1>
           <h1>about our pledge</h1>
-          <h1></h1>
           <button
             onClick={() => {
               navigate("/about");

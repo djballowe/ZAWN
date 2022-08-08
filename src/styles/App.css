@@ -2246,8 +2246,6 @@ input:focus {
 }
 
 .sellers-container {
-  -webkit-animation: slideUp ease-in-out 1s;
-          animation: slideUp ease-in-out 1s;
   margin-top: 50px;
   margin-inline: auto;
   width: min(90%, 80rem);
@@ -2356,4 +2354,8 @@ input:focus {
   .home-shop a {
     font-size: 1.5rem;
   }
+}
+.animation {
+  -webkit-animation: slideUp forwards ease-in-out 1s;
+          animation: slideUp forwards ease-in-out 1s;
 }/*# sourceMappingURL=App.css.map */
