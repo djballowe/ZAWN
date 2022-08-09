@@ -2355,6 +2355,9 @@ input:focus {
   .home-shop a {
     font-size: 1.5rem;
   }
+  .sellers-container h1 {
+    font-size: 3rem;
+  }
 }
 .animation {
   -webkit-animation: slideUp forwards ease-in-out 1s;
