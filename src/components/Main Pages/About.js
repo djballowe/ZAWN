@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import Cover from "../Images/About/aboutcover2.png";
-import Beach from "../Images/About/about.jpg";
+import Beach from "../Images/collection images/beach.png";
 import Plastic from "../Images/collection images/green3.jpg";
 import Arrow from "@mdi/react";
 import { mdiChevronDown } from "@mdi/js";
@@ -39,7 +39,7 @@ function About() {
       </div>
       <div className="our-promise">
         <div className="our-promise-image">
-          <img src={Plastic} alt="" />
+          <img src={Beach} alt="" />
         </div>
         <div className="about-description">
           <h2>Our Promise</h2>
@@ -48,13 +48,18 @@ function About() {
             down your waste and we take that commitment very seriously. We know
             what you expect from us and in turn what we expect from ourselves as
             we transform the way we do business. Here’s what to expect.
-            Responsible decisions. Fair treatment for everyone of our employees
-            as well as ethically sourced manufacturing. As little waste as
-            possible. Transparency. No animal testing or cruelty. All natural
-            ingredients. Sustainable packaging. And of course all while
-            maintaining high quality products you can rely on. It’s a big task
-            but were up for the challenge.
+            Responsible decisions. Fair treatment for everyone of our employees.
+            Ethically sourced manufacturing. As little waste as possible.
+            Transparency. No animal testing or cruelty. All natural ingredients.
+            Sustainable packaging. And of course all while maintaining high
+            quality products you can rely on. It’s an intimidating task but were
+            up for the challenge. Join us!
           </p>
+        </div>
+      </div>
+      <div className="our-promise">
+        <div className="our-promise-image">
+          <img src={Plastic} alt="" />
         </div>
       </div>
     </div>
