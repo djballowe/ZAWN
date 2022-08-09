@@ -21,6 +21,10 @@ function Home() {
     triggerOnce: true,
     threshold: .3,
   });
+  const { ref: best, inView: sellerVisible } = useInView({
+    triggerOnce: true,
+    threshold: .3,
+  });
 
   let bestSellers = data.filter((item) => item.best_seller === true);
 
@@ -59,9 +63,9 @@ function Home() {
           </div>
         </div>
       </div>
-      <div className="sellers-container">
+      <div className={sellerVisible ? "animation sellers-container" : "sellers-container"}>
         <h1>Best Sellers</h1>
-        <div className="sellers">
+        <div className={"sellers"} ref={best}>
           <div className="best-sellers-container">{sellers}</div>
         </div>
       </div>
