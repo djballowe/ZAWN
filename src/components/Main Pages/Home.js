@@ -13,15 +13,15 @@ function Home() {
   let navigate = useNavigate();
   const { ref: myRef, inView: isVisible } = useInView({
     triggerOnce: true,
-    threshold: 0.3,
+    threshold: 0.2,
   });
   const { ref: cover, inView: coverVisible } = useInView({
     triggerOnce: true,
-    threshold: 0.3,
+    threshold: 0.2,
   });
   const { ref: best, inView: sellerVisible } = useInView({
     triggerOnce: true,
-    threshold: 0.3,
+    threshold: 0.2,
   });
 
   let bestSellers = data.filter((item) => item.best_seller === true);

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, orderHistoryRef } from "../../firebase/Config";
 import { db } from "../../firebase/Config";
@@ -126,8 +126,6 @@ export default function ShippingForm(props) {
         setIsZip(found.Zip);
       }
     };
-
-    console.log("use");
     getAddresses();
   }, [user]);
 

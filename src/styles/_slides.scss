@@ -6,6 +6,8 @@
 .slide-images {
     display: flex;
     overflow: scroll;
+    overflow-x: auto;
+    overflow-y: auto;
     margin-top: 20px;
     img {
         max-width: 100px;

@@ -71,6 +71,7 @@
 .sellers {
   @include flex();
   overflow: scroll;
+  overflow-y: hidden;
   margin: 20px 0;
   h1 {
     text-align: center;
