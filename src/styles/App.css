@@ -1326,6 +1326,13 @@ input:focus {
     margin: 0 30px;
   }
 }
+.blog-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(95vh - 40px - 364px);
+}
+
 .return-container {
   margin-inline: auto;
   width: min(90%, 40rem);
