@@ -1,9 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useRef, useEffect, useState } from "react";
+import React from "react";
 import { useInView } from "react-intersection-observer";
-import { cartItemsArray } from "./ProductMain";
 import { useNavigate } from "react-router-dom";
-import Arrow from "../Images/chevron-left.png";
 import BestSellers from "../BestSellers";
 import data from "../Data/data";
 import Cover2 from "../Images/collection images/cover2.jpg";
@@ -15,15 +13,15 @@ function Home() {
   let navigate = useNavigate();
   const { ref: myRef, inView: isVisible } = useInView({
     triggerOnce: true,
-    threshold: .3,
+    threshold: 0.3,
   });
   const { ref: cover, inView: coverVisible } = useInView({
     triggerOnce: true,
-    threshold: .3,
+    threshold: 0.3,
   });
   const { ref: best, inView: sellerVisible } = useInView({
     triggerOnce: true,
-    threshold: .3,
+    threshold: 0.3,
   });
 
   let bestSellers = data.filter((item) => item.best_seller === true);
@@ -63,7 +61,11 @@ function Home() {
           </div>
         </div>
       </div>
-      <div className={sellerVisible ? "animation sellers-container" : "sellers-container"}>
+      <div
+        className={
+          sellerVisible ? "animation sellers-container" : "sellers-container"
+        }
+      >
         <h1>Best Sellers</h1>
         <div className={"sellers"} ref={best}>
           <div className="best-sellers-container">{sellers}</div>
