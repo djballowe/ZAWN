@@ -1,4 +1,6 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useRef, useEffect, useState } from "react";
+import { useInView } from "react-intersection-observer";
 import { cartItemsArray } from "./ProductMain";
 import { useNavigate } from "react-router-dom";
 import Arrow from "../Images/chevron-left.png";
@@ -10,9 +12,15 @@ import Cover3 from "../Images/collection images/green.jpg";
 import Cover4 from "../Images/collection images/green2.jpg";
 
 function Home() {
-  const myRef = useRef();
   let navigate = useNavigate();
-  const [isVisible, setIsVisible] = useState();
+  const { ref: myRef, inView: isVisible } = useInView({
+    triggerOnce: true,
+    threshold: .3,
+  });
+  const { ref: cover, inView: coverVisible } = useInView({
+    triggerOnce: true,
+    threshold: .3,
+  });
 
   let bestSellers = data.filter((item) => item.best_seller === true);
 
@@ -27,15 +35,6 @@ function Home() {
       />
     );
   });
-
-  useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      const entry = entries[0];
-      setIsVisible(entry.isIntersecting);
-    });
-    observer.observe(myRef.current);
-    console.log(observer);
-  }, []);
 
   return (
     <div className="home-container">
@@ -93,7 +92,14 @@ function Home() {
           </button>
         </div>
       </div>
-      <div className="home-cover-container">
+      <div
+        className={
+          coverVisible
+            ? "animation home-cover-container"
+            : "home-cover-container"
+        }
+        ref={cover}
+      >
         <div className="home-cover-text">
           <h1>Learn more</h1>
           <h1>about our pledge</h1>
