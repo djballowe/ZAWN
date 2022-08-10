@@ -28,20 +28,17 @@ const OrderCheckout = React.memo((props) => {
 
   let total = (isShipping + parseInt(isTotal) + parseInt(tax)).toFixed(2);
 
-  console.log(props);
-
   useEffect(() => {
     setIsTotal(getTotal());
-    console.log("use");
-    if (typeShipping === "standard") {
-      setIsShipping(7.95);
-    } else if (typeShipping === "priority") {
-      setIsShipping(11.95);
-    } else if (typeShipping === "business") {
-      setIsShipping(16.44);
-    } else {
-      setIsShipping(0);
-    }
+    const values = {
+      standard: 7.95,
+      priority: 11.95,
+      business: 16.44,
+      free: 0,
+    };
+
+    setIsShipping(values[typeShipping]);
+
     props.setParent(total);
   }, [isShipping, typeShipping]);
 

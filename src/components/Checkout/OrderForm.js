@@ -7,6 +7,11 @@ import { useNavigate } from "react-router-dom";
 export default function OrderForm() {
   let navigate = useNavigate();
 
+  const handleClick = () => {
+    navigate("/");
+    window.location.reload(false);
+  };
+
   return (
     <div>
       <div className="complete-container">
@@ -21,11 +26,7 @@ export default function OrderForm() {
             <p>Thank you for shopping at ZAWN</p>
           </div>
           <p>Need anything else?</p>
-          <button
-            onClick={() => {
-              navigate("/");
-            }}
-          >
+          <button onClick={handleClick}>
             <img src={Arrow} alt="" /> Return to home
           </button>
         </div>

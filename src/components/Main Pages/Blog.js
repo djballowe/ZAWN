@@ -1,7 +1,9 @@
-import React from 'react'
+import React from "react";
 
 export default function Blog() {
   return (
-    <div>Blog</div>
-  )
+    <div className="blog-container">
+      <h1>Coming Soon!</h1>
+    </div>
+  );
 }

@@ -21,8 +21,6 @@ export default function Checkout() {
     setIsTotal(total);
   };
 
-  console.log('checkout')
-
   return (
     <div className="checkout-container">
       <div className="checkout-information">

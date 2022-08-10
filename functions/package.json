@@ -9,6 +9,12 @@
     "deploy": "firebase deploy --only functions",
     "logs": "firebase functions:log"
   },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
   "engines": {
     "node": "16"
   },

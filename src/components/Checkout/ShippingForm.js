@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, orderHistoryRef } from "../../firebase/Config";
 import { db } from "../../firebase/Config";
@@ -92,12 +92,11 @@ export default function ShippingForm(props) {
                 payment_method: paymentMethod.id,
               })
               .then(({ paymentIntent }) => {
-                console.log(paymentIntent);
+                // console.log(paymentIntent);
                 setPaymentProcessing(false);
                 while (cartItemsArray.length) {
                   cartItemsArray.pop();
                 }
-                console.log("after clear");
                 localStorage.clear();
                 addOrder();
                 navigate("/thank-you");
@@ -126,8 +125,6 @@ export default function ShippingForm(props) {
         setIsZip(found.Zip);
       }
     };
-
-    console.log("use");
     getAddresses();
   }, [user]);
 
