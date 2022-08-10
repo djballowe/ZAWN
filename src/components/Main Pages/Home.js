@@ -13,15 +13,15 @@ function Home() {
   let navigate = useNavigate();
   const { ref: myRef, inView: isVisible } = useInView({
     triggerOnce: true,
-    threshold: 0.2,
+    threshold: 0.1,
   });
   const { ref: cover, inView: coverVisible } = useInView({
     triggerOnce: true,
-    threshold: 0.2,
+    threshold: 0.1,
   });
   const { ref: best, inView: sellerVisible } = useInView({
     triggerOnce: true,
-    threshold: 0.2,
+    threshold: 0.1,
   });
 
   let bestSellers = data.filter((item) => item.best_seller === true);
@@ -106,6 +106,10 @@ function Home() {
         }
         ref={cover}
       >
+        <div className="home-cover-images">
+          <img src={Cover3} alt="" />
+          <img src={Cover4} alt="" />
+        </div>
         <div className="home-cover-text">
           <h1>Learn more</h1>
           <h1>about our pledge</h1>
@@ -116,10 +120,6 @@ function Home() {
           >
             About
           </button>
-        </div>
-        <div className="home-cover-images">
-          <img src={Cover3} alt="" />
-          <img src={Cover4} alt="" />
         </div>
       </div>
     </div>

@@ -1,5 +1,5 @@
 import axios from 'axios'
 
 export const apiInstance = axios.create({
-    baseURL: 'http://localhost:5001/zawn-d7f63/us-central1/api'
+    baseURL: 'https://us-central1-zawn-d7f63.cloudfunctions.net/api '
 })

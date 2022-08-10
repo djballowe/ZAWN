@@ -176,6 +176,9 @@
       font-size: 3rem;
     }
   }
+  .home-cover-container:nth-last-of-type(1) {
+    flex-direction: row-reverse;
+  }
 }
 
 // Animations
