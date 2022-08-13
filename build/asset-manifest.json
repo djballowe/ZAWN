@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.760eba92.css",
-    "main.js": "/static/js/main.5ae6a504.js",
+    "main.js": "/static/js/main.52fa6e9a.js",
     "static/js/787.0b7eda19.chunk.js": "/static/js/787.0b7eda19.chunk.js",
     "static/media/beach.png": "/static/media/beach.fab1eac0f2455d21b3fa.png",
     "static/media/aboutcover2.png": "/static/media/aboutcover2.bdff7c67b5956b176fe3.png",
@@ -129,11 +129,11 @@
     "static/media/applepay.png": "/static/media/applepay.e2bc408f915cc801d0a5.png",
     "index.html": "/index.html",
     "main.760eba92.css.map": "/static/css/main.760eba92.css.map",
-    "main.5ae6a504.js.map": "/static/js/main.5ae6a504.js.map",
+    "main.52fa6e9a.js.map": "/static/js/main.52fa6e9a.js.map",
     "787.0b7eda19.chunk.js.map": "/static/js/787.0b7eda19.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.760eba92.css",
-    "static/js/main.5ae6a504.js"
+    "static/js/main.52fa6e9a.js"
   ]
 }

@@ -92,7 +92,7 @@ export default function ShippingForm(props) {
                 payment_method: paymentMethod.id,
               })
               .then(({ paymentIntent }) => {
-                // console.log(paymentIntent);
+                console.log(paymentIntent);
                 setPaymentProcessing(false);
                 while (cartItemsArray.length) {
                   cartItemsArray.pop();
