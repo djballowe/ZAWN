@@ -1,3 +1,3 @@
-const { pKey } = require("../components/config.json");
+import { config } from "../components/Config";
 
-export const publishableKey = pKey;
+export const publishableKey = config.p_Key;

@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.815c4d69.css",
-    "main.js": "/static/js/main.1aa68d32.js",
+    "main.js": "/static/js/main.f06b6b2b.js",
     "static/js/787.0b7eda19.chunk.js": "/static/js/787.0b7eda19.chunk.js",
     "static/media/beach.png": "/static/media/beach.fab1eac0f2455d21b3fa.png",
     "static/media/Shampoo3 (copy).jpg": "/static/media/Shampoo3 (copy).5949267ea7a83bc139bd.jpg",
@@ -124,16 +124,18 @@
     "static/media/aboutcover2.png": "/static/media/aboutcover2.b32721c7e7fb8880504d.png",
     "static/media/amazon.png": "/static/media/amazon.5e87a9c8b8b751a377da.png",
     "static/media/Garden.jpg": "/static/media/Garden.cd9fc6aec0ce64e6b55f.jpg",
+    "static/media/android-chrome-512x512.png": "/static/media/android-chrome-512x512.13f6d09c2477d2f68712.png",
     "static/media/maple_wood_header.jpg": "/static/media/maple_wood_header.035b59dedcbdbd8268e5.jpg",
     "static/media/paypal.png": "/static/media/paypal.e3abf7ded251409784b6.png",
     "static/media/applepay.png": "/static/media/applepay.e2bc408f915cc801d0a5.png",
     "index.html": "/index.html",
+    "static/media/site.webmanifest": "/static/media/site.1c337fa2fa1515591f8d.webmanifest",
     "main.815c4d69.css.map": "/static/css/main.815c4d69.css.map",
-    "main.1aa68d32.js.map": "/static/js/main.1aa68d32.js.map",
+    "main.f06b6b2b.js.map": "/static/js/main.f06b6b2b.js.map",
     "787.0b7eda19.chunk.js.map": "/static/js/787.0b7eda19.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.815c4d69.css",
-    "static/js/main.1aa68d32.js"
+    "static/js/main.f06b6b2b.js"
   ]
 }
