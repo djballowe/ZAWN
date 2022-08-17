@@ -1,0 +1,8 @@
+{
+  "steps": [
+    {
+      "name": "gcr.io/zawn-d7f63/firebase",
+      "args": ["deploy", "--project", "zawn-d7f63", "--only", "hosting"]
+    }
+  ]
+}
