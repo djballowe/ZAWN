@@ -69,9 +69,7 @@ function ProductMain(props) {
   const getColor = (e) => {
     const id = e.target.id;
     const selected = e.target.className;
-    if (selected === "selected") {
-      document.getElementById(id).className = "notSelected";
-    } else {
+    if (selected === "notSelected") {
       for (let i = 0; i < product.color.length; i++) {
         if (
           document.getElementById(product.color[i]).className === "selected"
@@ -80,8 +78,7 @@ function ProductMain(props) {
         }
       }
       document.getElementById(id).className = "selected";
-      setSelectedColor(e.target.id);
-      console.log(selectedColor);
+      setSelectedColor(id);
     }
   };
 

@@ -30,7 +30,7 @@ export default function CartItems(props) {
       );
       setParent();
     }
-    console.log(cartItemsArray)
+    console.log(cartItemsArray);
   };
 
   let source = props.src;
@@ -55,7 +55,7 @@ export default function CartItems(props) {
         <div className="cart-item-container-text">
           <div className="cart-item-text">
             <h3>{props.item}</h3>
-            <p>Forest Green</p>
+            <p>{props.color}</p>
           </div>
           <div className="quantity" id="+" name={props.id}>
             <button

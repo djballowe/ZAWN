@@ -45,6 +45,7 @@ export default function Cart(props) {
         quantity={item.quantity}
         set={setParentTotal}
         open={props.open}
+        color={item.color}
       />
     );
   });
