@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import data from "../Data/data";
 import Star from "@mdi/react";
@@ -35,9 +35,9 @@ export function updateStorage() {
 
 function ProductMain(props) {
   let { id } = useParams();
-  
+
   let product = data.find((x) => x.id === id);
-  
+
   const color = product.color.map((color, index) => {
     return <Color key={index} color={color} />;
   });
@@ -62,6 +62,23 @@ function ProductMain(props) {
     updateStorage();
   };
 
+  const getColor = (e) => {
+    const id = e.target.id;
+    const selected = e.target.className;
+    if (selected === "selected") {
+      document.getElementById(id).className = "notSelected";
+    } else {
+      for (let i = 0; i < product.color.length; i++) {
+        if (
+          (document.getElementById(product.color[i]).className === "selected")
+        ) {
+          document.getElementById(product.color[i]).className = "notSelected";
+        }
+      }
+      document.getElementById(id).className = "selected";
+    }
+  };
+
   return (
     <div>
       <div className="individual-container">
@@ -81,7 +98,7 @@ function ProductMain(props) {
           </div>
           <div className="color-container">
             <h3>{product.color.length > 0 ? "Color" : ""}</h3>
-            <div className="color-picker">
+            <div className="color-picker" onClick={getColor} id="color-picker">
               {product.color.length > 0 ? color : ""}
             </div>
           </div>

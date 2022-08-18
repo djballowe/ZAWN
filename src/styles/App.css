@@ -630,7 +630,7 @@ header h2 {
     width: min(70%, 80rem);
   }
 }
-.White {
+#White {
   height: 40px;
   width: 40px;
   border-radius: 20px;
@@ -638,7 +638,7 @@ header h2 {
   background-color: white;
 }
 
-.Black {
+#Black {
   height: 40px;
   width: 40px;
   border-radius: 20px;
@@ -646,7 +646,7 @@ header h2 {
   background-color: black;
 }
 
-.Blue {
+#Blue {
   height: 40px;
   width: 40px;
   border-radius: 20px;
@@ -654,7 +654,7 @@ header h2 {
   background-color: rgb(150, 200, 221);
 }
 
-.Forest {
+#Forest {
   height: 40px;
   width: 40px;
   border-radius: 20px;
@@ -662,7 +662,7 @@ header h2 {
   background-color: rgb(115, 147, 117);
 }
 
-.Aqua {
+#Aqua {
   height: 40px;
   width: 40px;
   border-radius: 20px;
@@ -670,7 +670,7 @@ header h2 {
   background-color: rgb(150, 200, 221);
 }
 
-.Snow {
+#Snow {
   height: 40px;
   width: 40px;
   border-radius: 20px;
@@ -678,7 +678,7 @@ header h2 {
   background-color: white;
 }
 
-.Ash {
+#Ash {
   height: 40px;
   width: 40px;
   border-radius: 20px;
@@ -686,7 +686,7 @@ header h2 {
   background-color: rgba(239, 215, 171, 0.507);
 }
 
-.Walnut {
+#Walnut {
   height: 40px;
   width: 40px;
   border-radius: 20px;
@@ -694,7 +694,7 @@ header h2 {
   background-color: rgb(83, 63, 36);
 }
 
-.Okuome {
+#Okuome {
   height: 40px;
   width: 40px;
   border-radius: 20px;
@@ -702,7 +702,7 @@ header h2 {
   background-color: rgb(188, 139, 116);
 }
 
-.Redwood {
+#Redwood {
   height: 40px;
   width: 40px;
   border-radius: 20px;
@@ -710,7 +710,7 @@ header h2 {
   background-color: rgb(121, 42, 41);
 }
 
-.Maple {
+#Maple {
   height: 40px;
   width: 40px;
   border-radius: 20px;

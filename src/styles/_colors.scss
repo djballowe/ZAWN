@@ -6,47 +6,47 @@
   background-color: $color;
 }
 
-.White {
+#White {
   @include Color(white);
 }
 
-.Black {
+#Black {
   @include Color(black);
 }
 
-.Blue {
+#Blue {
   @include Color(rgb(150, 200, 221));
 }
 
-.Forest {
+#Forest {
   @include Color(rgb(115, 147, 117));
 }
 
-.Aqua {
+#Aqua {
   @include Color(rgb(150, 200, 221));
 }
 
-.Snow {
+#Snow {
   @include Color(white);
 }
 
-.Ash {
+#Ash {
   @include Color(rgba(239, 215, 171, 0.507));
 }
 
-.Walnut {
+#Walnut {
   @include Color(rgb(83, 63, 36));
 }
 
-.Okuome {
+#Okuome {
   @include Color(rgb(188, 139, 116));
 }
 
-.Redwood {
+#Redwood {
   @include Color(rgb(121, 42, 41));
 }
 
-.Maple {
+#Maple {
   @include Color(rgba(239, 215, 171, 0.507));
 }
 
