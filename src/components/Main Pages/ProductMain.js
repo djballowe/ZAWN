@@ -17,12 +17,13 @@ import Slides from "../Data/Slides";
 export const cartItemsArray = JSON.parse(localStorage.getItem("cart")) || [];
 
 class CartItemCreator {
-  constructor(title, src, price, id, quantity) {
+  constructor(title, src, price, id, quantity, color) {
     this.title = title;
     this.src = src;
     this.price = price;
     this.id = id;
     this.quantity = quantity;
+    this.color = color;
   }
 }
 
@@ -34,6 +35,8 @@ export function updateStorage() {
 }
 
 function ProductMain(props) {
+  const [selectedColor, setSelectedColor] = useState("");
+
   let { id } = useParams();
 
   let product = data.find((x) => x.id === id);
@@ -55,7 +58,8 @@ function ProductMain(props) {
           product.src,
           product.price,
           product.id,
-          1
+          1,
+          selectedColor
         )
       );
     }
@@ -70,12 +74,14 @@ function ProductMain(props) {
     } else {
       for (let i = 0; i < product.color.length; i++) {
         if (
-          (document.getElementById(product.color[i]).className === "selected")
+          document.getElementById(product.color[i]).className === "selected"
         ) {
           document.getElementById(product.color[i]).className = "notSelected";
         }
       }
       document.getElementById(id).className = "selected";
+      setSelectedColor(e.target.id);
+      console.log(selectedColor);
     }
   };
 
