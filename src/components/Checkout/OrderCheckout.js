@@ -20,6 +20,7 @@ const OrderCheckout = React.memo((props) => {
         price={item.price}
         quantity={item.quantity}
         src={item.src}
+        color={item.color}
       />
     );
   });
