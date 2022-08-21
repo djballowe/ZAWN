@@ -41,4 +41,4 @@ A fullstack E-commerce site for ZAWN. An environmentally concious bathroom produ
 
 
 ## Demo
-![whatever](https://github.com/CHO/src/components/Images/demo_1.gif)
+![whatever](https://github.com/djballowe/ZAWN/src/components/Images/demo_1.gif)
