@@ -153,8 +153,8 @@ export default function AccountPage() {
       </ul>
       <div className="account-orders">
         <div className="order-container">
-          {/* <div className="order-notification">1</div> */}
           <h2>{isAddressOpen ? "Addresses" : "Orders"}</h2>
+          <p>{!isAddressOpen && !orders.length ? "No Orders" : ""}</p>
         </div>
       </div>
       <div
