@@ -1,9 +1,44 @@
 # ZAWN
+
 A fullstack E-commerce site for ZAWN. An environmentally concious bathroom product company.
 
-# Project Objective
-- Create a fully functioning E-commerce site including payment processing and a backend for storing orders and user information
+## Live Site 
+[zawnshop.com](https://zawn-d7f63.firebaseapp.com/)
 
-Stack Used
+### Sample log in credentials 
 
-(react.png)<imc src="home/david/GitHub/tech-logos/react.png" height="40px">
+**Email:** test@gmail.com 
+
+**Password:** 8characters
+
+**Test card for checkout:** 4242 4242 4242 4242 
+
+**EXP:** 04/24 
+
+**CVC:** 242
+
+
+## Tech Stack
+
+**Client:** React, Redux, SCSS
+
+**Server:** Node, Express, Firebase
+
+**API**: Stripe
+
+**Deployment**: Google Cloud
+
+
+
+
+## Main Features
+
+- Managed app state and inter- process communication with React hooks
+- Create user accounts with email and Google authentication 
+- Implemented Stripe REST API with Express.js to process Payments
+- Store and fetch product information in Firebase
+- Configured CI/CD pipeline with Google Cloud Build for deploying to Firebase
+
+
+## Demo
+![whatever](https://github.com/CHO/src/components/Images/demo_1.gif)
