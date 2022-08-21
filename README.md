@@ -6,4 +6,4 @@ A fullstack E-commerce site for ZAWN. An environmentally concious bathroom produ
 
 Stack Used
 
-(react.png)<imc src="file:///home/david/GitHub/tech-logos/react.png" height="40px">
+(react.png)<imc src="home/david/GitHub/tech-logos/react.png" height="40px">
