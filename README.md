@@ -2,6 +2,9 @@
 
 A fullstack E-commerce site for ZAWN. An environmentally concious bathroom product company.
 
+## Demo
+![grab-landing-page](https://github.com/djballowe/ZAWN/blob/main/demo_1.gif)
+
 ## Live Site 
 [zawnshop.com](https://zawn-d7f63.firebaseapp.com/)
 
@@ -38,6 +41,3 @@ A fullstack E-commerce site for ZAWN. An environmentally concious bathroom produ
 - Implemented Stripe REST API with Express.js to process Payments
 - Store and fetch product information in Firebase
 - Configured CI/CD pipeline with Google Cloud Build for deploying to Firebase
-
-## Demo
-![grab-landing-page](https://github.com/djballowe/ZAWN/blob/main/demo_1.gif)
