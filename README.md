@@ -6,4 +6,4 @@ A fullstack E-commerce site for ZAWN. An environmentally concious bathroom produ
 
 Stack Used
 
-
+[text to display](imageName.file)<imc src="imageName.file" height="desired height in pixels">
