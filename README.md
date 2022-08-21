@@ -14,13 +14,6 @@ A fullstack E-commerce site for ZAWN. An environmentally concious bathroom produ
 
 **Password:** 8characters
 
-**Test card for checkout:** 4242 4242 4242 4242 
-
-**EXP:** 04/24 
-
-**CVC:** 242
-
-
 ## Tech Stack
 
 **Client:** React, Redux, SCSS
