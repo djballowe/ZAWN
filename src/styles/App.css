@@ -1854,6 +1854,11 @@ input:focus {
   width: 150px;
   position: relative;
 }
+.order-container p {
+  font-size: 1.3rem;
+  margin-top: 100px;
+  color: rgb(167, 167, 167);
+}
 
 .order-notification {
   position: absolute;
