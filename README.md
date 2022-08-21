@@ -38,7 +38,3 @@ A fullstack E-commerce site for ZAWN. An environmentally concious bathroom produ
 - Implemented Stripe REST API with Express.js to process Payments
 - Store and fetch product information in Firebase
 - Configured CI/CD pipeline with Google Cloud Build for deploying to Firebase
-
-
-## Demo
-![](https://github.com/djballowe/ZAWN/tree/main/src/components/Images)
