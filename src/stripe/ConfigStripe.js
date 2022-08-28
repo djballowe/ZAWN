@@ -1,3 +1,1 @@
-import { config } from "./Config";
-
-export const publishableKey = config.p_Key;
+export const publishableKey = process.env.REACT_APP_PUBLISHABLE_KEY;

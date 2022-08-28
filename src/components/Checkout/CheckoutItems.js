@@ -3,10 +3,7 @@ export default function CheckoutItems(props) {
     <div>
       <div className="cart-item-checkout">
         <div className="cart-item-info">
-          <img
-            src={require(`/home/david/GitHub/CHO/src/components/Images/${props.src}`)}
-            alt=""
-          />
+          <img src={require(`../Images/${props.src}`)} alt="" />
           <div>
             <p>{props.item}</p>
             <p>Color: {props.color}</p>

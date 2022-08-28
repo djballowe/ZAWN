@@ -20,7 +20,7 @@ export default function AddAddress(props) {
 
   async function editAddress(e) {
     e.preventDefault();
-    const updateAddressRef = doc(db, "Shipping", id)
+    const updateAddressRef = doc(db, "Shipping", id);
     await updateDoc(updateAddressRef, {
       FirstName: isFirstName,
       LastName: isLastName,
@@ -31,9 +31,18 @@ export default function AddAddress(props) {
       State: isState,
     });
     props.update();
+    document.getElementById("edit").reset();
+
   }
 
   useEffect(() => {
+    setIsFirstName(props.name.FirstName);
+    setIsLastName(props.name.LastName);
+    setIsPhone(props.name.Phone);
+    setIsAddressOne(props.name.AddressOne);
+    setIsCity(props.name.City);
+    setIsZip(props.name.Zip);
+    setIsState(props.name.State);
     setIsOpen(props.open);
   }, [props.open]);
 
@@ -53,7 +62,7 @@ export default function AddAddress(props) {
         </button>
       </div>
       <div className="address-form">
-        <form action="" onSubmit={editAddress} id="new-address-form">
+        <form action="" onSubmit={editAddress} id="edit">
           <p>Please fill in the fields below:</p>
           <div className="address-name">
             <input
