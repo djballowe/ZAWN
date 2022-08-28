@@ -41,11 +41,6 @@ function Header() {
     setIsAmount(total);
     isActive ? setIsActive(false) : setIsActive(true);
   };
-
-  const interval = setInterval(() => {
-    const max = document.getElementById("banner-text").childElementCount;
-    isBanner === max ? setIsBanner(1) : setIsBanner(isBanner + 1);
-  }, 5000);
   
   useEffect(() => {
     isActive === true
@@ -57,8 +52,6 @@ function Header() {
       total += item.quantity;
     });
     setIsAmount(total);
-
-    return () => clearInterval(interval);
   }, [isActive]);
 
   if (
