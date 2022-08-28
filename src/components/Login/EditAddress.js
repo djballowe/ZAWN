@@ -32,7 +32,6 @@ export default function AddAddress(props) {
     });
     props.update();
     document.getElementById("edit").reset();
-
   }
 
   useEffect(() => {

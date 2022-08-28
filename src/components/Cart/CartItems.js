@@ -30,7 +30,6 @@ export default function CartItems(props) {
       );
       setParent();
     }
-    console.log(cartItemsArray);
   };
 
   let source = props.src;
