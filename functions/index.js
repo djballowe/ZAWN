@@ -1,15 +1,11 @@
-const config = require("./Config.json");
 const functions = require("firebase-functions");
 const express = require("express");
 const cors = require("cors");
-const stripe = require("stripe")(config.s_Key);
+require("dotenv").config();
+const stripe = require("stripe")(process.env.SECRET_KEY);
 const app = express();
 
-app.use(
-  cors({
-    origin: true,
-  })
-);
+app.use(cors());
 app.use(express.json());
 
 app.post("/payments/create", async (req, res) => {

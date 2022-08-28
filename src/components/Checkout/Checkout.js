@@ -3,16 +3,18 @@ import Logo from "../Images/wave.png";
 import PayPal from "../Images/Payment pngs/paypal.png";
 import ApplePay from "../Images/Payment pngs/applepay.png";
 import Amazon from "../Images/Payment pngs/amazon.png";
-import {OrderCheckout} from "./OrderCheckout";
+import { OrderCheckout } from "./OrderCheckout";
 import useCheckoutShipping from "./CheckoutShipping";
 import ShippingForm from "./ShippingForm";
 import { loadStripe } from "@stripe/stripe-js";
 import { publishableKey } from "../../stripe/ConfigStripe";
 import { Elements } from "@stripe/react-stripe-js";
+import { useNavigate } from "react-router-dom";
 
 const stripePromise = loadStripe(publishableKey);
 
 export default function Checkout() {
+  let navigate = useNavigate();
   const [isTotal, setIsTotal] = useState(0);
 
   const { render, idIsChecked } = useCheckoutShipping();
@@ -25,7 +27,13 @@ export default function Checkout() {
     <div className="checkout-container">
       <div className="checkout-information">
         <div className="logo">
-          <h2>ZAWN</h2>
+          <h2
+            onClick={() => {
+              navigate("/");
+            }}
+          >
+            ZAWN
+          </h2>
           <img src={Logo} alt="" />
         </div>
         <OrderCheckout shipping={idIsChecked} setParent={setParent} />
