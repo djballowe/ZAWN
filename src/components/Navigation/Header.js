@@ -42,6 +42,11 @@ function Header() {
     isActive ? setIsActive(false) : setIsActive(true);
   };
 
+  const interval = setInterval(() => {
+    const max = document.getElementById("banner-text").childElementCount;
+    isBanner === max ? setIsBanner(1) : setIsBanner(isBanner + 1);
+  }, 5000);
+  
   useEffect(() => {
     isActive === true
       ? (document.body.style.overflow = "hidden")
@@ -53,14 +58,13 @@ function Header() {
     });
     setIsAmount(total);
 
-    // const interval = setInterval(() => {
-    //   const max = document.getElementById("banner-text").childElementCount;
-    //   isBanner === max ? setIsBanner(1) : setIsBanner(isBanner + 1);
-    // }, 5000);
-    // return () => clearInterval(interval);
+    return () => clearInterval(interval);
   }, [isActive]);
 
-  if (window.location.pathname === "/checkout" || window.location.pathname === "/thank-you") {
+  if (
+    window.location.pathname === "/checkout" ||
+    window.location.pathname === "/thank-you"
+  ) {
     return {
       nav: null,
     };
@@ -101,6 +105,7 @@ function Header() {
               className="overlay"
               style={{
                 opacity: isActive ? "1" : "0",
+                display: isActive ? "block" : "none",
               }}
             ></div>
           </div>

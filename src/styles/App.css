@@ -958,7 +958,7 @@ header h2 {
 
 .overlay {
   width: 100vw;
-  height: 100vh;
+  height: 300vh;
   background-color: rgba(0, 0, 0, 0.435);
   position: absolute;
   z-index: 99;
@@ -2201,7 +2201,7 @@ input:focus {
 }
 
 .banner-container {
-  height: 80vh;
+  height: 70vh;
   display: flex;
   align-items: center;
   flex-direction: column;
