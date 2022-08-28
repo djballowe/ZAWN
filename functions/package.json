@@ -26,11 +26,5 @@
     "eslint-config-google": "^0.14.0",
     "firebase-functions-test": "^0.2.0"
   },
-  "private": true,
-  "rewrites": [
-    {
-      "source": "https://us-central1-zawn-d7f63.cloudfunctions.net/api ",
-      "function": "api"
-    }
-  ]
+  "private": true
 }
