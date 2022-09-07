@@ -24,7 +24,7 @@ Stripe is currently deployed in test mode if you'd like to complete a payment pl
 
 ## Tech Stack
 
-**Client:** React, Redux, SCSS
+**Client:** React, React Router, SCSS
 
 **Server:** Node, Express, Firebase
 
