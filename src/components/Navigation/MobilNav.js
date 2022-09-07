@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function MobileNav(props) {
   let navigate = useNavigate();
-  const [isMobile, setIsMobile] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
 
   const handleClick = () => {
     isMobile ? setIsMobile(false) : setIsMobile(true);
