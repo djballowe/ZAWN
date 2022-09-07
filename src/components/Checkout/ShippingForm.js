@@ -37,6 +37,8 @@ export default function ShippingForm(props) {
     hidePostalCode: true,
   };
 
+  console.log(props.total);
+
   async function addOrder() {
     let today = new Date();
     var dd = String(today.getDate()).padStart(2, "0");
