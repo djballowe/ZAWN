@@ -40,7 +40,7 @@ const OrderCheckout = React.memo((props) => {
 
     setIsShipping(values[typeShipping]);
 
-    props.setParent(total);
+    // props.setParent(total);
   }, [isShipping, typeShipping]);
 
   return (
