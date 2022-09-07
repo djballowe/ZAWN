@@ -16,7 +16,7 @@ A fullstack E-commerce site for ZAWN. An environmentally concious bathroom produ
 
 ### Stripe Payment Gateway Demo
 
-Stripe is currently deployed in test mode if you'd like to complete a payment gateway please use the test card credicials at checkout below
+Stripe is currently deployed in test mode if you'd like to complete a payment please use the test card credicials at checkout below
 
 **Card Number** 4242 4242 4242 4242
 **Date** 04 / 24
