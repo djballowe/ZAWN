@@ -7,10 +7,14 @@ const app = express();
 const admin = require("firebase-admin");
 admin.initializeApp();
 
-app.use(cors());
+app.use(
+  cors({
+    origin: true,
+  })
+);
 app.use(express.json());
 
-app.post("/payments/create", async (req, res, next) => {
+app.post("/payments/create", async (req, res) => {
   try {
     const { amount } = req.body;
     const paymentIntent = await stripe.paymentIntents.create({
@@ -27,7 +31,7 @@ app.post("/payments/create", async (req, res, next) => {
   }
 });
 
-app.get("*", (req, res, next) => {
+app.get("*", (req, res) => {
   res.status(404).send("404, Not Found.");
 });
 

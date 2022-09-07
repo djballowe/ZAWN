@@ -7,11 +7,10 @@ import { OrderCheckout } from "./OrderCheckout";
 import useCheckoutShipping from "./CheckoutShipping";
 import ShippingForm from "./ShippingForm";
 import { loadStripe } from "@stripe/stripe-js";
-import { publishableKey } from "../../stripe/ConfigStripe";
 import { Elements } from "@stripe/react-stripe-js";
 import { useNavigate } from "react-router-dom";
 
-const stripePromise = loadStripe(publishableKey);
+const stripePromise = loadStripe(process.env.REACT_APP_PUBLISHABLE_KEY);
 
 export default function Checkout() {
   let navigate = useNavigate();
