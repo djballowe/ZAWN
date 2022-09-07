@@ -1,28 +1,27 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Logo from "../Images/wave.png";
 import PayPal from "../Images/Payment pngs/paypal.png";
 import ApplePay from "../Images/Payment pngs/applepay.png";
 import Amazon from "../Images/Payment pngs/amazon.png";
-import OrderCheckout from "./OrderCheckout";
+import { OrderCheckout } from "./OrderCheckout";
 import useCheckoutShipping from "./CheckoutShipping";
 import ShippingForm from "./ShippingForm";
 import { loadStripe } from "@stripe/stripe-js";
 import { publishableKey } from "../../stripe/ConfigStripe";
 import { Elements } from "@stripe/react-stripe-js";
 import { useNavigate } from "react-router-dom";
-import { connect } from "react-redux";
 
 const stripePromise = loadStripe(publishableKey);
 
-function Checkout(props) {
+export default function Checkout() {
   let navigate = useNavigate();
   const [isTotal, setIsTotal] = useState(0);
 
   const { render, idIsChecked } = useCheckoutShipping();
 
-  useEffect(() => {
-    setIsTotal(props.total);
-  }, [props.total]);
+  const setParent = (total) => {
+    setIsTotal(total);
+  };
 
   return (
     <div className="checkout-container">
@@ -37,7 +36,7 @@ function Checkout(props) {
           </h2>
           <img src={Logo} alt="" />
         </div>
-        <OrderCheckout shipping={idIsChecked} />
+        <OrderCheckout shipping={idIsChecked} setParent={setParent} />
       </div>
       <div className="express">
         <p>Express Checkout</p>
@@ -67,9 +66,3 @@ function Checkout(props) {
     </div>
   );
 }
-
-const mapStateToProps = (state) => ({
-  total: state.total,
-});
-
-export default connect(mapStateToProps)(Checkout);
