@@ -4,8 +4,9 @@ import Arrow from "../Images/arrow.png";
 import whiteArrow from "../Images/chevron-right.png";
 import { cartItemsArray } from "../Main Pages/ProductMain";
 import getTotal from "../Data/GetTotal";
+import { connect } from "react-redux";
 
-const OrderCheckout = React.memo((props) => {
+const OrderCheckout = (props) => {
   const [isOpen, setIsOpen] = useState(true);
   const [isTotal, setIsTotal] = useState(0);
   const [isShipping, setIsShipping] = useState(0);
@@ -27,10 +28,10 @@ const OrderCheckout = React.memo((props) => {
 
   let tax = (isTotal * 0.0509).toFixed(2);
 
-  let total = (isShipping + parseInt(isTotal) + parseInt(tax)).toFixed(2);
+  // let total = (isShipping + parseInt(isTotal) + parseInt(tax)).toFixed(2);
 
   useEffect(() => {
-    setIsTotal(getTotal());
+    setIsTotal(props.total);
     const values = {
       standard: 7.95,
       priority: 11.95,
@@ -40,7 +41,7 @@ const OrderCheckout = React.memo((props) => {
 
     setIsShipping(values[typeShipping]);
 
-    props.setParent(total);
+    // props.setParent(total);
   }, [isShipping, typeShipping]);
 
   return (
@@ -92,13 +93,17 @@ const OrderCheckout = React.memo((props) => {
             <p>Total</p>
             <div className="currency">
               <p>USD</p>
-              <p>${total}</p>
+              <p>${props.total}</p>
             </div>
           </div>
         </div>
       </div>
     </div>
   );
+};
+
+const mapStateToProps = (state) => ({
+  total: state.total,
 });
 
-export { OrderCheckout };
+export default connect(mapStateToProps)(OrderCheckout);

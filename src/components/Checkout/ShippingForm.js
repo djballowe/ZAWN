@@ -60,7 +60,6 @@ export default function ShippingForm(props) {
     });
   }
 
-  console.log(apiInstance);
   async function handleSubmit(e) {
     e.preventDefault();
     const cardElement = elements.getElement("card");

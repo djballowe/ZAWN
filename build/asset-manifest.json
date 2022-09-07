@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.2cf47445.css",
-    "main.js": "/static/js/main.f8e21a75.js",
+    "main.js": "/static/js/main.0c044350.js",
     "static/js/787.0b7eda19.chunk.js": "/static/js/787.0b7eda19.chunk.js",
     "static/media/beach.png": "/static/media/beach.fab1eac0f2455d21b3fa.png",
     "static/media/Shampoo3 (copy).jpg": "/static/media/Shampoo3 (copy).5949267ea7a83bc139bd.jpg",
@@ -131,11 +131,11 @@
     "index.html": "/index.html",
     "static/media/site.webmanifest": "/static/media/site.1c337fa2fa1515591f8d.webmanifest",
     "main.2cf47445.css.map": "/static/css/main.2cf47445.css.map",
-    "main.f8e21a75.js.map": "/static/js/main.f8e21a75.js.map",
+    "main.0c044350.js.map": "/static/js/main.0c044350.js.map",
     "787.0b7eda19.chunk.js.map": "/static/js/787.0b7eda19.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.2cf47445.css",
-    "static/js/main.f8e21a75.js"
+    "static/js/main.0c044350.js"
   ]
 }
