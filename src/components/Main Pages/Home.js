@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import { useNavigate } from "react-router-dom";
 import BestSellers from "../BestSellers";
@@ -14,9 +14,13 @@ import Cover3 from "../Images/collection images/green.jpg";
 import Cover4 from "../Images/collection images/green2.jpg";
 
 function Home() {
+  const [isHovering, setIsHovering] = useState(false);
+
   let navigate = useNavigate();
+
   const sellerRef = useRef();
   const sellerRefLeft = useRef();
+
   const { ref: myRef, inView: isVisible } = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -74,6 +78,12 @@ function Home() {
         </div>
       </div>
       <div
+        onMouseOver={() => {
+          setIsHovering(true);
+        }}
+        onMouseLeave={() => {
+          setIsHovering(false);
+        }}
         className={
           sellerVisible ? "animation sellers-container" : "sellers-container"
         }
@@ -82,6 +92,9 @@ function Home() {
         <div className={"sellers"} ref={best}>
           <div className="best-sellers-container">
             <button
+              style={{
+                opacity: isHovering ? "1" : "0",
+              }}
               className="best-seller-carousel-button-right"
               onClick={() => {
                 sellerRef.current.scrollIntoView({
@@ -94,6 +107,9 @@ function Home() {
               <RightArrow path={mdiChevronRight} size={1.5} />
             </button>
             <button
+              style={{
+                opacity: isHovering ? "1" : "0",
+              }}
               className="best-seller-carousel-button-left"
               onClick={() => {
                 sellerRefLeft.current.scrollIntoView({

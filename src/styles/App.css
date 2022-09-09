@@ -2279,8 +2279,7 @@ input:focus {
 .sellers {
   display: flex;
   align-items: center;
-  overflow: scroll;
-  overflow-y: hidden;
+  overflow: hidden;
   margin: 20px 0;
 }
 .sellers h1 {
@@ -2305,6 +2304,7 @@ input:focus {
   border: none;
   right: 51%;
   bottom: 50%;
+  transition: opacity 0.2s ease-in-out;
 }
 
 .best-seller-carousel-button-left {
@@ -2319,6 +2319,7 @@ input:focus {
   border: none;
   bottom: 50%;
   right: 47%;
+  transition: opacity 0.2s ease-in-out;
 }
 
 .best-sellers {
