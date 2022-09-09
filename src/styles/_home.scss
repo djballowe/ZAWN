@@ -70,7 +70,8 @@
 
 .sellers {
   @include flex();
-  overflow: hidden;
+  overflow: scroll;
+  overflow-y: hidden;
   margin: 20px 0;
   h1 {
     text-align: center;
@@ -83,32 +84,22 @@
   position: relative;
 }
 
-.best-seller-carousel-button-right {
+.best-seller-carousel-button {
   @include flex();
   background-color: white;
   justify-content: center;
   height: 40px;
   width: 40px;
-  position: absolute;
   border-radius: 20px;
   border: none;
-  right: 51%;
-  bottom: 50%;
-  transition: opacity .2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+  margin: 0 30px;
+  cursor: pointer;
 }
 
-.best-seller-carousel-button-left {
+.carousel-controller {
   @include flex();
-  background-color: white;
   justify-content: center;
-  height: 40px;
-  width: 40px;
-  position: absolute;
-  border-radius: 20px;
-  border: none;
-  bottom: 50%;
-  right: 47%;
-  transition: opacity .2s ease-in-out;
 }
 
 .best-sellers {

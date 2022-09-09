@@ -2279,7 +2279,8 @@ input:focus {
 .sellers {
   display: flex;
   align-items: center;
-  overflow: hidden;
+  overflow: scroll;
+  overflow-y: hidden;
   margin: 20px 0;
 }
 .sellers h1 {
@@ -2292,34 +2293,24 @@ input:focus {
   position: relative;
 }
 
-.best-seller-carousel-button-right {
+.best-seller-carousel-button {
   display: flex;
   align-items: center;
   background-color: white;
   justify-content: center;
   height: 40px;
   width: 40px;
-  position: absolute;
   border-radius: 20px;
   border: none;
-  right: 51%;
-  bottom: 50%;
   transition: opacity 0.2s ease-in-out;
+  margin: 0 30px;
+  cursor: pointer;
 }
 
-.best-seller-carousel-button-left {
+.carousel-controller {
   display: flex;
   align-items: center;
-  background-color: white;
   justify-content: center;
-  height: 40px;
-  width: 40px;
-  position: absolute;
-  border-radius: 20px;
-  border: none;
-  bottom: 50%;
-  right: 47%;
-  transition: opacity 0.2s ease-in-out;
 }
 
 .best-sellers {

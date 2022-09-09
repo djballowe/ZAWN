@@ -14,8 +14,6 @@ import Cover3 from "../Images/collection images/green.jpg";
 import Cover4 from "../Images/collection images/green2.jpg";
 
 function Home() {
-  const [isHovering, setIsHovering] = useState(false);
-
   let navigate = useNavigate();
 
   const sellerRef = useRef();
@@ -78,51 +76,39 @@ function Home() {
         </div>
       </div>
       <div
-        onMouseOver={() => {
-          setIsHovering(true);
-        }}
-        onMouseLeave={() => {
-          setIsHovering(false);
-        }}
         className={
           sellerVisible ? "animation sellers-container" : "sellers-container"
         }
       >
         <h1>Best Sellers</h1>
         <div className={"sellers"} ref={best}>
-          <div className="best-sellers-container">
-            <button
-              style={{
-                opacity: isHovering ? "1" : "0",
-              }}
-              className="best-seller-carousel-button-right"
-              onClick={() => {
-                sellerRef.current.scrollIntoView({
-                  behavior: "smooth",
-                  block: "nearest",
-                  inline: "start",
-                });
-              }}
-            >
-              <RightArrow path={mdiChevronRight} size={1.5} />
-            </button>
-            <button
-              style={{
-                opacity: isHovering ? "1" : "0",
-              }}
-              className="best-seller-carousel-button-left"
-              onClick={() => {
-                sellerRefLeft.current.scrollIntoView({
-                  behavior: "smooth",
-                  block: "nearest",
-                  inline: "start",
-                });
-              }}
-            >
-              <LeftArrow path={mdiChevronLeft} />
-            </button>
-            {sellers}
-          </div>
+          <div className="best-sellers-container">{sellers}</div>
+        </div>
+        <div className="carousel-controller">
+          <button
+            className="best-seller-carousel-button"
+            onClick={() => {
+              sellerRefLeft.current.scrollIntoView({
+                behavior: "smooth",
+                block: "nearest",
+                inline: "start",
+              });
+            }}
+          >
+            <LeftArrow path={mdiChevronLeft} />
+          </button>
+          <button
+            className="best-seller-carousel-button"
+            onClick={() => {
+              sellerRef.current.scrollIntoView({
+                behavior: "smooth",
+                block: "nearest",
+                inline: "start",
+              });
+            }}
+          >
+            <RightArrow path={mdiChevronRight} size={1.5} />
+          </button>
         </div>
       </div>
       <div
@@ -149,6 +135,42 @@ function Home() {
             }}
           >
             Shop Now
+          </button>
+        </div>
+      </div>
+      <div
+        className={
+          sellerVisible ? "animation sellers-container" : "sellers-container"
+        }
+      >
+        <h1>New Arrivals</h1>
+        <div className={"sellers"} ref={best}>
+          <div className="best-sellers-container">{sellers}</div>
+        </div>
+        <div className="carousel-controller">
+          <button
+            className="best-seller-carousel-button"
+            onClick={() => {
+              sellerRefLeft.current.scrollIntoView({
+                behavior: "smooth",
+                block: "nearest",
+                inline: "start",
+              });
+            }}
+          >
+            <LeftArrow path={mdiChevronLeft} />
+          </button>
+          <button
+            className="best-seller-carousel-button"
+            onClick={() => {
+              sellerRef.current.scrollIntoView({
+                behavior: "smooth",
+                block: "nearest",
+                inline: "start",
+              });
+            }}
+          >
+            <RightArrow path={mdiChevronRight} size={1.5} />
           </button>
         </div>
       </div>
