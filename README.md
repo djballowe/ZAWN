@@ -30,7 +30,7 @@ Stripe is currently deployed in test mode if you'd like to complete a payment pl
 
 **API**: Stripe
 
-**Deployment**: Google Cloud
+**Deployment**: Google Cloud, Firebase
 
 
 
