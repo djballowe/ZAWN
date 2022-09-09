@@ -2039,6 +2039,9 @@ input:focus {
   padding: 10px;
   border-bottom: 1px solid var(--border);
 }
+.shipping-method-selection input {
+  border: none;
+}
 
 .shipping-method-selection:last-of-type {
   border: none;
@@ -2290,6 +2293,27 @@ input:focus {
 
 .best-sellers-container {
   display: flex;
+  position: relative;
+}
+
+.best-seller-carousel-button {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  justify-content: center;
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
+  border: none;
+  transition: opacity 0.2s ease-in-out;
+  margin: 0 30px;
+  cursor: pointer;
+}
+
+.carousel-controller {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .best-sellers {
@@ -2304,8 +2328,18 @@ input:focus {
   font-size: 0.9rem;
 }
 
+.magazines {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.magazines img {
+  width: 20%;
+  padding: 0 5px;
+}
+
 .home-cover-container {
-  margin: 150px 0;
+  margin: 70px 0;
   opacity: 0;
 }
 
@@ -2383,6 +2417,9 @@ input:focus {
   }
   .home-cover-container:nth-last-of-type(1) {
     flex-direction: row-reverse;
+  }
+  .magazines {
+    margin: 100px 0;
   }
 }
 .animation {

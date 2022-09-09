@@ -113,7 +113,6 @@ export default function Cart(props) {
               } else {
                 props.onClick();
                 navigate("/login");
-                alert("Please Login to Checkout");
               }
             }}
             disabled={emptyCart}

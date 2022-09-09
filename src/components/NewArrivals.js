@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function BestSellers(props) {
+const NewArrivals = (props) => {
   let navigate = useNavigate();
   const handleClick = (e) => {
     const id = e.target.id;
@@ -22,4 +22,6 @@ export default function BestSellers(props) {
       </div>
     </div>
   );
-}
+};
+
+export default NewArrivals;

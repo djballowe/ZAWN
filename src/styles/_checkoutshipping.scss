@@ -36,6 +36,9 @@
   justify-content: space-between;
   padding: 10px;
   border-bottom: 1px solid var(--border);
+  input {
+    border: none;
+  }
 }
 
 .shipping-method-selection:last-of-type {
@@ -59,5 +62,4 @@
     margin-inline: auto;
     width: min(90%, 40rem);
   }
-
 }

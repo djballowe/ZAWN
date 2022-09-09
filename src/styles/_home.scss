@@ -81,6 +81,25 @@
 
 .best-sellers-container {
   display: flex;
+  position: relative;
+}
+
+.best-seller-carousel-button {
+  @include flex();
+  background-color: white;
+  justify-content: center;
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
+  border: none;
+  transition: opacity 0.2s ease-in-out;
+  margin: 0 30px;
+  cursor: pointer;
+}
+
+.carousel-controller {
+  @include flex();
+  justify-content: center;
 }
 
 .best-sellers {
@@ -95,8 +114,17 @@
   }
 }
 
+.magazines {
+  @include flex();
+  justify-content: center;
+  img {
+    width: 20%;
+    padding: 0 5px;
+  }
+}
+
 .home-cover-container {
-  margin: 150px 0;
+  margin: 70px 0;
   opacity: 0;
 }
 
@@ -178,6 +206,9 @@
   }
   .home-cover-container:nth-last-of-type(1) {
     flex-direction: row-reverse;
+  }
+  .magazines {
+    margin: 100px 0;
   }
 }
 
