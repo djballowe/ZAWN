@@ -89,7 +89,7 @@ function Home() {
             <p>and the planet</p>
           </div>
           <div className="home-collection">
-            <p>2022 Collection out now</p>
+            <p>2022 Collection Out Now</p>
             <div className="home-shop">
               <a
                 onClick={() => {
