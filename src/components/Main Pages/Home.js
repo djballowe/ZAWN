@@ -1,8 +1,9 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import { useInView } from "react-intersection-observer";
 import { useNavigate } from "react-router-dom";
 import BestSellers from "../BestSellers";
+import NewArrivals from "../NewArrivals";
 import data from "../Data/data";
 import { mdiChevronRight } from "@mdi/js";
 import { mdiChevronLeft } from "@mdi/js";
@@ -34,6 +35,8 @@ function Home() {
 
   let bestSellers = data.filter((item) => item.best_seller === true);
 
+  let newArrivals = data.filter((item) => item.new_arrival === true);
+
   const sellers = bestSellers.map((item, index) => {
     let sellerProps = {
       title: item.title,
@@ -50,6 +53,24 @@ function Home() {
     }
 
     return <BestSellers {...sellerProps} />;
+  });
+
+  const arrivals = newArrivals.map((item, index) => {
+    let arrivalProps = {
+      title: item.title,
+      src: item.src,
+      price: item.price,
+      key: item.id,
+      id: item.id,
+    };
+
+    if (index === 5) {
+      arrivalProps.page = sellerRef;
+    } else if (index === 0) {
+      arrivalProps.page = sellerRefLeft;
+    }
+
+    return <NewArrivals {...arrivalProps} />;
   });
 
   return (
@@ -145,7 +166,7 @@ function Home() {
       >
         <h1>New Arrivals</h1>
         <div className={"sellers"} ref={best}>
-          <div className="best-sellers-container">{sellers}</div>
+          <div className="best-sellers-container">{arrivals}</div>
         </div>
         <div className="carousel-controller">
           <button

@@ -4,6 +4,7 @@ export default [
     title: "Bamboo Tooth Brush 10 Pack",
     price: 14.95,
     best_seller: true,
+    new_arrival: false,
     status: {
       rating: 5,
       review: 7,
@@ -26,6 +27,7 @@ export default [
     title: "Essential Oils Bundle",
     price: 24.95,
     best_seller: true,
+    new_arrival: false,
     status: {
       rating: 5,
       review: 21,
@@ -42,6 +44,7 @@ export default [
     title: "Organic Scrub",
     price: 9.95,
     best_seller: false,
+    new_arrival: true,
     status: {
       rating: 5,
       review: 11,
@@ -63,6 +66,7 @@ export default [
     title: "Bath Rack",
     price: 49.95,
     best_seller: false,
+    new_arrival: true,
     status: {
       rating: 5,
       review: 26,
@@ -83,6 +87,7 @@ export default [
     title: "Organic Soap",
     price: 9.95,
     best_seller: false,
+    new_arrival: true,
     status: {
       rating: 4.7,
       review: 10,
@@ -105,6 +110,7 @@ export default [
     title: "Bamboo Q-tips",
     price: 5.49,
     best_seller: false,
+    new_arrival: true,
     status: {
       rating: 4.9,
       review: 5,
@@ -126,6 +132,7 @@ export default [
     title: "Mango Breeze All Natural Shampoo",
     price: 17.95,
     best_seller: true,
+    new_arrival: false,
     status: {
       rating: 5,
       review: 15,
@@ -146,6 +153,7 @@ export default [
     title: "Powder Tooth Paste",
     price: 9.95,
     best_seller: true,
+    new_arrival: false,
     status: {
       rating: 4.5,
       review: 10,
@@ -167,6 +175,7 @@ export default [
     title: "Essential Oils",
     price: 17.95,
     best_seller: false,
+    new_arrival: true,
     status: {
       rating: 4.8,
       review: 4,
@@ -188,6 +197,7 @@ export default [
     title: "Bamboo Scrub Brush",
     price: 9.95,
     best_seller: true,
+    new_arrival: false,
     status: {
       rating: 5,
       review: 8,
@@ -209,6 +219,7 @@ export default [
     title: "All Natural Face Cream",
     price: 15.95,
     best_seller: true,
+    new_arrival: false,
     status: {
       rating: 4.9,
       review: 10,
@@ -225,6 +236,7 @@ export default [
     title: "Bathroom Essentials Bundle",
     price: 29.95,
     best_seller: false,
+    new_arrival: true,
     status: {
       rating: 4.8,
       review: 11,
