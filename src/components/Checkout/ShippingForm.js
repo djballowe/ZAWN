@@ -259,6 +259,26 @@ export default function ShippingForm(props) {
                     <CardElement options={configCardElement} />
                   </div>
                 </div>
+                {/* <div className="payment-payment">
+                  <h2>Billing Address</h2>
+                  <p>
+                    Select the address that matches your card or payment method.
+                  </p>
+                  <div className="shipping-method">
+                    <div className="shipping-method-selection">
+                      <div className="shipping-checkbox">
+                        <input type="checkbox" />
+                        <p>Same as shipping address</p>
+                      </div>
+                    </div>
+                    <div className="shipping-method-selection">
+                      <div className="shipping-checkbox">
+                        <input type="checkbox" />
+                        <p>Use a different billing address</p>
+                      </div>
+                    </div>
+                  </div>
+                </div> */}
               </div>
             </div>
             <div className="offers-text">
