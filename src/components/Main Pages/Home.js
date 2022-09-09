@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from "react";
+import React, { useRef } from "react";
 import { useInView } from "react-intersection-observer";
 import { useNavigate } from "react-router-dom";
 import BestSellers from "../BestSellers";
@@ -11,6 +11,7 @@ import Cover4 from "../Images/collection images/green2.jpg";
 
 function Home() {
   let navigate = useNavigate();
+  const sellerRef = useRef();
   const { ref: myRef, inView: isVisible } = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -26,16 +27,20 @@ function Home() {
 
   let bestSellers = data.filter((item) => item.best_seller === true);
 
-  const sellers = bestSellers.map((item) => {
-    return (
-      <BestSellers
-        title={item.title}
-        src={item.src}
-        price={item.price}
-        key={item.id}
-        id={item.id}
-      />
-    );
+  const sellers = bestSellers.map((item, index) => {
+    let sellerProps = {
+      title: item.title,
+      src: item.src,
+      price: item.price,
+      key: item.id,
+      id: item.id,
+    };
+
+    if (index === 5) {
+      sellerProps.page = sellerRef;
+    }
+
+    return <BestSellers {...sellerProps} />;
   });
 
   return (
@@ -68,7 +73,20 @@ function Home() {
       >
         <h1>Best Sellers</h1>
         <div className={"sellers"} ref={best}>
-          <div className="best-sellers-container">{sellers}</div>
+          <div className="best-sellers-container">
+            <button
+              onClick={() => {
+                sellerRef.current.scrollIntoView({
+                  behavior: "smooth",
+                  block: "nearest",
+                  inline: "start",
+                });
+              }}
+            >
+              Go To Ref
+            </button>
+            {sellers}
+          </div>
         </div>
       </div>
       <div

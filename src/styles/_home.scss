@@ -81,6 +81,12 @@
 
 .best-sellers-container {
   display: flex;
+  position: relative;
+}
+
+.best-seller-carousel-button {
+  position: absolute;
+  
 }
 
 .best-sellers {

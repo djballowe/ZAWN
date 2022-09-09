@@ -125,7 +125,7 @@ export default [
   {
     title: "Mango Breeze All Natural Shampoo",
     price: 17.95,
-    best_seller: false,
+    best_seller: true,
     status: {
       rating: 5,
       review: 15,

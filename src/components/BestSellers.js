@@ -10,7 +10,12 @@ export default function BestSellers(props) {
 
   return (
     <div className="best-sellers" onClick={handleClick}>
-      <img src={require(`./Images/${props.src}`)} alt="" id={props.id} />
+      <img
+        src={require(`./Images/${props.src}`)}
+        alt=""
+        id={props.id}
+        ref={props.page ? props.page : null}
+      />
       <div>
         <p>{props.title}</p>
         <p>{props.price}</p>
