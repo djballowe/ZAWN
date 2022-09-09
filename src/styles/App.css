@@ -2325,8 +2325,18 @@ input:focus {
   font-size: 0.9rem;
 }
 
+.magazines {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.magazines img {
+  width: 20%;
+  padding: 0 5px;
+}
+
 .home-cover-container {
-  margin: 150px 0;
+  margin: 70px 0;
   opacity: 0;
 }
 
@@ -2404,6 +2414,9 @@ input:focus {
   }
   .home-cover-container:nth-last-of-type(1) {
     flex-direction: row-reverse;
+  }
+  .magazines {
+    margin: 100px 0;
   }
 }
 .animation {

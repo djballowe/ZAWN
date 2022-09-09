@@ -19,6 +19,8 @@ function Home() {
 
   const sellerRef = useRef();
   const sellerRefLeft = useRef();
+  const arrivalRef = useRef();
+  const arrivalRefLeft = useRef();
 
   const { ref: myRef, inView: isVisible } = useInView({
     triggerOnce: true,
@@ -29,6 +31,10 @@ function Home() {
     threshold: 0.1,
   });
   const { ref: best, inView: sellerVisible } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+  const { ref: arrival, inView: arrivalVisible } = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
@@ -65,9 +71,9 @@ function Home() {
     };
 
     if (index === 5) {
-      arrivalProps.page = sellerRef;
+      arrivalProps.page = arrivalRef;
     } else if (index === 0) {
-      arrivalProps.page = sellerRefLeft;
+      arrivalProps.page = arrivalRefLeft;
     }
 
     return <NewArrivals {...arrivalProps} />;
@@ -159,20 +165,26 @@ function Home() {
           </button>
         </div>
       </div>
+      <div className="magazines">
+        <img src={require("../Images/Mag pngs/forbs.png")} alt="" />
+        <img src={require("../Images/Mag pngs/mens.png")} alt="" />
+        <img src={require("../Images/Mag pngs/orphan.png")} alt="" />
+        <img src={require("../Images/Mag pngs/vogue.png")} alt="" />
+      </div>
       <div
         className={
-          sellerVisible ? "animation sellers-container" : "sellers-container"
+          arrivalVisible ? "animation sellers-container" : "sellers-container"
         }
       >
         <h1>New Arrivals</h1>
-        <div className={"sellers"} ref={best}>
+        <div className={"sellers"} ref={arrival}>
           <div className="best-sellers-container">{arrivals}</div>
         </div>
         <div className="carousel-controller">
           <button
             className="best-seller-carousel-button"
             onClick={() => {
-              sellerRefLeft.current.scrollIntoView({
+              arrivalRefLeft.current.scrollIntoView({
                 behavior: "smooth",
                 block: "nearest",
                 inline: "start",
@@ -184,7 +196,7 @@ function Home() {
           <button
             className="best-seller-carousel-button"
             onClick={() => {
-              sellerRef.current.scrollIntoView({
+              arrivalRef.current.scrollIntoView({
                 behavior: "smooth",
                 block: "nearest",
                 inline: "start",

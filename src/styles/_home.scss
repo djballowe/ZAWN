@@ -114,8 +114,17 @@
   }
 }
 
+.magazines {
+  @include flex();
+  justify-content: center;
+  img {
+    width: 20%;
+    padding: 0 5px;
+  }
+}
+
 .home-cover-container {
-  margin: 150px 0;
+  margin: 70px 0;
   opacity: 0;
 }
 
@@ -197,6 +206,9 @@
   }
   .home-cover-container:nth-last-of-type(1) {
     flex-direction: row-reverse;
+  }
+  .magazines {
+    margin: 100px 0;
   }
 }
 
