@@ -4,6 +4,10 @@ import { useInView } from "react-intersection-observer";
 import { useNavigate } from "react-router-dom";
 import BestSellers from "../BestSellers";
 import data from "../Data/data";
+import { mdiChevronRight } from "@mdi/js";
+import { mdiChevronLeft } from "@mdi/js";
+import LeftArrow from "@mdi/react";
+import RightArrow from "@mdi/react";
 import Cover2 from "../Images/collection images/cover2.jpg";
 import Cover1 from "../Images/collection images/cover1.jpg";
 import Cover3 from "../Images/collection images/green.jpg";
@@ -12,6 +16,7 @@ import Cover4 from "../Images/collection images/green2.jpg";
 function Home() {
   let navigate = useNavigate();
   const sellerRef = useRef();
+  const sellerRefLeft = useRef();
   const { ref: myRef, inView: isVisible } = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -38,6 +43,8 @@ function Home() {
 
     if (index === 5) {
       sellerProps.page = sellerRef;
+    } else if (index === 0) {
+      sellerProps.page = sellerRefLeft;
     }
 
     return <BestSellers {...sellerProps} />;
@@ -75,6 +82,7 @@ function Home() {
         <div className={"sellers"} ref={best}>
           <div className="best-sellers-container">
             <button
+              className="best-seller-carousel-button-right"
               onClick={() => {
                 sellerRef.current.scrollIntoView({
                   behavior: "smooth",
@@ -83,7 +91,19 @@ function Home() {
                 });
               }}
             >
-              Go To Ref
+              <RightArrow path={mdiChevronRight} size={1.5} />
+            </button>
+            <button
+              className="best-seller-carousel-button-left"
+              onClick={() => {
+                sellerRefLeft.current.scrollIntoView({
+                  behavior: "smooth",
+                  block: "nearest",
+                  inline: "start",
+                });
+              }}
+            >
+              <LeftArrow path={mdiChevronLeft} />
             </button>
             {sellers}
           </div>

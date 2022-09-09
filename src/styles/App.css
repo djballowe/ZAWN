@@ -2290,6 +2290,35 @@ input:focus {
 
 .best-sellers-container {
   display: flex;
+  position: relative;
+}
+
+.best-seller-carousel-button-right {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  justify-content: center;
+  height: 40px;
+  width: 40px;
+  position: absolute;
+  border-radius: 20px;
+  border: none;
+  right: 51%;
+  bottom: 50%;
+}
+
+.best-seller-carousel-button-left {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  justify-content: center;
+  height: 40px;
+  width: 40px;
+  position: absolute;
+  border-radius: 20px;
+  border: none;
+  bottom: 50%;
+  right: 47%;
 }
 
 .best-sellers {
