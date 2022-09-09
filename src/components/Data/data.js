@@ -219,7 +219,7 @@ export default [
     title: "All Natural Face Cream",
     price: 15.95,
     best_seller: true,
-    new_arrival: false,
+    new_arrival: true,
     status: {
       rating: 4.9,
       review: 10,
@@ -236,7 +236,7 @@ export default [
     title: "Bathroom Essentials Bundle",
     price: 29.95,
     best_seller: false,
-    new_arrival: true,
+    new_arrival: false,
     status: {
       rating: 4.8,
       review: 11,

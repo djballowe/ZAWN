@@ -2039,6 +2039,9 @@ input:focus {
   padding: 10px;
   border-bottom: 1px solid var(--border);
 }
+.shipping-method-selection input {
+  border: none;
+}
 
 .shipping-method-selection:last-of-type {
   border: none;
