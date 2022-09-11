@@ -14,6 +14,7 @@ import Color from "../Data/Color";
 import Slides from "../Data/Slides";
 import { productCollectionRef } from "../../firebase/Config";
 import { getDocs } from "firebase/firestore";
+import Spinner from "../Navigation/Spinner";
 
 export const cartItemsArray = JSON.parse(localStorage.getItem("cart")) || [];
 
@@ -89,7 +90,7 @@ function ProductMain(props) {
   }, []);
 
   if (!product) {
-    return <div>Loading</div>;
+    return <Spinner />;
   } else {
     const color = product.color.map((color, index) => {
       return <Color key={index} color={color} />;
