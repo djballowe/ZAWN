@@ -1,10 +1,9 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import { useNavigate } from "react-router-dom";
 import BestSellers from "../BestSellers";
 import NewArrivals from "../NewArrivals";
-import data from "../Data/data";
 import { mdiChevronRight } from "@mdi/js";
 import { mdiChevronLeft } from "@mdi/js";
 import LeftArrow from "@mdi/react";
@@ -13,9 +12,12 @@ import Cover2 from "../Images/collection images/cover2.jpg";
 import Cover1 from "../Images/collection images/cover1.jpg";
 import Cover3 from "../Images/collection images/green.jpg";
 import Cover4 from "../Images/collection images/green2.jpg";
+import { getDocs } from "firebase/firestore";
+import { productCollectionRef } from "../../firebase/Config";
 
 function Home() {
   let navigate = useNavigate();
+  const [products, setProducts] = useState([]);
 
   const sellerRef = useRef();
   const sellerRefLeft = useRef();
@@ -39,9 +41,9 @@ function Home() {
     threshold: 0.1,
   });
 
-  let bestSellers = data.filter((item) => item.best_seller === true);
+  let bestSellers = products.filter((item) => item.best_seller === true);
 
-  let newArrivals = data.filter((item) => item.new_arrival === true);
+  let newArrivals = products.filter((item) => item.new_arrival === true);
 
   const sellers = bestSellers.map((item, index) => {
     let sellerProps = {
@@ -77,6 +79,14 @@ function Home() {
     }
 
     return <NewArrivals {...arrivalProps} />;
+  });
+
+  useEffect(() => {
+    const getProducts = async () => {
+      const products = await getDocs(productCollectionRef);
+      setProducts(products.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    };
+    getProducts();
   });
 
   return (

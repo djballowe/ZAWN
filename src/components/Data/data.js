@@ -253,3 +253,5 @@ export default [
     ],
   },
 ];
+
+const jsonString = JSON.stringify(Object.assign({}, ))

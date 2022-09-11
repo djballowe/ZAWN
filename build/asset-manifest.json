@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.2cf47445.css",
-    "main.js": "/static/js/main.00e50152.js",
+    "main.css": "/static/css/main.7bcdacd7.css",
+    "main.js": "/static/js/main.d614caa7.js",
     "static/js/787.0b7eda19.chunk.js": "/static/js/787.0b7eda19.chunk.js",
     "static/media/beach.png": "/static/media/beach.14d31f5fcea20be14002.png",
     "static/media/Shampoo3 (copy).jpg": "/static/media/Shampoo3 (copy).5949267ea7a83bc139bd.jpg",
@@ -125,18 +125,22 @@
     "static/media/amazon.png": "/static/media/amazon.5e87a9c8b8b751a377da.png",
     "static/media/ddddd.jpg": "/static/media/ddddd.3516980ef7951085173f.jpg",
     "static/media/Garden.jpg": "/static/media/Garden.cd9fc6aec0ce64e6b55f.jpg",
+    "static/media/vogue.png": "/static/media/vogue.b3696241a192698f6ef9.png",
     "static/media/android-chrome-512x512.png": "/static/media/android-chrome-512x512.13f6d09c2477d2f68712.png",
+    "static/media/forbs.png": "/static/media/forbs.31f763b612a37f00773d.png",
+    "static/media/orphan.png": "/static/media/orphan.55a74ee89adf88c423f2.png",
     "static/media/maple_wood_header.jpg": "/static/media/maple_wood_header.035b59dedcbdbd8268e5.jpg",
     "static/media/paypal.png": "/static/media/paypal.e3abf7ded251409784b6.png",
     "static/media/applepay.png": "/static/media/applepay.e2bc408f915cc801d0a5.png",
+    "static/media/mens.png": "/static/media/mens.e0e2c6e8a3b3c5a268e5.png",
     "index.html": "/index.html",
     "static/media/site.webmanifest": "/static/media/site.1c337fa2fa1515591f8d.webmanifest",
-    "main.2cf47445.css.map": "/static/css/main.2cf47445.css.map",
-    "main.00e50152.js.map": "/static/js/main.00e50152.js.map",
+    "main.7bcdacd7.css.map": "/static/css/main.7bcdacd7.css.map",
+    "main.d614caa7.js.map": "/static/js/main.d614caa7.js.map",
     "787.0b7eda19.chunk.js.map": "/static/js/787.0b7eda19.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.2cf47445.css",
-    "static/js/main.00e50152.js"
+    "static/css/main.7bcdacd7.css",
+    "static/js/main.d614caa7.js"
   ]
 }
