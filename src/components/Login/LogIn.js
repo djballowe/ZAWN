@@ -5,10 +5,12 @@ import {
   createWithEmail,
   signInWithGoogle,
   signInWithEmail,
+  userCollectionRef,
 } from "../../firebase/Config";
 import { auth } from "../../firebase/Config";
 import { useAuthState } from "react-firebase-hooks/auth";
 import AccountPage from "./AccountPage";
+import { addDoc } from "firebase/firestore";
 
 const LogIn = () => {
   const [user] = useAuthState(auth);
@@ -114,6 +116,7 @@ export const Register = () => {
       createWithEmail(isEmail, isPassword);
     }
   };
+
   if (user) {
     return <AccountPage />;
   } else

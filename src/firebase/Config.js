@@ -25,6 +25,7 @@ export const auth = getAuth(app);
 export const db = getFirestore(app);
 export const shippingCollectionRef = collection(db, "Shipping");
 export const orderHistoryRef = collection(db, 'Orders');
+export const userCollectionRef = collection(db, 'Users');
 
 function signInWithGoogle() {
   signInWithPopup(auth, provider)
