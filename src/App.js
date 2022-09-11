@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import "./styles/App.css";
 import Header from "./components/Navigation/Header";
 import Footer from "./components/Navigation/Footer";
@@ -44,7 +44,7 @@ function App() {
         </Routes>
       </ScrollToTop>
       <Footer />
-    </div> 
+    </div>
   );
 }
 

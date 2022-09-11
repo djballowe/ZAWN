@@ -24,7 +24,7 @@ export default function Slides(props) {
       <div className="main-image">
         <img src={require(`../Images/${isActive}`)} alt="" />
       </div>
-      <div className="slide-images">{props.img.length === 1 ? '' : images}</div>
+      <div className="slide-images">{props.img.length === 1 ? "" : images}</div>
     </div>
   );
 }
