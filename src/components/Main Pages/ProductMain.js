@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import data from "../Data/data";
 import Star from "@mdi/react";
 import { mdiStar } from "@mdi/js";
 import Leaf from "@mdi/react";
@@ -13,6 +12,8 @@ import Heart from "@mdi/react";
 import { mdiCharity } from "@mdi/js";
 import Color from "../Data/Color";
 import Slides from "../Data/Slides";
+import { productCollectionRef } from "../../firebase/Config";
+import { getDocs } from "firebase/firestore";
 
 export const cartItemsArray = JSON.parse(localStorage.getItem("cart")) || [];
 
@@ -36,14 +37,11 @@ export function updateStorage() {
 
 function ProductMain(props) {
   const [selectedColor, setSelectedColor] = useState("");
+  const [products, setProducts] = useState([]);
 
   let { id } = useParams();
 
-  let product = data.find((x) => x.id === id);
-
-  const color = product.color.map((color, index) => {
-    return <Color key={index} color={color} />;
-  });
+  let product = products.find((x) => x.id === id);
 
   const handleClick = () => {
     props.handle();
@@ -82,59 +80,79 @@ function ProductMain(props) {
     }
   };
 
-  return (
-    <div>
-      <div className="individual-container">
-        <div className="products-image">
-          <Slides img={product.img} />
-        </div>
-        <div className="cell2">
-          <div className="title">
-            <p>{product.title}</p>
-            <p>${product.price}</p>
+  useEffect(() => {
+    const getProducts = async () => {
+      const products = await getDocs(productCollectionRef);
+      setProducts(products.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    };
+    getProducts();
+  }, []);
+
+  if (!product) {
+    return <div>Loading</div>;
+  } else {
+    const color = product.color.map((color, index) => {
+      return <Color key={index} color={color} />;
+    });
+
+    return (
+      <div>
+        <div className="individual-container">
+          <div className="products-image">
+            <Slides img={product.img} />
           </div>
-          <p>{product.description}</p>
-          <div className="reviews">
-            <Star path={mdiStar} size={1} color="black" />
-            <p>{product.status.rating} / 5</p>
-            <p>{product.status.review} Reviews</p>
-          </div>
-          <div className="color-container">
-            <h3>{product.color.length > 0 ? "Color" : ""}</h3>
-            <div className="color-picker" onClick={getColor} id="color-picker">
-              {product.color.length > 0 ? color : ""}
+          <div className="cell2">
+            <div className="title">
+              <p>{product.title}</p>
+              <p>${product.price}</p>
             </div>
-          </div>
-          <div className="details-container">
-            <div className="details">
-              <Leaf path={mdiLeaf} size={1} />
-              <p>100% Biodegradable</p>
+            <p>{product.description}</p>
+            <div className="reviews">
+              <Star path={mdiStar} size={1} color="black" />
+              <p>{product.status.rating} / 5</p>
+              <p>{product.status.review} Reviews</p>
             </div>
-            <div className="details">
-              <Grass path={mdiGrass} size={1} />
-              <p>Plastic Free</p>
+            <div className="color-container">
+              <h3>{product.color.length > 0 ? "Color" : ""}</h3>
+              <div
+                className="color-picker"
+                onClick={getColor}
+                id="color-picker"
+              >
+                {product.color.length > 0 ? color : ""}
+              </div>
             </div>
-            <div className="details">
-              <Person path={mdiAccountCheck} size={1} />
-              <p>Ethically Sourced</p>
+            <div className="details-container">
+              <div className="details">
+                <Leaf path={mdiLeaf} size={1} />
+                <p>100% Biodegradable</p>
+              </div>
+              <div className="details">
+                <Grass path={mdiGrass} size={1} />
+                <p>Plastic Free</p>
+              </div>
+              <div className="details">
+                <Person path={mdiAccountCheck} size={1} />
+                <p>Ethically Sourced</p>
+              </div>
+              <div className="details">
+                <Heart path={mdiCharity} size={1} />
+                <p>Made in America</p>
+              </div>
             </div>
-            <div className="details">
-              <Heart path={mdiCharity} size={1} />
-              <p>Made in America</p>
+            <div className="button">
+              <button onClick={handleClick}>Add to Cart</button>
             </div>
-          </div>
-          <div className="button">
-            <button onClick={handleClick}>Add to Cart</button>
-          </div>
-          <div className="promise">
-            <p>Made to Order</p>
-            <p>60 Day Guarantee</p>
-            <p>24/7 Customer Support</p>
+            <div className="promise">
+              <p>Made to Order</p>
+              <p>60 Day Guarantee</p>
+              <p>24/7 Customer Support</p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 export default ProductMain;

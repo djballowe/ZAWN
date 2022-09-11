@@ -1,6 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
 import Products from "../Data/Products";
-import data from "../Data/data";
 import Cover from "../Images/collection images/cover.jpg";
 import DownArrow from "@mdi/react";
 import { mdiChevronDown } from "@mdi/js";
